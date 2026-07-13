@@ -810,6 +810,21 @@
   .ra-m{padding:1px 2px;border-radius:4px;transition:.1s}
   .ra-groups{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
   .ra-g{font-size:12px;font-weight:800;color:#15110a;border-radius:6px;padding:3px 9px}
+
+  /* ---- グループ化ナビ ---- */
+  .ng{position:relative}
+  .ng-top{display:inline-flex;align-items:center;gap:3px}
+  .ng-top .ngc{font-size:9px;opacity:.55}
+  .ng-menu{position:absolute;top:100%;left:0;margin-top:6px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:6px;min-width:172px;box-shadow:0 14px 38px rgba(0,0,0,.55);z-index:60;display:none;flex-direction:column;gap:2px}
+  .ng.open>.ng-menu{display:flex}
+  @media(min-width:861px){ .ng:hover>.ng-menu{display:flex} }
+  .ng-menu button{width:100%;text-align:left;border-radius:8px !important;padding:9px 12px !important;white-space:nowrap}
+  .ng.act>.ng-top{color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold))}
+  @media(max-width:860px){
+    .ng{width:100%}
+    .ng-top{width:100%;justify-content:space-between}
+    .ng-menu{position:static;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;min-width:0;margin-top:0}
+  }
 </style>
 </head>
 <body>
@@ -819,28 +834,13 @@
     <div class="brand"><span class="mic">🎤</span><b>HIP HOP 教科書</b><span>EST.1973</span></div>
     <button id="navToggle" class="nav-toggle" aria-label="メニュー">☰</button>
     <nav class="tabs" id="tabs">
-      <button data-go="home" class="active">入口</button>
-      <button data-go="kadoku">華独/金継ぎ</button>
-      <button data-go="listen">名盤を聴く</button>
-      <button data-go="watch">観る</button>
-      <button data-go="world">世界の歴史</button>
-      <button data-go="japan">日本の歴史</button>
-      <button data-go="scene">シーン攻略</button>
-      <button data-go="moves">ムーブメント</button>
-      <button data-go="people">人物</button>
-      <button data-go="aesthetic">美学・流儀</button>
-      <button data-go="basics">ラップの基礎</button>
-      <button data-go="lyric">作詞ラボ</button>
-      <button data-go="layers">多層の言葉</button>
-      <button data-go="beats">ビート解剖</button>
-      <button data-go="lab">音感ラボ</button>
-      <button data-go="theory">音楽理論</button>
-      <button data-go="rhythm">リズム&Spit</button>
-      <button data-go="produce">曲づくり</button>
-      <button data-go="biz">プロの知識</button>
-      <button data-go="live">ライブ</button>
-      <button data-go="practice">練習・宿題</button>
-      <button data-go="glossary">用語集</button>
+      <div class="ng"><button class="ng-top" type="button">🏠 ホーム<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="home" class="active">入口</button><button data-go="kadoku">華独/金継ぎ</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">🎧 聴く・観る<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="listen">名盤を聴く</button><button data-go="watch">観る</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">🛠 鍛える<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="basics">ラップの基礎</button><button data-go="rhythm">リズム&Spit</button><button data-go="lab">音感ラボ</button><button data-go="beats">ビート解剖</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">🎼 音楽・言葉<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="theory">音楽理論</button><button data-go="layers">多層の言葉</button><button data-go="lyric">作詞ラボ</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">🎙 作る・プロ<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="produce">曲づくり</button><button data-go="biz">プロの知識</button><button data-go="live">ライブ</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">🔥 シーン・練習<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="scene">シーン攻略</button><button data-go="practice">練習・宿題</button></div></div>
+      <div class="ng"><button class="ng-top" type="button">📚 歴史・資料<span class="ngc">▾</span></button><div class="ng-menu"><button data-go="world">世界の歴史</button><button data-go="japan">日本の歴史</button><button data-go="moves">ムーブメント</button><button data-go="people">人物</button><button data-go="aesthetic">美学・流儀</button><button data-go="glossary">用語集</button></div></div>
     </nav>
   </div>
 </header>
@@ -3184,6 +3184,7 @@ function go(id){
   var _tn=document.getElementById('tabs'),_bt=document.getElementById('navToggle');
   if(_tn){_tn.classList.remove('open');}
   if(_bt){_bt.textContent='☰';}
+  document.querySelectorAll('.ng').forEach(function(g){ g.classList.toggle('act', !!g.querySelector('button[data-go="'+id+'"]')); g.classList.remove('open'); });
   initReveal();
 }
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.go)));
@@ -3194,6 +3195,12 @@ function handleHash(){ var h=decodeURIComponent((location.hash||'').replace(/^#/
 window.addEventListener('hashchange',handleHash);
 handleHash();
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('tabs');if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.textContent=o?'✕':'☰';});}})();
+(function(){
+  document.querySelectorAll('.ng-top').forEach(function(btn){ btn.addEventListener('click',function(e){ e.stopPropagation(); var g=btn.parentElement, was=g.classList.contains('open'); document.querySelectorAll('.ng.open').forEach(function(x){x.classList.remove('open');}); if(!was) g.classList.add('open'); }); });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.ng')) document.querySelectorAll('.ng.open').forEach(function(x){x.classList.remove('open');}); });
+  // 初期アクティブグループ
+  document.querySelectorAll('.ng').forEach(function(g){ if(g.querySelector('button[data-go="home"]')) g.classList.add('act'); });
+})();
 
 /* ===== フロウ・スコープ ===== */
 (function(){
