@@ -599,6 +599,40 @@
   .subdot.lit{background:#fff;transform:scale(1.35);box-shadow:0 0 10px rgba(255,255,255,.6)}
   .subex{font-size:14px;color:var(--gold2);font-weight:700;margin-top:14px;text-align:center;min-height:20px}
   .subex b{color:var(--ink)}
+  /* ===== 3連↔16分 聞き分けドリル ===== */
+  .td-modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .td-ab{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 4px}
+  @media(max-width:560px){.td-ab{grid-template-columns:1fr}}
+  .td-card{border:1px solid var(--line);background:#141318;border-radius:13px;padding:16px 12px 14px;text-align:center;transition:.12s;position:relative;overflow:hidden}
+  .td-card.t3{--tc:#e58d7e}
+  .td-card.s16{--tc:#8fc0e8}
+  .td-card::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--tc)}
+  .td-card.active{border-color:var(--tc);background:#1b1712}
+  .td-card h4{font-size:15px;font-weight:900;margin-bottom:2px}
+  .td-card .lab{font-size:11px;color:var(--ink3);font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+  .td-card .say{font-size:12.5px;color:var(--gold2);font-weight:800;margin-top:11px;min-height:16px}
+  .td-dots{display:flex;gap:9px;justify-content:center;min-height:30px;align-items:center}
+  .td-dot{width:26px;height:26px;border-radius:50%;background:#2a2a30;transition:.06s;border:1px solid #3a3a42}
+  .td-card.t3 .td-dot.on{background:linear-gradient(160deg,#e58d7e,#9a3e2e)}
+  .td-card.s16 .td-dot.on{background:linear-gradient(160deg,#8fc0e8,#3f7bb0)}
+  .td-dot.lit{background:#fff !important;transform:scale(1.32);box-shadow:0 0 14px rgba(255,255,255,.75)}
+  @media(max-width:400px){.td-dot{width:20px;height:20px}}
+  .td-quiz{border:1px solid var(--line);background:var(--panel2);border-radius:13px;padding:16px;margin-top:14px}
+  .td-quiz h4{font-size:14px;font-weight:900;margin-bottom:4px;color:var(--gold2)}
+  .td-qrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+  .td-qbtn{flex:1;min-width:130px;background:#16161a;border:1px solid var(--line);color:var(--ink);font:inherit;font-size:14px;font-weight:800;padding:14px 10px;border-radius:11px;cursor:pointer;transition:.12s}
+  .td-qbtn:disabled{opacity:.55;cursor:default}
+  .td-qbtn.correct{background:#1e3a24;border-color:var(--green);color:#cfeecb}
+  .td-qbtn.wrong{background:#3a1f1c;border-color:var(--red);color:#f0c8bf}
+  .td-qmeta{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin-top:4px}
+  .td-qmeta b{color:var(--gold2)}
+  .td-fb{font-size:13.5px;font-weight:800;min-height:20px;margin-top:8px}
+  .td-switch{border:1px solid var(--line);background:#141318;border-radius:13px;padding:15px 14px;margin-top:14px;text-align:center}
+  .td-swbar{display:flex;gap:6px;justify-content:center;margin:12px 0 4px;flex-wrap:wrap}
+  .td-swcell{padding:8px 0;width:104px;border-radius:9px;border:1px solid var(--line);font-size:12.5px;font-weight:800;color:var(--ink3);background:#16161a;transition:.12s}
+  .td-swcell.cur{color:#15110a;transform:translateY(-2px)}
+  .td-swcell.cur.t3{background:linear-gradient(160deg,#e58d7e,#b14635);border-color:#e58d7e}
+  .td-swcell.cur.s16{background:linear-gradient(160deg,#8fc0e8,#3f7bb0);border-color:#8fc0e8}
   .pocket{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
   @media(max-width:640px){.pocket{grid-template-columns:1fr}}
   .pk{border:1px solid var(--line);background:var(--panel2);border-radius:12px;padding:15px 16px;position:relative;overflow:hidden}
@@ -1628,6 +1662,9 @@
     <div class="genre" style="--gc:#9bd58f"><h4>ローファイ / ジャズラップ <span style="font-size:12px;color:var(--ink3)">Lo-Fi</span></h4><div class="bpm">⏱ 約70–90 BPM</div><div class="grow"><b>ドラム：</b>柔らかく、ノイズ(レコードのパチパチ)入り。メロウなジャズ系うわもの。</div><div class="grow"><b>乗せ方：</b>力を抜いて語りかけるように。コンシャス(社会派)や内省的な詞と相性◎。</div><div class="gex"><b>代表曲：</b>A Tribe Called Quest 系の流れ</div></div>
     <div class="genre" style="--gc:#c79bf2"><h4>G-funk <span style="font-size:12px;color:var(--ink3)">West Coast</span></h4><div class="bpm">⏱ 約90–100 BPM</div><div class="grow"><b>ドラム：</b>ゆったり跳ねるグルーヴに、ピューンと伸びる<b>シンセ</b>とファンクのベース。</div><div class="grow"><b>乗せ方：</b>余裕たっぷり、後ろノリでメロウに。West Coastの"涼しさ"。</div><div class="gex"><b>代表曲：</b>Dr. Dre / Snoop Dogg</div></div>
     <div class="genre" style="--gc:#d9b25a"><h4>オールドスクール <span style="font-size:12px;color:var(--ink3)">Old School</span></h4><div class="bpm">⏱ 約100–115 BPM</div><div class="grow"><b>ドラム：</b>ファンク/ディスコ下敷きの陽気でシンプルなビート。</div><div class="grow"><b>乗せ方：</b>オンビート中心の元気なコール&レスポンス。パーティを盛り上げる原型。</div><div class="gex"><b>代表曲：</b>Sugarhill Gang / Grandmaster Flash</div></div>
+    <div class="genre" style="--gc:#7cc4d8"><h4>2-step / UKガラージ <span style="font-size:12px;color:var(--ink3)">2-step</span></h4><div class="bpm">⏱ 約130 BPM（跳ねて速い）</div><div class="grow"><b>ドラム：</b>キック/スネアが<b>裏に飛び跳ねる</b>不規則な"つんのめり"。強いシャッフルで泳ぐ。</div><div class="grow"><b>効く理由：</b>オンビートを外すから、体が"次どこ？"と前のめりになる＝踊れる。</div><div class="grow"><b>乗せ方：</b>裏拍に言葉を引っかけ、譜割りを軽く跳ねさせる。ベタ置きは厳禁。</div><div class="gex"><b>系統：</b>UKガラージ系（英2000s〜現行リバイバル）</div></div>
+    <div class="genre" style="--gc:#9bd58f"><h4>和・沖縄 <span style="font-size:12px;color:var(--ink3)">Japanese / Okinawa</span></h4><div class="bpm">⏱ 約75–85 BPM</div><div class="grow"><b>ドラム：</b>太鼓＋締め太鼓、<b>三線の音階</b>（レ・ファ#・ラ…）のうわもの。素朴で土着的。</div><div class="grow"><b>効く理由：</b>洋楽の隙間に"和の間"が入ると、他の誰とも違う郷愁と体温が出る＝堀。</div><div class="grow"><b>乗せ方：</b>詰め込まず、余白と揺れで語る。唾奇の郷愁ラインと同じ呼吸。</div><div class="gex"><b>系統：</b>沖縄民謡×HipHop（華独の地元の武器）</div></div>
+    <div class="genre" style="--gc:#e5a6d0"><h4>テクノポップ <span style="font-size:12px;color:var(--ink3)">Techno Pop</span></h4><div class="bpm">⏱ 約120–130 BPM</div><div class="grow"><b>ドラム：</b>粒の揃った四つ打ち寄り＋<b>跳ねる細かいシンセ</b>。無機質だけどキャッチー。</div><div class="grow"><b>効く理由：</b>あえて機械的に正確＝人力の"揺れ"を消すことが逆に気持ちいい（Perfume系）。</div><div class="grow"><b>乗せ方：</b>崩さずマシン的にハメる。均等16分で淡々と、声も"音色"として置く。</div><div class="gex"><b>系統：</b>Perfume / 中田ヤスタカ系</div></div>
   </div>
 
   <!-- DO / DONT -->
@@ -2125,6 +2162,70 @@
     <div class="scard"><h4>16分＝1拍に4 <span class="en">sixteenth</span></h4><p>「タタタタ」。<span class="x">ダブルタイム</span>＝倍速で畳みかける。技術の見せ場。</p></div>
     <div class="scard"><h4>3連符＝1拍に3 <span class="en">triplet</span></h4><p>「タタタ」と転がる。<span class="x">ミーゴス・フロウ</span>。8分と16分の間の心地よさ。</p></div>
   </div>
+
+  <div class="shead"><span class="num">02.5</span><h2>3連 ↔ 16分 聞き分け・切替ドリル 🎯</h2></div>
+  <p class="sub"><b>1拍を「3つ」に割るのが3連、「4つ」に割るのが16分。</b>ここがこんがらがる人が一番多い所。同じBPMで並べて、耳と目で「3か4か」を体に刷り込む専用ドリル。<b style="color:var(--gold2)">タ<u>タタ</u>（3・転がる）</b>と<b style="color:var(--blue)">タタ<u>タタ</u>（4・畳みかける）</b>の差だけ掴めばいい。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#e58d7e">▶ DRILL</div>
+    <h3>① A/B 比較 — 同じBPMで隣り合わせ</h3>
+    <p class="hint">▶再生すると、A（3連）とB（16分）を<b>1小節ずつ交互に</b>鳴らす。粒の数（<span style="color:#e58d7e">●●●</span> vs <span style="color:#8fc0e8">●●●●</span>）を見比べ、今光ってる粒で「今どっち鳴ってるか」を体で覚える。<b>ボタンで片方だけ</b>ループにもできる。</p>
+    <div class="td-modes bx-genres" id="tdAbMode"></div>
+    <div class="td-ab">
+      <div class="td-card t3" id="tdCardA">
+        <h4>A ｜ 3連符</h4><div class="lab">1拍を3つ · triplet</div>
+        <div class="td-dots" id="tdDotsA"></div>
+        <div class="say">タ・タ・タ（転がる）</div>
+      </div>
+      <div class="td-card s16" id="tdCardB">
+        <h4>B ｜ 16分</h4><div class="lab">1拍を4つ · sixteenth</div>
+        <div class="td-dots" id="tdDotsB"></div>
+        <div class="say">タタ・タタ（畳みかけ）</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="play" id="tdPlay"><span id="tdIco">▶</span> <span id="tdTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="tdBpm" min="60" max="150" value="88"> <span class="val" id="tdBpmVal">88</span></label>
+      <label class="sound-toggle"><input type="checkbox" id="tdSound" checked> 音を鳴らす</label>
+    </div>
+  </div>
+
+  <div class="tool" style="margin-top:14px">
+    <div class="tlabel" style="color:#8fc0e8">▶ QUIZ</div>
+    <div class="td-quiz">
+      <h4>② 「どっち？」当てクイズ</h4>
+      <p class="hint" style="margin:2px 0 0">▶問題を聴く で、<b>ランダムに3連 or 16分</b>のどちらかが鳴る（毎回ランダム＝覚えゲー回避）。聴いて「3つ？4つ？」を当てよう。連続正解は自動保存。</p>
+      <div class="controls" style="margin:12px 0 4px">
+        <button class="play" id="tdqPlay"><span id="tdqIco">▶</span> 問題を聴く</button>
+        <button class="fbtn" id="tdqReplay" disabled>↻ もう一度聴く</button>
+      </div>
+      <div class="td-qrow">
+        <button class="td-qbtn" id="tdqBtnT3" disabled>3連（1拍に3つ）</button>
+        <button class="td-qbtn" id="tdqBtnS16" disabled>16分（1拍に4つ）</button>
+      </div>
+      <div class="td-fb" id="tdqFb"></div>
+      <div class="td-qmeta"><div>連続正解：<b id="tdqStreak">0</b></div><div>最高記録：<b id="tdqBest">0</b></div><div>正解率：<b id="tdqRate">—</b></div></div>
+    </div>
+  </div>
+
+  <div class="td-switch" style="border-radius:0;border:none;background:none;padding:0;margin-top:18px;text-align:left">
+    <div class="tool">
+      <div class="tlabel" style="color:#9bd58f">▶ SWITCH</div>
+      <h3>③ 切替（スイッチ）練習 — 1小節ごとに 3連→16分→…</h3>
+      <p class="hint">▶再生すると<b>1小節ごとに3連と16分が入れ替わる</b>。今どっちのモードか（下のバーが光る）を追いながら、口で「タタタ→タタタタ」と一緒に言うと、切替がスッと入る。<b>これが実戦で一番使う力</b>（3連フロウから急に16分で畳みかける等）。</p>
+      <div class="td-swbar" id="tdSwBar">
+        <div class="td-swcell t3">小節1 ｜ 3連</div>
+        <div class="td-swcell s16">小節2 ｜ 16分</div>
+        <div class="td-swcell t3">小節3 ｜ 3連</div>
+        <div class="td-swcell s16">小節4 ｜ 16分</div>
+      </div>
+      <div class="subex" id="tdSwNow" style="margin-top:6px">▶ 再生で切替スタート</div>
+      <div class="controls" style="margin-top:12px">
+        <button class="play" id="tdSwPlay"><span id="tdSwIco">▶</span> <span id="tdSwTxt">再生</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="border-left-color:#e58d7e">🧠 <b>迷ったらこれだけ：</b>3連＝「<b style="color:#e58d7e">タ・タ・タ</b>」で<b>転がる／円い</b>感じ（3拍子っぽく揺れる）。16分＝「<b style="color:var(--blue)">タタ・タタ</b>」で<b>四角く畳みかける</b>感じ（きっちり2＋2）。<b>数が3か4か</b>——それだけ。声に出して数えながらAとBを何度も切り替えれば、体が覚える。</div>
 
   <div class="shead"><span class="num">03</span><h2>表・裏・アクセント（どこを強く）</h2></div>
   <p class="sub">同じ分割でも、<b>どこを強く言うか</b>で全然違う。ここがノリの分かれ目。</p>
@@ -3235,6 +3336,7 @@ function stopAllMedia(){
   if(window.__stopBeatX) window.__stopBeatX();
   if(window.__stopFlow) window.__stopFlow();
   if(window.__stopSub) window.__stopSub();
+  if(window.__stopTriDrill) window.__stopTriDrill();
   if(window.__stopFt) window.__stopFt();
   if(window.__stopFlowScope) window.__stopFlowScope();
   if(window.__stopSongMap) window.__stopSongMap();
@@ -3503,7 +3605,47 @@ renderRhyme();
       bass:[N.F2,0,0,0,0,0,0,0,N.A2,0,0,N.C3,0,0,0,0],
       snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
       hat:[1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0],
-      chordHit:[1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0]}
+      chordHit:[1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0]},
+    drill:{label:'Drill',sub:'UK/BK・暗く重い・140',bpm:140,swing:0,root:N.D2,
+      vibe:'<b>ドリル</b>：トラップ派生だが<b>スライドする808</b>と暗く不穏な空気。ハットは3連ノリ（"タタタ"のロール）、スネアが後ろにズレて独特のよろけ感。<b>ダサくしない要点＝力まず低く淡々</b>と、ビートの暗さに同化する。<small style="color:var(--ink3)">系統: Pop Smoke / Central Cee / (日)ドリル勢</small>',
+      chord:[146.83,174.61,220,277.18],
+      kick:[1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],
+      bass:[N.D2,0,0,0,0,0,N.D2,0,0,N.C2,0,0,0,0,N.Bb2,0],
+      snare:[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+      hat:[1,0,2,0,1,0,1,0,2,0,1,0,1,0,2,0],
+      chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+    gfunk:{label:'G-funk',sub:'West Coast・跳ねる・95',bpm:95,swing:.12,root:N.G2,
+      vibe:'<b>G-funk / West Coast</b>：ゆったり跳ねるファンクのグルーヴに、ピューンと伸びる<b>高音シンセ</b>とうねるベース。<b>ポケット＝後ろノリで余裕たっぷり</b>。晴れた昼の"涼しさ"。ダサくしない要点＝詰め込まず、間とスウィングで泳ぐ。<small style="color:var(--ink3)">系統: Dr. Dre / Snoop / Warren G</small>',
+      chord:[392,493.88,587.33],
+      kick:[1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0],
+      bass:[N.G2,0,0,N.G2,0,0,N.Bb2,0,N.C3,0,0,N.C3,0,0,N.D2,0],
+      snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+      hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],
+      chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+    twostep:{label:'2-step',sub:'UKガラージ・跳ね・130',bpm:130,swing:.2,root:N.E2,
+      vibe:'<b>2-step / UKガラージ</b>：キックとスネアが<b>裏に飛び跳ねる</b>不規則な"つんのめる"グルーヴ。強いスウィングでシャッフルし、ハットが隙間を埋める。ダサくしない要点＝オンビートに置きすぎず、<b>裏拍で泳ぐ</b>。<small style="color:var(--ink3)">系統: UKガラージ / 2000s UK / (現)ジャングル復権</small>',
+      chord:[164.81,196,246.94,329.63],
+      kick:[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0],
+      bass:[N.E2,0,0,0,0,0,N.E2,0,0,0,N.G2,0,0,0,N.A2,0],
+      snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+      hat:[1,0,1,1,0,1,1,0,1,0,1,1,0,1,1,0],
+      chordHit:[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0]},
+    wakura:{label:'和・沖縄',sub:'三線/太鼓・素朴・80',bpm:80,swing:.16,root:N.D2,
+      vibe:'<b>和・沖縄</b>：太鼓のドンと締め太鼓、<b>三線の音階（レ・ファ#・ラ）</b>を模したうわもの。ゆったり素朴で土着的なグルーヴ。ダサくしない要点＝洋楽ドラムを敷きすぎず、<b>間（余白）と揺れ</b>で"和"を出す。<small style="color:var(--ink3)">系統: 沖縄民謡×HipHop / 唾奇の郷愁ライン</small>',
+      chord:[293.66,369.99,440,587.33],
+      kick:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+      bass:[N.D2,0,0,0,0,0,0,0,N.A2,0,0,0,0,0,N.G2,0],
+      snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+      hat:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],
+      chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+    technopop:{label:'テクノポップ',sub:'Perfume系・跳ね・128',bpm:128,swing:0,root:N.C2,
+      vibe:'<b>テクノポップ</b>：機械的で粒の揃った四つ打ち寄りのキックに、<b>跳ねる細かいシンセ</b>と明るいコード。Perfume系の無機質だけどキャッチーな質感。ダサくしない要点＝人力っぽく崩さず<b>あえてマシン的に正確</b>に。<small style="color:var(--ink3)">系統: Perfume / 中田ヤスタカ / テクノポップ</small>',
+      chord:[523.25,659.25,783.99],
+      kick:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],
+      bass:[N.C2,0,N.C2,0,N.G2,0,N.G2,0,N.A2,0,N.A2,0,N.F2,0,N.F2,0],
+      snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+      hat:[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1],
+      chordHit:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]}
   };
   const ORIG=JSON.parse(JSON.stringify(GEN));
   let ctx=null,master=null,playing=false,timer=null,step=0,cur='boombap';
@@ -3706,6 +3848,128 @@ renderRhyme();
   function stop(){playing=false;clearTimeout(timer);$('subIco').textContent='▶';$('subTxt').textContent='再生';document.querySelectorAll('#subGrid .subdot.lit').forEach(d=>d.classList.remove('lit'));document.querySelectorAll('#subGrid .beatgroup.cur').forEach(g=>g.classList.remove('cur'));}
   window.__stopSub=()=>{if(playing)stop();};
   $('subPlay').addEventListener('click',()=>{ensure();ctx.resume();playing?stop():start();});
+})();
+
+/* ================= RHYTHM: 3連 ↔ 16分 聞き分けドリル ================= */
+(function(){
+  const $=id=>document.getElementById(id);
+  if(!$('tdPlay'))return;
+  let ctx=null,master=null;
+  const soundOn=()=>$('tdSound')?$('tdSound').checked:true;
+  function ensure(){if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=.7;master.connect(ctx.destination);}}
+  // 拍頭のクリック（メトロノーム）
+  function beatClick(t){if(!soundOn())return;const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=1500;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.3,t+.003);g.gain.exponentialRampToValueAtTime(.001,t+.05);o.connect(g).connect(master);o.start(t);o.stop(t+.07);}
+  // 粒（3連=温かめ / 16分=明るめ で音色を分ける＝耳でも違いが出る）
+  function grainTick(t,kind){if(!soundOn())return;const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';const f0=kind==='t3'?560:720,f1=kind==='t3'?440:560;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+.04);g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.2,t+.004);g.gain.exponentialRampToValueAtTime(.001,t+.07);const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2600;o.connect(g).connect(lp).connect(master);o.start(t);o.stop(t+.09);}
+  // 12ティック/拍：3連=0,4,8（4ティック毎）／16分=0,3,6,9（3ティック毎）＝サブディビジョンPlayerと同一の割り方
+  const POS={t3:[0,4,8],s16:[0,3,6,9]};
+  const N={t3:3,s16:4};
+
+  /* --- 共有ドット生成 --- */
+  function buildDots(el,n){el.innerHTML='';const arr=[];for(let i=0;i<n;i++){const d=document.createElement('div');d.className='td-dot on';el.appendChild(d);arr.push(d);}return arr;}
+  const dotsA=buildDots($('tdDotsA'),N.t3), dotsB=buildDots($('tdDotsB'),N.s16);
+  function clearLit(){dotsA.forEach(d=>d.classList.remove('lit'));dotsB.forEach(d=>d.classList.remove('lit'));}
+
+  /* =========== ① A/B 比較 =========== */
+  // モード: 'ab'=交互, 't3'=3連のみループ, 's16'=16分のみループ
+  let abMode='ab';
+  (function(){const g=$('tdAbMode');const opts=[['ab','交互 A↔B','1小節ずつ'],['t3','A だけ','3連ループ'],['s16','B だけ','16分ループ']];opts.forEach(([k,lab,sub])=>{const b=document.createElement('button');b.className='bx-gbtn'+(k===abMode?' active':'');b.dataset.m=k;b.innerHTML=lab+'<small>'+sub+'</small>';g.appendChild(b);});g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;abMode=b.dataset.m;g.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));if(abPlaying){stopAb();startAb();}});})();
+
+  let abPlaying=false,abTimer=null,abTick=0,abNext=0,abBar=0;
+  const bpmEl=$('tdBpm');bpmEl.addEventListener('input',()=>{$('tdBpmVal').textContent=bpmEl.value;});
+  function tickDur(){return (60/(+bpmEl.value))/12;} // 1ティック秒（12/拍）
+  function curKind(){ if(abMode==='t3')return 't3'; if(abMode==='s16')return 's16'; return (abBar%2===0)?'t3':'s16'; }
+  function setActiveCard(kind){$('tdCardA').classList.toggle('active',kind==='t3');$('tdCardB').classList.toggle('active',kind==='s16');}
+  function abSchedule(){
+    while(abNext < ctx.currentTime + 0.12){
+      const t=abNext, p=abTick%12, beatInBar=Math.floor(abTick/12);
+      const kind=curKind();
+      if(p===0) beatClick(t);
+      const idx=POS[kind].indexOf(p);
+      if(idx>=0){ grainTick(t,kind);
+        const dots=kind==='t3'?dotsA:dotsB;
+        const delay=Math.max(0,(t-ctx.currentTime)*1000);
+        ((dd,ii,kk)=>setTimeout(()=>{clearLit();setActiveCard(kk);if(dd[ii])dd[ii].classList.add('lit');},delay))(dots,idx,kind);
+      }
+      abTick++;
+      if(abTick>=48){abTick=0;abBar++;} // 1小節=4拍=48ティック
+      abNext+=tickDur();
+    }
+    abTimer=setTimeout(abSchedule,25);
+  }
+  function startAb(){ensure();ctx.resume();abPlaying=true;$('tdIco').textContent='❚❚';$('tdTxt').textContent='停止';abTick=0;abBar=0;abNext=ctx.currentTime+.08;abSchedule();}
+  function stopAb(){abPlaying=false;clearTimeout(abTimer);$('tdIco').textContent='▶';$('tdTxt').textContent='再生';clearLit();$('tdCardA').classList.remove('active');$('tdCardB').classList.remove('active');}
+  $('tdPlay').addEventListener('click',()=>{ensure();ctx.resume();abPlaying?stopAb():startAb();});
+
+  /* =========== ② どっち？クイズ =========== */
+  let qStreak=+(localStorage.getItem('hhtxt_td_streak')||0);
+  let qBest=+(localStorage.getItem('hhtxt_td_best')||0);
+  let qOK=+(localStorage.getItem('hhtxt_td_ok')||0);
+  let qTot=+(localStorage.getItem('hhtxt_td_total')||0);
+  let qCur=null,qAnswered=false,qTimer=null;
+  function qMeta(){$('tdqStreak').textContent=qStreak;$('tdqBest').textContent=qBest;$('tdqRate').textContent=qTot?Math.round(qOK/qTot*100)+'%（'+qOK+'/'+qTot+'）':'—';}
+  qMeta();
+  function qStop(){if(qTimer){clearTimeout(qTimer);qTimer=null;}}
+  // 2拍だけランダム側を鳴らす（覚えゲー回避＝毎回ランダム）
+  function qPlaySound(){
+    ensure();ctx.resume();qStop();
+    const kind=qCur; const dur=tickDur(); const t0=ctx.currentTime+.1;
+    let tk=0;
+    function loop(){
+      // 2拍分（24ティック）鳴らして止める
+      const base=ctx.currentTime; let scheduled=0;
+      for(let i=0;i<24;i++){const t=t0+i*dur; if(t<base)continue; const p=i%12; if(p===0)beatClick(t); if(POS[kind].indexOf(p)>=0){grainTick(t,kind);scheduled++;}}
+    }
+    loop();
+  }
+  function qNew(){
+    qCur=Math.random()<0.5?'t3':'s16'; qAnswered=false;
+    $('tdqBtnT3').disabled=false;$('tdqBtnS16').disabled=false;
+    $('tdqBtnT3').classList.remove('correct','wrong');$('tdqBtnS16').classList.remove('correct','wrong');
+    $('tdqReplay').disabled=false;
+    $('tdqFb').textContent='🔊 3連？ 16分？ 聴いて当てて。';$('tdqFb').style.color='var(--ink2)';
+    qPlaySound();
+  }
+  function qAnswer(pick){
+    if(qAnswered||!qCur)return; qAnswered=true;
+    $('tdqBtnT3').disabled=true;$('tdqBtnS16').disabled=true;
+    const right=pick===qCur; qTot++;
+    const correctBtn=qCur==='t3'?$('tdqBtnT3'):$('tdqBtnS16');
+    const pickBtn=pick==='t3'?$('tdqBtnT3'):$('tdqBtnS16');
+    if(right){qOK++;qStreak++;if(qStreak>qBest){qBest=qStreak;localStorage.setItem('hhtxt_td_best',qBest);}pickBtn.classList.add('correct');$('tdqFb').style.color='var(--green)';$('tdqFb').textContent='⭕ 正解！ '+(qCur==='t3'?'3連（1拍に3つ・転がる）':'16分（1拍に4つ・畳みかけ）')+'だった。';}
+    else{qStreak=0;pickBtn.classList.add('wrong');correctBtn.classList.add('correct');$('tdqFb').style.color='#e58d7e';$('tdqFb').textContent='✕ 惜しい！ 正解は '+(qCur==='t3'?'3連（3つ）':'16分（4つ）')+'。もう一度聴いて数えてみて。';}
+    localStorage.setItem('hhtxt_td_streak',qStreak);localStorage.setItem('hhtxt_td_ok',qOK);localStorage.setItem('hhtxt_td_total',qTot);
+    qMeta();
+  }
+  $('tdqPlay').addEventListener('click',qNew);
+  $('tdqReplay').addEventListener('click',()=>{if(qCur)qPlaySound();});
+  $('tdqBtnT3').addEventListener('click',()=>qAnswer('t3'));
+  $('tdqBtnS16').addEventListener('click',()=>qAnswer('s16'));
+
+  /* =========== ③ 切替（スイッチ）練習 =========== */
+  let swPlaying=false,swTimer=null,swTick=0,swNext=0,swBar=0;
+  const swCells=Array.from($('tdSwBar').querySelectorAll('.td-swcell'));
+  function swKind(){return (swBar%2===0)?'t3':'s16';}
+  function swSchedule(){
+    while(swNext < ctx.currentTime + 0.12){
+      const t=swNext,p=swTick%12; const kind=swKind();
+      if(p===0)beatClick(t);
+      if(POS[kind].indexOf(p)>=0)grainTick(t,kind);
+      if(p===0){ const delay=Math.max(0,(t-ctx.currentTime)*1000); const bIdx=swBar%4, kk=kind;
+        setTimeout(()=>{swCells.forEach((c,i)=>c.classList.toggle('cur',i===bIdx));$('tdSwNow').innerHTML=(kk==='t3'?'いま <b style="color:#e58d7e">3連</b>（タ・タ・タ／転がる）':'いま <b style="color:#8fc0e8">16分</b>（タタ・タタ／畳みかけ）');},delay);
+      }
+      swTick++;
+      if(swTick>=48){swTick=0;swBar++;}
+      swNext+=tickDur();
+    }
+    swTimer=setTimeout(swSchedule,25);
+  }
+  function swStart(){ensure();ctx.resume();swPlaying=true;$('tdSwIco').textContent='❚❚';$('tdSwTxt').textContent='停止';swTick=0;swBar=0;swNext=ctx.currentTime+.08;swSchedule();}
+  function swStop(){swPlaying=false;clearTimeout(swTimer);$('tdSwIco').textContent='▶';$('tdSwTxt').textContent='再生';swCells.forEach(c=>c.classList.remove('cur'));$('tdSwNow').textContent='▶ 再生で切替スタート';}
+  $('tdSwPlay').addEventListener('click',()=>{ensure();ctx.resume();swPlaying?swStop():swStart();});
+
+  // タブ離脱で全部止める（stopAllMedia から呼ばれる）
+  window.__stopTriDrill=()=>{ if(abPlaying)stopAb(); if(swPlaying)swStop(); qStop(); };
 })();
 
 /* ================= WORDPLAY: LAYER DEMO ================= */
