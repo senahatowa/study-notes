@@ -606,6 +606,32 @@
   .src{display:block;font-size:11px;color:var(--ink3);font-style:italic;margin-top:6px;line-height:1.5}
   .divider-h{margin-top:64px}
   .divider-h .num{background:linear-gradient(145deg,#c79bf2,#7a4fb0)!important}
+
+  /* ---- フロウ・スコープ ---- */
+  .fs-modes{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+  .fs-mode{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:11px;padding:8px 12px;cursor:pointer;font-weight:800;font-size:13px;display:flex;flex-direction:column;gap:2px;min-width:96px;-webkit-tap-highlight-color:transparent;transition:.15s}
+  .fs-mode small{font-weight:600;color:var(--ink3);font-size:10px}
+  .fs-mode.active{color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-color:transparent}
+  .fs-mode.active small{color:#4a3a10}
+  .fs-stage{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:14px 10px 10px}
+  .fs-grid{position:relative;min-width:560px}
+  .fs-row{display:grid;grid-template-columns:repeat(32,1fr)}
+  .fs-syl{position:relative;height:44px;width:100%}
+  .fs-dot{position:absolute;top:4px;transform:translateX(-50%);min-width:27px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:var(--panel);border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:800;padding:0 5px;transition:transform .07s,background .07s;z-index:2}
+  .fs-dot.acc{border-color:var(--gold);color:var(--gold2);box-shadow:0 0 0 1px rgba(217,178,90,.25) inset}
+  .fs-dot.lit{background:var(--gold2);color:#15110a;transform:translateX(-50%) scale(1.22);box-shadow:0 0 16px rgba(242,209,136,.7);z-index:3}
+  .fs-drums{height:16px;margin:6px 0 2px}
+  .fs-drumcell{height:14px;border-radius:3px;margin:0 1px;background:#17171c}
+  .fs-drumcell.kick{background:var(--red)}
+  .fs-drumcell.snare{background:var(--blue)}
+  .fs-drumcell.hat{background:#3a3a41}
+  .fs-beatrow{height:20px}
+  .fs-beatcell{text-align:center;font-size:10px;color:var(--ink3);line-height:20px}
+  .fs-beatcell.q{color:var(--ink2);font-weight:800}
+  .fs-beatcell.bar{color:var(--gold2)}
+  .fs-head{position:absolute;top:0;bottom:0;width:2px;background:var(--gold2);box-shadow:0 0 10px var(--gold2);left:0;display:none;z-index:1}
+  .fs-why{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
+  .fs-why b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -1821,6 +1847,35 @@
   </div>
   <div class="note" style="border-left-color:#c79bf2">🧪 <b>実践：</b>音感ラボの「フロウ・ラボ」で、同じビートに違う譜割り（オンビート/裏/ダブル/休符）を乗せ比べ→"乗り位置"が体で分かる。ここが分かると、書いた歌詞を<b>どう乗せるか</b>を設計できる。</div>
 
+  <div class="shead"><span class="num">★</span><h2>フロウ・スコープ — 同じ歌詞、4つの「乗せ方」を見て×聴く</h2></div>
+  <p class="sub">お前の一番の要望＝<b>「どう言葉を乗せてるか」を目で見る</b>。同じ8音「よ・る・を・こ・え・て・ゆ・く」を<b>棒読み／グルーヴ／ダブルタイム／間</b>の4通りで乗せた。ボタンで切り替えて▶再生＝<b>言葉の粒がビートのどこに乗るか</b>が光って走って見える。乗せ方だけでこんなに変わる。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · イメージで腹落ち</div>
+    <h3>フロウ・スコープ</h3>
+    <p class="hint"><b>上段＝言葉</b>（金＝アクセント＝強く言う所）／<b>中段＝ドラム</b>（<span style="color:#c8503e">赤キック</span>・<span style="color:#5b9bd5">青スネア</span>・灰ハット）／<b>下段＝拍（1234）</b>。言葉がドラムのどこに乗ってるか見比べよう。<b>スマホは横スワイプ</b>で全体が見れる。</p>
+    <div class="fs-modes" id="fsModes">
+      <button class="fs-mode active" data-m="flat">棒読み<small>均等・ダサい例</small></button>
+      <button class="fs-mode" data-m="groove">グルーヴ<small>裏・食い</small></button>
+      <button class="fs-mode" data-m="double">ダブルタイム<small>詰める→空ける</small></button>
+      <button class="fs-mode" data-m="ma">間（タメ）<small>空白で聴かせる</small></button>
+    </div>
+    <div class="fs-stage">
+      <div class="fs-grid" id="fsGrid">
+        <div class="fs-head" id="fsHead"></div>
+        <div class="fs-syl" id="fsSyl"></div>
+        <div class="fs-row fs-drums" id="fsDrums"></div>
+        <div class="fs-row fs-beatrow" id="fsBeats"></div>
+      </div>
+    </div>
+    <div class="fs-why" id="fsWhy"></div>
+    <div class="controls">
+      <button class="play" id="fsPlay"><span id="fsIco">▶</span> <span id="fsTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="fsBpm" min="60" max="140" value="88"> <span class="val" id="fsBpmVal">88</span></label>
+      <label class="sound-toggle"><input type="checkbox" id="fsSound" checked> 音を鳴らす</label>
+    </div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎧 <b>使い方：</b>まず「棒読み」で退屈さを体で覚える→「グルーヴ」「間」に切り替えると<b>同じ言葉が生き返る</b>のが分かる。これが<b>フロウ＝乗せ方</b>の正体。<b style="color:#ef8a93">自分の曲でやりたくなったら、曲のURLか歌詞をチャットに投げてくれ</b>＝その曲のフロウをここに起こす。</div>
+
   <div class="shead"><span class="num">07</span><h2>Spit（吐き出す技術）— リズムを"音"にする</h2></div>
   <p class="sub">正確なリズムができたら、それを<b>キレのある声で吐き出す</b>のがspit。ここで一般もヘッズも「うまっ」となる。リズムの解像度が高いほど、spitは鋭くなる。</p>
   <div class="subgrid">
@@ -2515,6 +2570,82 @@ function go(id){
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.go)));
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('tabs');if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.textContent=o?'✕':'☰';});}})();
 
+/* ===== フロウ・スコープ ===== */
+(function(){
+  var grid=document.getElementById('fsGrid'); if(!grid) return;
+  var SYL=['よ','る','を','こ','え','て','ゆ','く'];
+  var STEPS=32;
+  var MODES={
+    flat:{nm:'棒読み',pos:[0,4,8,12,16,20,24,28],acc:[],
+      why:'全部の言葉を<b>拍の真上に均等</b>に置いた状態。正確ではあるけど抑揚も間もゼロ＝<b>棒読み</b>。「素人っぽい」の正体はほぼこれ。ここから崩していく。'},
+    groove:{nm:'グルーヴ',pos:[0,3,7,10,14,17,21,24],acc:[0,14],
+      why:'同じ言葉を<b>裏拍</b>と<b>食い（拍の直前）</b>に散らした。ビートと言葉が会話し始めて、一気に<b>跳ねて</b>聞こえる。これがグルーヴの入口。'},
+    double:{nm:'ダブルタイム',pos:[0,2,4,6,8,10,12,14],acc:[0],
+      why:'前半の1小節で<b>16分で畳みかけ</b>、後半はまるごと<b>余白</b>。「詰める→空ける」の落差それ自体が快感になる。テクの見せ場だけど、余白があるから映える。'},
+    ma:{nm:'間（タメ）',pos:[2,4,14,16,22,28,30,31],acc:[14,22],
+      why:'言葉を大胆に<b>減らして「間」で聴かせる</b>。空白が緊張を生んで、ポツリと置いた一言が刺さる。<b>AOTOの「間の使い方」</b>がこれ＝上手い人ほど休符が上手い。'}
+  };
+  var KICK=[0,7,16,23], SNARE=[4,12,20,28], HAT=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
+  var mode='flat', bpm=88, playing=false, ctx=null, timer=null, phTimer=null, soundOn=true;
+  var curTick=0, nextTime=0, startT=0;
+
+  function ac(){ if(!ctx) ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function secPer(){ return (60/bpm)/4; }
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),n=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); n.connect(bp).connect(g).connect(c.destination); n.start(t); n.stop(t+.15); }
+  function hat(t){ var c=ac(),n=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.16,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); n.connect(hp).connect(g).connect(c.destination); n.start(t); n.stop(t+.05); }
+  function voice(t,a){ var c=ac();
+    var n=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=a?2600:2000; ng.gain.setValueAtTime(a?.32:.2,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); n.connect(bp).connect(ng).connect(c.destination); n.start(t); n.stop(t+.06);
+    var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.setValueAtTime(a?300:225,t); lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(a?.32:.22,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18);
+  }
+
+  function buildStatic(){
+    var bh='';
+    for(var i=0;i<STEPS;i++){ var cls='fs-beatcell',lab=''; if(i%16===0)cls+=' bar'; if(i%4===0){cls+=' q'; lab=((i%16)/4+1);} bh+='<div class="'+cls+'">'+lab+'</div>'; }
+    document.getElementById('fsBeats').innerHTML=bh;
+    var dh='';
+    for(var j=0;j<STEPS;j++){ var dc='fs-drumcell'; if(KICK.indexOf(j)>=0)dc+=' kick'; else if(SNARE.indexOf(j)>=0)dc+=' snare'; else if(HAT.indexOf(j)>=0)dc+=' hat'; dh+='<div class="'+dc+'"></div>'; }
+    document.getElementById('fsDrums').innerHTML=dh;
+  }
+  function renderSyl(){
+    var m=MODES[mode], layer=document.getElementById('fsSyl'); layer.innerHTML='';
+    m.pos.forEach(function(pp,idx){ var d=document.createElement('div'); d.className='fs-dot'+(m.acc.indexOf(pp)>=0?' acc':''); d.style.left=((pp+0.5)/STEPS*100)+'%'; d.textContent=SYL[idx]||'・'; d.dataset.pos=pp; layer.appendChild(d); });
+    document.getElementById('fsWhy').innerHTML='<b>'+m.nm+'：</b>'+m.why;
+    document.querySelectorAll('#fsModes .fs-mode').forEach(function(b){ b.classList.toggle('active',b.dataset.m===mode); });
+  }
+  function lightAt(step){ document.querySelectorAll('#fsSyl .fs-dot').forEach(function(d){ if(+d.dataset.pos===step){ d.classList.add('lit'); setTimeout(function(){d.classList.remove('lit');},140); } }); }
+  function scheduleLoop(){
+    var c=ac();
+    while(nextTime < c.currentTime+0.1){
+      var step=curTick%STEPS;
+      if(soundOn){
+        if(KICK.indexOf(step)>=0)kick(nextTime);
+        if(SNARE.indexOf(step)>=0)snare(nextTime);
+        if(HAT.indexOf(step)>=0)hat(nextTime);
+        var m=MODES[mode]; if(m.pos.indexOf(step)>=0) voice(nextTime, m.acc.indexOf(step)>=0);
+      }
+      (function(st,ti){ var delay=(ti-c.currentTime)*1000; setTimeout(function(){ lightAt(st); }, Math.max(0,delay)); })(step,nextTime);
+      nextTime+=secPer(); curTick++;
+    }
+    timer=setTimeout(scheduleLoop,25);
+  }
+  function tickHead(){
+    if(!playing)return;
+    var c=ac(), loop=STEPS*secPer(), el=((c.currentTime-startT)%loop+loop)%loop, pct=el/loop*100;
+    var h=document.getElementById('fsHead'); if(h)h.style.left=pct+'%';
+  }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.06; startT=nextTime; var h=document.getElementById('fsHead'); if(h)h.style.display='block'; document.getElementById('fsIco').textContent='❚❚'; document.getElementById('fsTxt').textContent='停止'; scheduleLoop(); tickHead(); phTimer=setInterval(tickHead,30); }
+  function stop(){ playing=false; clearTimeout(timer); if(phTimer)clearInterval(phTimer); document.getElementById('fsIco').textContent='▶'; document.getElementById('fsTxt').textContent='再生'; var h=document.getElementById('fsHead'); if(h)h.style.display='none'; document.querySelectorAll('#fsSyl .fs-dot.lit').forEach(function(d){d.classList.remove('lit');}); }
+  window.__stopFlowScope=function(){ if(playing) stop(); };
+
+  document.getElementById('fsPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  document.getElementById('fsModes').addEventListener('click',function(e){ var b=e.target.closest('.fs-mode'); if(!b)return; mode=b.dataset.m; renderSyl(); });
+  document.getElementById('fsBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('fsBpmVal').textContent=bpm; });
+  var so=document.getElementById('fsSound'); if(so) so.addEventListener('change',function(e){ soundOn=e.target.checked; });
+  buildStatic(); renderSyl();
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -2524,6 +2655,7 @@ function stopAllMedia(){
   if(window.__stopFlow) window.__stopFlow();
   if(window.__stopSub) window.__stopSub();
   if(window.__stopFt) window.__stopFt();
+  if(window.__stopFlowScope) window.__stopFlowScope();
 }
 
 let io;
