@@ -1844,7 +1844,7 @@
 
   <!-- EAR QUIZ -->
   <div class="shead"><span class="num">01</span><h2>耳トレ・クイズ — 聴いて当てる</h2></div>
-  <p class="sub">響きやテンポを聴いて答える。最初は外してOK、当たるほど耳の解像度が上がる。連続正解（🔥）と最高記録が残る。</p>
+  <p class="sub">響き・テンポ・<b>楽器の聞き分け</b>・<b>リズムの割り(3連/16分)</b>・音の高低を聴いて答える<b>6種</b>。最初は外してOK、当たるほど耳の解像度が上がる。連続正解（🔥）と最高記録が残る。<b style="color:#ef8a93">お前の課題（楽器聞き分け・3連）はここで鍛えろ。</b></p>
   <div class="tool">
     <div class="tlabel" style="color:#c79bf2">▶ INTERACTIVE</div>
     <div class="q-question" id="qQuestion">▶「問題を聴く」から始めよう</div>
@@ -1857,6 +1857,18 @@
     <div class="q-meta" id="qMeta"></div>
     <div class="q-row"><button class="bx-reset" id="qNext">次の問題 →</button></div>
   </div>
+
+  <div class="shead"><span class="num">🎧</span><h2>耳の筋トレ メニュー — 何を順番に鍛えるか</h2></div>
+  <p class="sub">耳は<b>筋トレ</b>。闇雲でなく順番がある。上のクイズを<b>この順で</b>回すと、ラップに直結する耳が最短で育つ。</p>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">1</div><div><b>拍・テンポを掴む</b><p>まず「速い/普通/遅い」を当てる。全ての土台＝ビートの心臓を感じる耳。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>楽器を聞き分ける <span class="cf guess" style="margin:0">お前の課題</span></b><p>キック/スネア/ハット/ベース/うわものを1個ずつ。<b>「今なんの音が鳴ってる？」が分かると、ビートのどこに言葉を置くか見える</b>。ビート解剖のソロ(S)も併用しろ。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>音の高低を掴む</b><p>2音が上がった/下がった/同じ。メロディ（フック）を作る耳の第一歩。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>明暗（メジャー/マイナー）を当てる</b><p>明るい/切ないを一発で。ビートの"気分"が読める＝歌詞のテーマと合わせられる（音楽理論の<b>気分パレット</b>参照）。</p></div></div>
+    <div class="lstep"><div class="ln">5</div><div><b>リズムの割り（8分/16分/3連）を聞き分ける <span class="cf guess" style="margin:0">お前の課題</span></b><p>特に<b>3連の"転がり"</b>を耳で掴む。リズム&Spitの<b>フロウ・スコープ3連モード</b>と往復すると体に入る。</p></div></div>
+    <div class="lstep"><div class="ln">6</div><div><b>ポケット（前/ジャスト/後ろ）を感じる</b><p>最後は"ミリ秒"の世界。後ノリの色気を耳で。リズム&Spitのポケットへ。</p></div></div>
+  </div>
+  <div class="note" style="border-left-color:#c79bf2">🔥 <b>毎日3分でいい。</b>クイズを1日10問、この順を意識して回す。<b>「当てる」より「なぜそう聞こえるか」を一言で言葉にする</b>と定着が段違い。最高連続記録を超えていけ。</div>
 
   <!-- FLOW LAB -->
   <div class="shead"><span class="num">02</span><h2>フロウ・ラボ — 言葉の"乗り位置"を掴む</h2></div>
@@ -3657,10 +3669,22 @@ renderRhyme();
   function tone(freqs,dur){if(!on())return;const c=ac();c.resume();const t=c.currentTime+.03;freqs.forEach(f=>{const o=c.createOscillator();o.type='triangle';o.frequency.value=f;const g=c.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.17,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+dur);const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2800;o.connect(g).connect(lp).connect(c.destination);o.start(t);o.stop(t+dur+.05);});}
   function clicks(bpm){if(!on())return;const c=ac();c.resume();const t0=c.currentTime+.05,s=60/bpm;for(let i=0;i<4;i++){const o=c.createOscillator(),g=c.createGain(),t=t0+i*s;o.frequency.value=i===0?1600:1050;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.3,t+.004);g.gain.exponentialRampToValueAtTime(.001,t+.06);o.connect(g).connect(c.destination);o.start(t);o.stop(t+.08);}}
   const CH={major:[261.63,329.63,392],minor:[261.63,311.13,392],maj7:[261.63,329.63,392,493.88],dim:[261.63,311.13,369.99]};
+  function noise(dur){const c=ac();const b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate);const d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const sr=c.createBufferSource();sr.buffer=b;return sr;}
+  function hit(k){if(!on())return;const c=ac();c.resume();const t=c.currentTime+.04;
+    if(k==='kick'){const o=c.createOscillator(),g=c.createGain();o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(50,t+.12);g.gain.setValueAtTime(.9,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(g).connect(c.destination);o.start(t);o.stop(t+.2);}
+    else if(k==='snare'){const nz=noise(.18),g=c.createGain(),bp=c.createBiquadFilter();bp.type='highpass';bp.frequency.value=1400;g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.16);nz.connect(bp).connect(g).connect(c.destination);nz.start(t);nz.stop(t+.18);const o=c.createOscillator(),g2=c.createGain();o.type='triangle';o.frequency.value=180;g2.gain.setValueAtTime(.3,t);g2.gain.exponentialRampToValueAtTime(.001,t+.12);o.connect(g2).connect(c.destination);o.start(t);o.stop(t+.14);}
+    else if(k==='hat'){const nz=noise(.05),g=c.createGain(),hp=c.createBiquadFilter();hp.type='highpass';hp.frequency.value=8000;g.gain.setValueAtTime(.25,t);g.gain.exponentialRampToValueAtTime(.001,t+.04);nz.connect(hp).connect(g).connect(c.destination);nz.start(t);nz.stop(t+.05);}
+    else if(k==='bass'){const o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter();o.type='sine';o.frequency.value=55;lp.type='lowpass';lp.frequency.value=400;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.6,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.5);o.connect(lp).connect(g).connect(c.destination);o.start(t);o.stop(t+.55);}
+    else if(k==='chord'){tone(CH.major,1.2);}}
+  function subd(val){if(!on())return;const c=ac();c.resume();const t0=c.currentTime+.05,beat=.5,per=val==='3'?3:(val==='16'?4:2);for(let b=0;b<2;b++){for(let i=0;i<per;i++){const t=t0+b*beat+i*(beat/per),o=c.createOscillator(),g=c.createGain();o.frequency.value=i===0?1500:1000;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.3,t+.004);g.gain.exponentialRampToValueAtTime(.001,t+.05);o.connect(g).connect(c.destination);o.start(t);o.stop(t+.06);}}}
+  function twoNotes(dir){if(!on())return;const c=ac();c.resume();const base=330,f2=dir==='up'?base*1.335:(dir==='down'?base*0.749:base);[[base,c.currentTime+.05],[f2,c.currentTime+.55]].forEach(pr=>{const o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter();o.type='triangle';o.frequency.value=pr[0];lp.type='lowpass';lp.frequency.value=2800;g.gain.setValueAtTime(.0001,pr[1]);g.gain.linearRampToValueAtTime(.2,pr[1]+.02);g.gain.exponentialRampToValueAtTime(.001,pr[1]+.4);o.connect(g).connect(lp).connect(c.destination);o.start(pr[1]);o.stop(pr[1]+.45);});}
   const QTYPES=[
     {opts:[['明るい','major'],['切ない','minor'],['美しい・浮遊','maj7'],['不安・不穏','dim']],q:'この響き、どの感情？',play:a=>tone(CH[a],1.7)},
+    {opts:[['メジャー(明るい)','major'],['マイナー(切ない)','minor']],q:'2和音、明るい？切ない？',play:a=>tone(CH[a],1.7)},
     {opts:[['遅い(バラード)','70'],['普通(王道)','92'],['速い(トラップ)','140']],q:'このテンポ、速さは？',play:a=>clicks(+a)},
-    {opts:[['メジャー(明るい)','major'],['マイナー(切ない)','minor']],q:'2和音、どっち？',play:a=>tone(CH[a],1.7)}
+    {opts:[['キック(ドン)','kick'],['スネア(タン)','snare'],['ハット(チッ)','hat'],['ベース(重低音)','bass'],['うわもの(コード)','chord']],q:'どの楽器が鳴った？（聞き分け）',play:a=>hit(a)},
+    {opts:[['8分(タ・タ)','8'],['16分(タタタタ)','16'],['3連(タタタ)','3']],q:'この割り、どのリズム？',play:a=>subd(a)},
+    {opts:[['上がった','up'],['下がった','down'],['同じ','same']],q:'2つ目の音、高い？低い？',play:a=>twoNotes(a)}
   ];
   let cur=null,score=0,streak=0,answered=false;
   let best=+(localStorage.getItem('hhtxt_ear_best')||0);
