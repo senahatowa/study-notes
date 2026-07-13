@@ -682,6 +682,21 @@
   .lstep b{color:var(--ink);font-size:14px}
   .lstep p{margin:3px 0 0;font-size:13px;color:var(--ink2);line-height:1.6}
   .subhd{font-size:15px;font-weight:800;color:var(--gold2);margin:22px 0 4px;letter-spacing:.02em}
+
+  /* ---- 音の気分パレット ---- */
+  .mp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0}
+  @media(max-width:600px){.mp-grid{grid-template-columns:repeat(2,1fr)}}
+  .mp-card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 12px 13px;cursor:pointer;transition:.12s;-webkit-tap-highlight-color:transparent}
+  .mp-card:hover{border-color:var(--gold2)}
+  .mp-card.on{border-color:var(--mc);box-shadow:0 0 0 1px var(--mc) inset}
+  .mp-card .mpm{font-size:15px;font-weight:800;color:var(--ink);line-height:1.25}
+  .mp-card .mps{font-size:11px;color:var(--ink3);font-weight:800;margin-top:2px}
+  .mp-keys{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-top:10px}
+  .mp-k{height:15px;border-radius:3px;background:#191920;border:1px solid transparent}
+  .mp-k.in{background:var(--mc)}
+  .mp-k.root{outline:2px solid #fff;outline-offset:-1px}
+  .mp-info{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
+  .mp-info b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -769,7 +784,7 @@
 
   <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:16px 0 6px">📚 知識を深める</div>
   <div class="qcards">
-    <div class="qcard" data-jump="theory|"><div class="n">🎹 理論</div><h3>音楽理論・耳の科学</h3><p>スケール・コード進行・<b>なぜ効くか</b>（日本人の耳・時流）</p></div>
+    <div class="qcard" data-jump="theory|moodpalette" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">🎨 気分</div><h3>音の気分パレット</h3><p><b>スケール/コード進行がわからん人へ</b>。気分をタップ→音が鳴って色で分かる（理屈ぬき）</p></div>
     <div class="qcard" data-jump="layers|"><div class="n">🧬 言葉</div><h3>多層の言葉</h3><p>ダブル/トリプルミーニング＝華独の核。言葉の層を可視化</p></div>
     <div class="qcard" data-jump="lyric|"><div class="n">✍️ 作詞</div><h3>作詞ラボ</h3><p>二層構造・情景ガチャ・モチーフ・セルフレビュー</p></div>
     <div class="qcard" data-jump="glossary|"><div class="n">📖 用語</div><h3>用語集（85語）</h3><p>分からん言葉はここで検索。制作/スラング/業界も</p></div>
@@ -1883,6 +1898,17 @@
     <p class="lead">音楽理論は「暗記の学問」じゃない。<b>「なぜこの音が合うのか／なぜエモいのか」の種明かし</b>。
     知らなくても感覚で作れるけど、<b style="color:var(--gold2)">知ってると"なんか違う"を言葉にできて、ビートへの指示もラップの乗せ方も一段深くなる</b>。全部たとえ話でわかりやすく、耳で確かめながら。</p>
   </div>
+
+  <div class="shead" id="moodpalette"><span class="num">★</span><h2>音の気分パレット — 理屈ぬきで、気分から選ぶ</h2></div>
+  <p class="sub">「スケール／コード進行がわからん」を<b>逆から</b>解決。理論から入らず<b>「気分」から選んで、鳴らして、色で見る</b>。イメージで先に掴め。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#9bd58f">▶ INTERACTIVE · 気分で選ぶ</div>
+    <h3>気分 → 音階（スケール）</h3>
+    <p class="hint">タップ＝その気分の<b>音階が鳴る</b>＋<b>使う音が色で光る</b>（12個の枠＝ド〜シ、白枠＝ド＝ホーム）。<b>スケール＝「音の絵の具セット」</b>。この6つの気分だけ掴めば十分。</p>
+    <div class="mp-grid" id="mpGrid"></div>
+    <div class="mp-info" id="mpInfo"></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f">🎨 <b>超要約：</b><b>スケール＝使っていい音のセット＝曲の「気分」</b>。明るい=メジャー／切ない=マイナー／おしゃれ=ドリアン／沖縄=琉球／不穏=フリジアン／外さない=ペンタ。<b>コード進行</b>は「その気分の音を3つ束ねて→順番に並べたもの」＝<b>曲づくりタブの「コード進行」</b>で鳴らせる。まず気分で選べればいい。</div>
 
   <div class="shead"><span class="num">01</span><h2>音の高さと音名 — 音の"ものさし"</h2></div>
   <p class="sub">音は高さで並ぶ。低い「ド」から高い「ド」までが<b>1オクターブ</b>。ピアノの白鍵＝ドレミファソラシ、黒鍵＝その間（半音）。<b>半音＝一番小さい隣、全音＝半音2つ分</b>。これが全ての物差し。</p>
@@ -3009,6 +3035,42 @@ document.querySelectorAll('[data-jump]').forEach(function(el){ el.addEventListen
   }
 
   drawCurve(); renderBlocks(); renderDetail(); renderProg();
+})();
+
+/* ===== 音の気分パレット ===== */
+(function(){
+  var grid=document.getElementById('mpGrid'); if(!grid) return;
+  var MOODS=[
+    {m:'明るい・元気',s:'メジャー',notes:[0,2,4,5,7,9,11],chord:[0,4,7],c:'#f2d188',d:'全部の音が明るい方向。<b>ハッピー・前向き・王道ポップ</b>。迷ったら基本。',ex:'例：お祝い/アップな曲'},
+    {m:'切ない・エモい',s:'マイナー',notes:[0,2,3,5,7,8,10],chord:[0,3,7],c:'#8fc0e8',d:'3番目が半音下がる＝<b>影が差す</b>。泣ける・エモい・夜。日本のリスナーが一番反応する。',ex:'例：バラード/回想'},
+    {m:'おしゃれ・大人',s:'ドリアン',notes:[0,2,3,5,7,9,10],chord:[0,3,7,10],c:'#c79bf2',d:'マイナーだけど<b>明るさも少し残る＝洗練</b>。ジャジー・都会・chill。<b>唾奇/5lack系</b>。',ex:'例：夜のドライブ'},
+    {m:'沖縄・コザ',s:'琉球音階',notes:[0,4,5,7,11],chord:[0,4,7],c:'#7bbf7b',d:'レとラを抜いた<b>半音使い＝南国感</b>。三線の音。<b>華独のルーツ＝音に刻印を入れる武器</b>。',ex:'例：BEGIN/沖縄'},
+    {m:'ダーク・不穏',s:'フリジアン',notes:[0,1,3,5,7,8,10],chord:[0,3,7],c:'#e58d7e',d:'2番目が<b>半音＝不安・緊張・攻撃</b>。トラップ/ドリルのダークな質感。',ex:'例：ボスの入場/ドリル'},
+    {m:'外さない・シンプル',s:'メジャー・ペンタ',notes:[0,2,4,7,9],chord:[0,4,7],c:'#d9b25a',d:'5音だけ＝<b>まず外さない安全パイ</b>。フックの鼻歌はこれで作れる。世界中のヒットの土台。',ex:'例：口ずさめるフック'}
+  ];
+  var ctx=null; function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function midi(m){ return 440*Math.pow(2,(m-69)/12); }
+  function note(f,t,dur,g0){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2600; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(g0||.2,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+dur); o.connect(g).connect(lp).connect(c.destination); o.start(t); o.stop(t+dur+.05); }
+  function play(md){
+    var c=ac(); c.resume(); var t=c.currentTime+0.05, base=60;
+    md.notes.forEach(function(nn,i){ note(midi(base+nn), t+i*0.16, 0.22); });
+    note(midi(base+12), t+md.notes.length*0.16, 0.3);
+    var ct=t+(md.notes.length+1)*0.16+0.05;
+    md.chord.forEach(function(nn){ note(midi(base+nn), ct, 0.95, 0.13); });
+  }
+  function render(){
+    grid.innerHTML='';
+    MOODS.forEach(function(md){
+      var keys='';
+      for(var k=0;k<12;k++){ keys+='<div class="mp-k'+(md.notes.indexOf(k)>=0?' in':'')+(k===0?' root':'')+'"></div>'; }
+      var d=document.createElement('div'); d.className='mp-card'; d.style.setProperty('--mc',md.c);
+      d.innerHTML='<div class="mpm">'+md.m+'</div><div class="mps">'+md.s+'</div><div class="mp-keys">'+keys+'</div>';
+      d.addEventListener('click',function(){ grid.querySelectorAll('.mp-card').forEach(function(x){x.classList.remove('on');}); d.classList.add('on'); document.getElementById('mpInfo').innerHTML='<b>'+md.m+'（'+md.s+'）：</b>'+md.d+' <span style="color:var(--ink3)">'+md.ex+'</span>'; play(md); });
+      grid.appendChild(d);
+    });
+    document.getElementById('mpInfo').innerHTML='↑ 気分をタップ＝その<b>音階が鳴って</b>、どの音を使うか（色）が見える。<b>理屈は後でいい、まず「好き」を見つけろ。</b>';
+  }
+  render();
 })();
 
 function stopAllMedia(){
