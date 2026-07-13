@@ -697,6 +697,15 @@
   .mp-k.root{outline:2px solid #fff;outline-offset:-1px}
   .mp-info{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
   .mp-info b{color:var(--gold2)}
+
+  /* ---- コード拡張プレーヤー ---- */
+  .ce-btns{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
+  .ce-btn{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:10px;padding:9px 13px;cursor:pointer;font-weight:800;font-size:13px;display:flex;flex-direction:column;gap:2px;-webkit-tap-highlight-color:transparent}
+  .ce-btn small{font-weight:600;color:var(--ink3);font-size:10px}
+  .ce-btn.on{color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-color:transparent}
+  .ce-btn.on small{color:#4a3a10}
+  .ce-now{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:13px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
+  .ce-now b{color:var(--gold2)} .ce-now .sym{font-size:21px;font-weight:800;color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -1967,6 +1976,18 @@
     <div class="scard"><h4>カノン進行</h4><p>王道中の王道。<span class="x">安心して盛り上がる</span>黄金比。多くのヒット曲の骨。</p></div>
   </div>
 
+  <div class="shead" id="chordext"><span class="num">★</span><h2>コード拡張プレーヤー — "おしゃれ"の正体（7th・テンション・分数）</h2></div>
+  <p class="sub">3和音（ドミソ）は素朴。<b>音を足す／ずらすほど「大人・おしゃれ・浮遊」</b>になる。<b>唾奇/5lack系ジャジーの響きの正体はこれ</b>。ボタンで足して、耳で変化を掴め。ここが分かると<b>ビートメイカーに「マイナー7thで」「テンション効かせて」と言える</b>。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#9bd58f">▶ INTERACTIVE · 耳で掴む</div>
+    <h3>Cのコードに、足す／ずらす</h3>
+    <p class="hint">押すたびに<b>その響きが鳴る</b>。組み合わせ自由。下に「今の響き＝どんな気分か」が出る。</p>
+    <div class="ce-btns" id="ceBtns"></div>
+    <div class="ce-now" id="ceNow"></div>
+    <button class="play" id="cePlay" style="margin-top:12px">▶ 今の響きを鳴らす</button>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f">🎹 <b>おしゃれの階段：</b>3和音（素朴）→ <b>7th</b>（大人・ジャジー）→ <b>9th/テンション</b>（さらに洗練・ネオソウル/R&B）→ <b>sus/分数(オンコード)</b>（浮遊・切なさ）。<b>玄人の言葉</b>＝「7th＝ナナ」「テンション＝9th/11th/13thの上物」「分数＝オンコード＝ベースだけ別の音」。これが言えると発注が一段深くなる。</div>
+
   <div class="shead"><span class="num">07</span><h2>転調＝キーを引っ越す"場面転換の魔法"</h2></div>
   <p class="sub">曲の途中で<b>キーごと引っ越す</b>のが転調。サビで急に<b>高揚する・世界が開ける</b>あの感じの正体。ラストサビで半音上げる（"キー上げ"）のは、盛り上げの定番テクニック。</p>
   <div class="note">✨ たとえ＝<b>引っ越し</b>。同じ町（キー）に居続けると安定だけど、引っ越すと景色が変わる＝新鮮・高揚。使いすぎると迷子になるので"ここぞ"で。</div>
@@ -3083,6 +3104,31 @@ document.querySelectorAll('[data-jump]').forEach(function(el){ el.addEventListen
     document.getElementById('mpInfo').innerHTML='↑ 気分をタップ＝その<b>音階が鳴って</b>、どの音を使うか（色）が見える。<b>理屈は後でいい、まず「好き」を見つけろ。</b>';
   }
   render();
+})();
+
+/* ===== コード拡張プレーヤー ===== */
+(function(){
+  var btnsEl=document.getElementById('ceBtns'); if(!btnsEl) return;
+  var st={minor:false,seventh:false,ninth:false,sus4:false,slash:false};
+  var TOG=[
+    {k:'seventh',label:'+7th',sub:'大人・ジャジー'},
+    {k:'ninth',label:'+9th(テンション)',sub:'洗練・R&B'},
+    {k:'sus4',label:'sus4',sub:'宙ぶらりん'},
+    {k:'slash',label:'分数(ベース変)',sub:'浮遊・切なさ'},
+    {k:'minor',label:'マイナー化',sub:'切ない・影'}
+  ];
+  var ctx=null; function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function midi(m){ return 440*Math.pow(2,(m-69)/12); }
+  function tone(f,t,dur,g0){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2600; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(g0||.12,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+dur); o.connect(g).connect(lp).connect(c.destination); o.start(t); o.stop(t+dur+.05); }
+  function bass(f,t){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='sine'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=500; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.5,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+1.0); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+1.1); }
+  function notes(){ var third=st.sus4?65:(st.minor?63:64); var arr=[60,third,67]; if(st.seventh)arr.push(st.minor?70:71); if(st.ninth)arr.push(74); return arr; }
+  function symbol(){ var s=st.minor?'Cm':'C'; if(st.sus4)s='Csus4'; if(st.seventh)s+=st.sus4?'7':(st.minor?'7':'maj7'); if(st.ninth)s+='(9)'; if(st.slash)s+='/G'; return s; }
+  function vibe(){ if(st.slash)return '<b>浮遊・切なさ</b>。ベースだけ別の音（オンコード）＝地面が動く感じ。エモい展開に。'; if(st.ninth)return '<b>さらに洗練・浮遊</b>。テンション（9th）＝ネオソウル/R&Bの大人な色。'; if(st.seventh)return st.minor?'<b>大人・ジャジー・都会</b>（マイナー7th）＝<b>唾奇/5lack系</b>の心地よさの核。':'<b>美しい・浮遊</b>（メジャー7th）＝切なくきらめく。'; if(st.sus4)return '<b>宙ぶらりん・未解決</b>。3度が無い＝明暗が決まらない浮遊感。'; if(st.minor)return '<b>切ない・影</b>。3度が半音下がった素朴なマイナー。'; return '<b>素朴・まっすぐ</b>（ただの3和音）。ポップ/ロックの土台。ここから足していく。'; }
+  function play(){ var c=ac(); c.resume(); var t=c.currentTime+.04; bass(midi(st.slash?43:36),t); notes().forEach(function(m){ tone(midi(m),t,1.15); }); }
+  function upd(){ document.getElementById('ceNow').innerHTML='<span class="sym">'+symbol()+'</span><br>'+vibe(); }
+  function build(){ btnsEl.innerHTML=''; TOG.forEach(function(tg){ var b=document.createElement('button'); b.className='ce-btn'+(st[tg.k]?' on':''); b.innerHTML=tg.label+'<small>'+tg.sub+'</small>'; b.addEventListener('click',function(){ st[tg.k]=!st[tg.k]; b.classList.toggle('on',st[tg.k]); upd(); play(); }); btnsEl.appendChild(b); }); }
+  document.getElementById('cePlay').addEventListener('click',play);
+  build(); upd();
 })();
 
 function stopAllMedia(){
