@@ -706,6 +706,15 @@
   .ce-btn.on small{color:#4a3a10}
   .ce-now{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:13px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
   .ce-now b{color:var(--gold2)} .ce-now .sym{font-size:21px;font-weight:800;color:var(--gold2)}
+
+  /* ---- ビートメイカー会話 語彙 ---- */
+  .voc{display:grid;gap:7px;margin:8px 0}
+  .voc-i{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:10px 13px}
+  .voc-i .vt{font-weight:800;color:var(--gold2);font-size:14px}
+  .voc-i .vm{font-size:13px;color:var(--ink2);margin-top:2px;line-height:1.6}
+  .voc-i .ve{font-size:12px;color:var(--ink3);margin-top:5px;border-left:2px solid var(--goldsoft);padding-left:9px;line-height:1.6}
+  .dmbox{border:1px solid var(--goldsoft);background:linear-gradient(180deg,#1a1710,#121110);border-radius:12px;padding:15px 17px;margin:12px 0;font-size:14px;line-height:1.85;color:var(--ink)}
+  .dmbox b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -788,6 +797,7 @@
     <div class="qcard" data-jump="scene|genba"><div class="n" style="color:#ef8a93">🎤 現場</div><h3>現場に立つ・出られるハコ</h3><p>東京の<b>ライブ会場/サイファー/オープンマイク</b>＋出演の掴み方（秋葉原サイファー等）</p></div>
     <div class="qcard" data-jump="watch|"><div class="n">🎓 学ぶ</div><h3>上達の解説（動画22本）</h3><p>フロウ・韻・コード・ミックスの神解説。フィルタ<b>「🎓上達の解説」</b>を押せ</p></div>
     <div class="qcard" data-jump="rhythm|"><div class="n">🔥 SPIT</div><h3>リズム&Spit</h3><p>ポケット・spit・<b>やばいフロウ探求</b>まで一本の線で</p></div>
+    <div class="qcard" data-jump="produce|beatmakertalk" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">🎧 会話</div><h3>ビートメイカーと話す</h3><p><b>発注の言葉・語彙</b>。対等に話して舐められない発注（DMテンプレ付き）</p></div>
     <div class="qcard" data-jump="produce|"><div class="n">🎙 録る</div><h3>曲づくり（宅録）</h3><p>録音・ミックス・REAPER・配信までの流れ</p></div>
   </div>
 
@@ -1498,6 +1508,19 @@
     <div class="scard"><h4>バイティング <span class="en">biting（パクリ）</span></h4><p>他人のフロウ・韻・歌詞を無断で真似ること。最も忌み嫌われる。<span class="x">敬意あるオマージュはOK</span>。</p></div>
     <div class="scard"><h4>ビートメイカー <span class="en">beatmaker</span></h4><p>ラップを乗せる伴奏を作る人。料理人(ビート)と盛り付け(ラッパー)の関係。</p></div>
   </div>
+
+  <div class="shead" id="genba-words"><span class="num">🎙</span><h2>現場・玄人の言葉 — 通じる用語</h2></div>
+  <p class="sub">シーンで飛び交う言葉。<b>知ってれば会話に入れる／知らないと浮く</b>。まず<b>バースとフックの2つ</b>を押さえれば十分、あとは出てきた順に覚えろ。<span class="cf guess" style="margin:0">諸説</span>＝定義にブレがある語（断定しない）。</p>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">① 曲構成の言葉</div>
+  <div class="voc"><div class="voc-i"><div class="vt">バース／ヴァース</div><div class="vm">サビ以外の本編（1番・2番）。ラッパーが自由に展開する主部。<b>1バース＝16小節</b>が基準。</div><div class="ve">🗣 お前、2バース目蹴って。</div></div><div class="voc-i"><div class="vt">フック</div><div class="vm">サビ／コーラス。“hook＝引っかける”＝何度も反復する耳に残る核。</div><div class="ve">🗣 フックはキャッチーにいこう。</div></div><div class="voc-i"><div class="vt">サブフック<span class="cf guess" style="margin-left:5px">諸説</span></div><div class="vm">サビではないが繰り返す短いリフレイン。メインのフックとは別の反復。</div><div class="ve">🗣 バースの合間にサブフック挟む。</div></div><div class="voc-i"><div class="vt">プリフック／ポストフック<span class="cf guess" style="margin-left:5px">諸説</span></div><div class="vm">プリ＝フックに入る前の助走（溜め）／ポスト＝フック直後の余韻。</div><div class="ve">🗣 サビ前にプリフックで溜める。</div></div><div class="voc-i"><div class="vt">ブリッジ<span class="cf guess" style="margin-left:5px">諸説</span></div><div class="vm">つなぎ／大サビ。サビ手前で盛り上げる橋渡し（「大サビ」とする説と「フックへの繋ぎ」とする説が併存）。</div><div class="ve">🗣 ラストのブリッジで転調。</div></div><div class="voc-i"><div class="vt">イントロ／アウトロ</div><div class="vm">曲の導入／締め。</div><div class="ve">🗣 —</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">② ラップ技術の言葉</div>
+  <div class="voc"><div class="voc-i"><div class="vt">パンチライン</div><div class="vm">決め台詞＝印象に強く残る一撃。バトルでは相手に刺す“キメ”の一言。</div><div class="ve">🗣 今のパンチライン効いた。</div></div><div class="voc-i"><div class="vt">フロウ</div><div class="vm">歌い方・歌い回し。ビートへの言葉の乗せ方、強弱・速さ・抑揚＝<b>個性が一番出る</b>。</div><div class="ve">🗣 あいつのフロウは独特。</div></div><div class="voc-i"><div class="vt">ライム／韻（脚韻・頭韻・マルチ）</div><div class="vm">言葉の<b>母音を合わせる</b>こと（マイク=a-i-u / 財布=a-i-u）。脚韻＝語尾／頭韻＝頭／マルチ（多重韻）＝複数音節にまたがる高度な韻。</div><div class="ve">🗣 そこ韻踏んでるね。マルチで踏んでる。</div></div><div class="voc-i"><div class="vt">キック（蹴る）</div><div class="vm"><b>ラップすること・歌うこと</b>。「1バース蹴って」。※ドラムのキック（低音）とは別義＝文脈で判断。</div><div class="ve">🗣 頭からカマして、1バース蹴って。</div></div><div class="voc-i"><div class="vt">カマす<span class="cf guess" style="margin-left:5px">諸説</span></div><div class="vm">強烈な一発を決める・仕掛ける。</div><div class="ve">🗣 頭からカマしていけ。</div></div><div class="voc-i"><div class="vt">アンサー</div><div class="vm">相手の発言・曲に返答する。バトルの切り返し／曲でのレス。</div><div class="ve">🗣 そのディスにアンサー返した。</div></div><div class="voc-i"><div class="vt">フェイク<span class="cf guess" style="margin-left:5px">諸説</span></div><div class="vm">本来のメロ/リズムを即興で崩して揺らす歌唱技法（R&B/ソウル由来）。</div><div class="ve">🗣 —</div></div><div class="voc-i"><div class="vt">パンチイン</div><div class="vm">録音で<b>一部だけ録り直して差し替える</b>手法（言い間違い等の部分修正）。</div><div class="ve">🗣 今の行だけパンチインで録り直そう。</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">③ 現場の隠語</div>
+  <div class="voc"><div class="voc-i"><div class="vt">尺（しゃく）</div><div class="vm">時間の長さ（曲・パートの秒数/分数）。業界共通。</div><div class="ve">🗣 ソロ入れたいけど尺が足りない。</div></div><div class="voc-i"><div class="vt">頭／ケツ</div><div class="vm">頭＝冒頭／ケツ＝終わり・締め時刻。</div><div class="ve">🗣 もう一回頭から。今日はケツがあるんでここまで。</div></div><div class="voc-i"><div class="vt">キメ</div><div class="vm">一瞬ブレイクor全員で合わせてアクセントをつける決め所。</div><div class="ve">🗣 サビ前のキメ外すな。</div></div><div class="voc-i"><div class="vt">ワンバース／16・8</div><div class="vm">1バース分（＝ふつう16小節）。8＝短めの半バース。</div><div class="ve">🗣 客演でワンバースもらえる？ 16で書いて。</div></div><div class="voc-i"><div class="vt">ポン出し</div><div class="vm">SE/BGMをタイミングよく“ポン”と即時再生（ライブの音響）。</div><div class="ve">🗣 そこでポン出しして。</div></div><div class="voc-i"><div class="vt">レペゼン</div><div class="vm">represent＝代表する。土地・仲間を背負って表明。</div><div class="ve">🗣 レペゼン沖縄。</div></div><div class="voc-i"><div class="vt">ドープ／イル／フリー</div><div class="vm">ドープ・イル＝ヤバい/カッコいい（褒め）／フリー＝フリースタイル（即興）。</div><div class="ve">🗣 そのビート、ドープ。ちょっとフリーで回そう。</div></div>  </div>
+  <div class="note" style="border-left-color:#8fc0e8">📚 <b>ジブラ（Zeebra）の『日本語ラップメソッド』（文響社・2018）＝実在</b>。LESSON0で「基本構成と用語」を体系的に教えてる（韻→ヴァース→曲→フロー→フリースタイル→ライブの順）。本気で学ぶなら一次資料としておすすめ。<span class="cf chk" style="margin:0">要確認</span> 本サイトの各用語は<b>一般的な定義</b>。特定の語をZeebra本人がどう定義してるかは本／公式YouTubeで確認を（ここでは<b>Zeebra断定はしない</b>＝嘘を書かない方針）。</div>
 
   <div class="shead"><span class="num">07</span><h2>今日から始める7ステップ</h2></div>
   <p class="sub">理屈より反復。この順にやれば確実に上達します。お金も特別な機材も要りません（スマホでOK）。</p>
@@ -2261,6 +2284,36 @@
     <div class="pstep"><div class="pn">5</div><div class="pt">マスタリング</div><div class="pd">全体を仕上げ、他の曲に負けない完成品に</div></div>
     <div class="pstep"><div class="pn">6</div><div class="pt">配信</div><div class="pd">SoundCloud／配信サービスで世に出す</div></div>
   </div>
+
+  <div class="shead" id="beatmakertalk"><span class="num">★</span><h2>ビートメイカーと話す — 発注の言葉（会話できる語彙）</h2></div>
+  <p class="sub">お前はビートは作らない。でも<b>語彙を持てば、ビートメイカーと"対等"に話せて、舐められない発注ができる</b>＝いい曲が返ってくる。全部「こう使う🗣」の例文つき。まず<b>一番下の「発注DMの完成形」</b>を読めば全体像が掴める。</p>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">① ビートを発注／相談する言葉</div>
+  <div class="voc"><div class="voc-i"><div class="vt">リファレンス（リファ／ref）</div><div class="vm">「こんな雰囲気で」の参考曲。</div><div class="ve">🗣 リファに唾奇の“Jasmine”貼っときます。あのローファイなドラムの質感で。</div></div><div class="voc-i"><div class="vt">BPM</div><div class="vm">1分間の拍数＝テンポ。ジャジー/ブンバップは<b>80〜95</b>が主戦場。</div><div class="ve">🗣 BPMは88くらいで。走らない、ちょい重めのノリで乗りたい。</div></div><div class="voc-i"><div class="vt">キー（Key）</div><div class="vm">曲の調。自分の声の高さに合うかを左右する。</div><div class="ve">🗣 キーどこですか？ サビ張ると高いんで、キー下げ（半音〜1音）いけます？</div></div><div class="voc-i"><div class="vt">尺（しゃく）／構成</div><div class="vm">曲の長さ（ラップは2:30〜3:30）と、Intro/Verse/Hook/Bridge/Outroの並び。</div><div class="ve">🗣 尺は3分ちょい、構成は Intro→Verse→Hook→Verse→Hook→Outro で。</div></div><div class="voc-i"><div class="vt">ループ</div><div class="vm">数小節をくり返す土台のフレーズ。</div><div class="ve">🗣 このピアノのループ超好き。ここ主役にしてほしい。</div></div><div class="voc-i"><div class="vt">16小節／8小節（16bar/8bar）</div><div class="vm">ヴァースの長さの単位。1ヴァース＝16小節が定番。</div><div class="ve">🗣 1ヴァース16で。フック前に8小節のブリッジ挟める？</div></div><div class="voc-i"><div class="vt">ドロップ／キメ／ブレイク</div><div class="vm">ドロップ＝盛り上がりが“落ちる”起点／キメ＝全員ピタッと合わせる決め所／ブレイク＝一瞬音を抜く空白。</div><div class="ve">🗣 フック頭でドロップ、そこで808ドスンと。ラスサビ前はドラム抜いてブレイク。</div></div><div class="voc-i"><div class="vt">差し替え</div><div class="vm">特定パートを別の音に替える。</div><div class="ve">🗣 このスネアだけ差し替えたい。もっと乾いたパチっとしたやつに。</div></div><div class="voc-i"><div class="vt">ステム／パラデータ（trackout）</div><div class="vm">パート別に分けた音源（ドラム/ベース/うわもの別）。自分でミックスするなら必須。</div><div class="ve">🗣 ミックスこっちでやるんで、ステム（パラ）でもらえます？</div></div><div class="voc-i"><div class="vt">2mix／マスター</div><div class="vm">2mix＝全部を2chにまとめた完成一本／マスター＝最終の音量・音質仕上げ。</div><div class="ve">🗣 とりあえず2mixで仮録り、良ければパラください。マスターはそっちで？</div></div><div class="voc-i"><div class="vt">頭／ケツ</div><div class="vm">曲や小節の最初／最後。</div><div class="ve">🗣 頭ちょい食い気味に入るんで、イントロもう2小節。ケツはスパッと切って。</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">② ビートのパーツの呼び方</div>
+  <div class="voc"><div class="voc-i"><div class="vt">キック／スネア／ハット</div><div class="vm">キック＝低いドン／スネア＝2・4拍のパチッ／ハット＝チキチキ刻む金物。</div><div class="ve">🗣 スネア硬すぎ。もっと乾いた紙っぽいのが唾奇っぽい。ハットは間引いてジャジーに。</div></div><div class="voc-i"><div class="vt">808（ヤオヤ）</div><div class="vm">低音とキックを兼ねる長く伸びるベース音。トラップの主役。</div><div class="ve">🗣 808効かせたい、でもジャジーなんで“支える”感じで。</div></div><div class="voc-i"><div class="vt">ベース／ウッドベース</div><div class="vm">低域の土台。ウッドベース系がジャジーの肝。</div><div class="ve">🗣 ウッドベースのループ主役で。指の音残ってると最高。</div></div><div class="voc-i"><div class="vt">うわもの／パッド／リード</div><div class="vm">うわもの＝上に乗る楽器全般（ピアノ/ギター/サンプル）／パッド＝背後の和音の壁／リード＝前に出る主旋律。</div><div class="ve">🗣 うわものはこのピアノ一本で十分、足すと濁る。声が主役なんでリードのシンセは要らない。</div></div><div class="voc-i"><div class="vt">サンプル／ワンショット／チョップ</div><div class="vm">サンプル＝既存音源の切り貼り素材／ワンショット＝単発1音／チョップ＝サンプルを細かく刻んで組み替える（J Dilla/Nujabesの核）。</div><div class="ve">🗣 ジャズをチョップして並べ替えた、あのヨレる感じが欲しい。</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">③ ミックスの会話語</div>
+  <div class="voc"><div class="voc-i"><div class="vt">帯域（低域/中域/高域）</div><div class="vm">音の高さの範囲＝役割の“場所取り”。</div><div class="ve">🗣 声とうわものがぶつかってる。中域どっちか譲りたい。</div></div><div class="voc-i"><div class="vt">抜け／こもり</div><div class="vm">前に出て聞こえる＝抜け／モワっと引っ込む＝こもり。<b>こもり=200〜400Hz、抜け=2〜5kHz</b>が当たり所。</div><div class="ve">🗣 サビの声がこもってる。もうちょい抜け欲しい。</div></div><div class="voc-i"><div class="vt">音圧</div><div class="vm">全体の“詰まった大きさ”。</div><div class="ve">🗣 他の配信曲と並べると音圧負けする。マスターで詰めたい。</div></div><div class="voc-i"><div class="vt">定位／パン</div><div class="vm">音を左右どこに置くか。</div><div class="ve">🗣 ハットちょい右、左にギターで広がる。</div></div><div class="voc-i"><div class="vt">クオンタイズ／スウィング</div><div class="vm">クオンタイズ＝拍にピタッと吸着補正／スウィング＝裏拍を後ろにズラして跳ねさせるノリ（ジャジー/ローファイの生命線）。</div><div class="ve">🗣 ドラムはフルクオンタイズだと硬い、軽めで。スウィング強めでハネる感じに。</div></div><div class="voc-i"><div class="vt">サイドチェイン</div><div class="vm">別トラックに連動して音量を一瞬下げる技（キックで808を凹ませ棲み分け）。</div><div class="ve">🗣 808とキックが喧嘩してる。サイドチェインで整理できます？</div></div><div class="voc-i"><div class="vt">リバーブ／ディレイ／位相</div><div class="vm">リバーブ＝残響（空間）／ディレイ＝やまびこ（奥行き）／位相＝波のズレ（合わないと低音が痩せる）。</div><div class="ve">🗣 声に軽くリバーブ、ケツにディレイで余韻。低音薄い、位相ズレてない？</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">④ ジャンル・質感の伝え方</div>
+  <div class="subgrid">
+    <div class="scard"><h4>ブーンバップ <span class="en">85-95</span></h4><p>90's王道。ドスッ＆パチッの生っぽいドラム。</p></div>
+    <div class="scard"><h4>ジャジー <span class="en">80-92</span></h4><p><span class="x">ジャズサンプル/ウッドベース</span>。Nujabes/唾奇の土壌＝お前の本命。</p></div>
+    <div class="scard"><h4>ローファイ <span class="en">70-90</span></h4><p>ノイズ/レコードのパチパチ、<span class="x">あえて汚す</span>。</p></div>
+    <div class="scard"><h4>メロウ <span class="en">75-90</span></h4><p>甘く柔らかい和音、夜/チル。</p></div>
+    <div class="scard"><h4>トラップ／ドリル <span class="en">130-150</span></h4><p>刻むハット＋808。ドリルは暗くスライドする808。</p></div>
+    <div class="scard"><h4>ダーク</h4><p>暗く重い、マイナー調。緊張感。</p></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f">🎯 <b>「もっと〇〇な感じ」を的確に伝える3つのコツ：</b>①<b>感覚語を“音の場所”に翻訳</b>＝「軽く」→「中域少し削って/うわもの間引いて」、「重く」→「808伸ばして/BPM落として」。曖昧な形容詞に<b>帯域か楽器名を必ずセット</b>。②<b>リファは“部分指定”</b>＝「この曲みたいに」でなく「この曲の0:45のドラムの乾き方」。丸投げはパクリ発注。③<b>足すより引く</b>＝ジャジーは隙間が命。「音数減らして声の余白ください」が玄人の頼み方。</div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">⑤ 権利・お金（舐められないために）</div>
+  <div class="voc"><div class="voc-i"><div class="vt">リース vs 買い切り（独占/Exclusive）</div><div class="vm">リース＝“借りてる”＝非独占（他人も同じビートで出せる）。<b>本気の代表曲は独占（買い切り）</b>が定石＝自分だけのものになる。</div><div class="ve">🗣 この曲は勝負曲なんで独占で考えてます。条件教えてください。</div></div><div class="voc-i"><div class="vt">相場感 <span class="cf chk" style="margin:0">要確認</span></div><div class="vm">海外BeatStars基準の目安＝MP3リース$25〜75／WAV・ステム$100〜300／独占$300〜。<b>日本の個人DM直取引は数千〜数万円、クレジットだけでOKや印税折半も普通</b>。必ず本人に確認。</div><div class="ve">🗣 無名同士、金額どうします？ クレジット表記だけでも全然。</div></div><div class="voc-i"><div class="vt">クレジット表記</div><div class="vm">曲名/概要に <b>Prod. by 〇〇</b>（＝ビート製作者）を入れる。リース物は表記が契約上の義務。</div><div class="ve">🗣 コザの夜 (prod. 〇〇) で入れます。</div></div><div class="voc-i"><div class="vt">原盤権と著作権／取り分</div><div class="vm">録音そのもの＝原盤権／作詞作曲＝著作権。ビートメイカーは<b>作曲側の権利者</b>＝収益の取り分（スプリット）を持つのが自然。<b>口約束にせずDMで一言残す</b>。</div><div class="ve">🗣 収益出たら折半で。独占か/クレジットどう書くか、先に決めときたいです。</div></div>  </div>
+
+  <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:18px 0 6px">⑥ 発注DMの「完成形」テンプレ（これが言えたら“分かってる”）</div>
+  <div class="dmbox">「<b>BPM88前後</b>、キーはお任せ（あとで声で調整させてください）、<b>尺3分</b>、<b>Verse16×2＋Hook構成</b>で。<b>ジャジー／ローファイ志向</b>で、リファは唾奇の〇〇の<b>ドラムの乾き方</b>と、△△の<b>ピアノの隙間感</b>。<b>音数は絞って声の余白を残す方向</b>で。<b>ステム</b>ももらえると助かります。クレジットは <b>prod. 〇〇</b> で入れます。条件（リース／独占・金額）も教えてください」</div>
+  <div class="note" style="border-left-color:#9bd58f">💡 <b>骨格は指定、肉付けは信頼して預ける。</b>指定すべき＝BPM/キー/尺/構成/ジャンル/リファ/余白の量（＝お前が乗れるかの骨格）。任せるべき＝音色/コード進行/ミックスの細部（＝相手の腕の見せ所）。全部指定すると作業員扱いで良い物が出ない。<b>自分のラップ仮録り（スマホ可）＋BPM＋キーを先に渡す</b>と、相手が“お前の声”に当てて作れる＝一気に対等。</div>
 
   <div class="shead"><span class="num">02</span><h2>録音（レコーディング）の基礎</h2></div>
   <p class="sub">ここは<b>素材採り</b>。悪く録ると後で直せない＝一番大事。でも高い機材はいらない。</p>
