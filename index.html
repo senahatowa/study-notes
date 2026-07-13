@@ -291,7 +291,16 @@
   .bx-cell.on.chord{background:linear-gradient(160deg,#9bd58f,#3f9f5a)}
   .bx-cell.muted{opacity:.25}
   .bx-cell.cur{outline:2px solid #fff;outline-offset:1px}
-  @media(max-width:560px){.bx-row{grid-template-columns:96px 1fr}.bx-name small{display:none}}
+  @media(max-width:560px){
+    .beatnums{display:none}
+    .bx-grid{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:10px}
+    .bx-row{grid-template-columns:66px max-content;gap:8px;width:max-content}
+    .bx-head{position:sticky;left:0;z-index:4;background:#151009;flex-direction:column;align-items:flex-start;gap:3px;padding:2px 6px 2px 0}
+    .bx-ms button{width:29px;height:29px;font-size:12px}
+    .bx-name{font-size:11px}.bx-name small{display:none}
+    .bx-cells{grid-template-columns:repeat(16,30px);gap:4px}
+    .bx-cell{aspect-ratio:auto;height:36px}
+  }
 
   /* frequency diagram */
   .freqbar{display:flex;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-top:6px}
@@ -632,6 +641,33 @@
   .fs-head{position:absolute;top:0;bottom:0;width:2px;background:var(--gold2);box-shadow:0 0 10px var(--gold2);left:0;display:none;z-index:1}
   .fs-why{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
   .fs-why b{color:var(--gold2)}
+
+  /* ---- 曲の設計図（構成×盛り上げ×コード） ---- */
+  .sm-stage{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:14px 12px 12px}
+  .sm-inner{min-width:600px}
+  #smCurve svg{display:block}
+  .sm-blocks{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin-top:4px}
+  .sm-block{border:1px solid var(--line);border-radius:9px;padding:9px 4px;cursor:pointer;text-align:center;transition:.12s;background:var(--panel);-webkit-tap-highlight-color:transparent}
+  .sm-block:hover{border-color:var(--gold2)}
+  .sm-block.sel{border-color:var(--gold2);box-shadow:0 0 0 1px var(--gold2) inset}
+  .sm-block.cur{outline:2px solid #fff;outline-offset:1px}
+  .sm-block .smn{font-size:12px;font-weight:800;color:var(--ink);line-height:1.25}
+  .sm-block .sme{font-size:9.5px;color:var(--gold2);font-weight:800;margin-top:3px}
+  .sm-block .smbar{height:5px;border-radius:3px;margin:6px auto 0;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+  .sm-detail{margin-top:12px;border-left:3px solid var(--gold);background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
+  .sm-detail b{color:var(--gold2)}
+  .sm-detail .lvl{display:inline-block;font-size:11px;font-weight:800;color:var(--gold2);border:1px solid var(--goldsoft);border-radius:999px;padding:1px 10px;margin-left:6px}
+  .cp-list{display:grid;gap:10px;margin-top:4px}
+  .cp-item{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 14px}
+  .cp-top{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+  .cp-play{background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;border:none;border-radius:10px;width:42px;height:42px;font-size:16px;font-weight:800;cursor:pointer;flex:0 0 auto}
+  .cp-nm{font-weight:800;font-size:15px}
+  .cp-mood{font-size:12px;color:var(--gold2);font-weight:800}
+  .cp-chords{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+  .cp-ch{border:1px solid var(--line);border-radius:8px;background:var(--panel2);padding:8px 13px;font-weight:800;font-size:14px;min-width:56px;text-align:center;transition:.1s}
+  .cp-ch.lit{background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;border-color:transparent;transform:translateY(-3px)}
+  .cp-desc{font-size:13px;color:var(--ink2);margin-top:10px;line-height:1.7}
+  .cp-desc b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -1961,6 +1997,30 @@
     この流れと道具を知ると、<b>自分の曲がグッと"曲らしく"なる</b>。全部たとえ話で。</p>
   </div>
 
+  <div class="shead"><span class="num">★</span><h2>曲の設計図 — 構成 × 盛り上げ × コード</h2></div>
+  <p class="sub">「曲の構成・盛り上げ・コード進行がまったく分からん」を<b>目で見て腹落ち</b>させる。1曲は<b>ブロックの積み木</b>＝どこで盛り上げてどこで落とすか（＝<b style="color:var(--gold2)">ダイナミクス＝盛り上げ</b>）を設計できると、一気に"曲"になる。</p>
+
+  <div class="tool">
+    <div class="tlabel" style="color:#9bd58f">▶ INTERACTIVE · イメージで腹落ち</div>
+    <h3>① 曲の構成＆盛り上げマップ</h3>
+    <p class="hint">上の<b>波＝エネルギー（盛り上げ）</b>。各ブロックを<b>タップ</b>すると役割とコツが出る。<b>▶通して見る</b>で頭から流れを体感。<b>スマホは横スワイプ。</b></p>
+    <div class="sm-stage"><div class="sm-inner">
+      <div id="smCurve"></div>
+      <div class="sm-blocks" id="smBlocks"></div>
+    </div></div>
+    <div class="sm-detail" id="smDetail"></div>
+    <div class="controls"><button class="play" id="smPlay"><span id="smIco">▶</span> <span id="smTxt">通して見る</span></button></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f">🌊 <b>盛り上げ（ダイナミクス）の正体：</b>ずっと全開だと耳が慣れて<b>飽きる</b>。<b>落とす→上げる</b>から最後のフックが刺さる。波に「谷（ブリッジ）」があるから「山（ラストフック）」が立つ。強弱の設計＝プロっぽさの9割。</div>
+
+  <div class="tool">
+    <div class="tlabel" style="color:#9bd58f">▶ INTERACTIVE · 耳で覚える</div>
+    <h3>② コード進行＝"感情の型"</h3>
+    <p class="hint">コードの<b>並び順</b>で曲の感情が決まる。▶で鳴らして<b>どの並びがどんな気分か</b>を耳で覚えよう。理屈は後でいい、まず<b>「これ好き」を見つける</b>。</p>
+    <div class="cp-list" id="cpList"></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f">🎹 <b>使い方：</b>気に入った進行が見つかったら、ビートを探す/作る時の<b>合言葉</b>になる（「ジャジーなii-V-Iで」とビート職人に言える）。深い理論は<b style="color:#8fc0e8">音楽理論タブ</b>へ。ここは<b>"好き"を先に作る</b>場所。</p></div>
+
   <div class="shead"><span class="num">01</span><h2>曲ができる流れ（全体像）</h2></div>
   <p class="sub">1曲は、この6ステップで完成する。どこで何が起きてるかを掴めば、迷わない。</p>
   <div class="pipeline">
@@ -2646,6 +2706,104 @@ document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',(
   buildStatic(); renderSyl();
 })();
 
+/* ===== 曲の設計図（構成×盛り上げ×コード） ===== */
+(function(){
+  var blocksEl=document.getElementById('smBlocks'); if(!blocksEl) return;
+  var SEC=[
+    {nm:'イントロ',en:2,role:'世界観の提示・掴み',tip:'ビートだけ or 短い一言で「これは何の曲か」を提示。長すぎると飽きるので短く。'},
+    {nm:'バース1',en:4,role:'物語の始まり',tip:'一番言葉を詰める場所。情報量で引き込む。まだ全開にしない＝後で上げる余白を残す。'},
+    {nm:'フック',en:8,role:'看板・繰り返す核',tip:'一番キャッチーで覚えやすく。ここを繰り返す＝曲の「顔」。感情のピークその1。'},
+    {nm:'バース2',en:5,role:'展開・深掘り',tip:'1より少し強く。視点を変える・掘り下げる。同じ型の繰り返しに飽きさせない工夫を。'},
+    {nm:'フック',en:8,role:'看板（再）',tip:'同じフックをもう一度。人は繰り返しで覚える。少しアドリブを足すと生きる。'},
+    {nm:'ブリッジ',en:6,role:'場面転換（一回落とす）',tip:'あえてエネルギーを落とす or 変える。ここで落とすから次の最後のフックが一気に立つ。'},
+    {nm:'ラストフック',en:10,role:'最高潮',tip:'全部乗せ＝ダブル／アドリブ／ハモリを足して最大化。曲で一番刺す瞬間。'},
+    {nm:'アウトロ',en:2,role:'余韻・締め',tip:'スッと引く。フェード or 締めの一言で余韻を残す。ダラダラ続けない。'}
+  ];
+  var sel=2, sweepTimer=null, ctx=null;
+  function ac(){ if(!ctx) ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function lvl(en){ return en<=3?'静':en<=6?'中':en<=8?'強':'最高潮'; }
+  function drawCurve(){
+    var W=800,H=100, pts=SEC.map(function(sc,i){ return [ (i+0.5)/8*W, H-6-(sc.en/10)*(H-16) ]; });
+    var line=pts.map(function(pt){ return pt[0].toFixed(0)+','+pt[1].toFixed(1); }).join(' ');
+    var area='0,'+H+' '+line+' '+W+','+H;
+    var dots=pts.map(function(pt){ return '<circle cx="'+pt[0].toFixed(0)+'" cy="'+pt[1].toFixed(1)+'" r="3.5" fill="#f2d188"/>'; }).join('');
+    document.getElementById('smCurve').innerHTML=
+      '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="width:100%;height:88px">'
+      +'<defs><linearGradient id="smg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(242,209,136,.35)"/><stop offset="1" stop-color="rgba(242,209,136,0)"/></linearGradient></defs>'
+      +'<polygon points="'+area+'" fill="url(#smg)"/>'
+      +'<polyline points="'+line+'" fill="none" stroke="#f2d188" stroke-width="2.5"/>'
+      +dots
+      +'<line id="smHead" x1="0" y1="0" x2="0" y2="'+H+'" stroke="#fff" stroke-width="2" opacity="0"/>'
+      +'</svg>';
+  }
+  function renderBlocks(){
+    blocksEl.innerHTML='';
+    SEC.forEach(function(sc,i){
+      var d=document.createElement('div'); d.className='sm-block'+(i===sel?' sel':'');
+      d.innerHTML='<div class="smn">'+sc.nm+'</div><div class="sme">'+lvl(sc.en)+'</div><div class="smbar" style="width:'+(sc.en*9+10)+'%"></div>';
+      d.addEventListener('click',function(){ sel=i; renderBlocks(); renderDetail(); });
+      blocksEl.appendChild(d);
+    });
+  }
+  function renderDetail(){
+    var sc=SEC[sel];
+    document.getElementById('smDetail').innerHTML='<b>'+sc.nm+'</b><span class="lvl">エネルギー '+sc.en+'／10・'+lvl(sc.en)+'</span><br><b>役割：</b>'+sc.role+'<br><b>コツ：</b>'+sc.tip;
+  }
+  function tone(en){ var c=ac(); var t=c.currentTime+0.02; var f=220*Math.pow(2,(en-4)/9); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2400; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.16,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+.4); o.connect(g).connect(lp).connect(c.destination); o.start(t); o.stop(t+.45); }
+  function stopSweep(){ if(sweepTimer){ clearInterval(sweepTimer); sweepTimer=null; } document.getElementById('smIco').textContent='▶'; document.getElementById('smTxt').textContent='通して見る'; var h=document.getElementById('smHead'); if(h)h.setAttribute('opacity','0'); blocksEl.querySelectorAll('.sm-block.cur').forEach(function(b){b.classList.remove('cur');}); }
+  window.__stopSongMap=function(){ stopSweep(); };
+  function startSweep(){
+    var c=ac(); c.resume();
+    document.getElementById('smIco').textContent='❚❚'; document.getElementById('smTxt').textContent='停止';
+    var h=document.getElementById('smHead'); if(h)h.setAttribute('opacity','.9');
+    var i=0;
+    var stepFn=function(){
+      blocksEl.querySelectorAll('.sm-block.cur').forEach(function(b){b.classList.remove('cur');});
+      if(i>=SEC.length){ stopSweep(); return; }
+      var bl=blocksEl.children[i]; if(bl)bl.classList.add('cur');
+      if(h)h.setAttribute('x1',((i+0.5)/8*800).toFixed(0)), h.setAttribute('x2',((i+0.5)/8*800).toFixed(0));
+      sel=i; renderDetail();
+      tone(SEC[i].en);
+      i++;
+    };
+    stepFn(); sweepTimer=setInterval(stepFn,650);
+  }
+  document.getElementById('smPlay').addEventListener('click',function(){ if(sweepTimer) stopSweep(); else startSweep(); });
+
+  // ---- コード進行 ----
+  function midi(m){ return 440*Math.pow(2,(m-69)/12); }
+  var PROG=[
+    {nm:'王道進行',mood:'切ない・エモい',ch:[['FM7',[53,57,60,64]],['G',[55,59,62]],['Em',[64,67,71]],['Am',[57,60,64]]],desc:'J-POPの王道。<b>青春・別れ・泣ける</b>感じ。切なさを主役にしたい曲に。'},
+    {nm:'6451',mood:'エモい定番・世界共通',ch:[['Am',[57,60,64]],['F',[53,57,60]],['C',[60,64,67]],['G',[55,59,62]]],desc:'世界中のヒットの超定番。<b>切なさ＋前に進む力</b>。まず1つ覚えるならこれ。'},
+    {nm:'ジャジー ii-V-I',mood:'おしゃれ・大人・夜',ch:[['Dm7',[62,65,69,72]],['G7',[55,59,62,65]],['Cmaj7',[60,64,67,71]],['Cmaj7',[60,64,67,71]]],desc:'<b>唾奇・5lack系のchill</b>。都会・夜・大人の余裕。ジャジーなブーンバップの心臓。'},
+    {nm:'マイナー・ループ',mood:'ダーク・攻撃的',ch:[['Am7',[57,60,64,67]],['Dm7',[62,65,69,72]],['Am7',[57,60,64,67]],['Dm7',[62,65,69,72]]],desc:'<b>トラップ／ドリル</b>のダークな反復。ボスの入場曲みたいな緊張感。同じ2つを回すだけでも成立。'}
+  ];
+  function cpChord(freqs,t,dur){ var c=ac(); freqs.forEach(function(f){ var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2600; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.11,t+.03); g.gain.exponentialRampToValueAtTime(.001,t+dur); o.connect(g).connect(lp).connect(c.destination); o.start(t); o.stop(t+dur+.05); }); }
+  function playProg(pi){
+    var c=ac(); c.resume();
+    var t0=c.currentTime+0.05, dur=0.62;
+    var item=document.querySelectorAll('#cpList .cp-item')[pi];
+    var chips=item.querySelectorAll('.cp-ch');
+    PROG[pi].ch.forEach(function(cd,ci){
+      cpChord(cd[1].map(midi), t0+ci*dur, dur);
+      (function(el,at){ setTimeout(function(){ chips.forEach(function(x){x.classList.remove('lit');}); if(el)el.classList.add('lit'); }, Math.max(0,(at-c.currentTime)*1000)); })(chips[ci], t0+ci*dur);
+    });
+    setTimeout(function(){ chips.forEach(function(x){x.classList.remove('lit');}); }, (t0+PROG[pi].ch.length*dur-c.currentTime)*1000+120);
+  }
+  function renderProg(){
+    var wrap=document.getElementById('cpList'); wrap.innerHTML='';
+    PROG.forEach(function(pg,pi){
+      var chips=pg.ch.map(function(cd){ return '<div class="cp-ch">'+cd[0]+'</div>'; }).join('');
+      var it=document.createElement('div'); it.className='cp-item';
+      it.innerHTML='<div class="cp-top"><button class="cp-play" aria-label="再生">▶</button><div><div class="cp-nm">'+pg.nm+'</div><div class="cp-mood">'+pg.mood+'</div></div></div><div class="cp-chords">'+chips+'</div><div class="cp-desc">'+pg.desc+'</div>';
+      it.querySelector('.cp-play').addEventListener('click',function(){ playProg(pi); });
+      wrap.appendChild(it);
+    });
+  }
+
+  drawCurve(); renderBlocks(); renderDetail(); renderProg();
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -2656,6 +2814,7 @@ function stopAllMedia(){
   if(window.__stopSub) window.__stopSub();
   if(window.__stopFt) window.__stopFt();
   if(window.__stopFlowScope) window.__stopFlowScope();
+  if(window.__stopSongMap) window.__stopSongMap();
 }
 
 let io;
