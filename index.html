@@ -1986,14 +1986,17 @@
   <div class="note" style="border-left-color:#c79bf2">🧪 <b>実践：</b>音感ラボの「フロウ・ラボ」で、同じビートに違う譜割り（オンビート/裏/ダブル/休符）を乗せ比べ→"乗り位置"が体で分かる。ここが分かると、書いた歌詞を<b>どう乗せるか</b>を設計できる。</div>
 
   <div class="shead"><span class="num">★</span><h2>フロウ・スコープ — 同じ歌詞、4つの「乗せ方」を見て×聴く</h2></div>
-  <p class="sub">お前の一番の要望＝<b>「どう言葉を乗せてるか」を目で見る</b>。同じ8音「よ・る・を・こ・え・て・ゆ・く」を<b>棒読み／グルーヴ／ダブルタイム／間</b>の4通りで乗せた。ボタンで切り替えて▶再生＝<b>言葉の粒がビートのどこに乗るか</b>が光って走って見える。乗せ方だけでこんなに変わる。</p>
+  <p class="sub">お前の一番の要望＝<b>「どう言葉を乗せてるか」を目で見る</b>。同じ8音「よ・る・を・こ・え・て・ゆ・く」を<b>7通り（棒読み・裏拍・食い・3連・グルーヴ・ダブル・間）</b>で乗せた。<b style="color:#ef8a93">★＝お前がまだ、のやつ（食い・3連）</b>。ボタンで切り替えて▶再生＝<b>言葉の粒がビートのどこに乗るか</b>が光って走って見える。乗せ方だけでこんなに変わる。</p>
   <div class="tool">
     <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · イメージで腹落ち</div>
     <h3>フロウ・スコープ</h3>
     <p class="hint"><b>上段＝言葉</b>（金＝アクセント＝強く言う所）／<b>中段＝ドラム</b>（<span style="color:#c8503e">赤キック</span>・<span style="color:#5b9bd5">青スネア</span>・灰ハット）／<b>下段＝拍（1234）</b>。言葉がドラムのどこに乗ってるか見比べよう。<b>スマホは横スワイプ</b>で全体が見れる。</p>
     <div class="fs-modes" id="fsModes">
       <button class="fs-mode active" data-m="flat">棒読み<small>均等・ダサい例</small></button>
-      <button class="fs-mode" data-m="groove">グルーヴ<small>裏・食い</small></button>
+      <button class="fs-mode" data-m="ura">裏拍<small>お前いける</small></button>
+      <button class="fs-mode" data-m="kui">食い<small>★課題</small></button>
+      <button class="fs-mode" data-m="san">3連符<small>★課題</small></button>
+      <button class="fs-mode" data-m="groove">グルーヴ<small>裏＋食い</small></button>
       <button class="fs-mode" data-m="double">ダブルタイム<small>詰める→空ける</small></button>
       <button class="fs-mode" data-m="ma">間（タメ）<small>空白で聴かせる</small></button>
     </div>
@@ -2768,11 +2771,17 @@ document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',(
     double:{nm:'ダブルタイム',pos:[0,2,4,6,8,10,12,14],acc:[0],
       why:'前半の1小節で<b>16分で畳みかけ</b>、後半はまるごと<b>余白</b>。「詰める→空ける」の落差それ自体が快感になる。テクの見せ場だけど、余白があるから映える。'},
     ma:{nm:'間（タメ）',pos:[2,4,14,16,22,28,30,31],acc:[14,22],
-      why:'言葉を大胆に<b>減らして「間」で聴かせる</b>。空白が緊張を生んで、ポツリと置いた一言が刺さる。<b>AOTOの「間の使い方」</b>がこれ＝上手い人ほど休符が上手い。'}
+      why:'言葉を大胆に<b>減らして「間」で聴かせる</b>。空白が緊張を生んで、ポツリと置いた一言が刺さる。<b>AOTOの「間の使い方」</b>がこれ＝上手い人ほど休符が上手い。'},
+    ura:{nm:'裏拍',pos:[2,6,10,14,18,22,26,30],acc:[],
+      why:'拍と拍の<b>ちょうど中間（裏）</b>に全部の言葉を置いた。表拍（1234の真上）から半分ズラすだけで<b>一気に跳ねてグルーヴが出る</b>。お前が「ちょいちょいいける」やつ＝これを全部の言葉で徹底すると体に入る。まず<b>手拍子を裏で打ちながら</b>聴け。'},
+    kui:{nm:'食い',pos:[3,7,11,15,19,23,27,31],acc:[3,11,19,27],
+      why:'言葉を<b>拍の直前に食い込ませる</b>（＝アンティシペーション）＝拍が来る前に先に言う。<b>前のめり・攻める感じ</b>が出てバトルで多用。<b class="cf guess" style="margin:0">お前がまだ、のやつ</b>＝「頭で入る」より一歩早く突っ込む感覚を、金の粒（食い位置）で掴め。棒読みと交互に聴くと「先に入ってる」のが分かる。'},
+    san:{nm:'3連符',pos:[0,1.3333,2.6667,4,5.3333,6.6667,8,9.3333],acc:[0,4,8],
+      why:'1拍を<b>4等分（16分）でなく3等分</b>＝「タ・タ・タ」と<b>転がる</b>のが3連。ミーゴス・フロウの正体。<b class="cf guess" style="margin:0">お前がまだ、のやつ</b>＝16分の「詰め」と違う“転がり”の質感。金の粒＝3連の頭（拍の真上）。前半で転がして後半は空ける形。<b>「タタタ・タタタ」と口で言いながら</b>聴くと入る。'}
   };
   var KICK=[0,7,16,23], SNARE=[4,12,20,28], HAT=[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
   var mode='flat', bpm=88, playing=false, ctx=null, timer=null, phTimer=null, soundOn=true;
-  var curTick=0, nextTime=0, startT=0;
+  var curTick=0, nextTime=0, startT=0, loopStart=0, evList=[], evPtr=0;
 
   function ac(){ if(!ctx) ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
   function secPer(){ return (60/bpm)/4; }
@@ -2799,19 +2808,25 @@ document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',(
     document.getElementById('fsWhy').innerHTML='<b>'+m.nm+'：</b>'+m.why;
     document.querySelectorAll('#fsModes .fs-mode').forEach(function(b){ b.classList.toggle('active',b.dataset.m===mode); });
   }
-  function lightAt(step){ document.querySelectorAll('#fsSyl .fs-dot').forEach(function(d){ if(+d.dataset.pos===step){ d.classList.add('lit'); setTimeout(function(){d.classList.remove('lit');},140); } }); }
+  function lightSyl(p){ document.querySelectorAll('#fsSyl .fs-dot').forEach(function(d){ if(Math.abs(+d.dataset.pos - p) < 0.01){ d.classList.add('lit'); setTimeout(function(){d.classList.remove('lit');},140); } }); }
+  function eventsForLoop(){
+    var evs=[];
+    for(var st=0;st<STEPS;st++){ if(KICK.indexOf(st)>=0)evs.push({t:st,f:kick}); if(SNARE.indexOf(st)>=0)evs.push({t:st,f:snare}); if(HAT.indexOf(st)>=0)evs.push({t:st,f:hat}); }
+    var m=MODES[mode];
+    m.pos.forEach(function(pp){ var a=m.acc.indexOf(pp)>=0; evs.push({t:pp, f:function(tt){ voice(tt,a); }, syl:pp}); });
+    evs.sort(function(x,y){ return x.t-y.t; });
+    return evs;
+  }
   function scheduleLoop(){
-    var c=ac();
-    while(nextTime < c.currentTime+0.1){
-      var step=curTick%STEPS;
-      if(soundOn){
-        if(KICK.indexOf(step)>=0)kick(nextTime);
-        if(SNARE.indexOf(step)>=0)snare(nextTime);
-        if(HAT.indexOf(step)>=0)hat(nextTime);
-        var m=MODES[mode]; if(m.pos.indexOf(step)>=0) voice(nextTime, m.acc.indexOf(step)>=0);
-      }
-      (function(st,ti){ var delay=(ti-c.currentTime)*1000; setTimeout(function(){ lightAt(st); }, Math.max(0,delay)); })(step,nextTime);
-      nextTime+=secPer(); curTick++;
+    var c=ac(), sp=secPer();
+    while(true){
+      if(evPtr>=evList.length){ loopStart+=STEPS*sp; evPtr=0; evList=eventsForLoop(); if(!evList.length) break; }
+      var ev=evList[evPtr], evTime=loopStart+ev.t*sp;
+      if(evTime < c.currentTime+0.1){
+        if(soundOn) ev.f(evTime);
+        if(ev.syl!==undefined){ (function(pp,ti){ setTimeout(function(){ lightSyl(pp); }, Math.max(0,(ti-c.currentTime)*1000)); })(ev.syl,evTime); }
+        evPtr++;
+      } else break;
     }
     timer=setTimeout(scheduleLoop,25);
   }
@@ -2820,7 +2835,7 @@ document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',(
     var c=ac(), loop=STEPS*secPer(), el=((c.currentTime-startT)%loop+loop)%loop, pct=el/loop*100;
     var h=document.getElementById('fsHead'); if(h)h.style.left=pct+'%';
   }
-  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.06; startT=nextTime; var h=document.getElementById('fsHead'); if(h)h.style.display='block'; document.getElementById('fsIco').textContent='❚❚'; document.getElementById('fsTxt').textContent='停止'; scheduleLoop(); tickHead(); phTimer=setInterval(tickHead,30); }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.06; startT=nextTime; var h=document.getElementById('fsHead'); if(h)h.style.display='block'; document.getElementById('fsIco').textContent='❚❚'; document.getElementById('fsTxt').textContent='停止'; loopStart=nextTime; evList=eventsForLoop(); evPtr=0; scheduleLoop(); tickHead(); phTimer=setInterval(tickHead,30); }
   function stop(){ playing=false; clearTimeout(timer); if(phTimer)clearInterval(phTimer); document.getElementById('fsIco').textContent='▶'; document.getElementById('fsTxt').textContent='再生'; var h=document.getElementById('fsHead'); if(h)h.style.display='none'; document.querySelectorAll('#fsSyl .fs-dot.lit').forEach(function(d){d.classList.remove('lit');}); }
   window.__stopFlowScope=function(){ if(playing) stop(); };
 
