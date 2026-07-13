@@ -668,6 +668,18 @@
   .cp-ch.lit{background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;border-color:transparent;transform:translateY(-3px)}
   .cp-desc{font-size:13px;color:var(--ink2);margin-top:10px;line-height:1.7}
   .cp-desc b{color:var(--gold2)}
+
+  /* ---- 確度チップ / 昇り方ラダー ---- */
+  .cf{display:inline-block;font-size:10px;font-weight:800;padding:1px 7px;border-radius:5px;margin-right:5px;vertical-align:middle;white-space:nowrap}
+  .cf.sure{background:rgba(123,191,123,.15);color:#9bd58f;border:1px solid #3f9f5a}
+  .cf.chk{background:rgba(217,178,90,.14);color:var(--gold2);border:1px solid var(--goldsoft)}
+  .cf.guess{background:rgba(155,123,208,.15);color:#c79bf2;border:1px solid #7a4fb0}
+  .ladder{display:grid;gap:8px;margin:14px 0}
+  .lstep{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:11px 13px}
+  .lstep .ln{width:30px;height:30px;border-radius:8px;background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .lstep b{color:var(--ink);font-size:14px}
+  .lstep p{margin:3px 0 0;font-size:13px;color:var(--ink2);line-height:1.6}
+  .subhd{font-size:15px;font-weight:800;color:var(--gold2);margin:22px 0 4px;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -847,8 +859,10 @@
     <p class="lead">ヒップホップは「観る」と一気に深まります。MCバトルの即興、サイファーの熱、ビートが作られる過程、ブレイクダンスの世界決勝、一発撮りライブ——<b style="color:#9bd58f">全部クリックでその場再生</b>（公式チャンネルの動画を実機検証して掲載）。</p>
   </div>
   <div class="note" style="border-left-color:#ef8a93">📺 <b style="color:#ef8a93">Towaおすすめ：Shama Station</b> — 日本語でヒップホップを深掘りする取材・解説メディア（ジャーナリスト渡辺志保さんの「AFTASCHOOL」も）。事件の真相・名盤考察・独占取材・年間ベストなど、<b>英語が苦手でも"文脈ごと"理解できる</b>のが強み。下のフィルタ「🇯🇵 日本語解説」でまとめて再生できます。 <a href="https://www.youtube.com/@shamastation" target="_blank" rel="noopener" style="color:#ef8a93;font-weight:700;text-decoration:none">▶ チャンネルを見る</a></div>
+  <div class="note" style="border-left-color:#f2d188">🎓 <b style="color:var(--gold2)">上達の解説（初心者向け・NEW）</b> — フロウ・韻・フリースタイル・コード進行・ミックスを、日本語で「圧倒的に分かりやすく」教えてる動画を厳選（<b>リットーミュージック×マチーデフ／晋平太／SLEEP FREAKS／おざしんミュージック</b>等・全ID実在検証済）。フィルタ<b>「🎓 上達の解説」</b>で。まず<b>ラップ講座初級(01-01)</b>→<b>晋平太のフリースタイル講座</b>から。</div>
   <div class="filterbar" id="vidFilter">
     <button class="fbtn active" data-cat="all">すべて</button>
+    <button class="fbtn" data-cat="howto" style="border-color:var(--goldsoft)">🎓 上達の解説</button>
     <button class="fbtn jpn" data-cat="explain">🇯🇵 日本語解説</button>
     <button class="fbtn" data-cat="beatmaking">🎛 ビート作り</button>
     <button class="fbtn" data-cat="battle">🎤 MCバトル</button>
@@ -1017,6 +1031,63 @@
   <div class="note" style="border-left-color:var(--jpn)">📝 事実・年号・クラブの営業状況はWeb検索で裏取り済み（確度：確認済／⚠️要最終確認／諸説を明記）。クラブの営業は変動が速いので、実際に行く前に各公式で最終確認を。活動を締めくくったクルー（BAD HOP等）は中立表現で記載。</div>
 
   <!-- ===== ANALYSIS ===== -->
+  <div class="shead"><span class="num">🎤</span><h2>現場に立つ — 出演とオファーの掴み方（東京）</h2></div>
+  <p class="sub">「クラブ通いもしてない、イベントの出方もオファーのされ方も分からん」——ここを<b>実務レベル</b>で埋める。全部、実在を裏取りした情報だけ。<b class="cf chk">要確認</b>が付いた日程・場所・料金は変動するから、最後は必ず公式で確認すること。<span class="cf sure">型=確実</span>は長く変わらない構造。</p>
+  <div class="note" style="border-left-color:#8fc0e8">🧭 <b>大原則：</b>シーンは「顔と回数」で動く。一発の実力より<b>"また会う人"になる</b>ことが出演を呼ぶ。無名がいきなり自主企画→客0でノルマ地獄。<b>先に客（＝自分を聴く人）を作ってからハコに乗る</b>のが鉄則。</div>
+
+  <div class="subhd">① ゼロ→自主企画までの昇り方（型）</div>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">0</div><div><b>音源を1本持つ</b><p>名刺代わりの1〜2曲を、SoundCloud/YouTubeで<b>URL一発で渡せる</b>状態に。これが無いと何も始まらない。</p></div></div>
+    <div class="lstep"><div class="ln">1</div><div><b>オープンマイク／サイファーに"客として"通う</b><p>出る前にまず通う。空気・作法・常連の顔を覚える（3〜5回）。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>マイクを握る（常連化）</b><p>毎回出る。上手い下手より<b>皆勤で"いる人"になる</b>。スタッフ／主催に名前で呼ばれたら合図。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>主催に顔を覚えられる</b><p>終演後に挨拶・SNS相互フォロー・打ち上げに残る。「次いつですか」を言える関係へ。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>ゲスト枠・対バンに呼ばれる</b><p>1組として呼ばれる。ここで<b>客を1人でも連れてくる</b>と信用が一気に付く。</p></div></div>
+    <div class="lstep"><div class="ln">5</div><div><b>自主企画</b><p>自分でハコを借り対バンを組み客を呼ぶ。<b>主催側に回ると人脈が指数関数で増える</b>。</p></div></div>
+  </div>
+  <div class="note"><span class="cf sure">型=確実</span> ①→⑤は「早く出たい」より<b>回数を積む</b>。無名が一足飛びに自主企画をやると客0でノルマ地獄に直行。<b>先に客を作ってからハコに乗れ</b>。</div>
+
+  <div class="subhd">② 東京の「現場」タイプ別・入り方</div>
+  <div class="subgrid">
+    <div class="scard"><h4>オープンマイク <span class="en">一番優しい入口</span></h4><p>飛び入りで数分やれる場。バー/ライブハウスが定期開催。<b>探し方</b><span class="cf chk">要確認</span>＝「オープンマイクナビ」等で開催店を検索。<b>自作トラック(オケ)持込可か</b>を店のSNSで事前確認。<b>作法</b><span class="cf sure">確実</span>＝記名→順番待ち→持ち時間厳守、<b>他の演者を聴いて拍手</b>（自分の番だけ来て帰るのが一番嫌われる）。</p></div>
+    <div class="scard"><h4>サイファー <span class="en">無料・飛び入り</span></h4><p>路上/公園で輪になり即興を回す。<b>入り方</b><span class="cf sure">確実</span>＝ビートの切れ目に「初めてなんですけど入っていいですか」の一声でほぼ歓迎。<b>実在例</b><span class="cf chk">要確認</span>＝新橋サイファー等（開催は流動的、X/IGで<b>#サイファー＋地名</b>を確認）。<b>作法</b>＝繋ぐ遊び。韻を奪わない・初心者を潰さない・<b>路上は近隣/警察に配慮</b>（深夜大音量は即トラブル）。</p></div>
+    <div class="scard"><h4>クラブイベント <span class="en">DJ主体＋ゲスト枠</span></h4><p>まず<b>客として通い</b>、主催/DJ/箱スタッフと繋がる。ライブ枠は<b>紹介で入る</b>ことが多い。<span class="cf sure">確実</span> 多くは20歳以上・ID確認。<b>クラブ経験ほぼ無いなら、先にオープンマイク/サイファーで場慣れ</b>してからが安全。</p></div>
+    <div class="scard"><h4>MCバトル <span class="en">1対1の即興</span></h4><p>予選は<b>エントリー費を払えば無名でも出られる</b>。負けても顔と名前は残る。<span class="cf sure">確実</span> フリースタイルが最低限回せるのが前提。<b>バズる可能性がある一方「バトルの人」の印象も付く</b>＝ライブ主戦場なら"名刺"程度に。</p></div>
+    <div class="scard"><h4>ライブハウス <span class="en">本命の主戦場</span></h4><p>対バン形式。多くが<b>チケットノルマ制</b>。ブッカー/主催に繋がって「対バンで1組」から。<b class="cf sure">確実：出演前にノルマ額を必ず確認</b>（§下の注意）。機材・転換・リハの段取りを守る。</p></div>
+  </div>
+
+  <div class="subhd">③ 実在する大会／オーディション（登竜門）</div>
+  <p class="sub"><span class="cf chk">要確認</span> 費用・日程・受付方法は回ごとに変わる。必ず各公式で最新を確認。捏造した大会は載せてない。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>ラップスタア誕生（ABEMA） <span class="en">一発逆転・露出最大</span></h4><p>バトルでなく<b>楽曲オーディション番組</b>。指定ビートに自己紹介リリックを乗せた<b>動画を投稿</b>。近年は応募6,000人超・活動資金300万規模。<b>自作曲で勝負＝ライブ志向に最適</b>、通過でSNSが跳ねる若手ブレイクの主要ルート。<a class="t-ext" href="https://rapstar-abema.com/" target="_blank" rel="noopener">↗ 公式</a></p></div>
+    <div class="scard"><h4>UMB <span class="en">無名の登竜門</span></h4><p>全国に地方予選→GRAND CHAMPIONSHIP。<b>地方予選なら無名でも出やすく、勝てば一気に露出</b>。参加費の目安¥2,000〜（変動）。<a class="t-ext" href="http://www.ultimatemcbattle.com/" target="_blank" rel="noopener">↗ 公式</a></p></div>
+    <div class="scard"><h4>戦極MCBATTLE <span class="en">老舗・権威</span></h4><p>予選＋本戦。原則フリースタイルできれば経験・年齢不問。受付は<b>公式blog／X告知が正</b>。勝ち上がりは注目度が高い。<a class="t-ext" href="https://sengokumc.exblog.jp/" target="_blank" rel="noopener">↗ 公式blog</a></p></div>
+    <div class="scard"><h4>KING OF KINGS（KOK） <span class="en">"上がり"の大会</span></h4><p>各大会の優勝者クラスが集う。<b>いきなりは出づらい</b>＝まず戦極/UMB等で勝ち上がるのが筋。優勝賞金300万規模。<a class="t-ext" href="https://kokjapan.com/" target="_blank" rel="noopener">↗ 公式</a></p></div>
+  </div>
+  <div class="note"><span class="cf guess">推測</span> <b>バズ導線の優先度：</b>RAPSTAR（自作曲・露出最大）＞ UMB/戦極（無名でも出られる・バトル露出）＞ KOK（実績者向け）。ライブ主戦場なら<b>バトルは"名刺"、RAPSTARは"一発逆転"</b>の位置づけ。</div>
+
+  <div class="subhd">④ オファー／ブッキングのされ方</div>
+  <div class="subgrid">
+    <div class="scard"><h4>繋がり方 <span class="en">向こうから来ない</span></h4><p><span class="cf sure">確実</span> ①主催のイベントに<b>客として行く</b>（お金を落とす＝信用の一歩）②終演後に挨拶・相互フォロー③何度か通ってから<b>音源URL付き</b>で「出させてほしい」。</p></div>
+    <div class="scard"><h4>SNS DMの型 <span class="en">冷たいDMは弱い</span></h4><p>顔を合わせてからのDMは通る。<b>長文営業にしない</b>＝①自己紹介1行 ②音源URL1本 ③「枠あれば聴いてほしい」の短文。<b>一斉コピペは即バレ</b>。相手の直近投稿に触れる一言を添える。</p></div>
+    <div class="scard"><h4>デモの送り方 <span class="en">URL 1本がベスト</span></h4><p>ファイル添付や複数曲は聴かれない。<b>再生一発リンク</b>で。<b>1曲目で全部見せる</b>（冒頭30秒で判断される）。プロフに活動地/代表曲を整理＝<b>「聴かせて」に3秒で出せる</b>状態を常時キープ。</p></div>
+    <div class="scard"><h4>ノルマの現実 <span class="en">要チェック</span></h4><p>ライブハウスは<b>チケットノルマ制</b>が主流。目安「1,500〜2,500円 × 10〜20枚」。<b>達成できない差額は自腹</b>。だから<b>客を呼べないうちに詰め込むと赤字が積む</b>＝①の順序を守る。</p></div>
+  </div>
+
+  <div class="subhd">⑤ TTP — 実績者の"駆け出し期の動き方"</div>
+  <p class="sub">真似るのは"有名になった後"でなく<b>"無名だった時の初動"</b>。全員、結果を出した実在ラッパー。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>BAD HOP（川崎） <span class="en">無料で撒く×リアル</span></h4><p>初期はCD無料配布・フリーDLで音源を撒いた（YZERR談＝当時は金を取る質じゃなく露出優先）。<b>地元/生い立ちのリアルで同じ背景の層に深く刺す</b>。<b>半径10cmの実体験を歌う</b>＝華独の軸と直結。</p></div>
+    <div class="scard"><h4>LEX（横浜） <span class="en">撒き続けて発見される</span></h4><p>14歳頃からSoundCloudに気軽に投稿→横浜ローカルからじわ拡散→"Captain Harlock"で「あの声は誰？」。RASENで全国区。<b>声/メロという一発で分かる個性</b>＋<b>打席を増やし続ける</b>。</p></div>
+    <div class="scard"><h4>JP THE WAVY <span class="en">世界観を1曲で</span></h4><p>ダンサー出身→"Cho Wavy De Gomenne"がバイラル。<b>"Wavy"という一貫した世界観/キャラ</b>を軸に、<b>MV/曲で一発分かる名刺</b>を作った。別ジャンルの経験を強みに変換。</p></div>
+  </div>
+  <div class="note" style="border-left-color:#f2d188"><span class="cf sure">共通の型</span> ①<b>一発で分かる個性を1曲</b>（器用貧乏でなく「これがこいつ」）②<b>金より露出</b>（無料配布・投稿を止めない）③<b>ローカル/半径10cmから火をつける</b>④<b>公式企画/番組の露出を掴む</b>（RASEN・RAPSTAR等）。</div>
+
+  <div class="subhd">⑥ 気をつけること（搾取の見分け）</div>
+  <div class="note" style="border-left-color:#c8503e">🚩 <b>切るべき主催のサイン</b><span class="cf sure">確実</span>：①<b>出演が決まるまでノルマ額を教えない</b>（後から吊り上げる常套）②当日いきなりノルマを上げる③「出れば有名になれる」と煽って高額ノルマ④条件を口約束で濁す・名目で追加請求。<br><b>対策：</b>出演前に「ノルマ額・枚数・チャージバックの有無」を<b>DM/書面で確認</b>／怪しければ出ない／<b>その現場に出た他の演者に評判を聞く</b>（シーンは狭い＝口コミが効く）。路上サイファーは近隣・警察配慮を常に。</div>
+
+  <div class="note" style="border-left-color:#8fc0e8">🧭 <b>一枚まとめ：</b>①まず音源1本（URLで渡せる／一発で個性が分かる）②オープンマイク＆サイファーに"客として"通う→マイクを握る→皆勤で顔になる（ここはノルマ無し/軽い）③主催と繋がったら対バン→ゲスト枠→自主企画（<b>先に客を作ってから</b>）④<b>UMB/戦極の地方予選＝無名の名刺、RAPSTAR＝自作曲で一発逆転</b>⑤TTP＝金より露出・半径10cmから火。⑥<b>ノルマ額を出さない主催は切る</b>。</div>
+  <div class="note" style="font-size:12px;color:var(--ink3)">※日程・場所・費用・開催有無（現場/サイファー開催地・各大会の要項）は<b>すべて変動</b>。ここは実在が確からしいものだけを載せ、確証が取れないものは「要確認」と明記した。出演前に必ず各公式で最新を自分で確認すること。</div>
+
   <div class="shead divider-h"><span class="num">分析</span><h2>シーンの読み — ゲームチェンジと"耳"の進化</h2></div>
   <p class="sub">ここからは<b>「事実」と「見立て（分析）」を分けて</b>出す。年号・出来事＝<b>事実</b>。耳の変化・シーンの捉え方＝<span class="otag">📖 見立て</span>＝<b>論者の分析</b>（誰がそう言っているかを付す）。分析を事実のフリでは出さない。</p>
 
@@ -1814,6 +1885,37 @@
     <div class="step"><h4>感覚を"言葉"にして指示する</h4><p>華独は感覚で指揮＝それをこの語彙（マイナー/浮遊/解決/テンション）で言えると、<b>ビート発注が一発で伝わる</b>（会社が翻訳する共通言語）。</p></div>
   </div>
   <div class="note" style="border-left-color:#9bd58f">🎓 <b>まとめ：</b>キー（ホーム）→ スケール（色）→ 和音の家族 → 機能（安定/浮遊/緊張）→ 呼吸（緊張→解決）→ 進行/転調（応用）。これが「なぜ気持ちいいか」の全体像。君は<b>感覚で作り、理論で"言葉にする"</b>——両方持てば、ビートもラップも狙って動かせる。理論は感性の"翻訳機"だ。</div>
+
+  <div class="shead"><span class="num">👂</span><h2>耳の科学 — なぜ効くか（普遍・日本人・時流）</h2></div>
+  <p class="sub">「日本人の耳・本能に効く音」を、<b>誇張せず・嘘なく</b>整理する。大事な前提＝<b>「万国共通の音の快感」は思われてるより少ない</b>。ここ10年の異文化研究で、多くが<b>生まれつきでなく"育ちで学んだ"</b>と分かってきた。<span class="cf sure">科学的定説</span><span class="cf chk">傾向・解釈</span><span class="cf guess">推測</span>を分けて書く。<b>「DNA/民族の魂」系の断定はしない</b>（疑似科学だから）。</p>
+
+  <div class="subhd">① 本当に"体に効く"普遍は、この3つ</div>
+  <div class="subgrid">
+    <div class="scard"><h4>グルーヴ＝体の同期 <span class="en">groove</span></h4><p><span class="cf sure">定説</span> 拍を聴くと、じっとしてても脳の<b>運動野</b>が動く（次の拍を先読み）。グルーヴは<b>「予測しやすさ×意外さ」の中間</b>で最大＝適度なシンコペ（拍のズラし）。<b>全部ジャストは平坦、少し食う/タメが体を動かす</b>。ラップの核はここ。</p></div>
+    <div class="scard"><h4>繰り返し＝単純接触 <span class="en">mere exposure</span></h4><p><span class="cf sure">定説</span> 同じ音は<b>繰り返すほど好きになる</b>（脳のクセ）。<b>フックの反復は正義</b>。ただし<b>逆U字</b>＝好き→ピーク→飽きて嫌いに。だから同じフックでも<b>アドリブ・微差で延命</b>する。</p></div>
+    <div class="scard"><h4>緊張→解放＝ドーパミン <span class="en">chills</span></h4><p><span class="cf sure">定説</span> 好きな曲でゾクッ＝<b>報酬系からドーパミン</b>（McGill/Salimpoor 2011）。<b>「来るぞ」の期待</b>と<b>「来た瞬間」</b>で別回路。<b>ビート抜く→戻す／サビ前にスネア溜め</b>は科学的に報酬を作る。ただし<b>先に期待を作らないと解放も効かない</b>。</p></div>
+  </div>
+  <div class="note" style="border-left-color:#c79bf2"><span class="cf chk">学習の部分（普遍と思い込むな）</span> <b>コードの感情・協和の好み・オクターブ等価は「かなり学習」</b>。「マイナー＝悲しい」は育つ過程の条件づけ＝<b>非西洋では逆の村もある</b>（パプアニューギニア/パキスタン山間部）。だから<b>日本市場では「学習済み」だから効く</b>＝狙えば刺さるが「普遍の真理」ではない。理由を取り違えなければ外さない。</div>
+
+  <div class="subhd">② 日本人の耳＝"幼少期から浴びた音の統計"</div>
+  <p class="sub"><span class="cf chk">傾向・解釈</span> ここに科学的定説はほぼ無い。「DNA」ではなく<b>「日本人が浴び続けた音の集団的な単純接触効果」</b>と理解するのが正しい。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>ヨナ抜き音階 <span class="en">日本の"懐かしさ"</span></h4><p>ドレミファソラシから<b>4番目ファと7番目シを抜いた5音</b>。童謡・唱歌・民謡で<b>幼少期から浴び続けてる</b>から馴染む。<b>米津玄師・YOASOBI・RADWIMPSも大量にこれ</b>＝「令和歌謡」の核。<b>フックのメロをヨナ抜きにすると「懐かしい・口ずさめる」が発生</b>しやすい。<a class="t-ext" href="https://swinginthinkin.com/yonanuki_onkai_kameda-seiji/" target="_blank" rel="noopener">↗ 亀田誠治の解説</a></p></div>
+    <div class="scard"><h4>琉球音階 <span class="en">沖縄・コザの刻印</span></h4><p>ド・ミ・ファ・ソ・シ（レとラを抜く）。<b>ミ→ファ／シ→ドの半音</b>が独特の南国感。三線・BEGINの音。<b>華独＝フックやビートに琉球音階の断片を混ぜると「沖縄・コザ」が音そのものに入る</b>。唾奇的な沖縄ジャジーと地続き。<b>ヨナ抜き＝日本全体の懐かしさ／琉球＝沖縄固有の刻印</b>の使い分けが武器。</p></div>
+    <div class="scard"><h4>日本語の母音（開音節） <span class="en">平板の弱点→メロの武器</span></h4><p><span class="cf sure">言語学的事実</span> 日本語は<b>母音で終わる音(CV)が約9割＋モーラ等時性</b>＝放置すると「ダダダダ」と平板・機関銃になりやすい（英語は強弱アクセント＝ラップ本来のノリの源）。だから<b>母音を揃えて韻／子音を立てる／食う・タメる</b>で工夫が要る。逆に<b>母音が常に鳴る＝メロに乗せやすい</b>＝メロラップと日本語は相性◎（唾奇の気持ちよさの一部）。</p></div>
+    <div class="scard"><h4>切なさ／マイナー志向 <span class="en">正直な線引き</span></h4><p>「日本人はマイナー/切なさを好む」は<b>比較文化データが薄い</b>。①の通りマイナー＝悲しいは学習。<b>言えるのは</b>「日本市場は演歌・歌謡・ヨナ抜き短音階の蓄積で<b>切なさの語彙が濃く学習されてる</b>」。<b>言えないのは</b>「日本人は生来悲しい音を好む民族」（＝疑似科学、使わない）。</p></div>
+  </div>
+
+  <div class="subhd">③ 時流の読み（2024–2026）</div>
+  <div class="subgrid">
+    <div class="scard"><h4>TikTok起点が全ての土台 <span class="en">要確認/一次データ</span></h4><p><span class="cf chk">傾向</span> 2024年、Billboard Global 200<b>初登場曲の84%が先にTikTokでバズ</b>（TikTok調査）。日本の実例＝<b>千葉雄喜「Mamushi」が#まむしチャレンジ起点でBillboard Hot 100入り</b>（2024）。もはや「TikTokで火→チャート」が標準。</p></div>
+    <div class="scard"><h4>頭サビ／最初の15秒 <span class="en">3秒で点火</span></h4><p><span class="cf chk">業界の定説</span> 昔＝Aメロ→約45秒後にサビ。<b>今は3秒以内に点火しないと死ぬ</b>。<b>最初の15秒が新しいサビ</b>＝単体で成立しないと切られる。アルゴは約1.5秒で最初の判定。制作は「切り取られる15秒」を最適化する時代。</p></div>
+    <div class="scard"><h4>歌えるラップ（メロラップ化） <span class="en">日本語に追い風</span></h4><p><span class="cf chk">解釈</span> フック重視の帰結で<b>ラップと歌メロの境界が溶ける</b>。フックは「口ずさめる」必要＝歌メロ有利。<b>母音が常に鳴る日本語はメロに乗せやすい</b>＝メロラップ時流は日本語ラッパーに追い風。</p></div>
+    <div class="scard"><h4>なぜ今これが流行る <span class="en">「聴く」→「使う」</span></h4><p><span class="cf chk">解釈</span> 消費が「聴く」から<b>「使う（動画に貼る・踊る・口パク）」</b>へ。だから<b>参加できる素材</b>（真似できるフレーズ・チャレンジ・口ずさめるフック）が勝つ。①の「繰り返し＋参加」がTikTokという装置で桁違いに増幅されてる。</p></div>
+  </div>
+
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">華独への落とし込み（提案＝要検証）</span> ①<b>フックは頭・15秒で完結・口ずさめるメロ</b>（TikTok時流＋メロラップ＋日本語の母音の強み）②<b>メロはヨナ抜きを軸</b>に「懐かしい・歌える」を作り、<b>琉球音階の断片で沖縄・コザの刻印</b>を入れる③<b>日本語の平板さは、母音を伸ばすメロウなフロウ＋母音韻に反転</b>（唾奇的な気持ちよさ）④<b>「溜めて落とす」を1箇所は必ず設計</b>（ビート抜き→戻し＝ドーパミンの定説に接地）⑤<b>繰り返し＋微差で飽きを回避</b>。※リリックの中身・踏み方には踏み込まない（そこは本人の領域）。ここは"耳の仕組み"側の設計だけ。</div>
+  <div class="note" style="font-size:12px;color:var(--ink3)">※本当に「万国普遍」と実験で強く言えるのは<b>グルーヴ／繰り返し／緊張と解放</b>の3つ。コードの感情・音階の好み・切なさ志向は<b>学習（浴びた統計）</b>で、生物学的必然ではない。「DNA/遺伝子/民族の魂」は使わない。日本語ラップのBPM・音像の統計的変化は信頼できる一次データを確認できず＝<b>不明</b>。<a class="t-ext" href="https://www.mcgill.ca/newsroom/channels/news/musical-chills-why-they-give-us-thrills-170538" target="_blank" rel="noopener">↗ 出典:McGill(chills)</a> <a class="t-ext" href="https://hiphopnewscs.jp/2026/01/04/japanese-rap-2025-ranking-top10/" target="_blank" rel="noopener">↗ 2025日本語ラップ年間</a></div>
 </section>
 
 <!-- ============ RHYTHM & SPIT ============ -->
@@ -2478,9 +2580,32 @@ const VIDEOS=[
   {cat:'explain',ti:"2022年 ベストHIPHOP/ラップ アルバム 15選",ch:"Shama Station",why:"今の名盤を日本語キュレーションで掴む",yt:"PTIGv60OimY"},
   {cat:'explain',ti:"【独占取材】A$AP Twelvyy 〜Off-White命名・A$AP Mob〜",ch:"Shama Station",why:"本人取材で知るカルチャーの裏側",yt:"cgFepINwuj8"},
   {cat:'explain',ti:"【渡辺志保】日本のHIPHOPシーン AFTASCHOOL Vol.1",ch:"Shama Station",why:"歩く辞書・渡辺志保と日本のシーンを整理",yt:"7MTjcBH7jCI"},
-  {cat:'explain',ti:"【ラジオ】渡辺志保と2022年HIPHOPおさらい",ch:"Shama Station",why:"その年の重要項目と注目新人を総ざらい",yt:"DikRnoovD6A"}
+  {cat:'explain',ti:"【ラジオ】渡辺志保と2022年HIPHOPおさらい",ch:"Shama Station",why:"その年の重要項目と注目新人を総ざらい",yt:"DikRnoovD6A"},
+  // --- 🎓 上達の解説（初心者向け・全ID oembed検証済 2026-07-13）---
+  {cat:'howto',ti:"ラップの基本｜言葉でリズムを刻む（01-01）",ch:"Plug+×マチーデフ（Rittor）",why:"出版社公式×プロMCの体系講座。挫折しない最初の一歩",yt:"FbQkmbwOPF4"},
+  {cat:'howto',ti:"『裏拍』をとらえる練習（01-02）",ch:"Plug+×マチーデフ（Rittor）",why:"ノリの正体＝裏拍を体で取る。グルーヴの言語化",yt:"EjI588_ZQEY"},
+  {cat:'howto',ti:"初心者がラップを1週間ガチで練習してみた",ch:"あるてぃめっとよにん!",why:"詰まる所を追体験できる伴走型。心理的に楽",yt:"i294oiMsN0A"},
+  {cat:'howto',ti:"韻を発想するコツ（03-01）",ch:"Plug+×マチーデフ（Rittor）",why:"韻を“探す”でなく“発想する”手順。ネタ切れ解消",yt:"JCqMI4fxYXY"},
+  {cat:'howto',ti:"押韻リレー｜歌詞の作り方・コツ",ch:"マチーデフ",why:"韻を連ねて歌詞に育てる実演。プロMC本人",yt:"-6wQsk5NH-g"},
+  {cat:'howto',ti:"初心者のための韻の踏み方",ch:"YOSHI",why:"母音を合わせる基礎を超ゆっくり。完全初学者の一本目",yt:"lVWOYvRcEkE"},
+  {cat:'howto',ti:"初心者のためのフリースタイルのススメ",ch:"YOSHI",why:"即興の最初のハードルを下げる入門",yt:"I-wJWbSoaqw"},
+  {cat:'howto',ti:"晋平太流フリースタイル講座〜初心者編〜",ch:"Yo!晋平太だぜ Raps",why:"UMB連覇の実績者本人の直伝。第一人者",yt:"_FKLRZVk-B8"},
+  {cat:'howto',ti:"フリースタイル日本代表 晋平太（手本）",ch:"ラッパー図鑑",why:"晋平太のフロウ/韻を解説視点でモデリング",yt:"RuBNuPZiBy4"},
+  {cat:'howto',ti:"いまさら聞けないラップの作り方 初級1/3",ch:"MotsuLab（MOTSU）",why:"制作フロー全体像。曲になるまでの道筋が掴める",yt:"EXR9UJiySFU"},
+  {cat:'howto',ti:"日本ヒップホップ特化 音楽理論（統計分析）",ch:"Nicky Ducky Moony",why:"J-HIPHOP実曲の統計から定番進行を抽出。感覚でなくデータ",yt:"yZacYtwkZwY"},
+  {cat:'howto',ti:"そもそも「コード進行」って何？（王道/カノン/丸サ）",ch:"音楽ガチ分析チャンネル",why:"名前だけ知ってる進行の正体を解説。用語の壁を壊す",yt:"s_X4ZjHVHnc"},
+  {cat:'howto',ti:"誰でもわかるコード進行講座 part1｜音名と音程",ch:"おざしんミュージック",why:"ゼロから順に積む定番シリーズ。part制で迷子にならない",yt:"B2HdaiEm3U0"},
+  {cat:'howto',ti:"誰でもわかるコード進行講座 part6｜コード進行①",ch:"おざしんミュージック",why:"ダイアトニック＝一番使う進行を最短で。ビート作りに直結",yt:"_UWRJonfhSg"},
+  {cat:'howto',ti:"コード進行の知識ゼロの方、必ず見て",ch:"しーたけびーつ",why:"理論ゼロ前提で実DAW画面つき。手を動かして理解",yt:"UFgVnhlhA40"},
+  {cat:'howto',ti:"超初心者向け！ミックスのやり方をゼロから",ch:"しーたけびーつ",why:"音量・定位・EQ・コンプ・リバーブを1本で一気通貫",yt:"HePrcU_43GM"},
+  {cat:'howto',ti:"宅録ボーカルミックス ①基礎処理編",ch:"SLEEP FREAKS",why:"老舗DTM教育chの定番。ノイズ処理→EQの順が丁寧",yt:"CbnzfNhBRKg"},
+  {cat:'howto',ti:"宅録ボーカルミックス ②ブラッシュアップ編",ch:"SLEEP FREAKS",why:"声を前に出す仕上げ工程。ラップ声に応用しやすい",yt:"1BMoL3itoEc"},
+  {cat:'howto',ti:"ラップ&ボーカルのミックス・テク（MixBox）",ch:"SoundRecordingJP",why:"“ラップ声”のミックスに特化。少数プラグインで完結",yt:"euSZFdCpslY"},
+  {cat:'howto',ti:"ラップボーカルで迫力を出すTips",ch:"Keinoaza DTM",why:"ヒップホップ特有の“迫力”の出し方に絞ったTips",yt:"_a7uPx8u_tI"},
+  {cat:'howto',ti:"ボーカルミックス全手順を丁寧に解説",ch:"Keinoaza DTM",why:"全手順を1本で通す濃密版。Tipsと合わせて深掘り",yt:"RTVPdDmWrwo"},
+  {cat:'howto',ti:"ゼロから作る曲作り方講座（DTM初心者）",ch:"かがみん",why:"“ゼロから1曲完成”までの型。DTM入門の背骨",yt:"9Fq8TdUNuGo"}
 ];
-const VCAT={explain:'🇯🇵 日本語解説',beatmaking:'🎛 ビート作り',battle:'🎤 MCバトル',cypher:'🔁 サイファー',documentary:'🎞 ドキュメンタリー',elements:'🕺 4大要素',live:'🎙 ライブ'};
+const VCAT={howto:'🎓 上達の解説',explain:'🇯🇵 日本語解説',beatmaking:'🎛 ビート作り',battle:'🎤 MCバトル',cypher:'🔁 サイファー',documentary:'🎞 ドキュメンタリー',elements:'🕺 4大要素',live:'🎙 ライブ'};
 const ERANAME={oldschool:'オールドスクール',golden:'黄金期',gangsta:'ギャングスタ',gfunk:'G-funk',eastwest:'東西',south:'サウス','2000s':'2000年代','2010s':'2010s〜',dawn:'黎明/J-RAP',jrap:'メジャー',underground:'アングラ',battle:'バトル期',current:'現在'};
 
 const ROADMAP=[
