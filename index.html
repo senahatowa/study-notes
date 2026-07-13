@@ -271,8 +271,17 @@
   .bx-gbtn small{display:block;font-weight:600;font-size:10.5px;color:var(--ink3)}
   .bx-gbtn.active{background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;border-color:var(--gold2)}
   .bx-gbtn.active small{color:#5a4413}
-  .bx-vibe{font-size:12.5px;color:var(--ink2);margin:4px 0 14px;line-height:1.6}
+  .bx-vibe{font-size:12.5px;color:var(--ink2);margin:4px 0 10px;line-height:1.6}
   .bx-vibe b{color:var(--gold2)}
+  /* variation (pattern) selector */
+  .bx-vlabel{font-size:10.5px;letter-spacing:.12em;font-weight:800;color:var(--ink3);margin:2px 0 6px}
+  .bx-vars{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+  .bx-vbtn{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);font:inherit;font-size:12px;font-weight:800;padding:6px 13px;border-radius:8px;cursor:pointer;transition:.15s}
+  .bx-vbtn:hover{border-color:var(--gold2)}
+  .bx-vbtn.active{background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;border-color:var(--gold2)}
+  .bx-vnote{font-size:12px;color:var(--ink2);line-height:1.6;background:rgba(217,178,90,.05);border:1px solid var(--line);border-left:3px solid var(--gold2);border-radius:8px;padding:9px 12px;margin:0 0 14px}
+  .bx-vnote b{color:var(--gold2)}
+  .bx-vnote .rbpm{display:inline-block;font-size:11px;font-weight:800;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-radius:6px;padding:1px 8px;margin-left:6px}
   .bx-grid{display:grid;gap:7px}
   .bx-row{display:grid;grid-template-columns:138px 1fr;gap:10px;align-items:center}
   .bx-head{display:flex;align-items:center;gap:6px}
@@ -352,6 +361,35 @@
   .ddcol.good li::before{content:"○";position:absolute;left:0;color:#9bd58f;font-weight:800}
   .ddcol.bad li::before{content:"✕";position:absolute;left:0;color:#e58d7e;font-weight:800}
   .ddcol li b{color:var(--ink)}
+
+  /* instrument reference cards (役割/個性/NG) */
+  .instref{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:14px}
+  .iref{border:1px solid var(--line);background:var(--panel2);border-radius:14px;padding:16px 17px;position:relative;overflow:hidden}
+  .iref::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--rc,var(--gold))}
+  .iref h4{font-size:15.5px;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .iref h4 .ico{font-size:17px}
+  .iref .line{font-size:12.5px;color:var(--ink2);line-height:1.55;margin:6px 0;padding-left:15px;position:relative}
+  .iref .line b{color:var(--ink)}
+  .iref .line.role::before{content:"◆";position:absolute;left:0;color:var(--gold2);font-size:10px;top:3px}
+  .iref .line.char::before{content:"◆";position:absolute;left:0;color:#8fc0e8;font-size:10px;top:3px}
+  .iref .line.ng::before{content:"✕";position:absolute;left:0;color:#e58d7e;font-weight:800;font-size:11px;top:1px}
+  .iref .lb{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);display:inline-block;min-width:44px}
+  .iref .line.role .lb{color:var(--gold2)}
+  .iref .line.char .lb{color:#8fc0e8}
+  .iref .line.ng .lb{color:#e58d7e}
+
+  /* combo chart + overall NG */
+  .combos{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:14px}
+  .combo{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--bg2));border-radius:12px;padding:14px 15px}
+  .combo .mix{font-size:12px;font-weight:800;color:var(--gold2);margin-bottom:6px;line-height:1.4}
+  .combo .imp{font-size:13px;color:var(--ink);font-weight:800;line-height:1.4}
+  .combo .imp small{display:block;font-size:11.5px;font-weight:600;color:var(--ink3);margin-top:3px;line-height:1.5}
+  .allng{border:1px solid rgba(200,80,62,.4);background:linear-gradient(180deg,rgba(200,80,62,.06),transparent);border-radius:14px;padding:16px 18px;margin-top:16px}
+  .allng h4{font-size:15px;color:#e58d7e;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+  .allng ol{list-style:none;display:grid;gap:9px;counter-reset:ng}
+  .allng li{font-size:13px;color:var(--ink2);line-height:1.55;padding-left:30px;position:relative;counter-increment:ng}
+  .allng li::before{content:counter(ng);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:rgba(200,80,62,.18);color:#e58d7e;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .allng li b{color:var(--ink)}
 
   /* video category badge */
   .badge.cat{color:#9bd58f;border-color:#3f9f5a;background:rgba(123,191,123,.08)}
@@ -766,6 +804,12 @@
   .voc-i .ve{font-size:12px;color:var(--ink3);margin-top:5px;border-left:2px solid var(--goldsoft);padding-left:9px;line-height:1.6}
   .dmbox{border:1px solid var(--goldsoft);background:linear-gradient(180deg,#1a1710,#121110);border-radius:12px;padding:15px 17px;margin:12px 0;font-size:14px;line-height:1.85;color:var(--ink)}
   .dmbox b{color:var(--gold2)}
+
+  /* ---- 韻アナライザー ---- */
+  .ra-line{margin:1px 0;line-height:2.1;font-size:17px;letter-spacing:.02em}
+  .ra-m{padding:1px 2px;border-radius:4px;transition:.1s}
+  .ra-groups{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .ra-g{font-size:12px;font-weight:800;color:#15110a;border-radius:6px;padding:3px 9px}
 </style>
 </head>
 <body>
@@ -1523,6 +1567,19 @@
     <div class="scard"><h4>英語の韻との違い</h4><p>英語は「強勢母音＋語尾の子音」まで揃える脚韻(light/night)。日本語は語尾が母音で終わるので<span class="x">母音の並び</span>で揃えやすい。</p></div>
   </div>
 
+  <div class="tool">
+    <div class="tlabel">▶ INTERACTIVE · 自動検出</div>
+    <h3>韻アナライザー — 歌詞を丸ごと分析</h3>
+    <p class="hint">歌詞を<b>複数行</b>貼ると、<b>繰り返し使われてる母音パターン（＝韻）を自動で見つけて色分け</b>する。<b>同じ色＝踏んでる</b>。下に韻密度も出る。<b style="color:#ef8a93">ひらがなで入れると精度が上がる</b>（漢字は読みが取れないと母音が不明になる）。</p>
+    <textarea class="rinput" id="raIn" rows="6" style="width:100%">かねがない
+しょうぶしたい
+むねがいたい
+まえにすすみたい</textarea>
+    <div class="rout" id="raOut" style="margin-top:12px"></div>
+    <div id="raLegend" style="margin-top:12px;font-size:13px"></div>
+  </div>
+  <div class="note" style="border-left-color:#c79bf2">🎯 <b>使い方：</b>自分のリリックを貼って<b>「どこが踏めてるか／踏めてないか」</b>を色で確認。色が少ない＝韻が薄い→母音を揃え直す。<b>長い同色（3音以上）＝マルチ韻＝上手い</b>。※漢字は読みが取れないと母音不明なので、確認したい所は<b>ひらがな</b>で。上の2行版「韻メーカー」は2フレーズの詰め用。
+
   <div class="shead"><span class="num">04</span><h2>曲の構成</h2></div>
   <p class="sub">ラップ曲は決まった「部品」の組み合わせ。まずこの王道テンプレに当てはめれば曲になります。<b>バース＝本文(標準16小節)</b>、<b>フック＝サビ(繰り返す・標準8小節)</b>、<b>ブリッジ＝場面転換</b>。</p>
   <div class="song">
@@ -1606,6 +1663,9 @@
     <p class="hint">まず ▶再生 → 各行の <b>S（ソロ）</b> を順に押して、キックだけ→ベースだけ→…と聴き比べ。全部鳴らすと"ビート"になる。<b style="color:var(--gold2)">マスのクリックでON/OFF＝自分でビートも組める。</b></p>
     <div class="bx-genres" id="bxGenres"></div>
     <div class="bx-vibe" id="bxVibe"></div>
+    <div class="bx-vlabel">▼ 組み合わせパターン（切替）</div>
+    <div class="bx-vars" id="bxVars"></div>
+    <div class="bx-vnote" id="bxVnote"></div>
     <div class="beatnums"><div class="pad"></div><div class="nums" id="bxNums"><span>1</span><span>2</span><span>3</span><span>4</span></div></div>
     <div class="bx-grid" id="bxGrid"></div>
     <div class="controls">
@@ -1689,6 +1749,54 @@
       <li><b>借り物のフロウ</b>：有名人のフロウを丸パクリ（＝バイティング、最も嫌われる）</li>
       <li><b>曲調と不一致</b>：チルなビートで力みまくる等、ビートの世界観を壊す</li>
     </ul></div>
+  </div>
+
+  <!-- INSTRUMENT REFERENCE (役割/個性/NG) -->
+  <div class="shead"><span class="num">06</span><h2>各楽器の"取扱説明書" — 役割・個性・NG</h2></div>
+  <p class="sub">上のプレーヤーで音を触ったら、次はこれ。<b>1つ1つの楽器が「何のためにいて／どんな個性で／何をやったらダサいか」</b>を頭に入れると、自分でビートを選ぶ・組む・直すときの基準になる。作る時も選ぶ時も、この5つを思い出せばいい。</p>
+  <div class="instref">
+    <div class="iref" style="--rc:#f2d188"><h4><span class="ico">🥁</span>キック</h4>
+      <div class="line role"><span class="lb">役割</span>土台・低音の脈。<b>体を揺らす重心</b>。ここがブレると全部が宙に浮く。</div>
+      <div class="line char"><span class="lb">個性</span>深い／短い／クリック感（アタックの粒）。ジャンルで質感が変わる。</div>
+      <div class="line ng"><span class="lb">NG</span>詰めすぎて重心がブレる／ベースと低音が被って濁る／弱くて体が動かない。</div></div>
+    <div class="iref" style="--rc:#e58d7e"><h4><span class="ico">👏</span>スネア / クラップ</h4>
+      <div class="line role"><span class="lb">役割</span>バックビート（2・4）＝<b>首を振らせる"返し"</b>。ノリの号令。</div>
+      <div class="line char"><span class="lb">個性</span>硬い／ダスティ（土っぽい）／クラップ／リム（コツッ）。</div>
+      <div class="line ng"><span class="lb">NG</span>毎拍に置くと2・4の効きが死ぬ／強すぎて耳障り／ガチガチで人間味ゼロ。</div></div>
+    <div class="iref" style="--rc:#8fc0e8"><h4><span class="ico">🎩</span>ハイハット</h4>
+      <div class="line role"><span class="lb">役割</span>時間・推進・<b>グルーヴの粒</b>。曲のスピード感と細かいノリ。</div>
+      <div class="line char"><span class="lb">個性</span>スウィング（ハネ）／16分／オープン（開いた"チー"）。</div>
+      <div class="line ng"><span class="lb">NG</span>一定で単調／詰めすぎてうるさい／オープン多用で散らかる。</div></div>
+    <div class="iref" style="--rc:#c79bf2"><h4><span class="ico">🔊</span>ベース / 808</h4>
+      <div class="line role"><span class="lb">役割</span>低音のメロ＆グルーヴ。<b>キックと組んで重心</b>を作る根。</div>
+      <div class="line char"><span class="lb">個性</span>太い／丸い／808スライド（音程が滑る）。</div>
+      <div class="line ng"><span class="lb">NG</span>キックと同じ低音でぶつかり抜けない／動きすぎて主張過多／単調で退屈。</div></div>
+    <div class="iref" style="--rc:#9bd58f"><h4><span class="ico">🎹</span>うわもの</h4>
+      <div class="line role"><span class="lb">役割</span>感情・色・<b>フック（覚える一節）</b>。曲の第一印象を決める顔。</div>
+      <div class="line char"><span class="lb">個性</span>ジャジー／ダーク／明るい／和。音色選び＝感情選び。</div>
+      <div class="line ng"><span class="lb">NG</span>鳴らしっぱなしで呼吸なく声の邪魔／複雑すぎラップの邪魔／キー・スケール外れ。</div></div>
+  </div>
+
+  <!-- COMBO CHART + OVERALL NG -->
+  <div class="shead"><span class="num">06</span><h2>組み合わせ＝印象のチート表 ＋ 全体NG</h2></div>
+  <p class="sub">同じ楽器でも<b>「何と何を、どれくらい鳴らすか」で曲の印象が丸ごと変わる</b>。狙った空気を出すための早見表。上のプレーヤーのバリエーション切替とセットで体感して。</p>
+  <div class="combos">
+    <div class="combo"><div class="mix">キック＋スネア＋ハットだけ<br>（うわもの薄い）</div><div class="imp">硬派・スピット向き<small>ドラムだけで削ぎ落とすと言葉が立つ。ラップを聴かせる曲に。</small></div></div>
+    <div class="combo"><div class="mix">ジャジーうわもの＋<br>レイドバックなドラム</div><div class="imp">チル・エモ<small>柔らかい和音＋後ろノリで、切なさ・温度が出る。</small></div></div>
+    <div class="combo"><div class="mix">重い808＋速いハット</div><div class="imp">トラップ的・攻撃的<small>低音の圧＋疾走感。畳みかけ・勢いのある曲に。</small></div></div>
+    <div class="combo"><div class="mix">スウィング＋クラップ</div><div class="imp">ソウル / ブンバップの人間味<small>ハネと手拍子感で、生っぽく温かいグルーヴ。</small></div></div>
+    <div class="combo"><div class="mix">スカスカ（間が多い）</div><div class="imp">レイドバック・クール<small>音を減らすほど余裕が出る。一言が刺さる大人の質感。</small></div></div>
+    <div class="combo"><div class="mix">詰め込み（手数多い）</div><div class="imp">忙しい・緊張・畳みかけ<small>手数で圧を出す。ただし引き算がないと聞き疲れる。</small></div></div>
+  </div>
+  <div class="allng">
+    <h4>⚠ どのジャンルでも共通の全体NG（これをやると一気にダサくなる）</h4>
+    <ol>
+      <li><b>全部ガチガチにクオンタイズ</b>：ズレを全部消すと人間味ゼロの機械音に（テクノポップ以外は少し揺らす）。</li>
+      <li><b>低音が被って濁る</b>：キックと808・ベースが同じ低域でぶつかると、抜けの悪いモコモコに。</li>
+      <li><b>鳴らしっぱなしで間がない</b>：全部の拍を音で埋めると、次の一音が刺さらない。休符＝武器。</li>
+      <li><b>音量バランスが悪く主役が埋もれる</b>：うわものや声が大きすぎ／小さすぎで、聴かせたい音が沈む。</li>
+      <li><b>全部詰め込む（引き算がない）</b>：良い音を全部乗せたくなるが、抜くほど残った音が立つ。</li>
+    </ol>
   </div>
 
   <!-- HARMONY -->
@@ -3571,6 +3679,50 @@ document.getElementById('rin2').addEventListener('input',renderRhyme);
 document.getElementById('presets').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.getElementById('rin1').value=b.dataset.a;document.getElementById('rin2').value=b.dataset.b;renderRhyme();});
 renderRhyme();
 
+/* ===== 韻アナライザー（複数行・自動検出） ===== */
+(function(){
+  var inp=document.getElementById('raIn'); if(!inp) return;
+  var PAL=['#f2d188','#8fc0e8','#c79bf2','#7bbf7b','#e58d7e','#5b9bd5','#9bd58f','#ef8a93','#d9b25a','#b18ce0'];
+  function vseq(morae){ var r=[]; morae.forEach(function(m,i){ if('aiueo'.indexOf(m.v)>=0) r.push({i:i,v:m.v}); }); return r; }
+  function analyze(){
+    var lines=inp.value.split(/\n/);
+    var parsed=lines.map(function(ln){ return analyzeLine(ln); });
+    var lineV=parsed.map(function(m){ return vseq(m); });
+    var used={}, patColor={}, groups=[], colorIdx=0;
+    for(var len=5;len>=3;len--){
+      var occ={};
+      lineV.forEach(function(vs,li){ for(var k=0;k+len<=vs.length;k++){ var seg=vs.slice(k,k+len); var pat=seg.map(function(x){return x.v;}).join(''); (occ[pat]=occ[pat]||[]).push({line:li,seg:seg}); } });
+      Object.keys(occ).forEach(function(pat){ var list=occ[pat]; if(list.length<2) return;
+        var anyFree=false; list.forEach(function(o){ o.seg.forEach(function(x){ if(!used[o.line+':'+x.i]) anyFree=true; }); });
+        if(!anyFree) return;
+        if(patColor[pat]===undefined){ patColor[pat]=PAL[colorIdx%PAL.length]; colorIdx++; groups.push({pattern:pat,color:patColor[pat],count:list.length,n:len}); }
+        var col=patColor[pat];
+        list.forEach(function(o){ o.seg.forEach(function(x){ if(!used[o.line+':'+x.i]) used[o.line+':'+x.i]=col; }); });
+      });
+    }
+    render(parsed,used,groups);
+  }
+  function render(parsed,used,groups){
+    var out=document.getElementById('raOut'); out.innerHTML='';
+    parsed.forEach(function(morae,li){
+      if(morae.length===0){ var br=document.createElement('div'); br.style.height='10px'; out.appendChild(br); return; }
+      var line=document.createElement('div'); line.className='ra-line';
+      morae.forEach(function(m,i){ var sp=document.createElement('span'); sp.className='ra-m'; sp.textContent=m.ch; var col=used[li+':'+i]; if(col){ sp.style.background=col; sp.style.color='#15110a'; } line.appendChild(sp); });
+      out.appendChild(line);
+    });
+    var total=0,colored=0; parsed.forEach(function(m,li){ m.forEach(function(x,i){ if('aiueo'.indexOf(x.v)>=0){ total++; if(used[li+':'+i])colored++; } }); });
+    var leg=document.getElementById('raLegend');
+    if(groups.length===0){ leg.innerHTML='<span style="color:var(--ink3)">まだ繰り返しの母音パターン（韻）が見つからない。ひらがなで入れると精度が上がる（漢字は読みが取れないと母音不明）。</span>'; return; }
+    groups.sort(function(a,b){ return b.n-a.n || b.count-a.count; });
+    var h='<div style="margin-bottom:8px"><b style="color:var(--gold2)">韻密度 '+Math.round(colored/Math.max(1,total)*100)+'%</b>（母音 '+colored+'/'+total+' が韻に参加。同じ色＝踏んでる）</div><div class="ra-groups">';
+    groups.slice(0,14).forEach(function(g){ h+='<span class="ra-g" style="background:'+g.color+'">'+g.pattern.split('').join('-')+' ×'+g.count+'</span>'; });
+    h+='</div>';
+    leg.innerHTML=h;
+  }
+  inp.addEventListener('input',analyze);
+  analyze();
+})();
+
 /* ================= BEAT ANATOMY ENGINE ================= */
 (function(){
   const N={C2:65.41,D2:73.42,Eb2:77.78,E2:82.41,F2:87.31,G2:98.00,A2:110,Bb2:116.54,C3:130.81};
@@ -3648,7 +3800,83 @@ renderRhyme();
       chordHit:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]}
   };
   const ORIG=JSON.parse(JSON.stringify(GEN));
-  let ctx=null,master=null,playing=false,timer=null,step=0,cur='boombap';
+  /* ===== 組み合わせパターン（各ジャンルの複数バリエーション） =====
+     base:true = 既存の基本パターン(ORIGを使う・非破壊)。他は kick/bass/snare/hat/chordHit(+任意でbpm) を上書き。 */
+  const VARS={
+    boombap:[
+      {nm:'基本',base:true,note:'王道の"ブーン・バップ"。1・3にキック、2・4にスネア。言葉が一番立つ土台。<b>スピット/韻を聴かせる曲</b>に。',rbpm:90},
+      {nm:'密（busy）',note:'キックとハットを増やして前へ押す。手数が増えるぶん<b>畳みかけ・語数の多いフロウ</b>と相性◎。詰めすぎ注意。',rbpm:93,
+        kick:[1,0,0,1,0,0,1,0,0,1,0,1,0,0,1,0],bass:[N.A2,0,0,N.A2,0,0,N.A2,0,0,N.G2,0,0,0,0,N.A2,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],hat:[1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+      {nm:'疎（レイドバック）',note:'キックを減らし間を作る。スカスカだから<b>一言一言が刺さる・クールで大人</b>。余白で語る練習に最適。',rbpm:86,
+        kick:[1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],bass:[N.A2,0,0,0,0,0,0,0,0,0,N.G2,0,0,0,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],chordHit:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+    ],
+    trap:[
+      {nm:'基本',base:true,note:'重い808＋高速ハット、スネアは半テンポ。ドッシリした現代型。<b>歌うように・間で乗せる</b>フロウに。',rbpm:140},
+      {nm:'ハット速い（攻撃的）',note:'ハットのロールを増やして疾走感MAX。<b>攻撃的・畳みかけるトラップ</b>。うるさくならない量を探るのがコツ。',rbpm:145,
+        kick:[1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0],bass:[N.C2,0,0,0,0,0,N.Eb2,0,0,N.G2,0,0,0,N.F2,0,0],
+        snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],hat:[2,1,2,1,1,1,2,1,2,1,1,1,2,1,2,1],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+      {nm:'808メロディ（メロウ）',note:'808が動いて低音がメロディ化。<b>歌モノ・メロディックラップ</b>向き。動かしすぎると重心がブレるので程々に。',rbpm:138,
+        kick:[1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],bass:[N.C2,0,0,N.Eb2,0,0,N.G2,0,N.F2,0,0,N.G2,0,0,N.Eb2,0],
+        snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],hat:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]}
+    ],
+    lofi:[
+      {nm:'基本',base:true,note:'柔らかくメロウ、力を抜いたチル。<b>語りかける/内省的な詞</b>に。',rbpm:75},
+      {nm:'ジャジー（エモ）',note:'コードを増やしてハットも少し細かく。<b>ジャジー・エモい・切ない</b>質感。感情を乗せる曲に。',rbpm:78,
+        kick:[1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0],bass:[N.F2,0,0,0,0,0,0,0,N.A2,0,0,N.C3,0,0,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],chordHit:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]},
+      {nm:'ミニマル（超チル）',note:'限界まで音を抜く。ほぼドラムだけの<b>ミニマル・眠くなるほどチル</b>。声を主役にしたい時に。',rbpm:72,
+        kick:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],bass:[N.F2,0,0,0,0,0,0,0,N.A2,0,0,0,0,0,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],chordHit:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+    ],
+    drill:[
+      {nm:'基本',base:true,note:'スライド808＋暗いムード、ハットは3連ノリ。<b>力まず低く淡々</b>と暗さに同化。',rbpm:140},
+      {nm:'ハット3連ロール（王道ドリル）',note:'ハットの3連ロールを増やしたドリルの顔。<b>不穏で疾走感</b>。ロールは"タタタ"で刻む練習に。',rbpm:142,
+        kick:[1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0],bass:[N.D2,0,0,0,0,0,N.D2,0,0,N.C2,0,0,0,0,N.Bb2,0],
+        snare:[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],hat:[2,0,1,0,2,0,1,0,2,0,1,0,2,0,1,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+      {nm:'スライド強調（陰鬱）',note:'808を動かしてスライド感を強調。<b>暗く陰鬱・よろけるグルーヴ</b>。淡々と乗せると映える。',rbpm:138,
+        kick:[1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],bass:[N.D2,0,0,N.D2,0,0,N.C2,0,0,N.Bb2,0,0,N.D2,0,0,0],
+        snare:[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],hat:[1,0,2,0,1,0,1,0,2,0,1,0,1,0,2,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]}
+    ],
+    gfunk:[
+      {nm:'基本',base:true,note:'ゆったり跳ねるファンク＋高音シンセ。<b>後ろノリで余裕たっぷり</b>、晴れた昼の涼しさ。',rbpm:95},
+      {nm:'跳ね強め（ファンキー）',note:'ベースをうねらせて跳ねを強調。<b>ファンキー・踊れる</b>West Coast。ポケット（後ろノリ）で泳ぐ練習に。',rbpm:97,
+        kick:[1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0],bass:[N.G2,0,N.G2,0,0,N.Bb2,0,N.C3,N.C3,0,N.D2,0,0,N.G2,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+      {nm:'メロウ（余白）',note:'音を減らして間を作る。<b>涼しく・余裕・メロウ</b>。詰め込まず間とスウィングで泳ぐG-funkの真髄。',rbpm:92,
+        kick:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],bass:[N.G2,0,0,0,0,0,0,0,N.C3,0,0,0,0,0,N.D2,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]}
+    ],
+    twostep:[
+      {nm:'基本',base:true,note:'キック/スネアが裏で跳ねる"つんのめる"グルーヴ。<b>裏拍で泳ぐ</b>、ベタ置き厳禁。',rbpm:130},
+      {nm:'シャッフル強め（踊れる）',note:'キックの跳ねを増やして推進力UP。<b>踊れる・前のめり</b>UKガラージ。裏に言葉を引っかける練習に。',rbpm:132,
+        kick:[1,0,0,1,0,0,1,0,0,1,1,0,0,1,0,0],bass:[N.E2,0,0,N.E2,0,0,N.E2,0,0,N.G2,N.G2,0,0,N.A2,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],hat:[1,0,1,1,0,1,1,0,1,0,1,1,0,1,1,0],chordHit:[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0]},
+      {nm:'スカスカ（クール）',note:'間を多く取ったクールな2-step。<b>レイドバック・洒落てる</b>。少ない手数で泳ぐと上級者っぽい。',rbpm:128,
+        kick:[1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],bass:[N.E2,0,0,0,0,0,N.E2,0,0,0,0,0,0,0,N.A2,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[1,0,1,0,0,1,0,0,1,0,1,0,0,1,0,0],chordHit:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+    ],
+    wakura:[
+      {nm:'基本',base:true,note:'太鼓＋三線の音階、ゆったり素朴で土着的。<b>間（余白）と揺れ</b>で"和"を出す。',rbpm:80},
+      {nm:'太鼓強め（力強い）',note:'キックと締め太鼓(スネア)を増やして祭り感。<b>力強い・土着的・熱い</b>。和のダイナミズムを乗せたい時に。',rbpm:82,
+        kick:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],bass:[N.D2,0,0,0,0,0,0,0,N.A2,0,0,0,N.G2,0,0,0],
+        snare:[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0],hat:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]},
+      {nm:'静か（郷愁）',note:'限界まで音を抜いた静けさ。<b>郷愁・切ない・沖縄の海</b>。唾奇の郷愁ラインと同じ呼吸。声で余白を埋める。',rbpm:76,
+        kick:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],bass:[N.D2,0,0,0,0,0,0,0,N.A2,0,0,0,0,0,0,0],
+        snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],hat:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],chordHit:[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]}
+    ],
+    technopop:[
+      {nm:'基本',base:true,note:'粒の揃った四つ打ち＋跳ねる細かいシンセ。<b>あえてマシン的に正確</b>に、崩さずハメる。',rbpm:128},
+      {nm:'四つ打ち＋裏ハット（踊れる）',note:'四つ打ちに裏ハットを足したクラブ寄り。<b>踊れる・多幸感</b>。均等に淡々と乗せると気持ちいい。',rbpm:128,
+        kick:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],bass:[N.C2,0,N.C2,0,N.G2,0,N.G2,0,N.A2,0,N.A2,0,N.F2,0,N.F2,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0],chordHit:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]},
+      {nm:'シンセ跳ね（キャッチー）',note:'コードを刻んでシンセを主役に。<b>キャッチー・無機質でポップ</b>。声も"音色"として置く感覚で。',rbpm:130,
+        kick:[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],bass:[N.C2,0,0,0,N.G2,0,0,0,N.A2,0,0,0,N.F2,0,0,0],
+        snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],hat:[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1],chordHit:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]}
+    ]
+  };
+  let ctx=null,master=null,playing=false,timer=null,step=0,cur='boombap',curVar=0;
   const mute={},solo={};
   TRACKS.forEach(t=>{mute[t.k]=false;solo[t.k]=false;});
   const $=id=>document.getElementById(id);
@@ -3666,7 +3894,26 @@ renderRhyme();
   function audible(k){const anySolo=TRACKS.some(t=>solo[t.k]);return anySolo?solo[k]:!mute[k];}
 
   // build genre buttons
-  (function(){const g=$('bxGenres');Object.keys(GEN).forEach(key=>{const b=document.createElement('button');b.className='bx-gbtn'+(key===cur?' active':'');b.dataset.g=key;b.innerHTML=GEN[key].label+'<small>'+GEN[key].sub+'</small>';g.appendChild(b);});g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.g;g.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));loadGenre();});})();
+  (function(){const g=$('bxGenres');Object.keys(GEN).forEach(key=>{const b=document.createElement('button');b.className='bx-gbtn'+(key===cur?' active':'');b.dataset.g=key;b.innerHTML=GEN[key].label+'<small>'+GEN[key].sub+'</small>';g.appendChild(b);});g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.g;curVar=0;g.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));loadGenre();});})();
+
+  // ===== 組み合わせパターン（バリエーション）=====
+  function applyVar(idx){
+    const list=VARS[cur]; if(!list||!list[idx])return; const v=list[idx];
+    if(v.base){ // 基本＝元パターンに戻す(非破壊)
+      const o=ORIG[cur];['kick','bass','snare','hat','chordHit'].forEach(k=>{GEN[cur][k]=o[k].slice();});
+    }else{
+      ['kick','bass','snare','hat','chordHit'].forEach(k=>{if(v[k])GEN[cur][k]=v[k].slice();});
+    }
+    if(v.rbpm){GEN[cur].bpm=v.rbpm;}
+  }
+  function renderVars(){
+    const wrap=$('bxVars'),noteEl=$('bxVnote');if(!wrap)return;const list=VARS[cur]||[];
+    wrap.innerHTML='';
+    list.forEach((v,i)=>{const b=document.createElement('button');b.className='bx-vbtn'+(i===curVar?' active':'');b.textContent=v.nm;b.dataset.v=i;wrap.appendChild(b);});
+    const cv=list[curVar];
+    if(cv)noteEl.innerHTML=cv.note+(cv.rbpm?'<span class="rbpm">推奨 '+cv.rbpm+' BPM</span>':'');
+  }
+  $('bxVars').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;curVar=+b.dataset.v;$('bxVars').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyVar(curVar);loadGenre(true);});
 
   // build grid
   let cellRefs={};
@@ -3699,7 +3946,7 @@ renderRhyme();
   }
   function refreshMute(){TRACKS.forEach(t=>{const a=audible(t.k);cellRefs[t.k].forEach(c=>c.classList.toggle('muted',!a));});}
 
-  function loadGenre(){const G=GEN[cur];bpmEl.value=G.bpm;bpmVal.textContent=G.bpm;$('bxVibe').innerHTML=G.vibe;buildGrid();if(playing){stopX();startX();}}
+  function loadGenre(fromVar){if(!fromVar)applyVar(curVar);renderVars();const G=GEN[cur];bpmEl.value=G.bpm;bpmVal.textContent=G.bpm;$('bxVibe').innerHTML=G.vibe;buildGrid();if(playing){stopX();startX();}}
 
   function tick(){
     const G=GEN[cur],t0=ctx.currentTime+.03,sec16=60/G.bpm/4;
@@ -3723,7 +3970,7 @@ renderRhyme();
 
   $('bxPlay').addEventListener('click',()=>{ensure();ctx.resume();playing?stopX():startX();});
   bpmEl.addEventListener('input',()=>{bpmVal.textContent=bpmEl.value;GEN[cur].bpm=+bpmEl.value;if(playing){stopX();startX();}});
-  $('bxReset').addEventListener('click',()=>{GEN[cur]=JSON.parse(JSON.stringify(ORIG[cur]));loadGenre();});
+  $('bxReset').addEventListener('click',()=>{GEN[cur]=JSON.parse(JSON.stringify(ORIG[cur]));curVar=0;loadGenre();});
 
   loadGenre();
 })();
