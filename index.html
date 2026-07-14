@@ -856,6 +856,20 @@
   .sd-band span.on.low{background:#c8503e}.sd-band span.on.mid{background:#5b9bd5}.sd-band span.on.hi{background:#f2d188}
   .sd-card .sr{font-size:10px;color:var(--ink3);line-height:1.45}
   .sd-legend{font-size:11px;color:var(--ink3);text-align:center;margin-top:9px}
+
+  /* ---- リズム・ロック・トレーナー ---- */
+  .rl-stage{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:18px 14px;text-align:center}
+  .rl-pulse{width:66px;height:66px;border-radius:50%;margin:0 auto 12px;background:var(--panel2);border:2px solid var(--line);display:grid;place-items:center;font-size:22px;color:var(--ink3);transition:transform .06s,background .06s,border-color .06s}
+  .rl-pulse.beat{background:var(--panel);border-color:var(--gold2);color:var(--gold2);transform:scale(1.13)}
+  .rl-fb{font-size:19px;font-weight:900;margin:8px 0 2px;min-height:26px;color:var(--ink3)}
+  .rl-meter{position:relative;height:34px;margin:12px 0 5px;border-radius:8px;background:linear-gradient(90deg,rgba(200,80,62,.22),rgba(123,191,123,.32) 50%,rgba(200,80,62,.22))}
+  .rl-meter .center{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--gold2);transform:translateX(-50%)}
+  .rl-meter .mk{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);transition:left .08s;box-shadow:0 0 10px #fff}
+  .rl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);font-weight:700}
+  .rl-stat{font-size:13px;color:var(--ink2);margin-top:10px}
+  .rl-stat .hi{color:var(--gold2);font-weight:800}
+  .rl-tap{width:100%;padding:20px;font-size:18px;font-weight:900;border-radius:14px;border:none;background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;cursor:pointer;margin-top:12px;-webkit-tap-highlight-color:transparent}
+  .rl-tap:active{transform:scale(.98)}
 </style>
 </head>
 <body>
@@ -2290,6 +2304,25 @@
   <p class="sub">ビートは等間隔で時を刻む<b>時計</b>。リズムとは、その時間を<b>どう割るか</b>。1拍を何個に割るかで「1拍に何言葉乗るか」＝<b>フロウの密度</b>が決まる。<b style="color:#8fc0e8">spitは、この分割の上に言葉を吐く行為。</b>だから分割の解像度＝spitの解像度。</p>
   <div class="note" style="border-left-color:#8fc0e8">🧭 <b>全体地図：</b>拍（時計）→ 分割（1拍を何個に割る＝密度）→ どこにアクセント／どこで休む（表情）→ 言葉を割り付ける（＝譜割り＝フロウ）→ 吐き出す（＝spit）。上から順に積み上がる。</div>
 
+  <div class="shead" id="rhythmlock"><span class="num">★</span><h2>リズム・ロック・トレーナー — 拍にピタッと合わせる</h2></div>
+  <p class="sub">お前の至上命題＝<b>リズムぴたぴた</b>。ここが完璧になると<b>足し算も引き算も自在にspitできる</b>。ビートに合わせてタップ→どれだけジャストに置けてるかを<b>ミリ秒で判定</b>。<b>出先でもタップ練習できる。</b></p>
+  <div class="tool">
+    <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · やって鍛える</div>
+    <h3>拍にタップしてロックする</h3>
+    <p class="hint">▶スタート→<b>クリック音（拍）に合わせて大きいボタンをタップ</b>（PCはスペースキーでもOK）。前(−)／ジャスト／後ろ(+)がミリ秒で出る。連続ジャスト🔥を伸ばせ。</p>
+    <div class="rl-stage">
+      <div class="rl-pulse" id="rlPulse">♪</div>
+      <div class="rl-fb" id="rlFb">スタートして拍に合わせよう</div>
+      <div class="rl-meter"><div class="center"></div><div class="mk" id="rlMk" style="left:50%;opacity:0"></div></div>
+      <div class="rl-labels"><span>前ノリ (-)</span><span>ジャスト</span><span>後ノリ (+)</span></div>
+      <div class="rl-stat" id="rlStat"></div>
+      <button class="rl-tap" id="rlTap">TAP（拍に合わせて）</button>
+    </div>
+    <div class="controls"><button class="play" id="rlStart"><span id="rlIco">▶</span> <span id="rlStartTxt">スタート</span></button>
+      <label class="bpm">BPM <input type="range" id="rlBpm" min="60" max="120" value="88"> <span class="val" id="rlBpmVal">88</span></label></div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎯 <b>まず±40ms以内（ジャスト）を安定させろ。</b>それがリズムの土台＝ここが固まると、わざと前ノリ／後ノリにズラす"色気"も自在になる（<b>ポケット・プレーヤー</b>へ）。1日1分でいい、毎日ロックしろ。<b>ズレの平均が縮むのが上達の証拠。</b></div>
+
   <div class="shead"><span class="num">02</span><h2>サブディビジョン完全版 — 1拍に何言葉？</h2></div>
   <p class="sub">リズムの心臓。1拍（時計の1打）を何分割するかで、乗る言葉数が決まる。下のプレイヤーで<b>「1拍＝タタタ？タタタタ？」を耳と目で</b>体に入れよう。これが全フロウの土台。</p>
   <div class="tool">
@@ -3593,6 +3626,36 @@ handleHash();
   DEX.forEach(function(d){ var el=document.createElement('div'); el.className='sd-card'; el.innerHTML='<div class="sn">'+d.n+'</div><div class="so">'+d.o+'</div>'+band(d.b)+'<div class="sr">'+d.r+'</div>'; el.addEventListener('click',function(){ grid.querySelectorAll('.sd-card.lit').forEach(function(x){x.classList.remove('lit');}); el.classList.add('lit'); setTimeout(function(){el.classList.remove('lit');},220); play(d.k); }); grid.appendChild(el); });
 })();
 
+/* ===== リズム・ロック・トレーナー ===== */
+(function(){
+  var startBtn=document.getElementById('rlStart'); if(!startBtn) return;
+  var ctx=null, running=false, timer=null, startT=0, bi=0, bpm=88, nextBeat=0, beatCount=0;
+  var best=+(localStorage.getItem('hhtxt_rl_best')||0), streak=0, hist=[];
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function click(t,acc){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.value=acc?1650:1050; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.35,t+.004); g.gain.exponentialRampToValueAtTime(.001,t+.05); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.06); }
+  function pulse(){ var p=document.getElementById('rlPulse'); if(!p)return; p.classList.add('beat'); setTimeout(function(){p.classList.remove('beat');},90); }
+  function scheduleLoop(){ var c=ac(); while(nextBeat < c.currentTime+0.12){ click(nextBeat, beatCount%4===0); (function(bt){ setTimeout(pulse, Math.max(0,(bt-c.currentTime)*1000)); })(nextBeat); nextBeat+=bi; beatCount++; } timer=setTimeout(scheduleLoop,25); }
+  function stat(){ var avg=hist.length?Math.round(hist.reduce(function(a,b){return a+b;},0)/hist.length):0; var el=document.getElementById('rlStat'); if(el)el.innerHTML='直近ズレ平均 <span class="hi">±'+avg+'ms</span>　連続ジャスト <span class="hi">'+streak+'</span>　最高 <span class="hi">'+best+'</span>'; }
+  function register(off){
+    var abs=Math.abs(off), fb=document.getElementById('rlFb'), mk=document.getElementById('rlMk'), col, word, sign=off>0?'+':'';
+    if(abs<40){word='ジャスト！🔥';col='#7bbf7b';streak++;} else if(abs<80){word=(off<0?'ちょい前':'ちょい後ろ');col='#f2d188';streak=0;} else {word=(off<0?'前すぎ':'後ろすぎ');col='#e58d7e';streak=0;}
+    fb.style.color=col; fb.textContent=word+'（'+sign+Math.round(off)+'ms）';
+    var pct=Math.max(2,Math.min(98,50+off/150*50)); mk.style.left=pct+'%'; mk.style.opacity=1; mk.style.background=col;
+    hist.push(abs); if(hist.length>20)hist.shift();
+    if(streak>best){ best=streak; try{localStorage.setItem('hhtxt_rl_best',best);}catch(e){} }
+    stat();
+  }
+  function tap(){ if(!running)return; var c=ac(); var tapT=c.currentTime; var k=Math.round((tapT-startT)/bi); var nearest=startT+k*bi; register((tapT-nearest)*1000); }
+  function start(){ var c=ac(); c.resume(); running=true; bi=60/bpm; startT=c.currentTime+0.15; nextBeat=startT; beatCount=0; streak=0; hist=[]; document.getElementById('rlIco').textContent='❚❚'; document.getElementById('rlStartTxt').textContent='停止'; document.getElementById('rlFb').textContent='拍に合わせてタップ'; document.getElementById('rlFb').style.color='var(--ink2)'; scheduleLoop(); stat(); }
+  function stop(){ running=false; clearTimeout(timer); document.getElementById('rlIco').textContent='▶'; document.getElementById('rlStartTxt').textContent='スタート'; }
+  window.__stopRL=function(){ if(running) stop(); };
+  document.getElementById('rlTap').addEventListener('click',tap);
+  document.addEventListener('keydown',function(e){ if(e.code==='Space' && running){ e.preventDefault(); tap(); } });
+  startBtn.addEventListener('click',function(){ ac().resume(); running?stop():start(); });
+  document.getElementById('rlBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('rlBpmVal').textContent=bpm; if(running){ var c=ac(); bi=60/bpm; startT=c.currentTime+0.05; nextBeat=startT; beatCount=0; } });
+  stat();
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -3606,6 +3669,7 @@ function stopAllMedia(){
   if(window.__stopFlowScope) window.__stopFlowScope();
   if(window.__stopSongMap) window.__stopSongMap();
   if(window.__stopPocket) window.__stopPocket();
+  if(window.__stopRL) window.__stopRL();
 }
 
 let io;
