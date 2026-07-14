@@ -843,6 +843,46 @@
   .pk-now{margin-top:12px;border-left:3px solid #8fc0e8;background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
   .pk-now b{color:var(--gold2)}
 
+  /* ---- マスタークラス（Groove/Flow/Spit 極める） ---- */
+  .mc-hd{margin:70px 0 6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .mc-hd .badge{font-size:12px;font-weight:800;color:#15110a;background:linear-gradient(145deg,#f2d188,#d9b25a);padding:4px 12px;border-radius:8px;letter-spacing:.04em}
+  .mc-hd h2{font-size:clamp(23px,3.6vw,32px);font-weight:900;letter-spacing:-.01em}
+  .mc-lead{font-size:13.5px;color:var(--ink2);line-height:1.75;margin:6px 0 4px}
+  .mc-lead b{color:var(--gold2)}
+  .mc-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+  @media(max-width:620px){.mc-pillars{grid-template-columns:1fr}}
+  .mc-pillar{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--panel2)}
+  .mc-pillar .t{font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px}
+  .mc-pillar .t .em{font-size:17px}
+  .mc-pillar .d{font-size:12px;color:var(--ink3);margin-top:4px;line-height:1.6}
+  .mc-pillar.g{border-color:#7bbf7b55}.mc-pillar.g .t{color:#9bd58f}
+  .mc-pillar.f{border-color:#5b9bd555}.mc-pillar.f .t{color:#8fc0e8}
+  .mc-pillar.s{border-color:#cf3b4a55}.mc-pillar.s .t{color:#ef8a93}
+  .mc-shead{margin:40px 0 8px;display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+  .mc-shead .k{font-size:12px;font-weight:800;color:#15110a;padding:3px 10px;border-radius:7px;letter-spacing:.04em}
+  .mc-shead .k.g{background:linear-gradient(145deg,#9bd58f,#6bbf6b)}
+  .mc-shead .k.f{background:linear-gradient(145deg,#8fc0e8,#5b9bd5)}
+  .mc-shead .k.s{background:linear-gradient(145deg,#ef8a93,#cf3b4a);color:#150a0c}
+  .mc-shead h3{font-size:clamp(18px,2.6vw,22px);font-weight:900}
+  .mc-why{border-left:3px solid var(--goldsoft);padding-left:9px;margin-top:6px;font-size:11.5px;color:var(--ink3);line-height:1.55}
+  .mc-why b{color:var(--gold2);font-weight:700}
+  /* micro-timing grid player */
+  .mt-btns{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 12px}
+  .mt-btn{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:11px;padding:9px 14px;cursor:pointer;font-weight:800;font-size:13px;display:flex;flex-direction:column;gap:2px;min-width:96px;-webkit-tap-highlight-color:transparent}
+  .mt-btn small{font-weight:600;color:var(--ink3);font-size:10px}
+  .mt-btn.on{color:#15110a;background:linear-gradient(145deg,#f2d188,#d9b25a);border-color:transparent}
+  .mt-btn.on small{color:#3a2e12}
+  .mt-viz{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:14px 10px 10px;overflow-x:auto}
+  .mt-grid{position:relative;height:74px;min-width:280px}
+  .mt-grid .gl{position:absolute;top:8px;bottom:22px;width:1px;background:var(--line)}
+  .mt-grid .gl.strong{background:#3a3a42;width:2px}
+  .mt-grid .glab{position:absolute;bottom:2px;font-size:10px;color:var(--ink3);transform:translateX(-50%);font-weight:700}
+  .mt-grid .voc{position:absolute;top:14px;width:14px;height:34px;border-radius:4px;background:var(--gold2);box-shadow:0 0 9px rgba(242,209,136,.45);transform:translateX(-50%);transition:left .18s;display:grid;place-items:center}
+  .mt-grid .voc .sy{position:absolute;top:-15px;font-size:10px;color:var(--gold2);font-weight:800;white-space:nowrap}
+  .mt-grid .voc.hit{background:#fff;box-shadow:0 0 16px rgba(255,255,255,.7)}
+  .mt-off{margin-top:10px;text-align:center;font-size:12px;color:var(--ink3);font-weight:700}
+  .mt-off b{color:var(--gold2);font-variant-numeric:tabular-nums}
+
   /* ---- 音の名刺図鑑 ---- */
   .sd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   @media(max-width:600px){.sd-grid{grid-template-columns:repeat(2,1fr)}}
@@ -870,6 +910,19 @@
   .rl-stat .hi{color:var(--gold2);font-weight:800}
   .rl-tap{width:100%;padding:20px;font-size:18px;font-weight:900;border-radius:14px;border:none;background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;cursor:pointer;margin-top:12px;-webkit-tap-highlight-color:transparent}
   .rl-tap:active{transform:scale(.98)}
+
+  /* ---- フロウ・ビルダー ---- */
+  .fb-nums{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;margin-bottom:3px}
+  .fb-nums span{text-align:center;font-size:10px;color:var(--ink3);font-weight:800}
+  .fb-nums span.q{color:var(--ink2)}
+  .fb-grid{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;margin:2px 0}
+  .fb-cell{height:32px;border:1px solid var(--line);border-radius:5px;background:#141318;cursor:pointer;transition:.07s;-webkit-tap-highlight-color:transparent}
+  .fb-cell.beat{border-color:#34343c;background:#181820}
+  .fb-cell.hit{background:linear-gradient(160deg,var(--gold2),var(--goldsoft));border-color:transparent}
+  .fb-cell.acc{background:linear-gradient(160deg,#fff,var(--gold2));border-color:#fff;box-shadow:0 0 8px rgba(242,209,136,.5)}
+  .fb-cell.cur{outline:2px solid #8fc0e8;outline-offset:1px}
+  .fb-read{font-size:13px;color:var(--ink2);margin-top:8px}
+  .fb-read b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -2487,6 +2540,24 @@
   </div>
   <div class="note" style="border-left-color:#8fc0e8">🎧 <b>使い方：</b>まず「棒読み」で退屈さを体で覚える→「グルーヴ」「間」に切り替えると<b>同じ言葉が生き返る</b>のが分かる。これが<b>フロウ＝乗せ方</b>の正体。<b style="color:#ef8a93">自分の曲でやりたくなったら、曲のURLか歌詞をチャットに投げてくれ</b>＝その曲のフロウをここに起こす。</div>
 
+  <div class="shead" id="flowbuilder"><span class="num">★</span><h2>フロウ・ビルダー — 自分で譜割りを置く（足し算・引き算）</h2></div>
+  <p class="sub">お前の言う<b>「足し算も引き算もできる」</b>を手で。<b>マスをタップして言葉の位置を置く</b>→▶再生でビートに乗る。詰める（足す）／空ける（引く）を耳で確かめて、<b>自分のフロウを組め</b>。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · 自分で作る</div>
+    <h3>1小節（16分割）に言葉を置く</h3>
+    <p class="hint">マスをタップ＝<b>1回で言葉（金）／2回でアクセント（白＝強く言う）／3回で消す</b>。赤枠＝キック・青枠＝スネアの位置。<b>詰める→空けるの緩急</b>を作れ。</p>
+    <div class="fb-nums" id="fbNums"></div>
+    <div class="fb-grid" id="fbGrid"></div>
+    <div class="fb-read" id="fbRead"></div>
+    <div class="controls">
+      <button class="play" id="fbPlay"><span id="fbIco">▶</span> <span id="fbTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="fbBpm" min="70" max="110" value="88"> <span class="val" id="fbBpmVal">88</span></label>
+      <button class="bx-reset" id="fbClear">↺ 全消し</button>
+      <button class="bx-reset" id="fbEx">例を入れる</button>
+    </div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎯 <b>練習の順：</b>①4分（0・4・8・12）だけ置く＝棒読み→②裏や食いを足す→③一部を16分で詰める→④わざと空ける。<b>詰める所を作るほど、空けた所が映える</b>（余白＝最強の技術）。アクセント（白）は<b>決め所だけ</b>＝立てる/流すのメリハリ。作ったら口で「タ」を乗せてみろ。</div>
+
   <div class="shead"><span class="num">07</span><h2>Spit（吐き出す技術）— リズムを"音"にする</h2></div>
   <p class="sub">正確なリズムができたら、それを<b>キレのある声で吐き出す</b>のがspit。ここで一般もヘッズも「うまっ」となる。リズムの解像度が高いほど、spitは鋭くなる。</p>
   <div class="subgrid">
@@ -3656,6 +3727,34 @@ handleHash();
   stat();
 })();
 
+/* ===== フロウ・ビルダー ===== */
+(function(){
+  var grid=document.getElementById('fbGrid'); if(!grid) return;
+  var STEPS=16, cells=new Array(STEPS).fill(0);
+  var KICK=[0,10], SNARE=[4,12], HAT=[0,2,4,6,8,10,12,14];
+  var bpm=88, playing=false, ctx=null, timer=null, curTick=0, nextTime=0;
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function secPer(){ return (60/bpm)/4; }
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.85,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),nzz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.4,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nzz.connect(bp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.15); }
+  function hat(t){ var c=ac(),nzz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.12,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nzz.connect(hp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.05); }
+  function voice(t,acc){ var c=ac(); var nzz=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=acc?2600:2000; ng.gain.setValueAtTime(acc?.32:.2,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); nzz.connect(bp).connect(ng).connect(c.destination); nzz.start(t); nzz.stop(t+.06); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=acc?300:230; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(acc?.32:.22,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function renderNums(){ var h=''; for(var i=0;i<STEPS;i++){ h+='<span class="'+(i%4===0?'q':'')+'">'+(i%4===0?(i/4+1):'')+'</span>'; } document.getElementById('fbNums').innerHTML=h; }
+  function classOf(i){ var c='fb-cell'+((i%4===0)?' beat':''); if(cells[i]===1)c+=' hit'; else if(cells[i]===2)c+=' acc'; if(KICK.indexOf(i)>=0)c+=' k'; return c; }
+  function renderGrid(){ grid.innerHTML=''; for(var i=0;i<STEPS;i++){ var d=document.createElement('div'); d.className=classOf(i); d.dataset.i=i; if(SNARE.indexOf(i)>=0)d.style.borderColor='#5b9bd5'; if(KICK.indexOf(i)>=0&&cells[i]===0)d.style.borderColor='#c8503e'; d.addEventListener('click',function(){ var idx=+this.dataset.i; cells[idx]=(cells[idx]+1)%3; renderGrid(); readOut(); var c=ac(); c.resume(); if(cells[idx]>0)voice(c.currentTime+.02,cells[idx]===2); }); grid.appendChild(d); } }
+  function readOut(){ var hits=cells.filter(function(x){return x>0;}).length, acc=cells.filter(function(x){return x===2;}).length; document.getElementById('fbRead').innerHTML='言葉 <b>'+hits+'</b>個（1拍あたり <b>'+(hits/4).toFixed(1)+'音</b>）／アクセント <b>'+acc+'</b>個。'+(hits===0?'まずマスをタップして置いてみろ。':(hits>=11?'詰め気味＝ダブルタイム。空ける所も作ると映える。':(hits<=4?'スカスカ＝間で聴かせる系。':'いいバランス。'))); }
+  function scheduleLoop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%STEPS; if(KICK.indexOf(step)>=0)kick(nextTime); if(SNARE.indexOf(step)>=0)snare(nextTime); if(HAT.indexOf(step)>=0)hat(nextTime); if(cells[step]>0)voice(nextTime,cells[step]===2); (function(st,ti){ setTimeout(function(){ var cur=grid.querySelector('.fb-cell.cur'); if(cur)cur.classList.remove('cur'); var cell=grid.children[st]; if(cell)cell.classList.add('cur'); }, Math.max(0,(ti-c.currentTime)*1000)); })(step,nextTime); nextTime+=secPer(); curTick++; } timer=setTimeout(scheduleLoop,25); }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+.06; document.getElementById('fbIco').textContent='❚❚'; document.getElementById('fbTxt').textContent='停止'; scheduleLoop(); }
+  function stop(){ playing=false; clearTimeout(timer); document.getElementById('fbIco').textContent='▶'; document.getElementById('fbTxt').textContent='再生'; var cur=grid.querySelector('.fb-cell.cur'); if(cur)cur.classList.remove('cur'); }
+  window.__stopFB=function(){ if(playing) stop(); };
+  document.getElementById('fbPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  document.getElementById('fbBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('fbBpmVal').textContent=bpm; });
+  document.getElementById('fbClear').addEventListener('click',function(){ cells=new Array(STEPS).fill(0); renderGrid(); readOut(); });
+  document.getElementById('fbEx').addEventListener('click',function(){ cells=[2,0,0,1,0,1,0,0,1,0,1,1,0,1,0,0]; renderGrid(); readOut(); });
+  renderNums(); renderGrid(); readOut();
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -3670,6 +3769,7 @@ function stopAllMedia(){
   if(window.__stopSongMap) window.__stopSongMap();
   if(window.__stopPocket) window.__stopPocket();
   if(window.__stopRL) window.__stopRL();
+  if(window.__stopFB) window.__stopFB();
 }
 
 let io;
