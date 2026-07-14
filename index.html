@@ -2417,7 +2417,8 @@
   <div class="tool">
     <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · やって鍛える</div>
     <h3>拍にタップしてロックする</h3>
-    <p class="hint">▶スタート→<b>クリック音（拍）に合わせて大きいボタンをタップ</b>（PCはスペースキーでもOK）。前(−)／ジャスト／後ろ(+)がミリ秒で出る。連続ジャスト🔥を伸ばせ。</p>
+    <p class="hint">▶スタート→<b>クリック音（拍）に合わせて大きいボタンをタップ</b>（PCはスペースキーでもOK）。前(−)／ジャスト／後ろ(+)がミリ秒で出る。連続ジャスト🔥を伸ばせ。<b style="color:#8fc0e8">レベルを上げると刻みが細かくなる</b>。</p>
+    <div class="pk-btns" id="rlLevel" style="margin:6px 0 12px"></div>
     <div class="rl-stage">
       <div class="rl-pulse" id="rlPulse">♪</div>
       <div class="rl-fb" id="rlFb">スタートして拍に合わせよう</div>
@@ -2600,7 +2601,8 @@
   <div class="tool">
     <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · 自分で作る</div>
     <h3>1小節（16分割）に言葉を置く</h3>
-    <p class="hint">マスをタップ＝<b>1回で言葉（金）／2回でアクセント（白＝強く言う）／3回で消す</b>。赤枠＝キック・青枠＝スネアの位置。<b>詰める→空けるの緩急</b>を作れ。</p>
+    <p class="hint">マスをタップ＝<b>1回で言葉（金）／2回でアクセント（白＝強く言う）／3回で消す</b>。赤枠＝キック・青枠＝スネアの位置。<b>詰める→空けるの緩急</b>を作れ。<b style="color:#8fc0e8">下のビートタイプを変えて、同じ譜割りを別のビートでテスト</b>。</p>
+    <div class="pk-btns" id="fbBeats" style="margin:8px 0"></div>
     <div class="fb-nums" id="fbNums"></div>
     <div class="fb-grid" id="fbGrid"></div>
     <div class="fb-read" id="fbRead"></div>
@@ -3910,12 +3912,12 @@ handleHash();
 /* ===== リズム・ロック・トレーナー ===== */
 (function(){
   var startBtn=document.getElementById('rlStart'); if(!startBtn) return;
-  var ctx=null, running=false, timer=null, startT=0, bi=0, bpm=88, nextBeat=0, beatCount=0;
+  var ctx=null, running=false, timer=null, startT=0, bi=0, bpm=88, nextBeat=0, tickCount=0, sub=1;
   var best=+(localStorage.getItem('hhtxt_rl_best')||0), streak=0, hist=[];
   function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
-  function click(t,acc){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.value=acc?1650:1050; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.35,t+.004); g.gain.exponentialRampToValueAtTime(.001,t+.05); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.06); }
+  function click(t,lv){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.value=lv===2?1650:(lv===1?1050:760); var v=lv===2?.35:(lv===1?.3:.13); g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(v,t+.004); g.gain.exponentialRampToValueAtTime(.001,t+.05); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.06); }
   function pulse(){ var p=document.getElementById('rlPulse'); if(!p)return; p.classList.add('beat'); setTimeout(function(){p.classList.remove('beat');},90); }
-  function scheduleLoop(){ var c=ac(); while(nextBeat < c.currentTime+0.12){ click(nextBeat, beatCount%4===0); (function(bt){ setTimeout(pulse, Math.max(0,(bt-c.currentTime)*1000)); })(nextBeat); nextBeat+=bi; beatCount++; } timer=setTimeout(scheduleLoop,25); }
+  function scheduleLoop(){ var c=ac(); var si=bi/sub; while(nextBeat < c.currentTime+0.12){ var isBar=(tickCount%(4*sub))===0, isBeat=(tickCount%sub)===0; click(nextBeat, isBar?2:(isBeat?1:0)); if(isBeat){ (function(bt){ setTimeout(pulse, Math.max(0,(bt-c.currentTime)*1000)); })(nextBeat); } nextBeat+=si; tickCount++; } timer=setTimeout(scheduleLoop,25); }
   function stat(){ var avg=hist.length?Math.round(hist.reduce(function(a,b){return a+b;},0)/hist.length):0; var el=document.getElementById('rlStat'); if(el)el.innerHTML='直近ズレ平均 <span class="hi">±'+avg+'ms</span>　連続ジャスト <span class="hi">'+streak+'</span>　最高 <span class="hi">'+best+'</span>'; }
   function register(off){
     var abs=Math.abs(off), fb=document.getElementById('rlFb'), mk=document.getElementById('rlMk'), col, word, sign=off>0?'+':'';
@@ -3926,14 +3928,15 @@ handleHash();
     if(streak>best){ best=streak; try{localStorage.setItem('hhtxt_rl_best',best);}catch(e){} }
     stat();
   }
-  function tap(){ if(!running)return; var c=ac(); var tapT=c.currentTime; var k=Math.round((tapT-startT)/bi); var nearest=startT+k*bi; register((tapT-nearest)*1000); }
-  function start(){ var c=ac(); c.resume(); running=true; bi=60/bpm; startT=c.currentTime+0.15; nextBeat=startT; beatCount=0; streak=0; hist=[]; document.getElementById('rlIco').textContent='❚❚'; document.getElementById('rlStartTxt').textContent='停止'; document.getElementById('rlFb').textContent='拍に合わせてタップ'; document.getElementById('rlFb').style.color='var(--ink2)'; scheduleLoop(); stat(); }
+  function tap(){ if(!running)return; var c=ac(); var tapT=c.currentTime; var si=bi/sub; var k=Math.round((tapT-startT)/si); var nearest=startT+k*si; register((tapT-nearest)*1000); }
+  function start(){ var c=ac(); c.resume(); running=true; bi=60/bpm; startT=c.currentTime+0.15; nextBeat=startT; tickCount=0; streak=0; hist=[]; document.getElementById('rlIco').textContent='❚❚'; document.getElementById('rlStartTxt').textContent='停止'; document.getElementById('rlFb').textContent='拍に合わせてタップ'; document.getElementById('rlFb').style.color='var(--ink2)'; scheduleLoop(); stat(); }
   function stop(){ running=false; clearTimeout(timer); document.getElementById('rlIco').textContent='▶'; document.getElementById('rlStartTxt').textContent='スタート'; }
   window.__stopRL=function(){ if(running) stop(); };
   document.getElementById('rlTap').addEventListener('click',tap);
   document.addEventListener('keydown',function(e){ if(e.code==='Space' && running){ e.preventDefault(); tap(); } });
   startBtn.addEventListener('click',function(){ ac().resume(); running?stop():start(); });
-  document.getElementById('rlBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('rlBpmVal').textContent=bpm; if(running){ var c=ac(); bi=60/bpm; startT=c.currentTime+0.05; nextBeat=startT; beatCount=0; } });
+  document.getElementById('rlBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('rlBpmVal').textContent=bpm; if(running){ var c=ac(); bi=60/bpm; startT=c.currentTime+0.05; nextBeat=startT; tickCount=0; } });
+  (function(){ var le=document.getElementById('rlLevel'); if(!le)return; [['4分（拍）',1,'まずここ'],['8分（裏も）',2,'難しめ'],['16分（細かい）',4,'上級']].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'+(o[1]===sub?' on':''); b.innerHTML=o[0]+'<small>'+o[2]+'</small>'; b.addEventListener('click',function(){ sub=o[1]; le.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); if(running)start(); }); le.appendChild(b); }); })();
   stat();
 })();
 
@@ -3941,7 +3944,14 @@ handleHash();
 (function(){
   var grid=document.getElementById('fbGrid'); if(!grid) return;
   var STEPS=16, cells=new Array(STEPS).fill(0);
-  var KICK=[0,10], SNARE=[4,12], HAT=[0,2,4,6,8,10,12,14];
+  var BEATS={
+    boombap:{nm:'Boom Bap',sub:'王道・生ドラム',bpm:88,swing:.05,kick:[0,10],snare:[4,12],hat:[0,2,4,6,8,10,12,14],b808:[]},
+    lofi:{nm:'Lo-Fi',sub:'ハネる・chill',bpm:78,swing:.16,kick:[0,10],snare:[4,12],hat:[0,2,4,6,8,10,12,14],b808:[]},
+    jazzy:{nm:'ジャジー',sub:'唾奇/5lack系',bpm:84,swing:.14,kick:[0,7,10],snare:[4,12],hat:[2,6,10,14],b808:[]},
+    trap:{nm:'トラップ',sub:'808・16分刻み',bpm:80,swing:0,kick:[0,6,10],snare:[8],hat:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],b808:[0,10]}
+  };
+  var bt='boombap', KICK=[0,10], SNARE=[4,12], HAT=[0,2,4,6,8,10,12,14], B808=[], swing=.05;
+  function setBeat(t){ bt=t; var b=BEATS[t]; KICK=b.kick; SNARE=b.snare; HAT=b.hat; B808=b.b808; swing=b.swing; bpm=b.bpm; var bp=document.getElementById('fbBpm'); if(bp){bp.value=bpm;document.getElementById('fbBpmVal').textContent=bpm;} }
   var bpm=88, playing=false, ctx=null, timer=null, curTick=0, nextTime=0;
   function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
   function secPer(){ return (60/bpm)/4; }
@@ -3950,11 +3960,12 @@ handleHash();
   function snare(t){ var c=ac(),nzz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.4,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nzz.connect(bp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.15); }
   function hat(t){ var c=ac(),nzz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.12,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nzz.connect(hp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.05); }
   function voice(t,acc){ var c=ac(); var nzz=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=acc?2600:2000; ng.gain.setValueAtTime(acc?.32:.2,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); nzz.connect(bp).connect(ng).connect(c.destination); nzz.start(t); nzz.stop(t+.06); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=acc?300:230; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(acc?.32:.22,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function b808(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='sine'; o.frequency.setValueAtTime(85,t); o.frequency.exponentialRampToValueAtTime(42,t+.09); lp.type='lowpass'; lp.frequency.value=360; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.6,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+.6); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.65); }
   function renderNums(){ var h=''; for(var i=0;i<STEPS;i++){ h+='<span class="'+(i%4===0?'q':'')+'">'+(i%4===0?(i/4+1):'')+'</span>'; } document.getElementById('fbNums').innerHTML=h; }
   function classOf(i){ var c='fb-cell'+((i%4===0)?' beat':''); if(cells[i]===1)c+=' hit'; else if(cells[i]===2)c+=' acc'; if(KICK.indexOf(i)>=0)c+=' k'; return c; }
   function renderGrid(){ grid.innerHTML=''; for(var i=0;i<STEPS;i++){ var d=document.createElement('div'); d.className=classOf(i); d.dataset.i=i; if(SNARE.indexOf(i)>=0)d.style.borderColor='#5b9bd5'; if(KICK.indexOf(i)>=0&&cells[i]===0)d.style.borderColor='#c8503e'; d.addEventListener('click',function(){ var idx=+this.dataset.i; cells[idx]=(cells[idx]+1)%3; renderGrid(); readOut(); var c=ac(); c.resume(); if(cells[idx]>0)voice(c.currentTime+.02,cells[idx]===2); }); grid.appendChild(d); } }
   function readOut(){ var hits=cells.filter(function(x){return x>0;}).length, acc=cells.filter(function(x){return x===2;}).length; document.getElementById('fbRead').innerHTML='言葉 <b>'+hits+'</b>個（1拍あたり <b>'+(hits/4).toFixed(1)+'音</b>）／アクセント <b>'+acc+'</b>個。'+(hits===0?'まずマスをタップして置いてみろ。':(hits>=11?'詰め気味＝ダブルタイム。空ける所も作ると映える。':(hits<=4?'スカスカ＝間で聴かせる系。':'いいバランス。'))); }
-  function scheduleLoop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%STEPS; if(KICK.indexOf(step)>=0)kick(nextTime); if(SNARE.indexOf(step)>=0)snare(nextTime); if(HAT.indexOf(step)>=0)hat(nextTime); if(cells[step]>0)voice(nextTime,cells[step]===2); (function(st,ti){ setTimeout(function(){ var cur=grid.querySelector('.fb-cell.cur'); if(cur)cur.classList.remove('cur'); var cell=grid.children[st]; if(cell)cell.classList.add('cur'); }, Math.max(0,(ti-c.currentTime)*1000)); })(step,nextTime); nextTime+=secPer(); curTick++; } timer=setTimeout(scheduleLoop,25); }
+  function scheduleLoop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%STEPS; var sw=((step%4)===2)?swing*secPer()*2:0; var t=nextTime+sw; if(KICK.indexOf(step)>=0)kick(t); if(SNARE.indexOf(step)>=0)snare(t); if(HAT.indexOf(step)>=0)hat(t); if(B808.indexOf(step)>=0)b808(t); if(cells[step]>0)voice(t,cells[step]===2); (function(st,ti){ setTimeout(function(){ var cur=grid.querySelector('.fb-cell.cur'); if(cur)cur.classList.remove('cur'); var cell=grid.children[st]; if(cell)cell.classList.add('cur'); }, Math.max(0,(ti-c.currentTime)*1000)); })(step,t); nextTime+=secPer(); curTick++; } timer=setTimeout(scheduleLoop,25); }
   function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+.06; document.getElementById('fbIco').textContent='❚❚'; document.getElementById('fbTxt').textContent='停止'; scheduleLoop(); }
   function stop(){ playing=false; clearTimeout(timer); document.getElementById('fbIco').textContent='▶'; document.getElementById('fbTxt').textContent='再生'; var cur=grid.querySelector('.fb-cell.cur'); if(cur)cur.classList.remove('cur'); }
   window.__stopFB=function(){ if(playing) stop(); };
@@ -3962,6 +3973,8 @@ handleHash();
   document.getElementById('fbBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('fbBpmVal').textContent=bpm; });
   document.getElementById('fbClear').addEventListener('click',function(){ cells=new Array(STEPS).fill(0); renderGrid(); readOut(); });
   document.getElementById('fbEx').addEventListener('click',function(){ cells=[2,0,0,1,0,1,0,0,1,0,1,1,0,1,0,0]; renderGrid(); readOut(); });
+  setBeat('boombap');
+  (function(){ var be=document.getElementById('fbBeats'); if(!be)return; ['boombap','lofi','jazzy','trap'].forEach(function(k){ var m=BEATS[k]; var b=document.createElement('button'); b.className='pk-btn'+(k==='boombap'?' on':''); b.innerHTML=m.nm+'<small>'+m.sub+'</small>'; b.addEventListener('click',function(){ setBeat(k); be.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); renderGrid(); readOut(); }); be.appendChild(b); }); })();
   renderNums(); renderGrid(); readOut();
 })();
 
