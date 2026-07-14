@@ -842,6 +842,20 @@
   .pk-tick.voice{width:8px;height:22px;background:var(--gold2);border-radius:3px;box-shadow:0 0 8px rgba(242,209,136,.4)}
   .pk-now{margin-top:12px;border-left:3px solid #8fc0e8;background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
   .pk-now b{color:var(--gold2)}
+
+  /* ---- 音の名刺図鑑 ---- */
+  .sd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  @media(max-width:600px){.sd-grid{grid-template-columns:repeat(2,1fr)}}
+  .sd-card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 10px;cursor:pointer;text-align:center;transition:.1s;-webkit-tap-highlight-color:transparent}
+  .sd-card:active{transform:scale(.97)}
+  .sd-card.lit{border-color:var(--gold2);box-shadow:0 0 14px rgba(242,209,136,.3),0 0 0 1px var(--gold2) inset}
+  .sd-card .sn{font-size:13.5px;font-weight:800;color:var(--ink)}
+  .sd-card .so{font-size:21px;font-weight:900;color:var(--gold2);margin:2px 0 1px;line-height:1.1}
+  .sd-band{display:flex;gap:3px;margin:8px 0 7px}
+  .sd-band span{flex:1;height:6px;border-radius:2px;background:#1c1c22}
+  .sd-band span.on.low{background:#c8503e}.sd-band span.on.mid{background:#5b9bd5}.sd-band span.on.hi{background:#f2d188}
+  .sd-card .sr{font-size:10px;color:var(--ink3);line-height:1.45}
+  .sd-legend{font-size:11px;color:var(--ink3);text-align:center;margin-top:9px}
 </style>
 </head>
 <body>
@@ -2088,6 +2102,15 @@
     <div class="lstep"><div class="ln">6</div><div><b>ポケット（前/ジャスト/後ろ）を感じる</b><p>最後は"ミリ秒"の世界。後ノリの色気を耳で。リズム&Spitのポケットへ。</p></div></div>
   </div>
   <div class="note" style="border-left-color:#c79bf2">🔥 <b>毎日3分でいい。</b>クイズを1日10問、この順を意識して回す。<b>「当てる」より「なぜそう聞こえるか」を一言で言葉にする</b>と定着が段違い。最高連続記録を超えていけ。</div>
+
+  <div class="shead" id="sounddex"><span class="num">🔊</span><h2>音の名刺図鑑 — 目・耳・イメージで覚える</h2></div>
+  <p class="sub">聞き分けが苦手なのは<b>「音に名前と姿が無い」</b>から。タップ＝<b>鳴る＋オノマトペ＋周波数の居場所（<span style="color:#c8503e">低</span>/<span style="color:#5b9bd5">中</span>/<span style="color:#f2d188">高</span>）＋役割</b>を1枚に。<b>出先でこれをタップして耳に刷り込め</b>＝解像度が一気に上がる。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#c79bf2">▶ INTERACTIVE · タップで鳴る</div>
+    <div class="sd-grid" id="sdGrid"></div>
+    <div class="sd-legend">帯バー＝その音が住む高さ／<span style="color:#c8503e">■低</span>（キック・ベース）　<span style="color:#5b9bd5">■中</span>（スネア・声）　<span style="color:#f2d188">■高</span>（ハット・うわもの）</div>
+  </div>
+  <div class="note" style="border-left-color:#c79bf2">🎧 <b>覚え方の3点セット：</b>①ここで1個ずつタップして「<b>ドン＝キック＝低い</b>」を刷り込む→②<b>ビート解剖</b>でソロ(S)して曲の中で探す→③<b>耳トレクイズの聞き分け</b>で当てる。この順で回すと聞き分けが体に入る。<b>似た音（キック↔808／スネア↔クラップ／閉↔開ハット）はクイズに"聞き分け"問題を追加した。</b></div>
 
   <!-- FLOW LAB -->
   <div class="shead"><span class="num">02</span><h2>フロウ・ラボ — 言葉の"乗り位置"を掴む</h2></div>
@@ -3536,6 +3559,40 @@ handleHash();
   build(); upd();
 })();
 
+/* ===== 音の名刺図鑑 ===== */
+(function(){
+  var grid=document.getElementById('sdGrid'); if(!grid) return;
+  var ctx=null; function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function nz(dur){ var cc=ac(); var b=cc.createBuffer(1,Math.max(1,Math.floor(cc.sampleRate*dur)),cc.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=cc.createBufferSource(); sr.buffer=b; return sr; }
+  var SND={
+    kick:function(t){ var cc=ac(),o=cc.createOscillator(),g=cc.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.18); o.connect(g).connect(cc.destination); o.start(t); o.stop(t+.2); },
+    sub808:function(t){ var cc=ac(),o=cc.createOscillator(),g=cc.createGain(),lp=cc.createBiquadFilter(); o.type='sine'; o.frequency.setValueAtTime(90,t); o.frequency.exponentialRampToValueAtTime(42,t+.1); lp.type='lowpass'; lp.frequency.value=350; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.7,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+.75); o.connect(lp).connect(g).connect(cc.destination); o.start(t); o.stop(t+.8); },
+    bass:function(t){ var cc=ac(),o=cc.createOscillator(),g=cc.createGain(),lp=cc.createBiquadFilter(); o.type='sine'; o.frequency.value=58; lp.type='lowpass'; lp.frequency.value=420; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.6,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+.5); o.connect(lp).connect(g).connect(cc.destination); o.start(t); o.stop(t+.55); },
+    snare:function(t){ var cc=ac(),n=nz(.18),g=cc.createGain(),bp=cc.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); n.connect(bp).connect(g).connect(cc.destination); n.start(t); n.stop(t+.18); var o=cc.createOscillator(),g2=cc.createGain(); o.type='triangle'; o.frequency.value=180; g2.gain.setValueAtTime(.3,t); g2.gain.exponentialRampToValueAtTime(.001,t+.12); o.connect(g2).connect(cc.destination); o.start(t); o.stop(t+.14); },
+    clap:function(t){ var cc=ac(); [0,.012,.026,.05].forEach(function(d,i){ var n=nz(.12),g=cc.createGain(),bp=cc.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=1500; g.gain.setValueAtTime(i<3?.26:.42,t+d); g.gain.exponentialRampToValueAtTime(.001,t+d+.11); n.connect(bp).connect(g).connect(cc.destination); n.start(t+d); n.stop(t+d+.12); }); },
+    rim:function(t){ var cc=ac(),n=nz(.04),g=cc.createGain(),bp=cc.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2600; g.gain.setValueAtTime(.4,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); n.connect(bp).connect(g).connect(cc.destination); n.start(t); n.stop(t+.05); var o=cc.createOscillator(),g2=cc.createGain(); o.type='triangle'; o.frequency.value=440; g2.gain.setValueAtTime(.2,t); g2.gain.exponentialRampToValueAtTime(.001,t+.04); o.connect(g2).connect(cc.destination); o.start(t); o.stop(t+.05); },
+    hat:function(t){ var cc=ac(),n=nz(.05),g=cc.createGain(),hp=cc.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=8000; g.gain.setValueAtTime(.25,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); n.connect(hp).connect(g).connect(cc.destination); n.start(t); n.stop(t+.05); },
+    ohat:function(t){ var cc=ac(),n=nz(.35),g=cc.createGain(),hp=cc.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7500; g.gain.setValueAtTime(.22,t); g.gain.exponentialRampToValueAtTime(.001,t+.32); n.connect(hp).connect(g).connect(cc.destination); n.start(t); n.stop(t+.34); },
+    chord:function(t){ var cc=ac(); [261.63,329.63,392].forEach(function(f){ var o=cc.createOscillator(),g=cc.createGain(),lp=cc.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2600; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.13,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+.9); o.connect(g).connect(lp).connect(cc.destination); o.start(t); o.stop(t+.95); }); },
+    crash:function(t){ var cc=ac(),n=nz(.8),g=cc.createGain(),hp=cc.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=5500; g.gain.setValueAtTime(.2,t); g.gain.exponentialRampToValueAtTime(.001,t+.78); n.connect(hp).connect(g).connect(cc.destination); n.start(t); n.stop(t+.8); }
+  };
+  var DEX=[
+    {k:'kick',n:'キック',o:'ドン',b:[1,0,0],r:'ビートの心臓・縦ノリの土台'},
+    {k:'sub808',n:'808',o:'ドゥーン',b:[1,0,0],r:'超低音、伸びる。トラップの主役＝キック兼ベース'},
+    {k:'bass',n:'ベース',o:'ブーン',b:[1,0,0],r:'下から曲を押す。ジャジーはウッドベース'},
+    {k:'snare',n:'スネア',o:'タン',b:[0,1,1],r:'2・4拍の背骨（バックビート）'},
+    {k:'clap',n:'クラップ',o:'パチ',b:[0,1,1],r:'スネアの代わり／重ねる手拍子'},
+    {k:'rim',n:'リムショット',o:'コッ',b:[0,1,0],r:'乾いた木っぽい打点。ローファイに合う'},
+    {k:'hat',n:'閉ハット',o:'チッ',b:[0,0,1],r:'時計の刻み・疾走感'},
+    {k:'ohat',n:'開ハット',o:'チーッ',b:[0,0,1],r:'抜け・広がり。アクセント'},
+    {k:'chord',n:'うわもの',o:'ジャーン',b:[0,1,1],r:'メロ／コード＝感情・色'},
+    {k:'crash',n:'クラッシュ',o:'シャーン',b:[0,0,1],r:'展開の合図。頭で鳴らす'}
+  ];
+  function play(k){ var cc=ac(); cc.resume(); SND[k](cc.currentTime+.04); }
+  function band(b){ var nm=['low','mid','hi']; return '<div class="sd-band">'+b.map(function(x,i){return '<span class="'+(x?'on '+nm[i]:'')+'"></span>';}).join('')+'</div>'; }
+  DEX.forEach(function(d){ var el=document.createElement('div'); el.className='sd-card'; el.innerHTML='<div class="sn">'+d.n+'</div><div class="so">'+d.o+'</div>'+band(d.b)+'<div class="sr">'+d.r+'</div>'; el.addEventListener('click',function(){ grid.querySelectorAll('.sd-card.lit').forEach(function(x){x.classList.remove('lit');}); el.classList.add('lit'); setTimeout(function(){el.classList.remove('lit');},220); play(d.k); }); grid.appendChild(el); });
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -4438,6 +4495,9 @@ renderRhyme();
     else if(k==='snare'){const nz=noise(.18),g=c.createGain(),bp=c.createBiquadFilter();bp.type='highpass';bp.frequency.value=1400;g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.16);nz.connect(bp).connect(g).connect(c.destination);nz.start(t);nz.stop(t+.18);const o=c.createOscillator(),g2=c.createGain();o.type='triangle';o.frequency.value=180;g2.gain.setValueAtTime(.3,t);g2.gain.exponentialRampToValueAtTime(.001,t+.12);o.connect(g2).connect(c.destination);o.start(t);o.stop(t+.14);}
     else if(k==='hat'){const nz=noise(.05),g=c.createGain(),hp=c.createBiquadFilter();hp.type='highpass';hp.frequency.value=8000;g.gain.setValueAtTime(.25,t);g.gain.exponentialRampToValueAtTime(.001,t+.04);nz.connect(hp).connect(g).connect(c.destination);nz.start(t);nz.stop(t+.05);}
     else if(k==='bass'){const o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter();o.type='sine';o.frequency.value=55;lp.type='lowpass';lp.frequency.value=400;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.6,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.5);o.connect(lp).connect(g).connect(c.destination);o.start(t);o.stop(t+.55);}
+    else if(k==='808'){const o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter();o.type='sine';o.frequency.setValueAtTime(90,t);o.frequency.exponentialRampToValueAtTime(42,t+.1);lp.type='lowpass';lp.frequency.value=350;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.7,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.75);o.connect(lp).connect(g).connect(c.destination);o.start(t);o.stop(t+.8);}
+    else if(k==='clap'){[0,.012,.026,.05].forEach((d,i)=>{const nz=noise(.12),g=c.createGain(),bp=c.createBiquadFilter();bp.type='bandpass';bp.frequency.value=1500;g.gain.setValueAtTime(i<3?.26:.42,t+d);g.gain.exponentialRampToValueAtTime(.001,t+d+.11);nz.connect(bp).connect(g).connect(c.destination);nz.start(t+d);nz.stop(t+d+.12);});}
+    else if(k==='ohat'){const nz=noise(.35),g=c.createGain(),hp=c.createBiquadFilter();hp.type='highpass';hp.frequency.value=7500;g.gain.setValueAtTime(.22,t);g.gain.exponentialRampToValueAtTime(.001,t+.32);nz.connect(hp).connect(g).connect(c.destination);nz.start(t);nz.stop(t+.34);}
     else if(k==='chord'){playChord(pick(['major','minor','maj7']));}}
   function subd(val){if(!on())return;const c=ac();c.resume();const t0=c.currentTime+.05,beat=rnd(.42,.6),per=val==='3'?3:(val==='16'?4:2);const hi=rnd(1400,1650),lo=rnd(950,1080);for(let b=0;b<2;b++){for(let i=0;i<per;i++){const t=t0+b*beat+i*(beat/per),o=c.createOscillator(),g=c.createGain();o.frequency.value=i===0?hi:lo;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.3,t+.004);g.gain.exponentialRampToValueAtTime(.001,t+.05);o.connect(g).connect(c.destination);o.start(t);o.stop(t+.06);}}}
   // 音の高低=毎回ランダムな基準音＋ランダムな上げ幅/下げ幅
@@ -4454,7 +4514,10 @@ renderRhyme();
     {id:'tempo',grp:'std',opts:[['遅い(バラード)','slow'],['普通(王道)','mid'],['速い(トラップ)','fast']],q:'このテンポ、速さは？',play:playTempo},
     {id:'inst',grp:'std',opts:[['キック(ドン)','kick'],['スネア(タン)','snare'],['ハット(チッ)','hat'],['ベース(重低音)','bass'],['うわもの(コード)','chord']],q:'どの楽器が鳴った？（聞き分け）',play:hit},
     {id:'sub',grp:'std',opts:[['8分(タ・タ)','8'],['16分(タタタタ)','16'],['3連(タタタ)','3']],q:'この割り、どのリズム？',play:subd},
-    {id:'chord',grp:'std',opts:[['明るい','major'],['切ない','minor'],['美しい・浮遊','maj7'],['不安・不穏','dim']],q:'この響き、どの感情？（コード単体）',play:playChord}
+    {id:'chord',grp:'std',opts:[['明るい','major'],['切ない','minor'],['美しい・浮遊','maj7'],['不安・不穏','dim']],q:'この響き、どの感情？（コード単体）',play:playChord},
+    {id:'d808',grp:'std',opts:[['キック(ドン・短い)','kick'],['808(ドゥーン・伸びる)','808']],q:'似た低音、キック？ 808？',play:hit},
+    {id:'dclap',grp:'std',opts:[['スネア(タン)','snare'],['クラップ(パチ)','clap']],q:'スネア？ クラップ？',play:hit},
+    {id:'dhat',grp:'std',opts:[['閉ハット(チッ)','hat'],['開ハット(チーッ)','ohat']],q:'ハット、閉じ？ 開き？',play:hit}
   ];
   let cur=null,score=0,streak=0,answered=false,lastId=null,mode='all';
   let best=+(localStorage.getItem('hhtxt_ear_best')||0);
