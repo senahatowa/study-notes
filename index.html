@@ -943,6 +943,17 @@
   .s30-pl{margin-left:7px;font-size:11px;font-weight:800;color:#15110a;background:var(--gold2);border:none;border-radius:5px;padding:1px 9px;cursor:pointer;vertical-align:middle}
   .s30-frame{margin:10px 0}
   .s30-frame iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+
+  /* ---- スウィング・ラボ ---- */
+  .sw-viz{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:18px 14px;position:relative;height:52px}
+  .sw-lane{position:absolute;left:16px;right:16px;top:50%;height:3px;background:var(--line);transform:translateY(-50%)}
+  .sw-t{position:absolute;top:50%;width:8px;height:20px;border-radius:3px;transform:translate(-50%,-50%);transition:left .1s}
+  .sw-t.on{background:#c8503e}
+  .sw-t.off{background:var(--gold2);box-shadow:0 0 8px rgba(242,209,136,.5)}
+  .sw-slider{display:block;margin:14px 0 4px;font-size:13px;color:var(--ink2);font-weight:700}
+  .sw-slider input{vertical-align:middle;width:150px}
+  .sw-now{border-left:3px solid #8fc0e8;background:var(--panel);border-radius:0 10px 10px 0;padding:11px 14px;font-size:13.5px;color:var(--ink2);margin-top:6px;line-height:1.7}
+  .sw-now b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -2550,9 +2561,41 @@
   </div>
   <div class="note" style="border-left-color:#8fc0e8">🎯 <b>まずジャストを完璧に</b>取れるのが土台。そこから<b>後ろに"わざと"ズラす</b>と余裕・色気（唾奇/5lack）、<b>前に</b>ズラすと攻め・緊張。1曲でこれを動かすと感情の起伏が体で伝わる＝プロのノリ。
 
+  <div class="shead" id="groovedial"><span class="num">★</span><h2>グルーヴ・ダイヤル — eydenの"べったんべったん"を自分で作る</h2></div>
+  <p class="sub">お前が食らった<b>eydenの跳ね（ハネ）×後ノリ</b>と<b>ワイスピの前ノリ疾走</b>——<b>2つのつまみ（ハネ量・前後ノリ）</b>で同じフレーズが化ける。<b>プリセットで一発切替</b>。食らった"感覚"を"操作"に変えて盗め。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#e8c86a">▶ INTERACTIVE · 食らった感覚を操作に</div>
+    <h3>2つのつまみで"乗り"を作る</h3>
+    <p class="hint"><b>プリセット</b>を押すとその曲の乗りに一発セット→▶再生。つまみを回すと<span style="color:#e8c86a">声（金）</span>が<span style="color:#c8503e">拍（赤）</span>に対して<b>どう跳ねて・どこにズレるか</b>が見える。<b>スマホは横スワイプ</b>。</p>
+    <div class="pk-btns" id="gdPre"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0">
+      <label class="bpm">ハネ量 <input type="range" id="gdSwing" min="0" max="100" value="0"> <span class="val" id="gdSwingVal">0%</span></label>
+      <label class="bpm">前後ノリ <input type="range" id="gdPocket" min="-40" max="55" value="0"> <span class="val" id="gdPocketVal">ジャスト</span></label>
+    </div>
+    <div class="pk-viz" id="gdViz"></div>
+    <div class="pk-now" id="gdNow"></div>
+    <div class="controls"><button class="play" id="gdPlay"><span id="gdIco">▶</span> <span id="gdTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="gdBpm" min="70" max="100" value="84"> <span class="val" id="gdBpmVal">84</span></label>
+      <label class="sound-toggle"><input type="checkbox" id="gdSound" checked> 音を鳴らす</label></div>
+  </div>
+  <div class="note" style="border-left-color:#e8c86a">🎯 <b>べったんべったん＝ハネ量↑＋後ノリ↑</b>／<b>ワイスピ＝ハネ0＋前ノリ</b>。この2軸だけで"別人の乗り"になる。耳で作れたら次は<b>口で真似て録れ</b>（完コピ→チャットに送れ＝拍マップで測る）。</div>
+
   <div class="shead"><span class="num">05</span><h2>スウィング／ハネ（ジャジーの秘密）</h2></div>
   <p class="sub">8分を「均等」でなく「長・短」で刻む＝<b>ハネる</b>。これがジャズ／ローファイ／boom bapの"人間っぽい"心地よさの正体。君の音（唾奇×5lack）はハネてる。</p>
   <div class="note">🎵 均等（マシン的）＝「タ・タ・タ・タ」／スウィング（人間的）＝「ター・タ ター・タ」。ビート解剖のBoom Bap／Lo-Fiプレイヤーは既にハネてる＝あれに乗る練習がそのままスウィング体得。</div>
+
+  <div class="shead" id="swinglab"><span class="num">★</span><h2>スウィング・ラボ — ハネ量を耳で（ジャジーの心臓）</h2></div>
+  <p class="sub">同じビートを<b>スライダー1本でストレート→ハネMAX</b>まで。<b>ハネ＝裏拍を後ろにズラす</b>＝ジャズ/ローファイ/唾奇の"人間っぽい気持ちよさ"の正体。0から上げて、<b>どこが一番グルーヴするか</b>探せ。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · スライダーで探す</div>
+    <h3>ハネ量スライダー（金＝裏拍が後ろに動く）</h3>
+    <div class="sw-viz" id="swViz"><div class="sw-lane"></div></div>
+    <label class="sw-slider">ハネ <input type="range" id="swAmt" min="0" max="100" value="0"> <span id="swVal">0%（ストレート）</span></label>
+    <div class="sw-now" id="swNow"></div>
+    <div class="controls"><button class="play" id="swPlay"><span id="swIco">▶</span> <span id="swTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="swBpm" min="70" max="100" value="84"> <span class="val" id="swBpmVal">84</span></label></div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎯 <b>ジャズ/ローファイは約50〜66%</b>のハネ（三連寄り）。<b>0%＝打ち込みっぽい・マシン的</b>、上げるほど<b>タメて跳ねる人間っぽさ</b>。唾奇/5lackのビートはここが効いてる。ビート発注でも「<b>スウィング強めで</b>」と言える＝玄人の指示。</div>
 
   <div class="shead"><span class="num">06</span><h2>譜割り＝フロウの正体</h2></div>
   <p class="sub"><b>譜割り＝言葉をサブディビジョンのどこに割り付けるか。</b>同じ歌詞でも、割り付けを変えれば全く別のフロウになる。これがラッパーの一番の個性。</p>
@@ -3794,6 +3837,68 @@ handleHash();
   build(); upd();
 })();
 
+/* ===== グルーヴ・ダイヤル（ハネ量×前後ノリの2軸で"乗り"を作る） ===== */
+(function(){
+  var preEl=document.getElementById('gdPre'); if(!preEl) return;
+  var swEl=document.getElementById('gdSwing'), pkEl=document.getElementById('gdPocket');
+  var swVal=document.getElementById('gdSwingVal'), pkVal=document.getElementById('gdPocketVal');
+  var soundEl=document.getElementById('gdSound');
+  var PRE={
+    eyden:{nm:'eyden べったんべったん',sw:70,pk:44,bpm:84,why:'<b>ハネ強×後ノリ強</b>＝跳ねて粘る。お前が食らった"ねばねば"の正体。'},
+    waisupi:{nm:'ワイスピ 前ノリ疾走',sw:0,pk:-30,bpm:94,why:'<b>ハネ0×前ノリ</b>＝真っ直ぐ突っ込む推進力。お前の芯（キレ）の延長。'},
+    tsubaki:{nm:'唾奇 レイドバック',sw:34,pk:38,bpm:80,why:'<b>軽ハネ×後ノリ</b>＝ジャジーな余裕・色気。'},
+    machine:{nm:'マシン（基準ゼロ）',sw:0,pk:0,bpm:84,why:'<b>ハネ0×ジャスト</b>＝均等・退屈。これを基準に置いて、ここから崩す。'}
+  };
+  var swing=0, pocket=0, bpm=84, playing=false, ctx=null, timer=null, STEPS=16, curTick=0, nextTime=0;
+  var VOICE8=[0,2,4,6,8,10,12,14];   // 8分ストリーム
+  var OFF8=[2,6,10,14];               // ハネる裏の8分（三連方向に遅らせる）
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function secPer(){ return (60/bpm)/4; } // 16分1個の秒
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),nz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nz.connect(bp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.15); }
+  function hat(t){ var c=ac(),nz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.14,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nz.connect(hp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.05); }
+  function voice(t){ var c=ac(); var nz=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2100; ng.gain.setValueAtTime(.26,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); nz.connect(bp).connect(ng).connect(c.destination); nz.start(t); nz.stop(t+.06); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=240; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.24,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function swDelay(step,sp){ return OFF8.indexOf(step)>=0 ? (swing/100)*0.667*sp : 0; } // 全ハネ=裏8分を0.667*16分ぶん後ろ（三連2:1）
+  function scheduleLoop(){
+    var c=ac(), sp=secPer(), pk=pocket/1000, snd=!soundEl||soundEl.checked;
+    while(nextTime < c.currentTime+0.1){
+      var step=curTick%STEPS;
+      if(snd){
+        if(step===0||step===8) kick(nextTime);
+        if(step===4||step===12) snare(nextTime);
+        if(step%2===0) hat(nextTime+swDelay(step,sp));
+        if(VOICE8.indexOf(step)>=0){ var vt=nextTime+pk+swDelay(step,sp); voice(Math.max(c.currentTime+0.005,vt)); }
+      }
+      nextTime+=sp; curTick++;
+    }
+    timer=setTimeout(scheduleLoop,25);
+  }
+  function renderViz(){
+    var stepMs=secPer()*1000, per=100/16;
+    var pkVis=(pocket/stepMs)*per;
+    var h='<div class="pk-track"><div class="lbl">拍</div><div class="pk-lane">';
+    [0,4,8,12].forEach(function(s){ h+='<div class="pk-tick beat" style="left:'+(s/16*100)+'%"></div>'; });
+    h+='</div></div><div class="pk-track"><div class="lbl">声</div><div class="pk-lane">';
+    VOICE8.forEach(function(s){ var swV=(OFF8.indexOf(s)>=0?(swing/100)*0.667:0)*per; var x=s/16*100+pkVis+swV; h+='<div class="pk-tick voice" style="left:'+x+'%"></div>'; });
+    h+='</div></div>';
+    document.getElementById('gdViz').innerHTML=h;
+  }
+  function pkLabel(){ return pocket<-4?'前ノリ '+Math.abs(pocket)+'ms（食い）':(pocket>4?'後ノリ '+pocket+'ms（タメ）':'ジャスト'); }
+  function upd(which){ swVal.textContent=swing+'%'; pkVal.textContent=pkLabel(); document.getElementById('gdBpmVal').textContent=bpm; renderViz();
+    var msg=which&&PRE[which]?'<b>'+PRE[which].nm+'：</b>'+PRE[which].why:'<b>ハネ '+swing+'%／'+pkLabel()+'</b>：つまみを回して"乗り"を作れ。';
+    document.getElementById('gdNow').innerHTML=msg; }
+  function buildPre(cur){ preEl.innerHTML=''; Object.keys(PRE).forEach(function(k){ var b=document.createElement('button'); b.className='pk-btn'+(k===cur?' on':''); b.innerHTML=PRE[k].nm.split(' ')[0]+'<small>'+(PRE[k].nm.split(' ').slice(1).join(' ')||'')+'</small>'; b.addEventListener('click',function(){ var p=PRE[k]; swing=p.sw; pocket=p.pk; bpm=p.bpm; swEl.value=swing; pkEl.value=pocket; document.getElementById('gdBpm').value=bpm; buildPre(k); upd(k); }); preEl.appendChild(b); }); }
+  swEl.addEventListener('input',function(e){ swing=+e.target.value; buildPre(null); upd(); });
+  pkEl.addEventListener('input',function(e){ pocket=+e.target.value; buildPre(null); upd(); });
+  document.getElementById('gdBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('gdBpmVal').textContent=bpm; });
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.08; document.getElementById('gdIco').textContent='❚❚'; document.getElementById('gdTxt').textContent='停止'; scheduleLoop(); }
+  function stop(){ playing=false; clearTimeout(timer); document.getElementById('gdIco').textContent='▶'; document.getElementById('gdTxt').textContent='再生'; }
+  window.__stopGroove=function(){ if(playing) stop(); };
+  document.getElementById('gdPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  buildPre(null); upd();
+})();
+
 /* ===== マスタークラス：マイクロタイミング・プレーヤー（1音のズレを解剖） ===== */
 (function(){
   var btnsEl=document.getElementById('mtBtns'); if(!btnsEl) return;
@@ -3978,6 +4083,31 @@ handleHash();
   renderNums(); renderGrid(); readOut();
 })();
 
+/* ===== スウィング・ラボ ===== */
+(function(){
+  var slider=document.getElementById('swAmt'); if(!slider) return;
+  var bpm=84, swing=0, playing=false, ctx=null, timer=null, curTick=0, nextTime=0, STEPS=16;
+  var KICK=[0,10], SNARE=[4,12], HAT=[0,2,4,6,8,10,12,14], VOICE=[0,6,8,14];
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function secPer(){ return (60/bpm)/4; }
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.85,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),nzz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.4,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nzz.connect(bp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.15); }
+  function hat(t,acc){ var c=ac(),nzz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(acc?.22:.12,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nzz.connect(hp).connect(g).connect(c.destination); nzz.start(t); nzz.stop(t+.05); }
+  function voice(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=230; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.2,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.15); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.17); }
+  function scheduleLoop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%STEPS; var sw=((step%4)===2)?swing*secPer()*0.66:0; var t=nextTime+sw; if(KICK.indexOf(step)>=0)kick(t); if(SNARE.indexOf(step)>=0)snare(t); if(HAT.indexOf(step)>=0)hat(t,(step%4)===0); if(VOICE.indexOf(step)>=0)voice(t); nextTime+=secPer(); curTick++; } timer=setTimeout(scheduleLoop,25); }
+  function viz(){ var v=document.getElementById('swViz'); v.querySelectorAll('.sw-t').forEach(function(x){x.remove();}); for(var i=0;i<8;i++){ var off=(i%2)===1; var base=i/8*100; var left=base+(off?swing*8:0); var el=document.createElement('div'); el.className='sw-t '+(off?'off':'on'); el.style.left='calc(16px + (100% - 32px) * '+(left/100)+')'; v.appendChild(el); } }
+  function label(){ var a=swing; return a===0?'0%（ストレート＝マシン的）':(a<=.4?Math.round(a*100)+'%（軽めのハネ）':(a<=.66?Math.round(a*100)+'%（ジャズ/ローファイのハネ）':Math.round(a*100)+'%（強いハネ＝三連寄り）')); }
+  function upd(){ document.getElementById('swVal').textContent=label(); viz(); document.getElementById('swNow').innerHTML=(swing===0?'<b>ストレート</b>：裏拍が拍のちょうど中間＝打ち込みっぽい・硬い。':'<b>ハネ '+Math.round(swing*100)+'%</b>：裏拍（金）が後ろにタメて跳ねる＝'+(swing<=.66?'<b>人間っぽい・気持ちいい</b>（唾奇/5lack/ローファイの質感）':'<b>三連寄りの強いバウンス</b>')+'。'); }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+.06; document.getElementById('swIco').textContent='❚❚'; document.getElementById('swTxt').textContent='停止'; scheduleLoop(); }
+  function stop(){ playing=false; clearTimeout(timer); document.getElementById('swIco').textContent='▶'; document.getElementById('swTxt').textContent='再生'; }
+  window.__stopSwing=function(){ if(playing) stop(); };
+  slider.addEventListener('input',function(e){ swing=(+e.target.value)/100; upd(); });
+  document.getElementById('swPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  document.getElementById('swBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('swBpmVal').textContent=bpm; });
+  upd();
+})();
+
 /* ===== ポジショニング・マップ ===== */
 (function(){
   var wrap=document.getElementById('sceneAxes'); if(!wrap) return;
@@ -4058,6 +4188,8 @@ function stopAllMedia(){
   if(window.__stopPocket) window.__stopPocket();
   if(window.__stopRL) window.__stopRL();
   if(window.__stopFB) window.__stopFB();
+  if(window.__stopSwing) window.__stopSwing();
+  if(window.__stopGroove) window.__stopGroove();
 }
 
 let io;
