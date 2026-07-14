@@ -923,6 +923,16 @@
   .fb-cell.cur{outline:2px solid #8fc0e8;outline-offset:1px}
   .fb-read{font-size:13px;color:var(--ink2);margin-top:8px}
   .fb-read b{color:var(--gold2)}
+
+  /* ---- ポジショニング・マップ ---- */
+  .pos-axis{margin:14px 0 20px}
+  .pos-poles{display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:var(--ink3);margin-bottom:2px}
+  .pos-poles b{color:var(--ink2)}
+  .pos-wrap{position:relative;height:64px}
+  .pos-bar{position:absolute;left:0;right:0;top:30px;height:4px;border-radius:2px;background:linear-gradient(90deg,#8fc0e8,#c79bf2)}
+  .pos-zone{position:absolute;top:24px;height:16px;background:rgba(242,209,136,.16);border:1px solid var(--goldsoft);border-radius:6px}
+  .pos-mk{position:absolute;transform:translateX(-50%);font-size:10px;font-weight:700;color:var(--ink2);white-space:nowrap;top:2px}
+  .pos-mk.kd{top:42px;color:var(--gold2);font-weight:900;font-size:12px}
 </style>
 </head>
 <body>
@@ -1381,6 +1391,24 @@
 
   <div class="note" style="border-left-color:#8fc0e8">🧭 <b>一枚まとめ：</b>①まず音源1本（URLで渡せる／一発で個性が分かる）②オープンマイク＆サイファーに"客として"通う→マイクを握る→皆勤で顔になる（ここはノルマ無し/軽い）③主催と繋がったら対バン→ゲスト枠→自主企画（<b>先に客を作ってから</b>）④<b>UMB/戦極の地方予選＝無名の名刺、RAPSTAR＝自作曲で一発逆転</b>⑤TTP＝金より露出・半径10cmから火。⑥<b>ノルマ額を出さない主催は切る</b>。</div>
   <div class="note" style="font-size:12px;color:var(--ink3)">※日程・場所・費用・開催有無（現場/サイファー開催地・各大会の要項）は<b>すべて変動</b>。ここは実在が確からしいものだけを載せ、確証が取れないものは「要確認」と明記した。出演前に必ず各公式で最新を自分で確認すること。</div>
+
+  <div class="shead" id="scenemap"><span class="num">🗺</span><h2>シーンの地図 — 派閥・タイプ・立ち位置（華独の音を決める）</h2></div>
+  <p class="sub">「どんな音を届けるか」が固まらない時は<b>地図を見て自分の座標を探す</b>。<span class="cf sure">事実</span>＝実在のクルー/アーティストの出自。<span class="cf guess">見立て📖</span>＝分類・層・立ち位置（断定でなく"たたき台"・境界は曖昧・本人が嫌う事も）。<b>競合と戦わず"ずらす"</b>ための材料に。</p>
+
+  <div class="subhd">① ポジショニング・マップ — お前の座標（★核）</div>
+  <p class="sub"><span class="cf guess">見立て📖</span> 主要な対立軸に、参照アーティストと<b style="color:var(--gold2)">華独の狙う座標（金の帯）</b>を置いた。<b>スマホ横向き推奨</b>。</p>
+  <div class="tool"><div id="sceneAxes"></div></div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">華独の空きポジション仮説📖</span> 本籍＝<b>「唾奇と5lackの間」＝リアル×メロウ×ジャジー、アングラ寄りの体温</b>。そこに<b>「コザ（沖縄中部・基地の街）の情念・言語感」</b>を掛けると、唾奇（那覇）ともAwich（那覇→メジャー）とも<b>微妙にずらせる</b>空白がある。①コザ固有の風景/言葉 ②ジャジーの本流を外さないビート ③5lack的な内省の温度＝この掛け算。※<b>これは戦略仮説。実際に曲を作って検証するのが筋。</b></div>
+
+  <div class="subhd">② タイプ／系統（音の系統）</div>
+  <div class="subgrid"><div class="scard"><h4>①バトル系 <span class="en">battle</span></h4><p>R-指定・呂布カルマ。言葉の瞬発力・韻の技巧。<span class="x">技巧好き＋TV経由の一般層</span>。</p></div><div class="scard"><h4>②メロディック <span class="en">sing-rap</span></h4><p>AK-69・JP THE WAVY・LEX。歌えるフック・キャッチー。<span class="x">若年・カラオケ/TikTok層</span>。</p></div><div class="scard"><h4>③トラップ/ドリル <span class="en">trap</span></h4><p>Watson・BAD HOP。808・ハット刻み・US最新。<span class="x">ストリート/Z世代</span>。</p></div><div class="scard"><h4>④ジャジー/ブーンバップ ★華独 <span class="en">jazzy</span></h4><p><b style="color:var(--gold2)">唾奇・5lack・ISSUGI・JJJ・舐達麻(ビート)</b>。ジャズ/ソウルのサンプル、メロウでレイドバック。<span class="x">コア・ヘッズ／大人chill層</span>。Nujabesの美意識の本流＝<b>華独のルーツ</b>。</p></div><div class="scard"><h4>⑤オルタナ/実験 <span class="en">alt</span></h4><p>Tohji・Mall Boyz・CreativeDrugStore。エモ/デジタル/横断。<span class="x">Z世代・カルチャー層</span>。</p></div><div class="scard"><h4>⑥オーディション勢 <span class="en">audition</span></h4><p>LEX他『ラップスタア誕生』出身。ネット発で多様。<span class="x">10代アーバン/TikTok</span>。</p></div>  </div>
+
+  <div class="subhd">③ 主要クルー／レーベル（実在）</div>
+  <div class="subgrid"><div class="scard"><h4>BAD HOP <span class="en">川崎</span></h4><p>工業地帯のリアルな日常＋US最新トラップ。這い上がり物語。2024東京ドームで解散。<span class="x">ストリート/若年層</span>。</p></div><div class="scard"><h4>YENTOWN <span class="en">東京イースト</span></h4><p>Awich・kZm・Chaki Zulu。プロデューサー主導の洗練都会サウンド・多国籍。<span class="x">シティ〜メジャー層</span>。</p></div><div class="scard"><h4>KANDYTOWN <span class="en">世田谷</span></h4><p>90s〜ジャジー/メロウ、スタイリッシュ、ファッション連動。<span class="x">シティ・カルチャー層</span>。</p></div><div class="scard"><h4>舐達麻 <span class="en">埼玉・熊谷</span></h4><p>Green Assassin Dollarの美しいループ＋剥き出しのリアル。<span class="x">コア・ヘッズ＋本物志向</span>。</p></div><div class="scard"><h4>Creepy Nuts <span class="en">大阪/技巧</span></h4><p>R-指定＋DJ松永。バトル技巧＋ポップ、TV/アニメで国民的。<span class="x">一般大衆に最も広く到達</span>。</p></div><div class="scard"><h4>PSG／SICK TEAM ★ <span class="en">5lack系</span></h4><p>PUNPEE・5lack・GAPPER／5lack・ISSUGI・Budamunk。ゆるく哲学的＋スモーキー。<span class="x">コア・ヘッズ＝華独の直系参照</span>。</p></div>  </div>
+
+  <div class="subhd">④ リスナー層（誰が聴くか）</div>
+  <div class="subgrid"><div class="scard"><h4>コア・ヘッズ</h4><p>90s〜アングラを掘る"通"。リリシズム・ビートの質を評価。<span class="x">→④ジャジー・⑤オルタナ・舐達麻/5lack/唾奇</span>。</p></div><div class="scard"><h4>TikTok/若年層</h4><p>15秒フック・キャッチー・ノリ重視。<span class="x">→②sing-rap・③トラップ・⑥オーディション勢</span>。</p></div><div class="scard"><h4>シティ/おしゃれ層</h4><p>ファッション・ライフスタイルと一体で消費。<span class="x">→KANDYTOWN・CDS・YENTOWN</span>。</p></div><div class="scard"><h4>ストリート層</h4><p>リアル・這い上がり・地元・ハングリー。<span class="x">→BAD HOP・舐達麻・AK-69</span>。</p></div>  </div>
+  <div class="note" style="font-size:12px;color:var(--ink3)">※系統・層・軸は<b>シーンを語る便宜的な"地図"</b>。アーティストは複数をまたぐし本人が分類を嫌うのがヒップホップの常。華独の立ち位置は<b>この地図を出発点に、実際の楽曲・現場・反応で更新</b>していく。札幌等は代表格を確証できず未掲載。出典＝各Wikipedia/KAI-YOU/雑踏ビート等。</div>
 
   <div class="shead divider-h"><span class="num">分析</span><h2>シーンの読み — ゲームチェンジと"耳"の進化</h2></div>
   <p class="sub">ここからは<b>「事実」と「見立て（分析）」を分けて</b>出す。年号・出来事＝<b>事実</b>。耳の変化・シーンの捉え方＝<span class="otag">📖 見立て</span>＝<b>論者の分析</b>（誰がそう言っているかを付す）。分析を事実のフリでは出さない。</p>
@@ -2558,6 +2586,80 @@
   </div>
   <div class="note" style="border-left-color:#8fc0e8">🎯 <b>練習の順：</b>①4分（0・4・8・12）だけ置く＝棒読み→②裏や食いを足す→③一部を16分で詰める→④わざと空ける。<b>詰める所を作るほど、空けた所が映える</b>（余白＝最強の技術）。アクセント（白）は<b>決め所だけ</b>＝立てる/流すのメリハリ。作ったら口で「タ」を乗せてみろ。</div>
 
+  <!-- ===== FLOW/SPIT/GROOVE 極めるマスタークラス ===== -->
+  <div class="mc-hd"><span class="badge">🔥 MASTER CLASS</span><h2>Flow / Spit / Groove を極める</h2></div>
+  <p class="mc-lead">上の道具（サブディビジョン／フロウ・スコープ／3連↔16分／ポケット）で"体"は作った。ここは<b>その先＝一流を分ける"中身"</b>を深掘りする。<b>GROOVE（どこに置くか）→ FLOW（どう乗るか）→ SPIT（どう吐くか）</b>の三層。読んで終わりにせず、各カードの「なぜ効くか」を意識して、下のドリルで毎日回せ。</p>
+  <div class="mc-pillars">
+    <div class="mc-pillar g"><div class="t"><span class="em">🕳</span>GROOVE</div><div class="d">ビートに対して声を<b>ミリ秒どこに置くか</b>。ポケット＝人間味の源。</div></div>
+    <div class="mc-pillar f"><div class="t"><span class="em">🌊</span>FLOW</div><div class="d">時間の割り方・詰め方・切り方。<b>乗り方の設計</b>。</div></div>
+    <div class="mc-pillar s"><div class="t"><span class="em">🗡</span>SPIT</div><div class="d">子音・息・強弱・声色で<b>言葉を"音"として吐く</b>。キレ。</div></div>
+  </div>
+
+  <!-- A. GROOVE -->
+  <div class="mc-shead"><span class="k g">A</span><h3>GROOVE（ポケット）— 拍のどこに座るか</h3></div>
+  <p class="sub"><b>同じ音でも、拍に対してミリ秒どこに置くかで"表情"が変わる。</b>上の<b>ポケット・プレーヤー</b>はフロウ全体で体感する道具。ここでは<b>1音レベルで発音位置のズレ</b>を目と耳で解剖する。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>ジャスト <span class="en">on the beat</span></h4><p>拍のド真上。<span class="x">安定・言葉が立つ・聞き取りやすい</span>。まずここを完璧に。<span class="mc-why"><b>なぜ効く：</b>基準が無いと"ズラし"も効かない。全ての土台。</span></p></div>
+    <div class="scard"><h4>食い・前ノリ <span class="en">push / rush</span></h4><p>拍の<span class="x">ちょい前</span>。前のめり・攻撃的・勢い。<span class="mc-why"><b>なぜ効く：</b>聴き手を"引っ張る"体感＝緊張と熱。締め・怒りに。</span></p></div>
+    <div class="scard"><h4>タメ・後ノリ <span class="en">laid back</span></h4><p>拍の<span class="x">ちょい後ろ</span>。余裕・クール・色気。<span class="mc-why"><b>なぜ効く：</b>拍を"待たせる"＝余裕の演出。唾奇/5lackの気持ちよさ。</span></p></div>
+  </div>
+  <div class="tool">
+    <div class="tlabel" style="color:#9bd58f">▶ INTERACTIVE · 1音のズレを解剖</div>
+    <h3>同じ4音、発音位置だけ ±ミリ秒 ズラす</h3>
+    <p class="hint">「よ・る・を・こ・え・て」の頭4音を4分で置く。<b>ジャスト／食い／タメ</b>で切り替え→声（金）が拍線（グリッド）の<b>真上か・前か・後ろか</b>だけの違い。ズレ量はミリ秒で表示、視覚は少し誇張。▶で耳でも掴め。</p>
+    <div class="mt-btns" id="mtBtns"></div>
+    <div class="mt-viz"><div class="mt-grid" id="mtGrid"></div></div>
+    <div class="mt-off" id="mtOff"></div>
+    <div class="controls"><button class="play" id="mtPlay"><span id="mtIco">▶</span> <span id="mtTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="mtBpm" min="70" max="100" value="86"> <span class="val" id="mtBpmVal">86</span></label></div>
+  </div>
+  <div class="subgrid">
+    <div class="scard"><h4>マイクロタイミング＝人間味</h4><p>機械はジャストすぎて<span class="x">冷たい</span>。生身は数msブレる。<b>少し後ろ</b>で"乗ってる"、少し前で"急いてる"。この微差が"人"の証。</p></div>
+    <div class="scard"><h4>ドラムとロックする</h4><p>音節を<span class="x">キック/スネア（特に2・4）に引っ掛ける</span>と、声がドラムと噛み合いグルーヴが生まれる。狙う拍を決めて置く。</p></div>
+    <div class="scard"><h4>スウィング（ハネ）</h4><p>8分を均等でなく<span class="x">長・短</span>で刻む＝ハネ。ジャジー／lo-fiの心地よさ。君の音（唾奇×5lack）はハネてる。</p></div>
+  </div>
+
+  <!-- B. FLOW -->
+  <div class="mc-shead"><span class="k f">B</span><h3>FLOW（乗り方）— 時間をどう割り、どう切るか</h3></div>
+  <p class="sub">乗り方は"感覚"じゃなく<b>設計できる引き出し</b>。上の<b>サブディビジョン・プレイヤー／フロウ・スコープ／3連↔16分ドリル</b>で音を確かめながら、下の概念を意識して混ぜろ。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>サブディビジョン</h4><p>1拍を<span class="x">2/3/4</span>に割る＝1拍に乗る言葉数。<span class="mc-why"><b>効く：</b>割りを変えるだけで別フロウ。全ての土台。</span></p></div>
+    <div class="scard"><h4>足し算・引き算</h4><p>同じ小節で<span class="x">詰める↔抜く</span>で密度を可変。<span class="mc-why"><b>効く：</b>詰めた所は"抜き"があるから映える。余白は技術。</span></p></div>
+    <div class="scard"><h4>裏拍・アクセントの置き所</h4><p>頭に置く＝<span class="x">安定</span>／裏に置く＝<span class="x">跳ねる</span>。<span class="mc-why"><b>効く：</b>裏を突くと"乗ってる"感＝プロの体感。</span></p></div>
+    <div class="scard"><h4>スイッチアップ</h4><p>途中で<span class="x">割りをガラッと替える</span>。<span class="mc-why"><b>効く：</b>読めるのに読めない＝化け物感。単調を殺す。</span></p></div>
+    <div class="scard"><h4>譜割り（enjambment）</h4><p>小節末で<span class="x">切る↔またぐ</span>。<span class="mc-why"><b>効く：</b>またぐと疾走感、切ると"キメ"。緩急が出る。</span></p></div>
+    <div class="scard"><h4>無言のフロウ（休符）</h4><p>置かない所も<span class="x">フロウの一部</span>。<span class="mc-why"><b>効く：</b>間＝グルーヴの呼吸。埋め尽くすと窮屈になる。</span></p></div>
+    <div class="scard"><h4>カデンツ（署名の型）</h4><p>ある型を<span class="x">反復</span>＝フロウのメロディ。<span class="mc-why"><b>効く：</b>反復は耳に残る＝フックになる。一発で本人と分かる。</span></p></div>
+  </div>
+
+  <!-- C. SPIT -->
+  <div class="mc-shead"><span class="k s">C</span><h3>SPIT（吐き方）— 言葉を"音"として撃つ</h3></div>
+  <p class="sub">正確に乗れたら、それを<b>キレのある声で吐く</b>のがspit。ここで一般もヘッズも「うまっ」となる。リズムが立って初めてspitは"かっこいい"になる。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>子音アタック</h4><p><span class="x">K・T・P・S</span>を立てる＝粒が立つ。<span class="mc-why"><b>効く：</b>母音で歌い子音で刻む＝ラップが"聞こえる"最大要因。</span></p></div>
+    <div class="scard"><h4>滑舌（ディクション）</h4><p>速くても<span class="x">崩れない</span>。<span class="mc-why"><b>効く：</b>速さより明瞭＝"やば"の条件。口を大きく開ける。</span></p></div>
+    <div class="scard"><h4>ブレス設計</h4><p><span class="x">どこで吸うか</span>＝フロウの一部。<span class="mc-why"><b>効く：</b>ブレス位置がケイデンスを作る。畳む前に貯める。</span></p></div>
+    <div class="scard"><h4>ダイナミクス（緩急）</h4><p>声の<span class="x">強弱・押し引き</span>。<span class="mc-why"><b>効く：</b>ずっと全力＝聞き疲れ。落差＝エモさ。</span></p></div>
+    <div class="scard"><h4>声色（トーン）</h4><p>低↔中性で<span class="x">表情を変える</span>。<span class="mc-why"><b>効く：</b>囁き/唸り/叫び＝声でドラマ。1曲で動かす。</span></p></div>
+  </div>
+
+  <!-- D. エリートを分ける5つ -->
+  <div class="mc-shead"><span class="k g" style="background:linear-gradient(145deg,#f2d188,#d9b25a)">D</span><h3>何がエリートを分けるか（5つ）</h3></div>
+  <p class="sub">"うまい"を超えて"化け物"になる分岐点。技の数じゃなく、<b>この5つが揃うか</b>。</p>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">1</div><div><b>ポケットが絶対ブレない</b><p>何をしても<b>拍の座り位置がミリ秒で一定</b>。土台が1mmも揺れない＝安心して聴ける。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>保ったまま自在に変える</b><p>ポケットを保ったまま<b>割り・ポケット・声色を自由に切り替える</b>。土台が固いから遊べる。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>ビートと"会話"する</b><p>隙間を<b>埋める／空ける／呼応する</b>。ビートに乗るんじゃなく、ビートと掛け合う＝一体化。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>技巧が感情に奉仕する</b><p>フロウチェンジも声色も<b>"見せる為"じゃなく感情を運ぶ為</b>。技が目的化すると寒い。</p></div></div>
+    <div class="lstep"><div class="ln">5</div><div><b>署名カデンツを持つ</b><p><b>一発で"本人だ"と分かる乗り</b>。反復される固有の型＝指紋。ここまで来ると唯一無二。</p></div></div>
+  </div>
+
+  <!-- E. 徹底ドリル -->
+  <div class="mc-shead"><span class="k s" style="background:linear-gradient(145deg,#ef8a93,#cf3b4a);color:#150a0c">E</span><h3>徹底ドリル — 毎日回してチェック</h3></div>
+  <p class="sub">読むだけじゃ変わらない。<b>体で反復</b>して初めて入る。やった日はタップでチェック（<b>この端末に保存</b>され、後日も残る）。</p>
+  <ul class="todo" id="mcDrillList"></ul>
+  <div class="note" style="border-left-color:#ef8a93">🔥 <b>結論：</b>GROOVEで拍に座り（ブレない）→ FLOWで乗り方を設計し（割り/切り/間）→ SPITで鋭く吐く（子音/息/強弱/声色）→ ビートと会話し、技を感情に奉仕させ、<b>署名カデンツ</b>を持つ。<b>声を楽器にしてビートと一緒にグルーヴを"作る"</b>。ここまで来ると"うまい"を超えて<b>「音楽としていけてる・バチやばい」</b>。耳で盗んで、体で反復。君は必ず届く。</div>
+
   <div class="shead"><span class="num">07</span><h2>Spit（吐き出す技術）— リズムを"音"にする</h2></div>
   <p class="sub">正確なリズムができたら、それを<b>キレのある声で吐き出す</b>のがspit。ここで一般もヘッズも「うまっ」となる。リズムの解像度が高いほど、spitは鋭くなる。</p>
   <div class="subgrid">
@@ -3663,6 +3765,87 @@ handleHash();
   build(); upd();
 })();
 
+/* ===== マスタークラス：マイクロタイミング・プレーヤー（1音のズレを解剖） ===== */
+(function(){
+  var btnsEl=document.getElementById('mtBtns'); if(!btnsEl) return;
+  var gridEl=document.getElementById('mtGrid'), offEl=document.getElementById('mtOff');
+  // offMs = 声を拍からどれだけズラすか（負=前ノリ/正=後ノリ）
+  var MODES={
+    push:{nm:'食い（前ノリ）',sub:'攻め',offMs:-32,col:'#ef8a93'},
+    just:{nm:'ジャスト',sub:'安定',offMs:0,col:'#9bd58f'},
+    laid:{nm:'タメ（後ノリ）',sub:'色気',offMs:42,col:'#8fc0e8'}
+  };
+  var SYL=['よ','る','を','こ'];            // 頭4音を4分（1拍ずつ）で置く
+  var BEATS=[0,4,8,12];                       // 16分グリッド上の4分位置
+  var mode='just', bpm=86, playing=false, ctx=null, timer=null, STEPS=16, curTick=0, nextTime=0;
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function sec16(){ return (60/bpm)/4; }
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),nz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nz.connect(bp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.15); }
+  function hat(t){ var c=ac(),nz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.13,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nz.connect(hp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.05); }
+  function voice(t,idx){ var c=ac(); var nz=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2100; ng.gain.setValueAtTime(.26,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); nz.connect(bp).connect(ng).connect(c.destination); nz.start(t); nz.stop(t+.06); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=[250,235,225,240][idx%4]; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.25,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); flash(idx,t); }
+  function flash(idx,t){ var c=ac(); var delay=Math.max(0,(t-c.currentTime)*1000); setTimeout(function(){ var el=gridEl.querySelector('.voc[data-i="'+idx+'"]'); if(!el)return; el.classList.add('hit'); setTimeout(function(){el.classList.remove('hit');},110); }, delay); }
+  function scheduleLoop(){
+    var c=ac(), sp=sec16(), off=MODES[mode].offMs/1000;
+    while(nextTime < c.currentTime+0.1){
+      var step=curTick%STEPS;
+      if(step===0||step===8) kick(nextTime);
+      if(step===4||step===12) snare(nextTime);
+      if(step%2===0) hat(nextTime);
+      var vi=BEATS.indexOf(step);
+      if(vi>=0){ var vt=nextTime+off; voice(Math.max(c.currentTime+0.005,vt),vi); }
+      nextTime+=sp; curTick++;
+    }
+    timer=setTimeout(scheduleLoop,25);
+  }
+  function renderGrid(){
+    var off=MODES[mode].offMs; var col=MODES[mode].col;
+    // 1拍=25%幅。offMsを16分1個(=sec16*1000ms)の何割かで視覚化し、見やすく2倍誇張
+    var stepMs=(60/bpm)/4*1000;
+    var visShift=(off/stepMs)*(100/16)*2;   // %（誇張×2）
+    var h='';
+    for(var b=0;b<4;b++){ var x=b/4*100+ (100/8); h+='<div class="gl strong" style="left:'+x+'%"></div><div class="glab" style="left:'+x+'%">'+(b+1)+'拍</div>'; }
+    for(var s=1;s<4;s++){ /* 拍間の補助線（弱） */ }
+    for(var i=0;i<4;i++){ var vx=(i/4*100)+(100/8)+visShift; h+='<div class="voc" data-i="'+i+'" style="left:'+vx+'%;background:'+col+';box-shadow:0 0 9px '+col+'88"><span class="sy" style="color:'+col+'">'+SYL[i]+'</span></div>'; }
+    gridEl.innerHTML=h;
+  }
+  function updOff(){ var o=MODES[mode].offMs; var lab= o===0?'拍のド真上（ズレ0ms）': (o<0? '拍より '+Math.abs(o)+'ms 前（食い）' : '拍より '+o+'ms 後ろ（タメ）'); offEl.innerHTML='<b>'+MODES[mode].nm+'</b>：声は '+lab; }
+  function build(){ btnsEl.innerHTML=''; ['push','just','laid'].forEach(function(k){ var m=MODES[k]; var b=document.createElement('button'); b.className='mt-btn'+(k===mode?' on':''); b.innerHTML=m.nm+'<small>'+m.sub+'</small>'; b.addEventListener('click',function(){ mode=k; build(); renderGrid(); updOff(); }); btnsEl.appendChild(b); }); }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.08; document.getElementById('mtIco').textContent='❚❚'; document.getElementById('mtTxt').textContent='停止'; scheduleLoop(); }
+  function stop(){ playing=false; clearTimeout(timer); document.getElementById('mtIco').textContent='▶'; document.getElementById('mtTxt').textContent='再生'; }
+  window.__stopMicroTiming=function(){ if(playing) stop(); };
+  document.getElementById('mtPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  document.getElementById('mtBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('mtBpmVal').textContent=bpm; renderGrid(); updOff(); });
+  build(); renderGrid(); updOff();
+})();
+
+/* ===== マスタークラス：徹底ドリル・チェックリスト ===== */
+(function(){
+  var ul=document.getElementById('mcDrillList'); if(!ul) return;
+  var DRILLS=[
+    '<b>2&4クラップ</b>：曲を流して2拍・4拍で手拍子。裏の骨を体に入れる',
+    '<b>割り替え</b>：4分→8分→16分→3連を声で連続で切り替える',
+    '<b>ポケット替え</b>：同じ4小節をジャスト→食い→タメで言い分ける',
+    '<b>早口滑舌</b>：パピプペポ／タチツテトを子音立てて速く（1分）',
+    '<b>ワンブレス</b>：1小節を息継ぎなしで言い切る（ブレス設計）',
+    '<b>シャドウ</b>：フロウ怪物の1フロウを完コピ（研究リストから）',
+    '<b>録って聴く</b>：録音して意味を無視しリズムだけ聴く→ズレを直す'
+  ];
+  var LS={get:function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  var st=LS.get('hhtxt_mcdrill',{});
+  function render(){
+    ul.innerHTML='';
+    DRILLS.forEach(function(t,i){
+      var li=document.createElement('li'); li.className=st[i]?'on':'';
+      li.innerHTML='<span class="box"></span><span class="tx">'+t+'</span>';
+      li.addEventListener('click',function(){ st[i]=!st[i]; LS.set('hhtxt_mcdrill',st); render(); });
+      ul.appendChild(li);
+    });
+  }
+  render();
+})();
+
 /* ===== 音の名刺図鑑 ===== */
 (function(){
   var grid=document.getElementById('sdGrid'); if(!grid) return;
@@ -3753,6 +3936,24 @@ handleHash();
   document.getElementById('fbClear').addEventListener('click',function(){ cells=new Array(STEPS).fill(0); renderGrid(); readOut(); });
   document.getElementById('fbEx').addEventListener('click',function(){ cells=[2,0,0,1,0,1,0,0,1,0,1,1,0,1,0,0]; renderGrid(); readOut(); });
   renderNums(); renderGrid(); readOut();
+})();
+
+/* ===== ポジショニング・マップ ===== */
+(function(){
+  var wrap=document.getElementById('sceneAxes'); if(!wrap) return;
+  var AXES=[
+    {l:'リアル（内省・生身）',r:'ポップ（大衆・キャッチー）',zone:[15,30],marks:[['舐達麻/5lack',6],['唾奇',26],['Awich',48],['LEX/WAVY',70],['Creepy Nuts',92]]},
+    {l:'ストリート（硬派・地元）',r:'シティ（洗練・おしゃれ）',zone:[18,36],marks:[['舐達麻/BAD HOP',8],['唾奇',30],['Awich',54],['KANDYTOWN/CDS',86]]},
+    {l:'技巧・韻（バトル的）',r:'バイブス・雰囲気（ムード）',zone:[62,80],marks:[['R-指定/呂布',8],['Watson',30],['5lack',54],['唾奇',74],['ジャジー勢',92]]},
+    {l:'アングラ（コア・自主）',r:'メジャー（大衆・レーベル）',zone:[16,34],marks:[['5lack/SICK TEAM',8],['唾奇',30],['舐達麻',50],['Awich/BAD HOP',74],['Creepy Nuts',92]]}
+  ];
+  AXES.forEach(function(ax){
+    var el=document.createElement('div'); el.className='pos-axis';
+    var mk=''; ax.marks.forEach(function(m){ mk+='<span class="pos-mk" style="left:'+m[1]+'%">'+m[0]+'</span>'; });
+    var kd=(ax.zone[0]+ax.zone[1])/2; mk+='<span class="pos-mk kd" style="left:'+kd+'%">▲華独</span>';
+    el.innerHTML='<div class="pos-poles"><b>'+ax.l+'</b><b>'+ax.r+'</b></div><div class="pos-wrap"><div class="pos-bar"></div><div class="pos-zone" style="left:'+ax.zone[0]+'%;width:'+(ax.zone[1]-ax.zone[0])+'%"></div>'+mk+'</div>';
+    wrap.appendChild(el);
+  });
 })();
 
 function stopAllMedia(){
