@@ -825,6 +825,23 @@
     .ng-top{width:100%;justify-content:space-between}
     .ng-menu{position:static;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;min-width:0;margin-top:0}
   }
+
+  /* ---- ポケット・プレーヤー ---- */
+  .pk-btns{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+  .pk-btn{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:11px;padding:9px 14px;cursor:pointer;font-weight:800;font-size:13px;display:flex;flex-direction:column;gap:2px;min-width:92px;-webkit-tap-highlight-color:transparent}
+  .pk-btn small{font-weight:600;color:var(--ink3);font-size:10px}
+  .pk-btn.on{color:#0e2233;background:linear-gradient(145deg,#8fc0e8,#5b9bd5);border-color:transparent}
+  .pk-btn.on small{color:#123}
+  .pk-viz{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:12px 10px}
+  .pk-track{position:relative;height:30px}
+  .pk-track .lbl{position:absolute;left:0;top:50%;transform:translateY(-50%);width:46px;font-size:11px;font-weight:800;color:var(--ink3)}
+  .pk-lane{position:relative;height:26px;margin-left:52px;margin-right:8px}
+  .pk-lane::before{content:'';position:absolute;left:0;right:0;top:50%;height:2px;background:var(--line);transform:translateY(-50%)}
+  .pk-tick{position:absolute;top:50%;transform:translate(-50%,-50%);border-radius:2px;transition:left .12s}
+  .pk-tick.beat{width:4px;height:20px;background:#c8503e}
+  .pk-tick.voice{width:8px;height:22px;background:var(--gold2);border-radius:3px;box-shadow:0 0 8px rgba(242,209,136,.4)}
+  .pk-now{margin-top:12px;border-left:3px solid #8fc0e8;background:var(--panel);border-radius:0 10px 10px 0;padding:12px 15px;font-size:14px;line-height:1.75;color:var(--ink2)}
+  .pk-now b{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -2354,6 +2371,20 @@
   </div>
   <div class="note" style="border-left-color:#8fc0e8">🎯 <b>華独のポケット：</b>解毒＝タメる後ノリで色気と余裕、でも締めや怒りの所は前ノリで刺す。<b>1曲の中でポケットを動かす</b>と、感情の起伏が体で伝わる。まずジャストを完璧に→そこから前後に"わざと"ズラせるように。</div>
 
+  <div class="shead" id="pocketplayer"><span class="num">★</span><h2>ポケット・プレーヤー — 前/ジャスト/後ノリを聴き比べる</h2></div>
+  <p class="sub">「ノリ＝ポケット」は<b>ビートに対して声をミリ秒どこに置くか</b>。同じフロウを<b>前ノリ／ジャスト／後ノリ</b>で鳴らして、<b>色気と攻めの違いを耳で</b>掴め。<b>唾奇/5lackの気持ちよさ＝後ノリ</b>の正体。</p>
+  <div class="tool">
+    <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · 耳で掴む</div>
+    <h3>同じフロウ、置く位置だけ変える</h3>
+    <p class="hint">▶再生してボタンで切り替え。<b>声（金）がドラム（赤＝拍）より前か・真上か・後ろか</b>だけの違い。ズレは<b>見やすく誇張して表示</b>してる。耳で違いを掴め。</p>
+    <div class="pk-btns" id="pkBtns"></div>
+    <div class="pk-viz" id="pkViz"></div>
+    <div class="pk-now" id="pkNow"></div>
+    <div class="controls"><button class="play" id="pkPlay"><span id="pkIco">▶</span> <span id="pkTxt">再生</span></button>
+      <label class="bpm">BPM <input type="range" id="pkBpm" min="70" max="100" value="86"> <span class="val" id="pkBpmVal">86</span></label></div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎯 <b>まずジャストを完璧に</b>取れるのが土台。そこから<b>後ろに"わざと"ズラす</b>と余裕・色気（唾奇/5lack）、<b>前に</b>ズラすと攻め・緊張。1曲でこれを動かすと感情の起伏が体で伝わる＝プロのノリ。
+
   <div class="shead"><span class="num">05</span><h2>スウィング／ハネ（ジャジーの秘密）</h2></div>
   <p class="sub">8分を「均等」でなく「長・短」で刻む＝<b>ハネる</b>。これがジャズ／ローファイ／boom bapの"人間っぽい"心地よさの正体。君の音（唾奇×5lack）はハネてる。</p>
   <div class="note">🎵 均等（マシン的）＝「タ・タ・タ・タ」／スウィング（人間的）＝「ター・タ ター・タ」。ビート解剖のBoom Bap／Lo-Fiプレイヤーは既にハネてる＝あれに乗る練習がそのままスウィング体得。</div>
@@ -2423,6 +2454,18 @@
   <div class="note" style="border-left-color:#9bd58f">🎤 <b>まとめ：</b>リズム（分割）で骨を作り、譜割りで乗せ方を決め、ポケットで表情を付け、spit（子音・息・強弱）で吐き出す。この順で積めば、"うまい"じゃなく<b>"かっこいい・刺さる"</b>に届く。上のプレイヤーと「練習・宿題」のデイリーで毎日ちょっとずつ。</div>
 
   <!-- ===== ADVANCED FLOW ===== -->
+  <div class="shead"><span class="num">🔥</span><h2>spit強化ドリル — かます声を作る（毎日メニュー）</h2></div>
+  <p class="sub">「かます」＝声で刺す。ドリルは<b>順番</b>がある。上から積むとspitにキレと重みが出る。1日10分でいい。</p>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">1</div><div><b>子音アタック（滑舌）</b><p>「パピプペポ／タチツテト／カキクケコ」を<b>子音を立てて</b>速く。舌・唇・顎の筋トレ。ラップが"聞こえる"最大要因。1分。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>ブレス設計</b><p>1バースを通して<b>どこで息を吸うか印をつける</b>。詰まる所＝ブレス位置。ここが決まるとフロウが安定する。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>ポケット固定→ズラし</b><p>上の<b>ポケット・プレーヤー</b>でジャストを体に入れる→後ノリで4小節言い切る。タメの色気を掴む。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>立てる／流す</b><p>1バースで<b>パンチライン（決め）だけ子音を立て</b>、他は流す。全部丁寧＝Botっぽい。メリハリが個性。</p></div></div>
+    <div class="lstep"><div class="ln">5</div><div><b>ダイナミクス（抜き→張り）</b><p>普段は<b>抜き（脱力）</b>、感情ピークの1〜2行だけ<b>張る</b>。<b>落差＝エモさ</b>。全部張るとエモさが死ぬ。</p></div></div>
+    <div class="lstep"><div class="ln">6</div><div><b>録って客観</b><p>スマホで録る→<b>意味を無視してリズムだけ</b>聴く→ズレを直して再録。これが一番伸びる＝解毒ライブの素材にもなる。</p></div></div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8">🎤 <b>華独のかまし方：</b>基本は<b>後ノリ＋抜き（余裕）</b>で座る→締め・怒りの所だけ<b>前ノリ＋子音立て＋張り</b>で刺す。この<b>落差</b>が「優しいけどかっこいい」の正体。唾奇/5lackの心地よさ＋要所の一撃。</div>
+
   <div class="shead" style="margin-top:64px"><span class="num" style="background:linear-gradient(145deg,#ef8a93,#cf3b4a)">上級</span><h2>やばいフロウの探求 — "音楽としていける"領域へ</h2></div>
   <p class="sub">リズムが"正しく"乗れたら、その先は<b>「バチやばい・かっこいい・音楽としていけてる」</b>フロウ。ここは正解じゃなく<b style="color:#ef8a93">美学と引き出しの世界</b>。上手いラッパーが無意識にやってる"やばさの正体"を、言葉にして盗む。</p>
 
@@ -3449,6 +3492,50 @@ handleHash();
   build(); upd();
 })();
 
+/* ===== ポケット・プレーヤー ===== */
+(function(){
+  var btnsEl=document.getElementById('pkBtns'); if(!btnsEl) return;
+  var MODES={
+    push:{nm:'前ノリ',sub:'攻め・緊張',off:-0.03,why:'ビートより<b>わずかに前</b>に突っ込む＝<b>攻撃的・焦燥・熱</b>。バトルやハイな曲。力むと"走る"ので、ジャストができてから。'},
+    just:{nm:'ジャスト',sub:'正確・クリア',off:0,why:'キック/スネアの<b>真上</b>。安定・聞き取りやすい。<b>まずここを完璧に</b>取れるのが全ての土台。'},
+    laid:{nm:'後ノリ',sub:'余裕・色気',off:0.04,why:'ビートより<b>わずかに後ろ</b>にタメる＝<b>余裕・色気・chill</b>。<b>唾奇/5lackのジャジーの気持ちよさの正体</b>。華独の"優しいけどかっこいい"の鍵。'}
+  };
+  var mode='just', bpm=86, playing=false, ctx=null, timer=null, STEPS=16, curTick=0, nextTime=0;
+  var KICK=[0,10], SNARE=[4,12], HAT=[0,2,4,6,8,10,12,14], VOICE=[0,3,6,8,11,14];
+  function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function secPer(){ return (60/bpm)/4; }
+  function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
+  function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.9,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function snare(t){ var c=ac(),nz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.5,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nz.connect(bp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.15); }
+  function hat(t){ var c=ac(),nz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(.15,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nz.connect(hp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.05); }
+  function voice(t){ var c=ac(); var nz=noise(c,.04),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2100; ng.gain.setValueAtTime(.26,t); ng.gain.exponentialRampToValueAtTime(.001,t+.05); nz.connect(bp).connect(ng).connect(c.destination); nz.start(t); nz.stop(t+.06); var o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=240; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.24,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
+  function scheduleLoop(){
+    var c=ac(), sp=secPer();
+    while(nextTime < c.currentTime+0.1){
+      var step=curTick%STEPS;
+      if(KICK.indexOf(step)>=0)kick(nextTime);
+      if(SNARE.indexOf(step)>=0)snare(nextTime);
+      if(HAT.indexOf(step)>=0)hat(nextTime);
+      if(VOICE.indexOf(step)>=0){ var vt=nextTime+MODES[mode].off; voice(Math.max(c.currentTime+0.005,vt)); }
+      nextTime+=sp; curTick++;
+    }
+    timer=setTimeout(scheduleLoop,25);
+  }
+  function renderViz(){
+    var offVis=MODES[mode].off*120;
+    function lane(label,ticks,cls,shift){ var h='<div class="pk-track"><div class="lbl">'+label+'</div><div class="pk-lane">'; ticks.forEach(function(sp){ var x=sp/16*100+(shift||0); h+='<div class="pk-tick '+cls+'" style="left:'+x+'%"></div>'; }); return h+'</div></div>'; }
+    document.getElementById('pkViz').innerHTML=lane('拍',[0,4,8,12],'beat',0)+lane('声',VOICE,'voice',offVis);
+  }
+  function upd(){ renderViz(); document.getElementById('pkNow').innerHTML='<b>'+MODES[mode].nm+'（'+MODES[mode].sub+'）：</b>'+MODES[mode].why; }
+  function build(){ btnsEl.innerHTML=''; ['push','just','laid'].forEach(function(k){ var m=MODES[k]; var b=document.createElement('button'); b.className='pk-btn'+(k===mode?' on':''); b.innerHTML=m.nm+'<small>'+m.sub+'</small>'; b.addEventListener('click',function(){ mode=k; build(); upd(); }); btnsEl.appendChild(b); }); }
+  function start(){ var c=ac(); c.resume(); playing=true; curTick=0; nextTime=c.currentTime+0.08; document.getElementById('pkIco').textContent='❚❚'; document.getElementById('pkTxt').textContent='停止'; scheduleLoop(); }
+  function stop(){ playing=false; clearTimeout(timer); document.getElementById('pkIco').textContent='▶'; document.getElementById('pkTxt').textContent='再生'; }
+  window.__stopPocket=function(){ if(playing) stop(); };
+  document.getElementById('pkPlay').addEventListener('click',function(){ ac().resume(); playing?stop():start(); });
+  document.getElementById('pkBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('pkBpmVal').textContent=bpm; });
+  build(); upd();
+})();
+
 function stopAllMedia(){
   document.querySelectorAll('.yt-frame').forEach(f=>f.remove());
   document.querySelectorAll('.track.playing').forEach(t=>t.classList.remove('playing'));
@@ -3461,6 +3548,7 @@ function stopAllMedia(){
   if(window.__stopFt) window.__stopFt();
   if(window.__stopFlowScope) window.__stopFlowScope();
   if(window.__stopSongMap) window.__stopSongMap();
+  if(window.__stopPocket) window.__stopPocket();
 }
 
 let io;
