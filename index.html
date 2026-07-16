@@ -971,6 +971,11 @@
   .fp-guide{font-size:20px;font-weight:900;letter-spacing:.12em;text-align:center;color:var(--gold2);min-height:28px;margin:6px 0}
   .fp-switch{font-size:17px;font-weight:900;text-align:center;min-height:26px;color:var(--ink);margin:4px 0}
   .fp-switch b{color:var(--gold2)}
+
+  /* ---- フロウ・パターン v2（アクセント/16分） ---- */
+  .fp-cell.acc{background:linear-gradient(160deg,#fff,var(--gold2));border-color:#fff;box-shadow:0 0 10px rgba(255,255,255,.4)}
+  .fp-cell.acc .mk{color:#15110a}
+  .fp-cell.sub16 .mk{color:var(--ink3);font-size:15px}
 </style>
 </head>
 <body>
@@ -2750,17 +2755,20 @@
   <div class="note" style="border-left-color:#ef8a93">🔥 <b>結論：</b>GROOVEで拍に座り（ブレない）→ FLOWで乗り方を設計し（割り/切り/間）→ SPITで鋭く吐く（子音/息/強弱/声色）→ ビートと会話し、技を感情に奉仕させ、<b>署名カデンツ</b>を持つ。<b>声を楽器にしてビートと一緒にグルーヴを"作る"</b>。ここまで来ると"うまい"を超えて<b>「音楽としていけてる・バチやばい」</b>。耳で盗んで、体で反復。君は必ず届く。</div>
 
   <div class="shead" id="flowpattern"><span class="num">★</span><h2>フロウ・パターン — 表・裏で作る（お前の図解）</h2></div>
-  <p class="sub">お前が発明した図解をそのまま実装：<b style="color:#8fc0e8">｜＝表拍</b>（1234の真上）／<b style="color:#c79bf2">・＝裏拍</b>（間）。<b>マスをタップ＝そこに言葉を置く（↓）</b>。お前の好きな<b>2拍目・4拍目の裏</b>もプリセットに入れた。作って▶再生、口ガイドで乗れ。</p>
+  <p class="sub">お前が発明した図解をそのまま実装：<b style="color:#8fc0e8">｜＝表拍</b>（1234の真上）／<b style="color:#c79bf2">・＝裏拍</b>（間）。<b>マスをタップ＝言葉を置く（↓）→もう1回でアクセント（白＝強く言う）→もう1回で消す</b>。お前の好きな<b>2拍目・4拍目の裏</b>もプリセットに入れた。作って▶再生、口ガイドで乗れ。</p>
   <div class="tool">
     <div class="tlabel" style="color:#8fc0e8">▶ INTERACTIVE · お前の図解</div>
     <div class="fp-grid" id="fpGrid"></div>
     <div class="fp-nums" id="fpNums"></div>
     <div class="fp-guide" id="fpGuide"></div>
+    <div class="pk-btns" id="fpRes"></div>
     <div class="pk-btns" id="fpPresets"></div>
+    <div class="fp-switch" id="fpCallInd" style="min-height:0;color:var(--ink3)"></div>
     <div class="controls">
       <button class="play" id="fpPlay"><span id="fpIco">▶</span> <span id="fpTxt">再生</span></button>
       <label class="bpm">BPM <input type="range" id="fpBpm" min="70" max="110" value="86"> <span class="val" id="fpBpmVal">86</span></label>
       <button class="bx-reset" id="fpClear">↺ 消す</button>
+      <button class="bx-reset" id="fpCall">🎤 コール&レス</button>
     </div>
   </div>
   <div class="tool">
@@ -4171,43 +4179,55 @@ handleHash();
   upd();
 })();
 
-/* ===== フロウ・パターン（表・裏図解＋切替練習） ===== */
+/* ===== フロウ・パターン v2（表裏図解＋切替＋16分＋アクセント＋コール&レス） ===== */
 (function(){
   var grid=document.getElementById('fpGrid'); if(!grid) return;
-  var pattern=[1,0,1,0,1,0,1,0], A=null, B=null;
-  var bpm=86, ctx=null, timer=null, running=false, mode='edit', curTick=0, nextTime=0, lastBar=-1;
-  var DKICK=[0,4], DSNARE=[2,6];
+  var pattern=new Array(16).fill(0); pattern[0]=1;pattern[4]=1;pattern[8]=1;pattern[12]=1;
+  var A=null,B=null,res=2,bpm=86,ctx=null,timer=null,running=false,mode='edit',curTick=0,nextTime=0,lastBar=-1;
+  var KICK=[0,8],SNARE=[4,12],HAT=[0,2,4,6,8,10,12,14];
   function ac(){ if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
-  function sp8(){ return (60/bpm)/2; }
+  function sp(){ return (60/bpm)/4; }
   function noise(c,dur){ var b=c.createBuffer(1,Math.max(1,Math.floor(c.sampleRate*dur)),c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1; var sr=c.createBufferSource(); sr.buffer=b; return sr; }
   function kick(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(50,t+.12); g.gain.setValueAtTime(.85,t); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(g).connect(c.destination); o.start(t); o.stop(t+.18); }
   function snare(t){ var c=ac(),nz=noise(c,.15),g=c.createGain(),bp=c.createBiquadFilter(); bp.type='highpass'; bp.frequency.value=1400; g.gain.setValueAtTime(.4,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); nz.connect(bp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.15); }
   function hat(t,acc){ var c=ac(),nz=noise(c,.05),g=c.createGain(),hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=7000; g.gain.setValueAtTime(acc?.18:.1,t); g.gain.exponentialRampToValueAtTime(.001,t+.04); nz.connect(hp).connect(g).connect(c.destination); nz.start(t); nz.stop(t+.05); }
-  function voice(t){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=240; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.24,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.15); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.17); }
-  function guideStr(pat){ return pat.map(function(v){return v?'タ':'ー';}).join(' '); }
-  function renderNums(){ var L=['1','&','2','&','3','&','4','&']; document.getElementById('fpNums').innerHTML=L.map(function(x,i){return '<span class="'+(i%2===0?'b':'')+'">'+x+'</span>';}).join(''); }
-  function renderGrid(){ grid.innerHTML=''; for(var i=0;i<8;i++){ var omote=(i%2===0); var d=document.createElement('div'); d.className='fp-cell '+(omote?'omote':'ura')+(pattern[i]?' on':''); d.dataset.i=i; d.innerHTML='<span class="ar">↓</span><span class="mk">'+(omote?'｜':'・')+'</span>'; d.addEventListener('click',function(){ var idx=+this.dataset.i; pattern[idx]=pattern[idx]?0:1; renderGrid(); guide(); var c=ac(); c.resume(); if(pattern[idx])voice(c.currentTime+.02); }); grid.appendChild(d); } }
+  function voice(t,acc){ var c=ac(),o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter(); o.type='triangle'; o.frequency.value=acc?300:240; lp.type='lowpass'; lp.frequency.value=1300; g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(acc?.32:.22,t+.01); g.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(lp).connect(g).connect(c.destination); o.start(t); o.stop(t+.18); if(acc){ var nz=noise(c,.03),ng=c.createGain(),bp=c.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2600; ng.gain.setValueAtTime(.2,t); ng.gain.exponentialRampToValueAtTime(.001,t+.04); nz.connect(bp).connect(ng).connect(c.destination); nz.start(t); nz.stop(t+.05); } }
+  function editable(i){ return res===4 || (i%2===0); }
+  function markOf(i){ return (i%4===0)?'｜':((i%2===0)?'・':'˙'); }
+  function posClass(i){ return (i%4===0)?'omote':((i%2===0)?'ura':'sub16'); }
+  function cols(){ return res===4?16:8; }
+  function guideStr(pat){ var o=[]; for(var i=0;i<16;i++){ if(!editable(i))continue; o.push(pat[i]?'タ':'ー'); } return o.join(' '); }
+  function renderNums(){ var out=''; for(var i=0;i<16;i++){ if(!editable(i))continue; var m=i%4; var lab=m===0?(Math.floor(i/4)+1):(m===2?'&':(m===1?'e':'a')); out+='<span class="'+(m===0?'b':'')+'">'+lab+'</span>'; } var el=document.getElementById('fpNums'); el.style.gridTemplateColumns='repeat('+cols()+',1fr)'; el.innerHTML=out; }
+  function cellClick(){ var idx=+this.dataset.i; pattern[idx]=(pattern[idx]+1)%3; renderGrid(); guide(); var c=ac(); c.resume(); if(pattern[idx]>0)voice(c.currentTime+.02, pattern[idx]===2); }
+  function renderGrid(){ grid.style.gridTemplateColumns='repeat('+cols()+',1fr)'; grid.innerHTML=''; for(var i=0;i<16;i++){ if(!editable(i))continue; var d=document.createElement('div'); d.className='fp-cell '+posClass(i)+(pattern[i]===1?' on':(pattern[i]===2?' on acc':'')); d.dataset.i=i; d.innerHTML='<span class="ar">↓</span><span class="mk">'+markOf(i)+'</span>'; d.addEventListener('click',cellClick); grid.appendChild(d); } }
   function guide(){ document.getElementById('fpGuide').textContent='口ガイド： '+guideStr(pattern); }
-  function loop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%8; var bar=Math.floor(curTick/8)%2; var pat=(mode==='edit')?pattern:(bar===0?(A||pattern):(B||pattern));
-      if(DKICK.indexOf(step)>=0)kick(nextTime); if(DSNARE.indexOf(step)>=0)snare(nextTime); hat(nextTime, step%2===0); if(pat[step])voice(nextTime);
+  function loop(){ var c=ac(); while(nextTime < c.currentTime+0.1){ var step=curTick%16, bar=Math.floor(curTick/16);
+      if(KICK.indexOf(step)>=0)kick(nextTime); if(SNARE.indexOf(step)>=0)snare(nextTime); if(HAT.indexOf(step)>=0)hat(nextTime, step%4===0);
+      var pat=pattern, play=true;
+      if(mode==='switch'){ pat=(bar%2===0)?(A||pattern):(B||pattern); }
+      else if(mode==='call'){ play=(bar%2===0); }
+      if(play && pat[step]>0) voice(nextTime, pat[step]===2);
       (function(st,ti,br){ setTimeout(function(){
-        if(mode==='edit'){ var cu=grid.querySelector('.fp-cell.cur'); if(cu)cu.classList.remove('cur'); var cell=grid.children[st]; if(cell)cell.classList.add('cur'); }
-        else { if(st===0 && br!==lastBar){ lastBar=br; document.getElementById('fpSwitch').innerHTML='今：<b>'+(br===0?'A':'B')+'</b>　口ガイド '+guideStr(br===0?(A||[]):(B||[])); } }
+        if(mode==='edit'){ var cu=grid.querySelector('.fp-cell.cur'); if(cu)cu.classList.remove('cur'); var cell=grid.querySelector('.fp-cell[data-i="'+st+'"]'); if(cell)cell.classList.add('cur'); }
+        else if(mode==='switch'){ if(st===0&&br!==lastBar){ lastBar=br; var a=(br%2===0); document.getElementById('fpSwitch').innerHTML='今：<b>'+(a?'A':'B')+'</b>　口ガイド '+guideStr(a?(A||[]):(B||[])); } }
+        else { if(st===0&&br!==lastBar){ lastBar=br; document.getElementById('fpCallInd').innerHTML=(br%2===0)?'🔊 <b>ガイド（聴け）</b>':'🎤 <b>お前の番（今の図を再現）</b>'; } }
       }, Math.max(0,(ti-c.currentTime)*1000)); })(step,nextTime,bar);
-      nextTime+=sp8(); curTick++; }
+      nextTime+=sp(); curTick++; }
     timer=setTimeout(loop,25); }
   function start(m){ var c=ac(); c.resume(); running=true; mode=m; curTick=0; nextTime=c.currentTime+.06; lastBar=-1; loop(); }
-  function stopAll(){ running=false; clearTimeout(timer); var cu=grid.querySelector('.fp-cell.cur'); if(cu)cu.classList.remove('cur'); document.getElementById('fpIco').textContent='▶'; document.getElementById('fpTxt').textContent='再生'; document.getElementById('fpSwIco').textContent='▶'; document.getElementById('fpSwTxt').textContent='切替練習'; }
-  window.__stopFP=function(){ if(running&&mode==='edit') stopAll(); };
+  function stopAll(){ running=false; clearTimeout(timer); var cu=grid.querySelector('.fp-cell.cur'); if(cu)cu.classList.remove('cur'); document.getElementById('fpIco').textContent='▶'; document.getElementById('fpTxt').textContent='再生'; document.getElementById('fpSwIco').textContent='▶'; document.getElementById('fpSwTxt').textContent='切替練習'; var ci=document.getElementById('fpCall'); if(ci)ci.textContent='🎤 コール&レス'; }
+  window.__stopFP=function(){ if(running&&mode!=='switch') stopAll(); };
   window.__stopFPsw=function(){ if(running&&mode==='switch') stopAll(); };
-  function setPresets(){ var pe=document.getElementById('fpPresets'); [['表乗り（基本）',[1,0,1,0,1,0,1,0]],['裏乗り（跳ねる）',[0,1,0,1,0,1,0,1]],['2&4の裏 ★お前好み',[1,0,1,1,1,0,1,1]],['間（スカスカ）',[1,0,0,0,0,0,1,0]]].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'; b.textContent=o[0]; b.addEventListener('click',function(){ pattern=o[1].slice(); renderGrid(); guide(); }); pe.appendChild(b); }); }
+  function setPresets(){ var pe=document.getElementById('fpPresets'); [['表乗り',[0,4,8,12]],['裏乗り',[2,6,10,14]],['2&4の裏 ★',[0,4,6,8,12,14]],['間',[0,8]]].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'; b.textContent=o[0]; b.addEventListener('click',function(){ pattern=new Array(16).fill(0); o[1].forEach(function(i){pattern[i]=1;}); renderGrid(); guide(); }); pe.appendChild(b); }); }
+  function setRes(){ var re=document.getElementById('fpRes'); [['8分',2],['16分',4]].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'+(o[1]===res?' on':''); b.textContent=o[0]; b.addEventListener('click',function(){ res=o[1]; re.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); renderNums(); renderGrid(); guide(); }); re.appendChild(b); }); }
   document.getElementById('fpPlay').addEventListener('click',function(){ ac().resume(); if(running&&mode==='edit'){stopAll();return;} if(running)stopAll(); start('edit'); document.getElementById('fpIco').textContent='❚❚'; document.getElementById('fpTxt').textContent='停止'; });
   document.getElementById('fpSwPlay').addEventListener('click',function(){ ac().resume(); if(running&&mode==='switch'){stopAll();return;} if(!A||!B){ document.getElementById('fpSwitch').textContent='まずA・B両方を登録してくれ'; return;} if(running)stopAll(); start('switch'); document.getElementById('fpSwIco').textContent='❚❚'; document.getElementById('fpSwTxt').textContent='停止'; });
+  var callBtn=document.getElementById('fpCall'); if(callBtn) callBtn.addEventListener('click',function(){ ac().resume(); if(running&&mode==='call'){stopAll();return;} if(running)stopAll(); start('call'); callBtn.textContent='■ 停止'; });
   document.getElementById('fpBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('fpBpmVal').textContent=bpm; });
-  document.getElementById('fpClear').addEventListener('click',function(){ pattern=[0,0,0,0,0,0,0,0]; renderGrid(); guide(); });
+  document.getElementById('fpClear').addEventListener('click',function(){ pattern=new Array(16).fill(0); renderGrid(); guide(); });
   document.getElementById('fpSetA').addEventListener('click',function(){ A=pattern.slice(); document.getElementById('fpSwitch').innerHTML='A：<b>登録OK</b>（'+guideStr(A)+'） ／ B：'+(B?'登録OK':'未登録'); });
   document.getElementById('fpSetB').addEventListener('click',function(){ B=pattern.slice(); document.getElementById('fpSwitch').innerHTML='A：'+(A?'登録OK':'未登録')+' ／ B：<b>登録OK</b>（'+guideStr(B)+'）'; });
-  setPresets(); renderNums(); renderGrid(); guide();
+  setRes(); setPresets(); renderNums(); renderGrid(); guide();
 })();
 
 /* ===== ポジショニング・マップ ===== */
