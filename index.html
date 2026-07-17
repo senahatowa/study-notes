@@ -1017,6 +1017,29 @@
   @media(max-width:600px){.tline .lstep{grid-template-columns:1fr;gap:9px} .tline .tlab{justify-self:start;padding:6px 12px}}
   .note a,.scard a,.combo a,.subgrid a,.allng a{color:var(--gold2);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(242,209,136,.45);font-weight:700}
   .note a:hover,.scard a:hover,.combo a:hover{color:#fff;text-decoration-color:#fff}
+  /* ---- 比較マトリクス（横スクロール） ---- */
+  .mtx{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;border-radius:12px;border:1px solid var(--line)}
+  .mtx table{border-collapse:collapse;min-width:660px;width:100%;font-size:12.5px}
+  .mtx th{background:var(--panel2);color:var(--gold2);font-weight:800;text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap;position:sticky;top:0}
+  .mtx td{padding:9px 11px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);color:var(--ink2);vertical-align:top;line-height:1.55}
+  .mtx td:first-child{color:var(--ink);font-weight:800;white-space:nowrap}
+  .mtx tr:last-child td{border-bottom:0}
+  .mtx td b{color:var(--ink)}
+  .mtx .yes{color:#9bd58f;font-weight:900}
+  .mtx .no{color:#e58d7e;font-weight:900}
+  .mtx .mid{color:#ead27a;font-weight:900}
+  /* ---- 権利の2本柱 ---- */
+  .rights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+  @media(max-width:700px){.rights{grid-template-columns:1fr}}
+  .rcol{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+  .rcol>h4{padding:11px 14px;font-size:14px;margin:0}
+  .rcol.a>h4{background:linear-gradient(145deg,#3f7bb0,#2b5a84);color:#eaf4ff}
+  .rcol.b>h4{background:linear-gradient(145deg,#c79a3c,#8a6620);color:#2a1f08}
+  .rcol>h4 small{display:block;font-weight:600;font-size:10.5px;opacity:.85;margin-top:2px}
+  .rcol ul{list-style:none;padding:11px 14px;display:grid;gap:7px}
+  .rcol li{font-size:12.5px;color:var(--ink2);line-height:1.55;padding-left:15px;position:relative}
+  .rcol li::before{content:"▸";position:absolute;left:0;color:var(--ink3)}
+  .rcol li b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -1475,6 +1498,85 @@
 
   <div class="note" style="border-left-color:#8fc0e8">🧭 <b>一枚まとめ：</b>①まず音源1本（URLで渡せる／一発で個性が分かる）②オープンマイク＆サイファーに"客として"通う→マイクを握る→皆勤で顔になる（ここはノルマ無し/軽い）③主催と繋がったら対バン→ゲスト枠→自主企画（<b>先に客を作ってから</b>）④<b>UMB/戦極の地方予選＝無名の名刺、RAPSTAR＝自作曲で一発逆転</b>⑤TTP＝金より露出・半径10cmから火。⑥<b>ノルマ額を出さない主催は切る</b>。</div>
   <div class="note" style="font-size:12px;color:var(--ink3)">※日程・場所・費用・開催有無（現場/サイファー開催地・各大会の要項）は<b>すべて変動</b>。ここは実在が確からしいものだけを載せ、確証が取れないものは「要確認」と明記した。出演前に必ず各公式で最新を自分で確認すること。</div>
+
+  <div class="shead" id="factionmap"><span class="num">🏴</span><h2>勢力図 — 誰がどの陣営で、何を言ってるか</h2></div>
+  <p class="sub">日本語ラップを<b>「何をラップしてるか（テーマ）」で陣営分け</b>。各陣営の<b>メッセージ／リスナー／飽和度／マス到達</b>が一目で分かる。<b style="color:#e8c86a">金の枠＝華独が狙う空白</b>。</p>
+
+  <style>
+  .fmz{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:16px 0 8px}
+  .fz{background:#141414;border:1px solid #2a2a2a;border-left:4px solid var(--fc);border-radius:14px;padding:16px 16px 14px;box-shadow:0 8px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4)}
+  .fz.gold{border:1px solid #6b5a1e;border-left:4px solid #c9a227;background:linear-gradient(180deg,#1a1710,#141414);box-shadow:0 10px 30px rgba(201,162,39,.10),0 1px 2px rgba(0,0,0,.5)}
+  .fz h4{margin:0 0 4px;font-size:18px;font-weight:700;color:var(--fc);letter-spacing:.02em}
+  .fz .fsub{font-size:12px;color:#8a8a8a;margin:0 0 12px}
+  .fz .fart{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .fz .fart span{font-size:12px;background:#1e1e1e;border:1px solid #333;border-radius:999px;padding:3px 9px;color:#cfcfcf}
+  .fz .frow{display:flex;gap:8px;font-size:13px;line-height:1.55;padding:5px 0;border-top:1px solid #222}
+  .fz .frow b{flex:0 0 74px;color:#7d7d7d;font-weight:500;font-size:12px}
+  .fz .frow span{color:#d8d8d8}
+  .fv{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:6px}
+  .fv.ng{background:#3a1c19;color:#ef8a93;border:1px solid #5c2a24}
+  .fv.mid{background:#3a3119;color:#e8c86a;border:1px solid #5c4c24}
+  .fv.ok{background:#193a24;color:#9bd58f;border:1px solid #245c33}
+  @media(max-width:560px){.fmz{grid-template-columns:1fr}}
+  </style>
+
+  <div class="fmz">
+    <div class="fz" style="--fc:#c8503e">
+      <h4>ストリート / 悪 / 成り上がり</h4>
+      <p class="fsub">HIPHOP DREAM・アングラの主流</p>
+      <div class="fart"><span>BAD HOP</span><span>アングラ多数</span></div>
+      <div class="frow"><b>メッセージ</b><span>のし上がる・ワルさ・地元の掟</span></div>
+      <div class="frow"><b>リスナー</b><span>ヘッズ＋若年層</span></div>
+      <div class="frow"><b>判定</b><span>飽和<span class="fv ng">華独はNG</span><br><span style="font-size:12px;color:#9a9a9a">「恵まれた環境で悪ぶる＝クソダサい」と名指し批判。演じるほど嘘が浮く</span></span></div>
+    </div>
+
+    <div class="fz" style="--fc:#8f7fd0">
+      <h4>内省 / 弱さ / メンタル</h4>
+      <p class="fsub">「エモ・ラップ／鬱ラップ」＝ジャンル名化済</p>
+      <div class="fart"><span>5lack</span><span>KID FRESINO</span><span>LEX</span><span>Watson</span><span>Skaai</span><span>JUMADIBA</span><span>C.O.S.A.</span><span>Minchanbaby</span><span>ちゃんみな</span></div>
+      <div class="frow"><b>メッセージ</b><span>孤独・弱さ・死・実存</span></div>
+      <div class="frow"><b>リスナー</b><span>ヘッズ〜準メジャー</span></div>
+      <div class="frow"><b>判定</b><span>超飽和 × マス到達ほぼ無し<span class="fv ng">地雷</span><br><span style="font-size:12px;color:#9a9a9a">模倣者が「Watson系」と呼ばれるほど供給過多。チャート実績はちゃんみながほぼ唯一</span></span></div>
+    </div>
+
+    <div class="fz" style="--fc:#4fa9a0">
+      <h4>沖縄 / 地方レペゼン</h4>
+      <p class="fsub">今シーンで最も注目のエリア</p>
+      <div class="fart"><span>Awich</span><span>唾奇</span><span>OZworld</span><span>CHICO CARLITO</span></div>
+      <div class="frow"><b>メッセージ</b><span>土地・血・誇り・ウチナーグチ</span></div>
+      <div class="frow"><b>リスナー</b><span>ヘッズ→マス（武道館級）</span></div>
+      <div class="frow"><b>判定</b><span>追い風だが先行者が強い<span class="fv mid">単体では旗にならん</span><br><span style="font-size:12px;color:#9a9a9a">Awich=壮絶な人生/世界 唾奇=毒と心地よさ OZworld=スピリチュアル</span></span></div>
+    </div>
+
+    <div class="fz" style="--fc:#d08a4f">
+      <h4>家族 / 生い立ち</h4>
+      <p class="fsub">厚いが"角度"が偏ってる</p>
+      <div class="fart"><span>ZORN</span><span>SALU</span><span>Tokona-X</span></div>
+      <div class="frow"><b>メッセージ</b><span>愛・感謝・生い立ちの受容</span></div>
+      <div class="frow"><b>リスナー</b><span>マスに届く（ZORN=武道館級）</span></div>
+      <div class="frow"><b>判定</b><span>飽和ぎみ<span class="fv mid">角度次第で空く</span><br><span style="font-size:12px;color:#9a9a9a">全員"愛/感謝"の角度。<b style="color:#e8c86a">"毒を抜く/連鎖を断つ"は誰も居ない</b></span></span></div>
+    </div>
+
+    <div class="fz gold" style="--fc:#c9a227">
+      <h4>日常 / "素" / オルタナ 👑</h4>
+      <p class="fsub">dodo がほぼ一人で占拠＝空白×届く</p>
+      <div class="fart"><span>dodo</span></div>
+      <div class="frow"><b>メッセージ</b><span>名もなき人生・閉塞感と倦怠</span></div>
+      <div class="frow"><b>リスナー</b><span>ヘッズ＋一般（「im」MV 400万再生超）</span></div>
+      <div class="frow"><b>判定</b><span>空いてる × マスに届く<span class="fv ok">狙う場所</span><br><span style="font-size:12px;color:#c9a227">「誰も興味を持たない日本の"素"」＝普遍だから届く。ステレオタイプの外側なのに極めてHIPHOP</span></span></div>
+    </div>
+
+    <div class="fz" style="--fc:#8fa3b8">
+      <h4>技巧 / メジャー化</h4>
+      <p class="fsub">技術で殴ってcredを保ったまま外へ</p>
+      <div class="fart"><span>KREVA</span><span>Creepy Nuts / R-指定</span><span>Kvi Baba</span></div>
+      <div class="frow"><b>メッセージ</b><span>技術そのもの・歌もHIPHOPの一部</span></div>
+      <div class="frow"><b>リスナー</b><span>マス（世界的ヒットも）</span></div>
+      <div class="frow"><b>判定</b><span>両立の実証例<span class="fv ok">教科書</span><br><span style="font-size:12px;color:#9a9a9a">KREVA=売れ線でもスタイル崩さず→ハードコア勢も支持。技術＝最強のcred装甲</span></span></div>
+    </div>
+  </div>
+
+  <div class="tebox" style="border-left-color:#c9a227">🏴 <b>読み方：</b>縦軸は「飽和してるか」、実質の争点は<b>"角度"</b>。<b style="color:#c9a227">華独の空白＝「日常/素」×「解毒（連鎖を断つ）」×「コザ」の交差点。</b>単体テーマは全部埋まってる。<b>交差点にしか空きは無い。</b></div>
 
   <div class="shead" id="scenemap"><span class="num">🗺</span><h2>シーンの地図 — 派閥・タイプ・立ち位置（華独の音を決める）</h2></div>
   <p class="sub">「どんな音を届けるか」が固まらない時は<b>地図を見て自分の座標を探す</b>。<span class="cf sure">事実</span>＝実在のクルー/アーティストの出自。<span class="cf guess">見立て📖</span>＝分類・層・立ち位置（断定でなく"たたき台"・境界は曖昧・本人が嫌う事も）。<b>競合と戦わず"ずらす"</b>ための材料に。</p>
