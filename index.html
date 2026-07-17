@@ -1008,6 +1008,11 @@
   .hkd h5{margin:0 0 4px;font-size:11px;color:var(--ink3);font-weight:800;letter-spacing:.04em}
   .hkd b{font-size:15px;color:var(--gold)}
   .hkd p{margin:3px 0 0;font-size:11px;color:var(--ink2);line-height:1.6}
+  .wbank{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+  .wchip{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--ink2)}
+  .wchip b{color:var(--gold);font-weight:900}
+  .wchip.hot{border-color:var(--goldsoft);background:rgba(242,209,136,.08)}
+  .lstep .ln{font-size:11px;font-weight:900;color:var(--gold2);padding-top:2px;line-height:1.3}
 </style>
 </head>
 <body>
@@ -1583,6 +1588,49 @@
 
   <div class="shead divider-h"><span class="num">分析</span><h2>シーンの読み — ゲームチェンジと"耳"の進化</h2></div>
   <p class="sub">ここからは<b>「事実」と「見立て（分析）」を分けて</b>出す。年号・出来事＝<b>事実</b>。耳の変化・シーンの捉え方＝<span class="otag">📖 見立て</span>＝<b>論者の分析</b>（誰がそう言っているかを付す）。分析を事実のフリでは出さない。</p>
+
+  <div class="shead" id="warmap"><span class="num">🗺</span><h2>華独の作戦地図 — テーマ・世界観・着火（MECE・期限つき）</h2></div>
+  <p class="sub"><b>お前が「リリック・テーマ・世界観が決まらない」と言うから、シーンをその解像度まで割った。</b>結論を先に：<b>①着火装置はもう1本ライブで走ってる（期限あり）②テーマは"決める"ものじゃなかった（実績者は決めてない）③コザには実在の弾薬が山ほどある</b>。<span class="cf sure">✅事実（出典あり）</span>／<span class="cf chk">⚠️逐語未確認・変動</span>／<span class="cf guess">📖見立て</span>。</p>
+
+  <div class="subhd">① 最大の事実 — 着火装置はもう走っている（残り時間が確定した）</div>
+  <div class="note" style="border-left-color:#e58d7e"><span class="cf sure">✅事実</span> <b>RAPSTAR 2026</b>：応募は<b>2026年6月1日〜6月12日23:59で締切済</b>（＝お前は出した）。<b>現在、審査中</b>——公式は「<b>審査通過者には番組スタッフよりご連絡差し上げます</b>」。<b>ファイナル「RAPSTAR FINALS "STARZ"」は2026年12月29日（火）</b>。優勝賞金は<b>シリーズ史上最高の1,000万円</b>（これまでの300万円から大幅アップ）。オーガナイザー＝<b>RYUZO</b>。ビート提供＝<b>Chaki Zulu / D3adStock / GRADIS NICE / krynX / Lion Melo / Neetz / rxl</b> の7名。<b>前回（2025）は過去最多6,780人がエントリー</b>。歴代優勝者＝<b>¥ellow Bucks / Ralph / Kohjiya / Siero / Sonsi / Pxrge Trxxxper</b>。<br>→ <b>両立マップの「型C＝客演/コンペで橋を架ける」が、もう実行中だ。</b>Kohjiya がその実例（＝ヘッズ受けと一般到達を繋いだ橋）。<b>お前は6,780人規模の漏斗の中にいる。</b></div>
+  <div class="subgrid"><div class="scard"><h4>★これが全部の原点になった <span class="en">期限</span></h4><p><b>今日〜12/29＝約5ヶ月</b>。<span class="x">「時間が有限」が具体的な日付になった＝<b>もう優先順位で悩む必要がない。12/29から逆算すればいい</b></span>。</p></div><div class="scard"><h4>待つな <span class="en"><span class="cf guess">📖</span></span></h4><p>結果連絡は<b>お前が制御できない</b>。<span class="x"><b>制御できないものを待つ時間に、制御できるもの（火薬＝曲）を作る</b>。通っても落ちても、曲は残る</span>。</p></div><div class="scard"><h4>落ちても損しない構造 <span class="en"><span class="cf guess">📖</span></span></h4><p>コンペ用に作った曲は<b>そのまま音源として撒ける</b>。<span class="x">バトルと違って<b>コンペは"落ちても作品が残る"</b>＝お前向き（バトルはやらない前提）</span>。</p></div><div class="scard"><h4>賞金が3倍以上になった意味 <span class="en"><span class="cf chk">⚠️見立て込み</span></span></h4><p>300万→1,000万＝<b>ABEMAが本気度を上げた</b>＝<span class="x">応募も注目も増える＝<b>通れば露出がデカいが、競争も厚い</b>。楽観するな</span>。</p></div>  </div>
+
+  <div class="subhd">② テーマの地図 — 誰が何を歌っていて、どこが空いているか</div>
+  <p class="sub"><span class="cf guess">📖 配置は俺の読み</span> 縦＝<b>毒・痛み ↔ 祝祭・上げ</b>／横＝<b>内向き（自分の内面） ↔ 外向き（街・社会）</b>。<b>金色の点線＝空いてる場所</b>。</p>
+  <div class="qmap" id="qmapThemeAll"></div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖</span> <b>空き地＝「街の毒を、内側から」。</b>唾奇は<b>内向きの毒</b>だが街を前面に出さない。BAD HOPは<b>街</b>だが内向きの毒じゃない。<b>その交点が空いてる</b>——そこが<b>コザ×解毒</b>だ。<b>お前が迷ってたのは"場所が無い"からじゃない。場所は空いてる。</b></div>
+
+  <div class="subhd">③ ★お前が迷ってる本当の理由 — テーマは「決める」ものじゃなかった</div>
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf chk">⚠️逐語未確認（検索経由の要約・原文は403/500で読めなかった＝正直に言う）</span> <b>唾奇のリリックの作り方</b>：<b>テーマを事前に決めない</b>。<b>歩きながら歌詞を考え、思いついたものをスマホにメモし、そこから展開する</b>。<b>引っかかった1語から始まり、その1語が全体のテーマを決める</b>——とされる。</div>
+  <div class="vs2">
+    <div class="vscard b"><h4>✕ お前が今やってること</h4><p><b>テーマ →  世界観 → 曲</b>の順で決めようとしてる。<b>だから止まる</b>。テーマは抽象で、抽象は<b>決めた気になれるが手が動かない</b>。</p></div>
+    <div class="vscard a"><h4>✅ 実績者がやってること</h4><p><b>1語 → テーマ → 曲</b>。<b>先に具体（引っかかった1語）を拾う。テーマは後から勝手に決まる</b>。<b>本命TTP先が、テーマを決めていない。</b></p></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf sure">✅ 完全に一致してる</span> <b>フックの科学の結論＝「コザの1語＋誰でも言える日本語＝7音以下」。唾奇の作り方＝「1語から始まる」。フック・ラボの結論＝「音を削って輪郭で聴かせる」。</b><br><b>3方向とも同じことを言ってる＝「1語まで削れ」。</b>お前に足りないのはテーマじゃなく<b>1語のストック</b>。だから下に弾薬庫を作った。</div>
+  <div class="note" style="border-left-color:#c79bf2"><span class="cf chk">⚠️逐語未確認</span> <b>もう1つデカいやつ。</b>唾奇は沖縄で始めた頃、<b>シーンでは"ヘヴィな音"が流行っていた</b>が、<b>自分は気持ちよさ・平和なライブの方を選んだ</b>——とされる。<br>→ <b>お前が言った「TRAPとか時流に疎い」は、弱点じゃない。</b>本命TTP先も<b>時流に乗らずに、自分の快を選んで武道館まで行った</b>。<span class="cf guess">📖</span> <b>時流は「部分輸入」でいい（808だけ借りる）。乗り換える必要はない。ここはもう答えが出てる。</b></div>
+
+  <div class="subhd">④ コザの弾薬庫 — 実在する固有名詞（＝「1語」の候補）</div>
+  <p class="sub"><b>ここが今日の一番の収穫かもしれん。</b><span class="cf sure">✅全部実在・出典は下</span> 抽象概念の「解毒」は7音に入れた瞬間に説明になって死ぬ（フックの恒久NG⑥）。<b>物質に変換する材料がこれ。</b></p>
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf sure">✅事実</span> <b>★市名の変遷（これが最強の素材だ）</b>：<b>胡差（こざ）市</b>（1945年9月）→ <b>前原市</b> → 市制解除され<b>越来村・美里村</b>に戻る → <b>コザ村</b>（1956年6月）→ <b>コザ市</b>（1956年7月）→ <b>沖縄市</b>（1974年4月・美里村と合併）。<br><span class="cf guess">📖</span> <b>コザは、名前を何度も付け替えられた街だ。</b>漢字で「胡差」と当てられ、カタカナの「コザ」にされ、最後に「沖縄市」という一般名詞に飲まれて<b>固有名を失った</b>。──<b>それは"解毒"や"アイデンティティ"みたいな抽象語より、はるかに強くお前のテーマそのものを語ってる。しかも誰にも取られてない。「コザ」は今、地図の上には無い名前だ。</b></div>
+  <div class="wbank">
+    <span class="wchip hot"><b>胡差</b>（こざ／1945年の漢字表記）</span><span class="wchip hot"><b>コザ十字路</b></span><span class="wchip hot"><b>胡屋十字路</b>（ごや）</span><span class="wchip"><b>中央パークアベニュー</b></span><span class="wchip hot"><b>銀天街</b></span><span class="wchip"><b>パルミラ通り</b></span><span class="wchip"><b>日の出通り</b></span><span class="wchip"><b>十字路市場</b></span><span class="wchip"><b>プラザハウス</b></span><span class="wchip"><b>コザ・ミュージックタウン音市場</b></span><span class="wchip hot"><b>嘉手納基地</b></span><span class="wchip"><b>越来</b>（ごえく）</span><span class="wchip"><b>美里</b>（みさと）</span><span class="wchip"><b>越来間切・美里間切</b>（旧行政区）</span><span class="wchip hot"><b>1970年12月20日</b></span>
+  </div>
+  <div class="subgrid"><div class="scard"><h4>コザ暴動（1970年12月20日） <span class="en"><span class="cf sure">✅事実</span></span></h4><p><b>午前0時15分頃</b>発生。発端＝<b>米人の運転する車が道路横断中の男性をひっかけ負傷させた事故</b>。<b>MPの威嚇発砲</b>をきっかけに駐車中のMP車・外人車両に次々放火。<b>群衆約5,000人 vs カービン銃で武装したMP約300人</b>がにらみ合い、<b>朝まで続いた</b>。「沖縄の歴史始まって以来、かつてなかった暴動」と評される。<span class="x">📖 <b>日付そのものが固有名詞になる</b></span>。</p></div><div class="scard"><h4>★コザ＝「他人の耳に向けて腕を磨いた街」 <span class="en"><span class="cf sure">✅事実</span></span></h4><p><b>1960年代にロックが流行し、アメリカ人を相手に演奏することで沖縄出身のミュージシャンの腕が磨かれた</b>。そこから<b>紫（MURASAKI）／コンディション・グリーン／キャナビス／メデューサ</b>が出た。<span class="x">📖 <b>これはお前の構造とまったく同じだ</b>＝<b>外の耳に向けて磨く</b>。ヘッズ受け×一般受けの両立に悩んでる自分は、この街の歴史の続きにいる</span>。</p></div><div class="scard"><h4>コザ／沖縄の音楽の系譜 <span class="en"><span class="cf sure">✅事実</span></span></h4><p>紫・コンディション・グリーン・キャナビス・メデューサ（ロック）／<b>りんけんバンド・ネーネーズ・ORANGE RANGE</b>。人物＝<b>普久原恒勇</b>（作曲家）／<b>佐渡山豊</b>（フォーク）／<b>照屋林賢</b>（りんけんバンド）／<b>知名定男</b>。<span class="x">📖 <b>コザは"ロックの街"であって、まだ"ラップの街"じゃない＝空いてる</b></span>。</p></div><div class="scard"><h4>唾奇との差分（ここが命） <span class="en"><span class="cf sure">✅事実</span></span></h4><p>唾奇は<b>那覇市寄宮</b>の出身（コザではない）。<span class="x">📖 <b>「沖縄」は唾奇とAwichに取られてる。だが「コザ」は取られてない。</b>沖縄を名乗るな。<b>コザを名乗れ</b>。それだけで本命TTP先とぶつからずに済む</span>。</p></div>  </div>
+  <div class="note" style="border-left-color:var(--jpn)">⚠️ <b>正直に言う。</b>この弾薬庫は<b>俺がWebで確認できた範囲</b>だ。Aサイン制度・ゲート通り・一番街・現在のシャッター街化の実態は<b>今回confirmできてない＝未確認</b>（書かなかった）。<b>そして一番デカい素材はここに無い＝お前の記憶</b>。俺が出せるのは"公共の事実"まで。<b>「その角の、あの店の、あの匂い」は、お前しか持ってない。弾薬庫は起爆剤であって、弾じゃない。</b></div>
+
+  <div class="subhd">⑤ 着火装置マップ — 全経路（自力で撃てるか × 届く規模）</div>
+  <p class="sub"><span class="cf guess">📖 配置は俺の読み</span> フックの科学の結論＝<b>「フックは火薬。着火装置じゃない。火は外から借りる」</b>。だから経路は<b>左（自力＝火薬を作る）</b>と<b>右（他力＝着火する）</b>に割れる。<b>両方要る。</b></p>
+  <div class="qmap" id="qmapIgnite"></div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖 結論</span> <b>左側（自力）だけ＝一生火が点かない</b>（「いい曲を上げ続けたのに無名」の正体）。<b>右側（他力）だけ＝置く火薬が無い</b>。<b>お前は今、右上の一番デカい着火装置（RAPSTAR・12/29）に既に手をかけてる状態で、火薬の在庫がゼロに近い。</b>＝<b>やることは1つしかない。5ヶ月で火薬を作る。</b></div>
+
+  <div class="subhd">⑥ 12/29から逆算した時間軸</div>
+  <p class="sub"><span class="cf guess">📖 提案</span> <b>審査結果は制御できない＝当てにしない設計にする。</b>通っても落ちても価値が残る順番で組んだ。</p>
+  <div class="ladder"><div class="lstep"><div class="ln">今〜7月末</div><div><b>弾薬を集める。曲を作らない。</b>上の弾薬庫＋<b>お前の記憶</b>から<b>コザの固有名詞を100語</b>スマホにメモる（唾奇の実法＝歩きながら／1語から）。<b>この段階でテーマを決めるな。</b>100語溜まると<b>勝手に偏る。その偏りがテーマだ</b>。</div></div><div class="lstep"><div class="ln">8月</div><div><b>7音以下のフックを20本</b>。フック・ラボで鳴らして<b>判定パネルが「フック✅」を出すやつだけ残す</b>。曲にしない。フックだけ。<span class="cf sure">✅Berklee＝フックが曲名になる</span></div></div><div class="lstep"><div class="ln">9月</div><div><b>刺し曲を1曲、完成させる。</b>メロディ先行（＝Sweet William の実法）→ジャジー×808の部分輸入→フック先に置く→ヴァースは後。<b>1曲でいい。1曲を完璧に。</b></div></div><div class="lstep"><div class="ln">10〜11月</div><div><b>撒く。</b>MV／ショート（15秒＝フックだけ）。<b>反応を実数で見る</b>（再生・保存・コメント）。ここで初めてPDCA。<b>並行して、外の着火装置を増やす</b>＝客演・コンペ・現場（"押さえるべきハコ"タブ参照）。</div></div><div class="lstep"><div class="ln">通過連絡が来たら</div><div><b>全部これに寄せる。</b>ビートは7人（Chaki Zulu / Neetz 他）の提供ビートから選ぶ＝<b>選曲がもう戦略</b>（ジャジー寄りを探せ）。<b>コザの1語で殴る。</b>6,780人の中で"沖縄"は他にもいるが"コザ"は薄い。</div></div><div class="lstep"><div class="ln">来なかったら</div><div><b>何も失ってない。</b>フック20本と刺し曲1曲が残ってる。<b>次の橋（客演／別コンペ／プロデューサー）に、同じ火薬を置くだけ</b>。<span class="cf guess">📖 これがコンペをバトルより推す理由</span></div></div>  </div>
+
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 結論（これだけ持って帰れ）</span> <b>①テーマを決めようとするのをやめろ。</b>本命TTP先は決めてない。<b>1語から始まる。</b> <b>②その1語はコザにある。</b>「沖縄」は唾奇とAwichに取られてるが<b>「コザ」は空いてる</b>——地図から消された名前だ。<b>③空いてる場所は「街の毒を、内側から」。</b>唾奇（内向きの毒／街は出さない）とBAD HOP（街／内向きじゃない）の交点。<b>④時流に疎いのは弱点じゃない。</b>本命TTP先も乗ってない。部分輸入でいい。<b>⑤期限は12/29。</b>制御できない審査を待つ間に、制御できる火薬を作る。<b>5ヶ月で、フック20本と刺し曲1曲。</b></div>
+
+  <div class="note" style="border-left-color:var(--line);font-size:12px"><b>出典</b>：<a href="https://kai-you.net/article/95562" target="_blank" rel="noopener">KAI-YOU「RAPSTAR 2026 開催を正式発表 優勝賞金は過去最高の1000万円に」</a>／<a href="https://prtimes.jp/main/html/rd/p/000003319.000064643.html" target="_blank" rel="noopener">AbemaTV公式プレスリリース（PRTIMES）</a>／<a href="https://rapstar-abema.com/entry/" target="_blank" rel="noopener">ラップスタア2026 公式応募フォーム（審査通過者に連絡の記載）</a>／<a href="https://news.yahoo.co.jp/articles/bf34a295a1688349c910380602845f891f47020d" target="_blank" rel="noopener">KAI-YOU「前回は過去最多6780人がエントリー」</a>／<a href="https://www.kozaweb.jp/aboutKozaPages/show/12" target="_blank" rel="noopener">沖縄市観光ポータル コザウェブ「コザの歴史」</a>（市名変遷・地名・バンド・人物）／<a href="https://www.archives.pref.okinawa.jp/news/that_day/4704" target="_blank" rel="noopener">沖縄県公文書館「1970年12月20日 コザ反米騒動」</a>／<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%82%B6%E6%9A%B4%E5%8B%95" target="_blank" rel="noopener">コザ暴動（Wikipedia）</a>／<a href="https://ja.wikipedia.org/wiki/%E5%94%BE%E5%A5%87" target="_blank" rel="noopener">唾奇（Wikipedia・那覇市寄宮出身）</a>／唾奇の作り方＝<a href="https://www.redbull.com/jp-ja/rasen-20-tsubaki" target="_blank" rel="noopener">Red Bull インタビュー</a>・<a href="https://www.cdjournal.com/i/cdjpush/cdjpush.php?cno=1000001383" target="_blank" rel="noopener">CDJournal インタビュー</a><span class="cf chk">⚠️両方フェッチ不可（403/500）＝逐語未確認・検索経由の要約</span><br>⚠️ <b>RAPSTARの審査状況は2026年7月17日時点。動いたら更新する。</b></div>
 
   <div class="shead"><span class="num">⚡</span><h2>ゲームチェンジ（構造を変えた8つ）</h2></div>
   <p class="sub">シーンの前提そのものを変えた出来事。これを押さえると、シーンの"地層"が見える。</p>
@@ -6039,6 +6087,44 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     });
   })();
   renderBar(); renderGrid(); dx();
+})();
+
+/* ================= WAR MAP (テーマ地図 / 着火装置マップ) ================= */
+(function(){
+  function draw(id,cfg){
+    var m=document.getElementById(id); if(!m)return;
+    var h='<div class="ax x"></div><div class="ax y"></div>';
+    h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
+    if(cfg.zone){ var z=cfg.zone; h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>'; }
+    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>'; });
+    m.innerHTML=h;
+  }
+  draw('qmapThemeAll',{
+    t:'毒・痛み（重い）', b:'祝祭・上げ（軽い）',
+    l:'内向き（自分の内面）', r:'外向き（街・社会）',
+    zone:[38,10,34,32],
+    dots:[
+      {n:'5lack',x:18,y:42},{n:'唾奇',x:29,y:29},{n:'Awich',x:76,y:57},
+      {n:'BAD HOP',x:85,y:47},{n:'千葉雄喜',x:72,y:80},{n:'Creepy Nuts',x:50,y:85},
+      {n:'Yo-Sea',x:22,y:66},{n:'Kohjiya',x:60,y:62},
+      {n:'★華独 空き地',x:54,y:24,kd:1}
+    ]
+  });
+  draw('qmapIgnite',{
+    t:'届く規模：大', b:'届く規模：小',
+    l:'自力で撃てる（火薬）', r:'他力・運が要る（着火）',
+    zone:[8,42,32,40],
+    dots:[
+      {n:'★RAPSTAR 12/29',x:74,y:11,kd:1},
+      {n:'アニメ/CMタイアップ',x:90,y:20},
+      {n:'客演（先輩の曲）',x:66,y:34},
+      {n:'プロデューサーと組む',x:56,y:44},
+      {n:'ショート（フック15秒）',x:26,y:37},
+      {n:'MV / 音源を撒く',x:15,y:60},
+      {n:'現場・ハコに立つ',x:34,y:72},
+      {n:'フックを作る',x:12,y:78}
+    ]
+  });
 })();
 
 initReveal();
