@@ -976,6 +976,20 @@
   .fp-cell.acc{background:linear-gradient(160deg,#fff,var(--gold2));border-color:#fff;box-shadow:0 0 10px rgba(255,255,255,.4)}
   .fp-cell.acc .mk{color:#15110a}
   .fp-cell.sub16 .mk{color:var(--ink3);font-size:15px}
+
+  /* ---- 2D象限マップ ---- */
+  .qmap{position:relative;width:100%;max-width:540px;margin:14px auto;aspect-ratio:1/1;border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+  .qmap .ax{position:absolute;background:var(--line)}
+  .qmap .ax.x{left:6%;right:6%;top:50%;height:1px}
+  .qmap .ax.y{top:6%;bottom:6%;left:50%;width:1px}
+  .qmap .pl{position:absolute;font-size:10px;font-weight:800;color:var(--ink2);background:var(--panel);padding:1px 6px;border-radius:5px}
+  .qmap .pl.t{top:4px;left:50%;transform:translateX(-50%)} .qmap .pl.b{bottom:4px;left:50%;transform:translateX(-50%)}
+  .qmap .pl.l{left:4px;top:50%;transform:translateY(-50%)} .qmap .pl.r{right:4px;top:50%;transform:translateY(-50%)}
+  .qzone{position:absolute;border:1.5px dashed var(--goldsoft);border-radius:10px;background:rgba(242,209,136,.09);z-index:1}
+  .qdot{position:absolute;transform:translate(-50%,-50%);font-size:10px;font-weight:800;color:var(--ink2);white-space:nowrap;text-align:center;z-index:2}
+  .qdot .d{display:block;width:7px;height:7px;border-radius:50%;background:var(--ink3);margin:0 auto 2px}
+  .qdot.kd{color:var(--gold2);font-weight:900;font-size:12px;z-index:4}
+  .qdot.kd .d{width:12px;height:12px;background:var(--gold2);box-shadow:0 0 10px var(--gold2)}
 </style>
 </head>
 <body>
@@ -1506,6 +1520,27 @@
   <div class="subgrid"><div class="scard"><h4>ジャジー/メロウ chill <span class="en">★華独の本命</span></h4><p>刺さる＝<b>③シティ/①コア</b>。Spotify/YouTubeのチルプレイリスト。<span class="x">月間リスナーの安定積み上げ＝"作業BGM資産化"（唾奇型の幅広い支持）</span>。</p></div><div class="scard"><h4>リアルなリリック(生活/地元) <span class="en">コア/動員</span></h4><p>刺さる＝<b>④ストリート/①コア</b>。YouTube MV/SoundCloud/ライブ。<span class="x">濃いコアファン・現場動員・LTV高</span>。</p></div><div class="scard"><h4>エモ/内省 <span class="en">★同時に</span></h4><p>刺さる＝<b>⑤Z世代/③チル</b>。TikTok/Spotify。<span class="x">共感バイラル・自己投影で速いファン化</span>。</p></div><div class="scard"><h4>バイラルフック(5秒) <span class="en">一発逆転</span></h4><p>刺さる＝<b>②TikTok/⑥一般</b>。TikTok→Spotify Viral。<span class="x">一気の認知爆発。ただし単発リスク＝一本足はNG</span>。</p></div><div class="scard"><h4>メロディック(歌×ラップ) <span class="en">裾野最大</span></h4><p>刺さる＝<b>②③⑤⑥ 広範</b>。TikTok/サブスク横断。<span class="x">最も裾野が広い・タイアップ射程</span>。</p></div><div class="scard"><h4>バトル技巧/パンチライン <span class="en">ニッチ濃</span></h4><p>刺さる＝<b>①コア</b>。YouTube/ライブ。<span class="x">濃い信者・シーン内評価（華独の主戦場ではない）</span>。</p></div>  </div>
   <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">華独の最適解📖（制作の方向＝結論）</span> <b>一次＝③シティ/チル × ①コアヘッズ</b>＝「メロウなジャジービート × 切実で鋭いリリックのギャップ」（唾奇が実証した型）。<b>二次＝⑤エモ/内省(Z)</b>＝コザ・生身・解毒の痛みの共感。<b>設計＝二段構え：</b>①<b>チルで裾野（月間リスナー）を積む</b>（雰囲気消費でも積み上がる）②<b>YouTube MVでコザの世界観</b>を出して雰囲気層を<b>リリックの厚み→コアに降ろす</b>。③<b>各曲にTikTok用5〜10秒フックを必ず仕込む</b>（着火が無いと発見が回らない・ただし一本足はNG）。収益はライブ/物販/フィジカルが本丸。</div>
   <div class="note" style="font-size:12px;color:var(--ink3)">※データ<span class="cf chk" style="margin:0">要確認・変動</span>：国内サブスク約2,770万人〜(2025末3,250万予測)／10〜20代の約6割超が配信利用[定説]／<b>日本のSpotifyチャート約81%が国内アーティスト＝国内で戦える土壌</b>／エモラップは2018以降の成長ジャンル／TikTok起点率の定量は一次データ未確認。出典＝RIAJ実態調査・HIPHOPCs・雑踏ビート等20本。</div>
+
+  <div class="shead" id="blueprint"><span class="num">🧭</span><h2>華独の設計図 — 世界観・テーマ・きっかけ（MECE）</h2></div>
+  <p class="sub">「リリック・テーマ・世界観をどうするか」＋「最初のバイラル/きっかけをどう作るか」を<b>MECE（漏れなくダブりなく）で・マップで・深く</b>。時間は有限＝<b>"何を先にやるか"</b>まで出す。<span class="cf sure">構造</span>＝分解の枠は普遍。<span class="cf guess">配置📖</span>＝各人/各手の位置は見立て。</p>
+
+  <div class="subhd">① テーマ／世界観は「4要素」でできてる（MECE）</div>
+  <p class="sub">迷ったら<b>この4マスを埋めれば"世界観"が決まる</b>。バラバラに悩まず、要素に分けろ。</p>
+  <div class="subgrid"><div class="scard"><h4>核メッセージ <span class="en">何を言う曲か</span></h4><p>その曲/自分が<b>結局何を叫ぶか</b>。怒り/救い/反骨/喪失/愛…。<span class="x">華独＝<b>解毒（毒を吐いて浄化する）</b>に統一＝一貫した堀</span>。</p></div><div class="scard"><h4>舞台・世界観 <span class="en">どこの誰の話か</span></h4><p><b>固有の場所・出自</b>があるほど強い（唾奇=沖縄/BAD HOP=川崎）。<span class="x">華独＝<b>コザ・沖縄・基地の街の生身</b>＝那覇のAwich/唾奇ともずらせる固有地</span>。</p></div><div class="scard"><h4>感情のトーン <span class="en">どんな温度か</span></h4><p>曲全体の<b>色・温度</b>。<span class="x">華独＝<b>切なさ×毒×救いの三層</b>（"優しいけどかっこいい"）＝後ノリの余裕＋要所の毒の刃</span>。</p></div><div class="scard"><h4>語り口 <span class="en">どう語るか</span></h4><p>同じテーマでも<b>語り方で個性</b>。<span class="x">華独＝<b>内省・生身・半径10cm・情景で描く</b>（言うな、描け）＝5lack/Mac Millerの回路</span>。</p></div>  </div>
+
+  <div class="subhd">② 世界観マップ — お前の座標（内向き×具体＝空白地帯）</div>
+  <p class="sub"><span class="cf guess">見立て📖</span> 縦＝抽象↔具体、横＝内向き（内面）↔外向き（社会）。<b>金＝華独の狙う空白（内面の毒 × コザの具体）</b>。ここは唾奇/Awichと微妙にずれる。</p>
+  <div class="qmap" id="qmapTheme"></div>
+
+  <div class="subhd">③ きっかけ／バイラルは「4つの型」で全部（MECE）</div>
+  <p class="sub">認知の作り方は<b>この4カテゴリで漏れなく網羅</b>。時間有限だから<b>華独に合う×速いもの</b>を先にやる。</p>
+  <div class="subgrid"><div class="scard"><h4>①作品で刺す <span class="en">★本命</span></h4><p><b>ネットに刺し曲を撒く</b>（唾奇/Daichi型・0円初動）／チルで月間リスナー資産化／<b>YouTube MVでコザの世界観</b>。<span class="x">華独の主戦場＝"音源で聴かせる"派</span>。</p></div><div class="scard"><h4>②企画・番組で露出 <span class="en">一発</span></h4><p><b>ラップスタア誕生（自作曲で応募）</b>＝露出最大の一発逆転／RASEN／実力者クルーへの客演。<span class="x">自作曲勝負＝華独向き</span>。</p></div><div class="scard"><h4>③現場で <span class="en">土台</span></h4><p>サイファー（秋葉原/地元沖縄）／ライブ・対バン／自主企画／MCバトル。<span class="x">場数＝再現性。ただしバトルは華独の主戦場ではない</span>。</p></div><div class="scard"><h4>④SNS仕掛け <span class="en">着火</span></h4><p>曲の<b>一番刺さる15秒を切り抜いてTikTok/リール</b>／チャレンジ設計／コザの日常・世界観発信。<span class="x">着火装置＝無いと発見が回らない</span>。</p></div>  </div>
+
+  <div class="subhd">④ きっかけマップ — 何を先にやるか（時間有限）</div>
+  <p class="sub"><span class="cf guess">見立て📖</span> 縦＝速い（一発）↔遅い（積み上げ）、横＝華独に合う↔合わない。<b>金ゾーン＝右上（合う×速い）＝まずここ</b>。</p>
+  <div class="qmap" id="qmapKik"></div>
+
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">結論＝時間有限の優先順📖</span> <b>全ての起点＝"刺し曲1つ"。</b>①まず<b>「解毒×コザ×ジャジー×後ノリ」の刺し曲を1曲</b>、<b>TikTok用15秒フック込み</b>で作ってネットに撒く（0円初動）→②同時にその<b>15秒を切り抜いてTikTok/リール</b>＋コザの世界観発信→③一発狙いで<b>ラップスタア誕生に自作曲で応募</b>→④土台で<b>サイファー/沖縄勢客演</b>→⑤<b>チル系プレイリスト登録申請</b>で月間リスナーを育てる。<b>迷いを止める順番＝まず1曲。</b>それが世界観もリスナーも全部連れてくる。</div>
 
   <div class="shead divider-h"><span class="num">分析</span><h2>シーンの読み — ゲームチェンジと"耳"の進化</h2></div>
   <p class="sub">ここからは<b>「事実」と「見立て（分析）」を分けて</b>出す。年号・出来事＝<b>事実</b>。耳の変化・シーンの捉え方＝<span class="otag">📖 見立て</span>＝<b>論者の分析</b>（誰がそう言っているかを付す）。分析を事実のフリでは出さない。</p>
@@ -4341,6 +4376,22 @@ handleHash();
   document.getElementById('fpSetA').addEventListener('click',function(){ A=pattern.slice(); document.getElementById('fpSwitch').innerHTML='A：<b>登録OK</b>（'+guideStr(A)+'） ／ B：'+(B?'登録OK':'未登録'); });
   document.getElementById('fpSetB').addEventListener('click',function(){ B=pattern.slice(); document.getElementById('fpSwitch').innerHTML='A：'+(A?'登録OK':'未登録')+' ／ B：<b>登録OK</b>（'+guideStr(B)+'）'; });
   setRes(); setPresets(); renderNums(); renderGrid(); guide();
+})();
+
+/* ===== 2D象限マップ描画 ===== */
+(function(){
+  function draw(id,cfg){ var m=document.getElementById(id); if(!m)return; var h='<div class="ax x"></div><div class="ax y"></div>';
+    h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
+    if(cfg.zone){ var z=cfg.zone; h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>'; }
+    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>'; });
+    m.innerHTML=h;
+  }
+  draw('qmapTheme',{ t:'抽象（普遍・詩的）', b:'具体（土地・生活・半径10cm）', l:'内向き（内面・毒）', r:'外向き（社会・世界）',
+    zone:[8,52,34,34],
+    dots:[ {n:'唾奇',x:30,y:64},{n:'5lack',x:20,y:42},{n:'Awich',x:62,y:60},{n:'Kendrick',x:76,y:24},{n:'Mac Miller',x:24,y:30},{n:'BAD HOP',x:58,y:76},{n:'★華独 解毒×コザ',x:24,y:68,kd:1} ] });
+  draw('qmapKik',{ t:'速い（一発）', b:'遅い（積み上げ）', l:'華独に合わない', r:'華独に合う',
+    zone:[58,10,36,32],
+    dots:[ {n:'ラップスタア誕生',x:78,y:20},{n:'TikTok切り抜き',x:56,y:26},{n:'ネットに撒く',x:74,y:46},{n:'RASEN/客演',x:70,y:44},{n:'MV世界観',x:74,y:60},{n:'チル登録',x:82,y:72},{n:'サイファー/ライブ',x:50,y:70},{n:'MCバトル',x:26,y:48},{n:'★まずここ',x:76,y:30,kd:1} ] });
 })();
 
 /* ===== ポジショニング・マップ ===== */
