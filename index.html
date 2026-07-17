@@ -3012,9 +3012,62 @@
     <div class="scard"><h4>AIと今どき</h4><p>AIミックス／マスタリングで<span class="x">下地を一発で作れる</span>時代。Suno等は"試作"で方向を掴む道具（本番は妥協ゼロ＋権利確認）。速く形にして判断。</p></div>
   </div>
 
+  <div class="shead" id="reaper"><span class="num">★</span><h2>REAPER実践 — 使い方・役割・概念（録音の作業台を触れるように）</h2></div>
+  <p class="sub">DAW（＝録音ソフト）の代表格。<b>録音→FX→ミックス→書き出しが全部これ1つ</b>。画面が難しく見えるだけで、役割が分かれば触れる。<b>まず一番つまずく「2層の音量」から。</b></p>
+
+  <div class="tebox" style="border-left-color:#ef8a93">🚨 <b>一番大事な概念＝音量は"2層"ある（ここを混同すると一生直らない）</b></div>
+  <div class="vs2">
+    <div class="vscard a"><h4>① 入力レベル（録音の音量）</h4><p>マイクから入ってくる音の大きさ。<b>マイク側 or Macの「入力音量」で決まる</b>。<span class="x">REAPERのフェーダーでは変わらない</span>。<b>録る時、一番デカく叫んでもピークが -6dB で止まる</b>ように絞る。<span class="x">録音で赤にしたら後で直せない＝録る前に決める</span>。</p></div>
+    <div class="vscard b"><h4>② 再生／マスターレベル（混ぜた後の音量）</h4><p>録った音＋ビートを混ぜた最終の大きさ。<b>トラック／マスターのフェーダーで決まる</b>。<span class="x">マスターが 0dB（赤）を超えたら歪む</span>＝フェーダーを下げる。</p></div>
+  </div>
+  <div class="note" style="border-left-color:#ef8a93">🔴 <b>「普通に喋っただけでマスターが真っ赤（+13dB）」＝①入力が爆音すぎ。</b> Mac「システム設定→サウンド→入力」でそのマイクの入力音量をガッツリ下げる（今の半分以下）。REAPERのフェーダーをいくら動かしても録音の割れは直らない＝<b>入力側で絞る</b>。</div>
+
+  <div class="shead2" style="margin-top:22px"><h3>信号の流れ（音がどこを通るか＝これが分かると全部繋がる）</h3></div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;margin:8px 0 4px">
+    <span style="background:#2a2a2a;border:1px solid #555;border-radius:7px;padding:6px 10px">🎤 マイク</span><span style="color:#e8c86a">→</span>
+    <span style="background:#3a2a2a;border:1px solid #ef8a93;border-radius:7px;padding:6px 10px">① 入力ゲイン<br><small style="color:#ef8a93">Mac/マイク側</small></span><span style="color:#e8c86a">→</span>
+    <span style="background:#2a2a2a;border:1px solid #555;border-radius:7px;padding:6px 10px">トラック<br><small style="color:#888">（録音される）</small></span><span style="color:#e8c86a">→</span>
+    <span style="background:#2a3a2a;border:1px solid #9bd58f;border-radius:7px;padding:6px 10px">FX<br><small style="color:#9bd58f">EQ→コンプ→残響</small></span><span style="color:#e8c86a">→</span>
+    <span style="background:#2a2a3a;border:1px solid #8fc0e8;border-radius:7px;padding:6px 10px">② フェーダー</span><span style="color:#e8c86a">→</span>
+    <span style="background:#3a2a2a;border:1px solid #ef8a93;border-radius:7px;padding:6px 10px">マスター<br><small style="color:#ef8a93">0dB超え禁止</small></span><span style="color:#e8c86a">→</span>
+    <span style="background:#2a2a2a;border:1px solid #555;border-radius:7px;padding:6px 10px">📤 書き出し</span>
+  </div>
+  <div class="note">💡 <b>赤いメーターが出たら「どこで音量オーバーしてるか」を上の流れで探す。</b>入力メーター（録音トラック）が赤＝①を下げる／マスターが赤＝②を下げる。</div>
+
+  <div class="shead2" style="margin-top:22px"><h3>画面の役割（どこが何か）</h3></div>
+  <div class="subgrid">
+    <div class="scard"><h4>トラック（左の横帯）</h4><p>音の1レーン。声トラック・ビートトラックを縦に重ねる。左の<span class="x">丸い録音ボタン＝録音アーム</span>、<span class="x">スピーカー＝モニター（自分の声を聴く）</span>、<span class="x">FX＝エフェクト</span>。</p></div>
+    <div class="scard"><h4>アイテム／テイク</h4><p>トラック上の<span class="x">波形の塊＝アイテム</span>＝1回の録音。同じ所に録り直すと<span class="x">テイク</span>が重なる（後でベストを選べる）。</p></div>
+    <div class="scard"><h4>タイムライン（上の目盛り）</h4><p>小節（1.1／17.1…）と時間。<span class="x">1マス＝1小節じゃない時がある</span>ので数字を見る。ここで再生位置・録音範囲を決める。</p></div>
+    <div class="scard"><h4>トランスポート（下の再生ボタン）</h4><p>▶再生／⏺録音／⏹停止。<span class="x">BPM（120等）</span>もここ。メトロノームON/OFFも近く。</p></div>
+    <div class="scard"><h4>ミキサー（左下）</h4><p>各トラックの<span class="x">フェーダー（音量）</span>と<span class="x">メーター</span>が縦に並ぶ。一番左が<span class="x">MASTER＝最終出力</span>。</p></div>
+    <div class="scard"><h4>メーター（縦のバー）</h4><p>音の大きさ。<span class="x">緑〜黄＝OK／赤＝クリップ（割れ）</span>。<b>0dBが天井</b>。超えたら下げる。</p></div>
+  </div>
+
+  <div class="shead2" style="margin-top:22px"><h3>録音の手順（この順でやれば録れる）</h3></div>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">1</div><div><b>トラックを作る</b><p>右クリック→トラック追加（or ⌘T）。声用に1本。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>入力（マイク）を選ぶ</b><p>トラックの<span class="x">「in」</span>から自分のマイク（例：フロントセンター＝モノ入力）を選ぶ。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>録音アーム＋モニターON</b><p><span class="x">丸い録音ボタン（赤くなる）</span>＝録れる状態。<span class="x">スピーカー</span>＝自分の声が聴ける。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>入力レベルを合わせる（①）</b><p>喋りながらメーターを見て、<b>一番デカい所で -6dB</b>に。赤に入るなら<span class="x">Mac/マイクの入力音量を下げる</span>。</p></div></div>
+    <div class="lstep"><div class="ln">5</div><div><b>録音→止める</b><p>⏺で録音、⏹で停止。波形（アイテム）が残る。気に入らなければ録り直し＝テイクが増える。</p></div></div>
+  </div>
+
+  <div class="shead2" style="margin-top:22px"><h3>ボーカルFXチェーン（"調整"の本体・上から順に）</h3></div>
+  <p class="sub">声トラックの<b>「FX」→追加</b>で、REAPER標準（ReaPlugs）を<b>この順で</b>足す。各役割を比喩で。</p>
+  <div class="subgrid">
+    <div class="scard"><h4>1. ReaEQ（整える）</h4><p>周波数の交通整理。<span class="x">一番左をHighPassにして80〜100Hz以下カット</span>＝こもり/低音ノイズ除去＝声が抜ける。</p></div>
+    <div class="scard"><h4>2. ReaComp（揃える）</h4><p>凸凹をならす。<span class="x">Threshold（しきい値）を下げる</span>と大きい所と小さい所が揃う＝声が安定して前に出る。</p></div>
+    <div class="scard"><h4>3.（任意）サ行対策</h4><p>「S」がキツければ<span class="x">ReaXcomp（マルチバンド）</span>or無料ディエッサーで高域だけ抑える。無ければ飛ばしてOK。</p></div>
+    <div class="scard"><h4>4. ReaVerbate（空間）</h4><p>残響で奥行き。<span class="x">かけすぎ注意</span>（ラップは薄めが基本）。ウェット少なめから。</p></div>
+  </div>
+  <div class="tebox" style="border-left-color:var(--gold)">🎯 <b>順番の意味：</b>整える(EQ)→揃える(コンプ)→味付け(サ行/残響)。<span class="x">丁寧版＝ゲート→EQ→コンプ→ディエッサー→サチュ→リバーブ</span>。まずは<b>EQ→コンプ→薄い残響</b>の3つで十分。<b>華独は"熱く録るまで"が仕事、混ぜの面倒は会社が巻き取る</b>——でも何が起きてるか分かると指示が的確になる。</div>
+
   <div class="shead"><span class="num">07</span><h2>用語ミニ辞典（素人向け）</h2></div>
   <div class="subgrid">
-    <div class="scard"><h4>DAW</h4><p>録音・編集ソフト（GarageBand等）。曲づくりの作業台。</p></div>
+    <div class="scard"><h4>DAW</h4><p>録音・編集ソフト（GarageBand／REAPER等）。曲づくりの作業台。</p></div>
+    <div class="scard"><h4>録音アーム／モニター</h4><p>アーム＝そのトラックを録れる状態にする（赤丸）。モニター＝録りながら自分の声を聴く（スピーカー）。</p></div>
+    <div class="scard"><h4>クリップ（割れ）</h4><p>音量が0dBを超えて歪むこと。メーターが赤。録音で割れたら戻せない＝入力で防ぐ。</p></div>
     <div class="scard"><h4>トラック</h4><p>音の1レーン。声トラック、ビートトラック…を縦に重ねる。</p></div>
     <div class="scard"><h4>バウンス／書き出し</h4><p>完成した曲を1つの音声ファイル（mp3/wav）に出すこと。</p></div>
     <div class="scard"><h4>ステム</h4><p>パート別に分けた音源（声だけ／ビートだけ）。ミックスや配信で使う。</p></div>
