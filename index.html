@@ -990,6 +990,24 @@
   .qdot .d{display:block;width:7px;height:7px;border-radius:50%;background:var(--ink3);margin:0 auto 2px}
   .qdot.kd{color:var(--gold2);font-weight:900;font-size:12px;z-index:4}
   .qdot.kd .d{width:12px;height:12px;background:var(--gold2);box-shadow:0 0 10px var(--gold2)}
+  .hkroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0;padding-bottom:6px}
+  .hkgrid{display:grid;grid-template-columns:46px repeat(16,30px);gap:3px;min-width:max-content}
+  .hklab{height:30px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:10px;font-weight:800;color:var(--ink3)}
+  .hkc{height:30px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .hkc:hover{border-color:#6a6a6a}
+  .hkc.on{background:linear-gradient(145deg,#f2d188,#c79a3c);border-color:transparent;box-shadow:0 0 8px rgba(242,209,136,.35)}
+  .hkc.cur{outline:2px solid #8fc0e8;outline-offset:-2px}
+  .hkbar{display:grid;grid-template-columns:46px repeat(16,30px);gap:3px;min-width:max-content;margin-bottom:4px}
+  .hkbn{font-size:9px;color:var(--ink3);text-align:center;font-weight:700}
+  .hkbn.b{color:#f2d188}
+  .hk-ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
+  .hk-play{background:linear-gradient(145deg,#f2d188,#c79a3c);color:#20180a;border:0;border-radius:11px;padding:11px 20px;font-weight:900;font-size:14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .hk-cl{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:11px;padding:10px 14px;font-weight:800;font-size:12px;cursor:pointer}
+  .hkdx{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+  .hkd{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+  .hkd h5{margin:0 0 4px;font-size:11px;color:var(--ink3);font-weight:800;letter-spacing:.04em}
+  .hkd b{font-size:15px;color:var(--gold)}
+  .hkd p{margin:3px 0 0;font-size:11px;color:var(--ink2);line-height:1.6}
 </style>
 </head>
 <body>
@@ -2952,6 +2970,23 @@
   <div class="subgrid"><div class="scard"><h4>808だけ借りる <span class="en">★最優先</span></h4><p>ジャジーなコード/サンプルの下に<b>チューニングした808を1本敷く</b>。上物はメロウのまま低音だけトラップ化＝<b>一番低リスクで効果大</b>。</p></div><div class="scard"><h4>ハットロールだけ <span class="en">今っぽさ</span></h4><p>ビート全体は変えず<b>要所でチキチキの3連ロールを差す</b>＝"今っぽさ"の記号だけ足せる。</p></div><div class="scard"><h4>アドリブだけ <span class="en">世界観維持</span></h4><p><b>署名アドリブ</b>を作りメロウな曲の余白に置く＝世界観を壊さず現代性を注入。</p></div><div class="scard"><h4>混血ジャンルにTTP先 <span class="en">うるさくないトラップ</span></h4><p><b>ロファイトラップ</b>(ジャズ×トラップのハット)／<b>トラップソウル</b>(808×R&Bのマイナー7th/9th)／<b>plugg</b>(深い808×きらめきメロ・jazzy・最小限)。<span class="x">＝"うるさくないトラップ"＝華独の入口</span>。</p></div>  </div>
   <div class="note" style="border-left-color:var(--jpn)">⚠️ <b>やらない方がいいこと：</b>①トレンドを追って"全部盛り"＝色が消える ②意味なく倍速/3連＝手癖 ③<b>TTP先を持たずに作り始める</b>（混血をやるなら<b>混ぜてる実績者を1人特定してから</b>）。<b>まず触って掴め＝フロウ・ビルダーの「トラップ」ビート＋フロウ・スコープの3連モード。</b>唾奇が"ジャジー×808"を実際どう処理してるかは<b>実音源を聴いて確かめてから</b>真似ろ（音は俺は聴けない＝お前の一次確認）。</div>
 
+  <div class="shead" id="hooklab"><span class="num">★</span><h2>フック・ラボ — サビを置いて鳴らす（一般に届く"入口"）</h2></div>
+  <p class="sub">全部ここに集まる。<b>両立マップの結論＝深さでヘッズ／フックで一般</b>。<b>トラップの入口＝メロディック</b>。<b>ショートで刺さるのもフック</b>。──<b>型を押す→鳴らす→自分でいじる</b>。縦＝音の高さ（<b>Cマイナー・ペンタ＝どこ置いても外れない音だけ</b>）、横＝8分×2小節。マスを押すと音が乗る／消える。</p>
+  <div class="pk-btns" id="hkType"></div>
+  <div class="pk-btns" id="hkBeat"></div>
+  <div class="hkroll">
+    <div class="hkbar" id="hkBar"></div>
+    <div class="hkgrid" id="hkGrid"></div>
+  </div>
+  <div class="hk-ctl">
+    <button class="hk-play" id="hkPlay">▶ 再生</button>
+    <button class="hk-cl" id="hkClear">全部消す</button>
+    <span style="font-size:11px;color:var(--ink3)">※ 音は次の音まで伸びる＝<b>休符を置くほど"歌"になる</b></span>
+  </div>
+  <div class="note" id="hkWhy" style="border-left-color:var(--gold)"><b>反復型：</b>短い動機を4回。<b>覚える前に覚えてしまう</b>＝アンセム/合唱の型。</div>
+  <div class="hkdx" id="hkDx"></div>
+  <div class="note" style="border-left-color:#8fc0e8">🎧 <b>まず4つの型を順に鳴らして、判定パネルの変化を見ろ。</b>「反復型」と「語り型」は<b>同じ12音でも別物</b>＝反復してるかどうか。だが「メロディック型」は<b>反復ゼロなのにフックになる</b>。──<b>フックの成立条件は2つしかない＝①反復（同じ動機を繰り返す） or ②輪郭（音を削って音域を広げる）</b>。どっちも無い＝ただの展開＝サビにならない。<b>お前の入口は②。</b></div>
+
   <div class="shead" style="margin-top:64px"><span class="num" style="background:linear-gradient(145deg,#ef8a93,#cf3b4a)">上級</span><h2>やばいフロウの探求 — "音楽としていける"領域へ</h2></div>
   <p class="sub">リズムが"正しく"乗れたら、その先は<b>「バチやばい・かっこいい・音楽としていけてる」</b>フロウ。ここは正解じゃなく<b style="color:#ef8a93">美学と引き出しの世界</b>。上手いラッパーが無意識にやってる"やばさの正体"を、言葉にして盗む。</p>
 
@@ -4532,6 +4567,8 @@ function stopAllMedia(){
   if(window.__stopFP) window.__stopFP();
   if(window.__stopFPsw) window.__stopFPsw();
   if(window.__stopGroove) window.__stopGroove();
+  if(window.__stopHook) window.__stopHook();
+  if(window.__stopMicroTiming) window.__stopMicroTiming();
 }
 
 let io;
@@ -5795,6 +5832,156 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
   $('expCopy').addEventListener('click',()=>{const txt=payload();const done=()=>{$('expMeta').innerHTML='✅ コピーしました（Claudeやメモに貼り付けて保管）';};const fail=()=>{const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');done();}catch(e){$('expMeta').textContent='⚠ 自動コピー不可。ファイル保存を使ってください。';}document.body.removeChild(ta);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fail);}else{fail();}});
   const impRun=$('impRun');
   if(impRun){impRun.addEventListener('click',()=>{const raw=($('impBox').value||'').trim();if(!raw){$('impMeta').textContent='⚠ 貼り付けが空です。';return;}let obj;try{obj=JSON.parse(raw);}catch(e){$('impMeta').textContent='⚠ JSONとして読めません（丸ごと貼り付けたか確認）。';return;}const d=obj&&obj.data&&typeof obj.data==='object'?obj.data:obj;if(!d||typeof d!=='object'){$('impMeta').textContent='⚠ データ形式が不正です。';return;}let n=0;try{Object.keys(d).forEach(k=>{if(k.indexOf('hhtxt_')===0&&typeof d[k]==='string'){localStorage.setItem(k,d[k]);n++;}});}catch(e){$('impMeta').textContent='⚠ 復元に失敗：'+e.message;return;}$('impMeta').innerHTML='✅ '+n+' 項目を復元しました。<b>ページを再読み込み</b>すると全画面に反映されます。';setMeta();});}
+})();
+
+/* ================= HOOK LAB ================= */
+(function(){
+  var ctx=null,master=null,playing=false,timer=null,step=0;
+  var GR=document.getElementById('hkGrid'); if(!GR)return;
+  function ensure(){ if(!ctx){ ctx=new(window.AudioContext||window.webkitAudioContext)(); master=ctx.createGain(); master.gain.value=.6; master.connect(ctx.destination); } }
+  function nz(d){ var b=ctx.createBuffer(1,Math.max(1,Math.floor(ctx.sampleRate*d)),ctx.sampleRate),a=b.getChannelData(0); for(var i=0;i<a.length;i++)a[i]=Math.random()*2-1; var s=ctx.createBufferSource(); s.buffer=b; return s; }
+  function kick(t){ var o=ctx.createOscillator(),g=ctx.createGain(); o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(48,t+.12); g.gain.setValueAtTime(.8,t); g.gain.exponentialRampToValueAtTime(.001,t+.18); o.connect(g).connect(master); o.start(t); o.stop(t+.2); }
+  function snare(t){ var s=nz(.18),bp=ctx.createBiquadFilter(),g=ctx.createGain(); bp.type='highpass'; bp.frequency.value=1500; g.gain.setValueAtTime(.38,t); g.gain.exponentialRampToValueAtTime(.001,t+.14); s.connect(bp).connect(g).connect(master); s.start(t); s.stop(t+.19); }
+  function hat(t,v){ var s=nz(.04),hp=ctx.createBiquadFilter(),g=ctx.createGain(); hp.type='highpass'; hp.frequency.value=8000; g.gain.setValueAtTime(v||.1,t); g.gain.exponentialRampToValueAtTime(.001,t+.035); s.connect(hp).connect(g).connect(master); s.start(t); s.stop(t+.05); }
+  function b808(t,f,d){ var o=ctx.createOscillator(),g=ctx.createGain(),lp=ctx.createBiquadFilter(); o.type='sine'; o.frequency.setValueAtTime(f*1.6,t); o.frequency.exponentialRampToValueAtTime(f,t+.07); lp.type='lowpass'; lp.frequency.value=340; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.62,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+d); o.connect(lp).connect(g).connect(master); o.start(t); o.stop(t+d+.05); }
+  function chord(fs,t,d){ fs.forEach(function(f){ var o=ctx.createOscillator(),g=ctx.createGain(),lp=ctx.createBiquadFilter(); o.type='triangle'; o.frequency.value=f; lp.type='lowpass'; lp.frequency.value=2400; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.075,t+.04); g.gain.exponentialRampToValueAtTime(.001,t+d); o.connect(g).connect(lp).connect(master); o.start(t); o.stop(t+d+.05); }); }
+  /* 声（歌） = 三角波＋倍音＋軽いポルタメントとビブラート */
+  function vox(f,t,d){
+    var o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain(),lp=ctx.createBiquadFilter();
+    o.type='triangle'; o2.type='sine'; o2.frequency.setValueAtTime(f*2,t);
+    o.frequency.setValueAtTime(f*.97,t); o.frequency.exponentialRampToValueAtTime(f,t+.05);
+    var lfo=ctx.createOscillator(),lg=ctx.createGain(); lfo.frequency.value=5.2; lg.gain.value=f*.008;
+    lfo.connect(lg).connect(o.frequency); lfo.start(t); lfo.stop(t+d+.05);
+    lp.type='lowpass'; lp.frequency.value=2000;
+    g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(.3,t+.03);
+    g.gain.setValueAtTime(.3,t+Math.max(.05,d*.6)); g.gain.exponentialRampToValueAtTime(.001,t+d);
+    var g2=ctx.createGain(); g2.gain.value=.22;
+    o.connect(g); o2.connect(g2).connect(g); g.connect(lp).connect(master);
+    o.start(t); o.stop(t+d+.05); o2.start(t); o2.stop(t+d+.05);
+    /* 子音のアタック */
+    var s=nz(.03),bp=ctx.createBiquadFilter(),ng=ctx.createGain(); bp.type='bandpass'; bp.frequency.value=2400; ng.gain.setValueAtTime(.11,t); ng.gain.exponentialRampToValueAtTime(.001,t+.03); s.connect(bp).connect(ng).connect(master); s.start(t); s.stop(t+.04);
+  }
+  /* Cマイナー・ペンタ（上→下） */
+  var PITCH=[523.25,466.16,392.00,349.23,311.13,261.63];
+  var PNAME=['C5','B♭4','G4','F4','E♭4','C4'];
+  var SEMI=[12,10,7,5,3,0];
+  /* 2小節：Cm9 → A♭maj9（メロウの定番・ペンタはどっちにも合う） */
+  var CH=[[130.81,196.00,233.08,293.66,311.13],[103.83,155.56,196.00,233.08,261.63]];
+  var ROOT=[65.41,51.91];
+  var TYPES={
+    chant:{nm:'反復型',sub:'チャント',g:[2,2,4,-1,2,2,4,-1,2,2,4,-1,2,2,4,-1],why:'短い動機を4回。<b>覚える前に覚えてしまう</b>＝アンセム/合唱の型。'},
+    call:{nm:'コール&レス',sub:'呼び→答え',g:[2,2,1,-1,-1,-1,-1,-1,5,5,4,-1,-1,-1,-1,-1],why:'高く呼ぶ→低く答える。<b>間（休符）が"参加"を生む</b>＝ライブで客が入れる。'},
+    melo:{nm:'メロディック',sub:'★お前の入口',g:[0,-1,-1,1,-1,2,-1,-1,3,-1,-1,2,-1,-1,-1,-1],why:'音数が一番少ない。<b>伸ばす＝歌。ラップと歌の中間</b>＝トラップの入口もここ。'},
+    talk:{nm:'語り型',sub:'ラップ寄り',g:[4,4,4,4,4,-1,4,4,4,4,4,-1,4,4,-1,-1],why:'ほぼ1音でリズムだけ。<b>ヴァースの顔</b>。これだけだとフックにならない。'}
+  };
+  var BEATS={
+    jazzy:{nm:'ジャジー',sub:'84 / ハネ',bpm:84,sw:.6,k:[0,5,8,13],s:[2,6,10,14],trap:false},
+    trap:{nm:'トラップ',sub:'140 / ハーフタイム',bpm:140,sw:0,k:[0,6,8,11],s:[4,12],trap:true}
+  };
+  var g=TYPES.chant.g.slice(), beat='jazzy', cells=[];
+
+  function renderBar(){
+    var b=document.getElementById('hkBar'); var h='<div></div>';
+    for(var i=0;i<16;i++){ var beatN=Math.floor(i/2)+1; h+='<div class="hkbn'+(i%2===0?' b':'')+'">'+(i%2===0?beatN:'&')+'</div>'; }
+    b.innerHTML=h;
+  }
+  function renderGrid(){
+    var h=''; cells=[];
+    for(var r=0;r<6;r++){
+      h+='<div class="hklab">'+PNAME[r]+'</div>';
+      for(var i=0;i<16;i++) h+='<div class="hkc'+(g[i]===r?' on':'')+'" data-r="'+r+'" data-i="'+i+'"></div>';
+    }
+    GR.innerHTML=h;
+    GR.querySelectorAll('.hkc').forEach(function(c){
+      cells.push(c);
+      c.addEventListener('click',function(){
+        var r=+c.dataset.r,i=+c.dataset.i;
+        g[i]=(g[i]===r)?-1:r;
+        renderGrid(); dx();
+        if(!playing){ ensure(); ctx.resume(); if(g[i]>=0) vox(PITCH[r],ctx.currentTime+.01,.35); }
+      });
+    });
+  }
+  function dx(){
+    var n=0,mx=-1,mn=99,i;
+    for(i=0;i<16;i++){ if(g[i]>=0){ n++; var sm=SEMI[g[i]]; if(sm>mx)mx=sm; if(sm<mn)mn=sm; } }
+    var rng=(n?mx-mn:0);
+    var eq=function(a,b){ return JSON.stringify(a)===JSON.stringify(b); };
+    var pit=g.slice(), rhy=g.map(function(x){return x>=0?1:0;});
+    var q=function(a,x,y){ return a.slice(x,y); };
+    /* 反復の検出：音程まで同じ＝完全反復／リズムだけ同じ＝コール&レスポンス（呼びと答え） */
+    var rp=null;
+    if(n>0){
+      if(eq(q(pit,0,4),q(pit,4,8))&&eq(q(pit,0,4),q(pit,8,12))&&eq(q(pit,0,4),q(pit,12,16))) rp={t:4,k:'full'};
+      else if(eq(q(pit,0,8),q(pit,8,16))) rp={t:2,k:'full'};
+      else if(eq(q(rhy,0,4),q(rhy,4,8))&&eq(q(rhy,0,4),q(rhy,8,12))&&eq(q(rhy,0,4),q(rhy,12,16))) rp={t:4,k:'call'};
+      else if(eq(q(rhy,0,8),q(rhy,8,16))) rp={t:2,k:'call'};
+    }
+    /* 音数は「動機1回あたり」で見る＝繰り返しは水増しじゃない */
+    var un=rp?Math.round(n/rp.t):n;
+    var nj,rj,vj;
+    if(n===0){ nj=['—','マスを押して音を置け']; }
+    else if(un<=4) nj=[(rp?un+'音 × '+rp.t+'回':un+'音'),'<b>耳に残る</b>。動機が短いほど遠くまで届く'];
+    else if(un<=7) nj=[(rp?un+'音 × '+rp.t+'回':un+'音'),'フックとして成立する範囲'];
+    else nj=[(rp?un+'音 × '+rp.t+'回':un+'音'),'<b>詰まってる</b>＝ヴァース寄り。フックなら削れ'];
+    if(n===0) rj=['—',''];
+    else if(rng<=3) rj=['狭い＝語り','<b>ラップ寄り</b>。フックにするなら上下を足せ'];
+    else if(rng<=7) rj=['中くらい','歌とラップの中間＝<b>メロディックの帯</b>'];
+    else rj=['広い＝歌','<b>歌もの</b>。声の張りが要る'];
+    if(n===0) vj=['—','','var(--line)'];
+    else if(rp&&rp.k==='full') vj=['フック（反復型）✅','同じ動機を'+rp.t+'回。<b>覚える前に覚えてしまう</b>','#9bd58f'];
+    else if(rp&&rp.k==='call') vj=['フック（コール&レス）✅','<b>リズムは同じ・高さが違う</b>＝呼びと答え','#9bd58f'];
+    else if(un<=6&&rng>=5) vj=['フック（メロディック）✅','反復に頼らず<b>輪郭で聴かせてる</b>＝お前の入口','#9bd58f'];
+    else if(rng<=3) vj=['ヴァース（語り）','リズムで聴かせる型。<b>これだけではサビにならない</b>','#8fc0e8'];
+    else vj=['展開型','フックにするなら <b>①前後半を揃える（反復）</b> か <b>②音を削って音域を広げる（輪郭）</b>','#ead27a'];
+    var d=document.getElementById('hkDx');
+    d.innerHTML='<div class="hkd"><h5>音数（動機1回あたり）</h5><b>'+nj[0]+'</b><p>'+nj[1]+'</p></div>'
+      +'<div class="hkd"><h5>音域の幅</h5><b>'+rng+'半音 — '+rj[0]+'</b><p>'+rj[1]+'</p></div>'
+      +'<div class="hkd" style="border-color:'+vj[2]+'"><h5>判定</h5><b style="color:'+vj[2]+'">'+vj[0]+'</b><p>'+vj[1]+'</p></div>';
+  }
+  function evAt(i){ /* i番の音の長さ（次の音まで伸びる・最大4ステップ） */
+    if(g[i]<0)return 0; var j=i+1; while(j<16&&g[j]<0)j++; return Math.min(j-i,4);
+  }
+  function tick(){
+    var B=BEATS[beat], sd=(60/B.bpm)/2, t=ctx.currentTime+.03;
+    var i=step%16;
+    if(B.sw&&i%2===1) t+=sd*(B.sw-.5)*2*.5;
+    if(i===0||i===8){ var bi=i===0?0:1; chord(CH[bi],t,sd*8*.95); if(B.trap) b808(t,ROOT[bi],sd*5); }
+    if(B.k.indexOf(i)>=0) kick(t);
+    if(B.s.indexOf(i)>=0) snare(t);
+    hat(t,B.trap?.09:.1);
+    if(B.trap&&(i===7||i===15)){ hat(t+sd*.33,.07); hat(t+sd*.66,.07); }
+    var L=evAt(i); if(L>0) vox(PITCH[g[i]],t,sd*L*.92);
+    cells.forEach(function(c){ c.classList.toggle('cur',+c.dataset.i===i); });
+    step++;
+  }
+  function start(){ ensure(); ctx.resume(); playing=true; step=0; document.getElementById('hkPlay').textContent='❚❚ 停止'; tick(); timer=setInterval(tick,(60/BEATS[beat].bpm/2)*1000); }
+  function stop(){ playing=false; clearInterval(timer); document.getElementById('hkPlay').textContent='▶ 再生'; cells.forEach(function(c){c.classList.remove('cur');}); }
+  window.__stopHook=function(){ if(playing)stop(); };
+  document.getElementById('hkPlay').addEventListener('click',function(){ playing?stop():start(); });
+  document.getElementById('hkClear').addEventListener('click',function(){ g=[]; for(var i=0;i<16;i++)g.push(-1); renderGrid(); dx(); });
+  (function(){
+    var te=document.getElementById('hkType');
+    Object.keys(TYPES).forEach(function(k,ix){
+      var T=TYPES[k], b=document.createElement('button');
+      b.className='pk-btn'+(ix===0?' on':''); b.innerHTML=T.nm+'<small>'+T.sub+'</small>';
+      b.addEventListener('click',function(){
+        g=T.g.slice(); renderGrid(); dx();
+        te.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+        document.getElementById('hkWhy').innerHTML='<b>'+T.nm+'：</b>'+T.why;
+        if(playing){ stop(); start(); }
+      });
+      te.appendChild(b);
+    });
+    var be=document.getElementById('hkBeat');
+    Object.keys(BEATS).forEach(function(k,ix){
+      var B=BEATS[k], b=document.createElement('button');
+      b.className='pk-btn'+(ix===0?' on':''); b.innerHTML=B.nm+'<small>'+B.sub+'</small>';
+      b.addEventListener('click',function(){ beat=k; be.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); if(playing){ stop(); start(); } });
+      be.appendChild(b);
+    });
+  })();
+  renderBar(); renderGrid(); dx();
 })();
 
 initReveal();
