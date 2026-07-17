@@ -1012,7 +1012,11 @@
   .wchip{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--ink2)}
   .wchip b{color:var(--gold);font-weight:900}
   .wchip.hot{border-color:var(--goldsoft);background:rgba(242,209,136,.08)}
-  .lstep .ln{font-size:11px;font-weight:900;color:var(--gold2);padding-top:2px;line-height:1.3}
+  .tline .lstep{grid-template-columns:108px 1fr}
+  .tline .tlab{font-size:11px;font-weight:900;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-radius:8px;padding:7px 6px;text-align:center;line-height:1.35;align-self:start}
+  @media(max-width:600px){.tline .lstep{grid-template-columns:1fr;gap:9px} .tline .tlab{justify-self:start;padding:6px 12px}}
+  .note a,.scard a,.combo a,.subgrid a,.allng a{color:var(--gold2);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(242,209,136,.45);font-weight:700}
+  .note a:hover,.scard a:hover,.combo a:hover{color:#fff;text-decoration-color:#fff}
 </style>
 </head>
 <body>
@@ -1626,7 +1630,7 @@
 
   <div class="subhd">⑥ 12/29から逆算した時間軸</div>
   <p class="sub"><span class="cf guess">📖 提案</span> <b>審査結果は制御できない＝当てにしない設計にする。</b>通っても落ちても価値が残る順番で組んだ。</p>
-  <div class="ladder"><div class="lstep"><div class="ln">今〜7月末</div><div><b>弾薬を集める。曲を作らない。</b>上の弾薬庫＋<b>お前の記憶</b>から<b>コザの固有名詞を100語</b>スマホにメモる（唾奇の実法＝歩きながら／1語から）。<b>この段階でテーマを決めるな。</b>100語溜まると<b>勝手に偏る。その偏りがテーマだ</b>。</div></div><div class="lstep"><div class="ln">8月</div><div><b>7音以下のフックを20本</b>。フック・ラボで鳴らして<b>判定パネルが「フック✅」を出すやつだけ残す</b>。曲にしない。フックだけ。<span class="cf sure">✅Berklee＝フックが曲名になる</span></div></div><div class="lstep"><div class="ln">9月</div><div><b>刺し曲を1曲、完成させる。</b>メロディ先行（＝Sweet William の実法）→ジャジー×808の部分輸入→フック先に置く→ヴァースは後。<b>1曲でいい。1曲を完璧に。</b></div></div><div class="lstep"><div class="ln">10〜11月</div><div><b>撒く。</b>MV／ショート（15秒＝フックだけ）。<b>反応を実数で見る</b>（再生・保存・コメント）。ここで初めてPDCA。<b>並行して、外の着火装置を増やす</b>＝客演・コンペ・現場（"押さえるべきハコ"タブ参照）。</div></div><div class="lstep"><div class="ln">通過連絡が来たら</div><div><b>全部これに寄せる。</b>ビートは7人（Chaki Zulu / Neetz 他）の提供ビートから選ぶ＝<b>選曲がもう戦略</b>（ジャジー寄りを探せ）。<b>コザの1語で殴る。</b>6,780人の中で"沖縄"は他にもいるが"コザ"は薄い。</div></div><div class="lstep"><div class="ln">来なかったら</div><div><b>何も失ってない。</b>フック20本と刺し曲1曲が残ってる。<b>次の橋（客演／別コンペ／プロデューサー）に、同じ火薬を置くだけ</b>。<span class="cf guess">📖 これがコンペをバトルより推す理由</span></div></div>  </div>
+  <div class="ladder tline"><div class="lstep"><div class="tlab">今〜7月末</div><div><b>弾薬を集める。曲を作らない。</b>上の弾薬庫＋<b>お前の記憶</b>から<b>コザの固有名詞を100語</b>スマホにメモる（唾奇の実法＝歩きながら／1語から）。<b>この段階でテーマを決めるな。</b>100語溜まると<b>勝手に偏る。その偏りがテーマだ</b>。</div></div><div class="lstep"><div class="tlab">8月</div><div><b>7音以下のフックを20本</b>。フック・ラボで鳴らして<b>判定パネルが「フック✅」を出すやつだけ残す</b>。曲にしない。フックだけ。<span class="cf sure">✅Berklee＝フックが曲名になる</span></div></div><div class="lstep"><div class="tlab">9月</div><div><b>刺し曲を1曲、完成させる。</b>メロディ先行（＝Sweet William の実法）→ジャジー×808の部分輸入→フック先に置く→ヴァースは後。<b>1曲でいい。1曲を完璧に。</b></div></div><div class="lstep"><div class="tlab">10〜11月</div><div><b>撒く。</b>MV／ショート（15秒＝フックだけ）。<b>反応を実数で見る</b>（再生・保存・コメント）。ここで初めてPDCA。<b>並行して、外の着火装置を増やす</b>＝客演・コンペ・現場（"押さえるべきハコ"タブ参照）。</div></div><div class="lstep"><div class="tlab">通過連絡が来たら</div><div><b>全部これに寄せる。</b>ビートは7人（Chaki Zulu / Neetz 他）の提供ビートから選ぶ＝<b>選曲がもう戦略</b>（ジャジー寄りを探せ）。<b>コザの1語で殴る。</b>6,780人の中で"沖縄"は他にもいるが"コザ"は薄い。</div></div><div class="lstep"><div class="tlab">来なかったら</div><div><b>何も失ってない。</b>フック20本と刺し曲1曲が残ってる。<b>次の橋（客演／別コンペ／プロデューサー）に、同じ火薬を置くだけ</b>。<span class="cf guess">📖 これがコンペをバトルより推す理由</span></div></div>  </div>
 
   <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 結論（これだけ持って帰れ）</span> <b>①テーマを決めようとするのをやめろ。</b>本命TTP先は決めてない。<b>1語から始まる。</b> <b>②その1語はコザにある。</b>「沖縄」は唾奇とAwichに取られてるが<b>「コザ」は空いてる</b>——地図から消された名前だ。<b>③空いてる場所は「街の毒を、内側から」。</b>唾奇（内向きの毒／街は出さない）とBAD HOP（街／内向きじゃない）の交点。<b>④時流に疎いのは弱点じゃない。</b>本命TTP先も乗ってない。部分輸入でいい。<b>⑤期限は12/29。</b>制御できない審査を待つ間に、制御できる火薬を作る。<b>5ヶ月で、フック20本と刺し曲1曲。</b></div>
 
@@ -6105,7 +6109,7 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     zone:[38,10,34,32],
     dots:[
       {n:'5lack',x:18,y:42},{n:'唾奇',x:29,y:29},{n:'Awich',x:76,y:57},
-      {n:'BAD HOP',x:85,y:47},{n:'千葉雄喜',x:72,y:80},{n:'Creepy Nuts',x:50,y:85},
+      {n:'BAD HOP',x:83,y:39},{n:'千葉雄喜',x:72,y:80},{n:'Creepy Nuts',x:50,y:85},
       {n:'Yo-Sea',x:22,y:66},{n:'Kohjiya',x:60,y:62},
       {n:'★華独 空き地',x:54,y:24,kd:1}
     ]
