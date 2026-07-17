@@ -3063,10 +3063,33 @@
   </div>
   <div class="tebox" style="border-left-color:var(--gold)">🎯 <b>順番の意味：</b>整える(EQ)→揃える(コンプ)→味付け(サ行/残響)。<span class="x">丁寧版＝ゲート→EQ→コンプ→ディエッサー→サチュ→リバーブ</span>。まずは<b>EQ→コンプ→薄い残響</b>の3つで十分。<b>華独は"熱く録るまで"が仕事、混ぜの面倒は会社が巻き取る</b>——でも何が起きてるか分かると指示が的確になる。</div>
 
+  <div class="shead2" style="margin-top:22px"><h3>録音トラブル早見表（症状→原因→直し方）</h3></div>
+  <p class="sub">宅録で誰もが最初にぶつかる。<b>症状で引ければ一発で直せる。</b></p>
+  <div class="subgrid">
+    <div class="scard"><h4>🔴 音が割れる</h4><p>原因＝<span class="x">入力が爆音（①のレベル過多）</span>。直し＝Mac/マイクの<b>入力音量を下げる</b>（ピーク-6dB）。録った後では直せない＝録る前に。</p></div>
+    <div class="scard"><h4>😶 声がこもる</h4><p>原因＝低音の溜まり／マイクに近すぎ。直し＝<b>ReaEQでHighPass 80〜100Hz</b>＋口とマイクを拳1個分離す。</p></div>
+    <div class="scard"><h4>🫥 声が薄い・弱い</h4><p>原因＝1本だけ／圧縮不足。直し＝<b>ダブル録り（下の技①）</b>＋ReaCompで揃える＋EQで2〜4kHzを軽く上げ（抜け）。</p></div>
+    <div class="scard"><h4>⏱ 声が遅れて聞こえる</h4><p>＝レイテンシ。原因＝バッファが大きい。直し＝REAPER<b>設定→Audio→Deviceでバッファを小さく</b>（128〜256）。モニターは<span class="x">ヘッドホン必須</span>（スピーカーだと被る）。</p></div>
+    <div class="scard"><h4>🌫 サーッとノイズ</h4><p>原因＝環境音／ゲイン上げすぎ。直し＝<b>静かな場所＋布で囲う</b>、ReaGateで無音部を切る、入力音量を適正に。</p></div>
+    <div class="scard"><h4>🔇 録れない／音が来ない</h4><p>原因＝入力未選択orアーム忘れ。直し＝トラックの<b>「in」でマイクを選ぶ</b>＋<b>録音アーム（赤丸）ON</b>＋モニターON。</p></div>
+  </div>
+
+  <div class="shead2" style="margin-top:22px"><h3>プロっぽく録る4つの技（同じ声が"作品"になる）</h3></div>
+  <div class="ladder">
+    <div class="lstep"><div class="ln">1</div><div><b>ダブル録り（厚くする）</b><p>同じバースを<span class="x">2回、別トラックに録る</span>→左右に少し振る（パン L/R）。声が<b>太く前に出る</b>。サビやフックで特に効く。</p></div></div>
+    <div class="lstep"><div class="ln">2</div><div><b>アドリブ／ハイプ（隙間を埋める）</b><p>別トラックに<span class="x">合いの手・語尾の被せ（yeah/おう/単語リピート）</span>を録る。<b>空白が生きて曲が動く</b>。メインより小さめに。</p></div></div>
+    <div class="lstep"><div class="ln">3</div><div><b>録り直し（パンチイン）</b><p>1箇所ミスっても全部録り直さない。<span class="x">その小節だけ範囲選択して録り直す</span>。テイクが増えるので後でベストを選ぶ。</p></div></div>
+    <div class="lstep"><div class="ln">4</div><div><b>コンピング（ベスト選び）</b><p>何テイクか録って、<span class="x">各テイクの一番良い所をつなぐ</span>（REAPERはテイクを右クリックで選択/分割）。プロは"1発"より"良い所の集合"。</p></div></div>
+  </div>
+  <div class="tebox" style="border-left-color:var(--gold)">🎤 <b>ラップの録り順のコツ：</b>①メインを通しで（ダブルも）→②パンチインで粗を直す→③アドリブで隙間を埋める→④FXチェーンで整える。<b>"熱さ"はテイク数で拾う</b>＝多く録って良い所を選ぶのが正解。書きっぱなし1発より確実に良くなる。</div>
+
   <div class="shead"><span class="num">07</span><h2>用語ミニ辞典（素人向け）</h2></div>
   <div class="subgrid">
     <div class="scard"><h4>DAW</h4><p>録音・編集ソフト（GarageBand／REAPER等）。曲づくりの作業台。</p></div>
     <div class="scard"><h4>録音アーム／モニター</h4><p>アーム＝そのトラックを録れる状態にする（赤丸）。モニター＝録りながら自分の声を聴く（スピーカー）。</p></div>
+    <div class="scard"><h4>ダブル／アドリブ</h4><p>ダブル＝同じ声を2本重ねて厚く。アドリブ＝合いの手や被せで隙間を埋める別トラック。</p></div>
+    <div class="scard"><h4>パンチイン／コンピング</h4><p>パンチイン＝一部だけ録り直す。コンピング＝複数テイクから良い所をつなぐ。</p></div>
+    <div class="scard"><h4>レイテンシ</h4><p>声が遅れて聞こえる遅延。バッファを小さくすると減る。ヘッドホンでモニターが基本。</p></div>
     <div class="scard"><h4>クリップ（割れ）</h4><p>音量が0dBを超えて歪むこと。メーターが赤。録音で割れたら戻せない＝入力で防ぐ。</p></div>
     <div class="scard"><h4>トラック</h4><p>音の1レーン。声トラック、ビートトラック…を縦に重ねる。</p></div>
     <div class="scard"><h4>バウンス／書き出し</h4><p>完成した曲を1つの音声ファイル（mp3/wav）に出すこと。</p></div>
