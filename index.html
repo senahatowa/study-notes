@@ -978,7 +978,8 @@
   .fp-cell.sub16 .mk{color:var(--ink3);font-size:15px}
 
   /* ---- 2D象限マップ ---- */
-  .qmap{position:relative;width:100%;max-width:540px;margin:14px auto;aspect-ratio:1/1;border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+  .qmap{position:relative;width:100%;max-width:580px;margin:14px auto;aspect-ratio:1/1;border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+  .qmap.big{max-width:720px}
   .qmap .ax{position:absolute;background:var(--line)}
   .qmap .ax.x{left:6%;right:6%;top:50%;height:1px}
   .qmap .ax.y{top:6%;bottom:6%;left:50%;width:1px}
@@ -986,10 +987,17 @@
   .qmap .pl.t{top:4px;left:50%;transform:translateX(-50%)} .qmap .pl.b{bottom:4px;left:50%;transform:translateX(-50%)}
   .qmap .pl.l{left:4px;top:50%;transform:translateY(-50%)} .qmap .pl.r{right:4px;top:50%;transform:translateY(-50%)}
   .qzone{position:absolute;border:1.5px dashed var(--goldsoft);border-radius:10px;background:rgba(242,209,136,.09);z-index:1}
-  .qdot{position:absolute;transform:translate(-50%,-50%);font-size:10px;font-weight:800;color:var(--ink2);white-space:nowrap;text-align:center;z-index:2}
-  .qdot .d{display:block;width:7px;height:7px;border-radius:50%;background:var(--ink3);margin:0 auto 2px}
-  .qdot.kd{color:var(--gold2);font-weight:900;font-size:12px;z-index:4}
-  .qdot.kd .d{width:12px;height:12px;background:var(--gold2);box-shadow:0 0 10px var(--gold2)}
+  .qdot{position:absolute;transform:translate(-50%,-50%);width:0;height:0;z-index:2}
+  .qdot .d{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--ink3);box-shadow:0 0 0 3px var(--bg2)}
+  .qdot .lbl{position:absolute;white-space:nowrap;font-size:10px;font-weight:800;color:var(--ink2);background:rgba(8,8,10,.82);padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.06);line-height:1.2}
+  .qdot.lp-b .lbl{top:8px;left:50%;transform:translateX(-50%)}
+  .qdot.lp-t .lbl{bottom:8px;left:50%;transform:translateX(-50%)}
+  .qdot.lp-l .lbl{right:9px;top:50%;transform:translateY(-50%)}
+  .qdot.lp-r .lbl{left:9px;top:50%;transform:translateY(-50%)}
+  .qdot.kd{z-index:5}
+  .qdot.kd .d{width:13px;height:13px;left:-6px;top:-6px;background:var(--gold2);box-shadow:0 0 12px var(--gold2),0 0 0 3px var(--bg2)}
+  .qdot.kd .lbl{color:#15110a;background:var(--gold2);border-color:transparent;font-weight:900;font-size:11px}
+  @media(max-width:560px){ .qdot .lbl{font-size:9px;padding:1px 4px} .qdot.kd .lbl{font-size:10px} .qmap .pl{font-size:9px} }
   .hkroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0;padding-bottom:6px}
   .hkgrid{display:grid;grid-template-columns:46px repeat(16,30px);gap:3px;min-width:max-content}
   .hklab{height:30px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:10px;font-weight:800;color:var(--ink3)}
@@ -1676,7 +1684,7 @@
 
   <div class="subhd">① 両立マップ — ヘッズ受け×一般受け（両立ゾーン＝右上）</div>
   <p class="sub"><span class="cf guess">見立て📖</span> 縦＝ヘッズ受け（技巧/本物度）、横＝一般受け（メロ/フック/露出）。<b>金ゾーン＝右上（両方高い）</b>。★華独＝ヘッズ最優先を保ったまま右（一般）へ押す。</p>
-  <div class="qmap" id="qmapCross"></div>
+  <div class="qmap big" id="qmapCross"></div>
 
   <div class="subhd">② 両立の「5つの型」（MECE）</div>
   <p class="sub">深さ（ヘッズが唸る）と入口（一般が乗れる）を<b>どう同居させるか</b>＝この5型で網羅。</p>
@@ -1704,7 +1712,7 @@
 
   <div class="subhd">② テーマの地図 — 誰が何を歌っていて、どこが空いているか</div>
   <p class="sub"><span class="cf guess">📖 配置は俺の読み</span> 縦＝<b>毒・痛み ↔ 祝祭・上げ</b>／横＝<b>内向き（自分の内面） ↔ 外向き（街・社会）</b>。<b>金色の点線＝空いてる場所</b>。</p>
-  <div class="qmap" id="qmapThemeAll"></div>
+  <div class="qmap big" id="qmapThemeAll"></div>
   <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖</span> <b>空き地＝「街の毒を、内側から」。</b>唾奇は<b>内向きの毒</b>だが街を前面に出さない。BAD HOPは<b>街</b>だが内向きの毒じゃない。<b>その交点が空いてる</b>——そこが<b>コザ×解毒</b>だ。<b>お前が迷ってたのは"場所が無い"からじゃない。場所は空いてる。</b></div>
 
   <div class="subhd">③ ★お前が迷ってる本当の理由 — テーマは「決める」ものじゃなかった</div>
@@ -1727,7 +1735,7 @@
 
   <div class="subhd">⑤ 着火装置マップ — 全経路（自力で撃てるか × 届く規模）</div>
   <p class="sub"><span class="cf guess">📖 配置は俺の読み</span> フックの科学の結論＝<b>「フックは火薬。着火装置じゃない。火は外から借りる」</b>。だから経路は<b>左（自力＝火薬を作る）</b>と<b>右（他力＝着火する）</b>に割れる。<b>両方要る。</b></p>
-  <div class="qmap" id="qmapIgnite"></div>
+  <div class="qmap big" id="qmapIgnite"></div>
   <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖 結論</span> <b>左側（自力）だけ＝一生火が点かない</b>（「いい曲を上げ続けたのに無名」の正体）。<b>右側（他力）だけ＝置く火薬が無い</b>。<b>お前は今、右上の一番デカい着火装置（RAPSTAR・12/29）に既に手をかけてる状態で、火薬の在庫がゼロに近い。</b>＝<b>やることは1つしかない。5ヶ月で火薬を作る。</b></div>
 
   <div class="subhd">⑥ 12/29から逆算した時間軸</div>
@@ -1760,7 +1768,7 @@
 
   <div class="subhd">⑤ リスナー地図 — 誰がどこにいて、お前のコアはどこか</div>
   <p class="sub"><span class="cf guess">📖 配置は俺の読み</span> 縦＝<b>夜に一人で聴く（没入） ↔ みんなで上がる（拡散）</b>／横＝<b>歌詞・物語を読む ↔ ノリ・ヴァイブで浴びる</b>。<b>金色の点線＝華独のコア客がいる場所</b>。</p>
-  <div class="qmap" id="qmapListener"></div>
+  <div class="qmap big" id="qmapListener"></div>
   <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖</span> <b>左上＝「歌詞を読む × 夜に一人で聴く」＝一番濃いコアが棲む場所。</b>唾奇・5lack・Yo-Sea がいる。<b>ここは"数"は少ないが"熱"が最強</b>（＝ライブに来る／作品を何度も聴く／人に薦める層）。<b>お前が最初に獲るべきはここ一点。</b>拡散（下）や技巧（外）に色目を使うと、コアがぼやける。<b>まず左上を完全に落とす。</b></div>
 
   <div class="subhd">⑥ 今のシーンの実数（2025・お前が戦う水面）</div>
@@ -4705,7 +4713,7 @@ handleHash();
   function draw(id,cfg){ var m=document.getElementById(id); if(!m)return; var h='<div class="ax x"></div><div class="ax y"></div>';
     h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
     if(cfg.zone){ var z=cfg.zone; h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>'; }
-    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>'; });
+    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+' lp-'+(d.lp||'b')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span><span class="lbl">'+d.n+'</span></div>'; });
     m.innerHTML=h;
   }
   draw('qmapTheme',{ t:'抽象（普遍・詩的）', b:'具体（土地・生活・半径10cm）', l:'内向き（内面・毒）', r:'外向き（社会・世界）',
@@ -4721,11 +4729,11 @@ handleHash();
   function draw(id,cfg){ var m=document.getElementById(id); if(!m)return; var h='<div class="ax x"></div><div class="ax y"></div>';
     h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
     if(cfg.zone){ var z=cfg.zone; h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>'; }
-    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>'; });
+    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+' lp-'+(d.lp||'b')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span><span class="lbl">'+d.n+'</span></div>'; });
     m.innerHTML=h; }
   draw('qmapCross',{ t:'ヘッズ受け 高（技巧・本物度）', b:'ヘッズ受け 低', l:'一般受け 低（コア/ニッチ）', r:'一般受け 高（メロ/露出）',
-    zone:[50,8,44,40],
-    dots:[ {n:'5lack',x:26,y:22},{n:'唾奇',x:48,y:26},{n:'Awich',x:74,y:24},{n:'Kohjiya',x:70,y:32},{n:'Kvi Baba',x:66,y:42},{n:'KREVA',x:76,y:28},{n:'Creepy Nuts',x:86,y:30},{n:'Yo-Sea',x:66,y:52},{n:'SIRUP',x:76,y:52},{n:'★華独 目標',x:58,y:26,kd:1} ] });
+    zone:[48,8,48,46],
+    dots:[ {n:'5lack',x:26,y:26,lp:'b'},{n:'唾奇',x:45,y:32,lp:'l'},{n:'★華独 目標',x:58,y:17,kd:1,lp:'t'},{n:'Awich',x:73,y:24,lp:'l'},{n:'KREVA',x:87,y:19,lp:'t'},{n:'Creepy Nuts',x:90,y:35,lp:'l'},{n:'Kohjiya',x:73,y:41,lp:'b'},{n:'Kvi Baba',x:53,y:45,lp:'b'},{n:'Yo-Sea',x:55,y:63,lp:'b'},{n:'SIRUP',x:74,y:61,lp:'b'} ] });
 })();
 
 /* ===== ポジショニング・マップ ===== */
@@ -6236,7 +6244,7 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     var h='<div class="ax x"></div><div class="ax y"></div>';
     h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
     if(cfg.zone){ var z=cfg.zone; h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>'; }
-    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>'; });
+    cfg.dots.forEach(function(d){ h+='<div class="qdot'+(d.kd?' kd':'')+' lp-'+(d.lp||'b')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span><span class="lbl">'+d.n+'</span></div>'; });
     m.innerHTML=h;
   }
   draw('qmapThemeAll',{
@@ -6274,7 +6282,7 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     var h='<div class="ax x"></div><div class="ax y"></div>';
     h+='<div class="pl t">'+cfg.t+'</div><div class="pl b">'+cfg.b+'</div><div class="pl l">'+cfg.l+'</div><div class="pl r">'+cfg.r+'</div>';
     if(cfg.zone){var z=cfg.zone;h+='<div class="qzone" style="left:'+z[0]+'%;top:'+z[1]+'%;width:'+z[2]+'%;height:'+z[3]+'%"></div>';}
-    cfg.dots.forEach(function(d){h+='<div class="qdot'+(d.kd?' kd':'')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span>'+d.n+'</div>';});
+    cfg.dots.forEach(function(d){h+='<div class="qdot'+(d.kd?' kd':'')+' lp-'+(d.lp||'b')+'" style="left:'+d.x+'%;top:'+d.y+'%"><span class="d"></span><span class="lbl">'+d.n+'</span></div>';});
     m.innerHTML=h;
   }
   draw('qmapListener',{
@@ -6282,7 +6290,7 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     l:'歌詞・物語を読む', r:'ノリ・ヴァイブで浴びる',
     zone:[9,8,37,34],
     dots:[
-      {n:'唾奇',x:24,y:26},{n:'5lack',x:18,y:33},{n:'Yo-Sea',x:40,y:24},
+      {n:'唾奇',x:24,y:26},{n:'5lack',x:18,y:33},{n:'Yo-Sea',x:40,y:24,lp:'r'},
       {n:'Awich',x:29,y:52},{n:'Kohjiya',x:46,y:40},
       {n:'LEX',x:76,y:42},{n:'BAD HOP',x:74,y:60},
       {n:'千葉雄喜',x:80,y:72},{n:'Creepy Nuts',x:58,y:80},
