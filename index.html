@@ -1048,6 +1048,31 @@
   .rcol li{font-size:12.5px;color:var(--ink2);line-height:1.55;padding-left:15px;position:relative}
   .rcol li::before{content:"▸";position:absolute;left:0;color:var(--ink3)}
   .rcol li b{color:var(--ink)}
+  /* ===== 勢力図（クルー相関マップ） ===== */
+  .fmap-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border-radius:14px;border:1px solid var(--line);background:radial-gradient(130% 90% at 12% 0%,rgba(242,209,136,.05),transparent 55%),radial-gradient(120% 90% at 90% 100%,rgba(91,155,213,.045),transparent 55%),var(--bg2)}
+  .fmap{position:relative;width:900px;height:660px;margin:0 auto}
+  .fmap>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+  .crew{position:absolute;z-index:2;border-radius:12px;padding:9px 11px 11px;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line)}
+  .crew.on{border-color:rgba(242,209,136,.42);box-shadow:0 5px 18px rgba(0,0,0,.38)}
+  .crew.off{opacity:.6}
+  .crew-h{font-size:13px;font-weight:900;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:1px}
+  .crew.on .crew-h{color:var(--gold2)}
+  .crew-tag{font-size:9px;font-weight:800;padding:1px 7px;border-radius:20px;white-space:nowrap}
+  .crew.on .crew-tag{background:rgba(155,213,143,.15);color:#9bd58f;border:1px solid rgba(155,213,143,.38)}
+  .crew.off .crew-tag{background:rgba(229,141,126,.13);color:#e58d7e;border:1px solid rgba(229,141,126,.33)}
+  .crew-reg{font-size:9.5px;color:var(--ink3);font-weight:700;margin-bottom:7px}
+  .crew-body{display:flex;flex-wrap:wrap;gap:4px}
+  .rap{font-size:11px;font-weight:700;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;white-space:nowrap}
+  .crew.on .rap{color:var(--ink)}
+  .rap.hot{color:#f2d188;border-color:rgba(242,209,136,.4);background:rgba(242,209,136,.08);font-weight:800}
+  .fstar{position:absolute;z-index:4;transform:translate(-50%,-50%);text-align:center}
+  .fstar .fs-dot{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff6e0,var(--gold2) 70%);box-shadow:0 0 18px var(--gold2);margin:0 auto 4px}
+  .fstar .fs-lbl{font-size:12px;font-weight:900;color:#15110a;background:var(--gold2);padding:3px 10px;border-radius:20px;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.5)}
+  .fedge{position:absolute;z-index:3;transform:translate(-50%,-50%);font-size:9.5px;font-weight:800;color:var(--gold2);background:rgba(8,8,10,.86);border:1px solid rgba(242,209,136,.28);padding:1px 6px;border-radius:6px;white-space:nowrap}
+  .fmap-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11px;color:var(--ink2);padding:2px 4px 0}
+  .fmap-legend b{color:var(--ink)}
+  .leg-dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .fmap-hint{margin-left:auto;font-size:10px;color:var(--ink3)}
 </style>
 </head>
 <body>
@@ -1785,18 +1810,22 @@
   <div class="shead" id="scenehd"><span class="num">🔬</span><h2>シーンの解像度 — 勢力図・リスナー・誰に向けて書くか</h2></div>
   <p class="sub"><b>「コアなファンにぶっ刺さる曲を作りたい、でも誰に向けて・どんなテーマで書くか決まらない」——そこに答えを出すための解剖。</b>結論を先に：<b>①シーンは今"世代交代"の真っ最中（クルーが次々畳んでる）②公式のリスナー属性データは存在しない（正直に言う）③だが"何を求めて聴くか"で客は5つに割れる。お前のコアは②の「夜に一人で聴く層」</b>。<span class="cf sure">✅事実（出典下）</span>／<span class="cf chk">⚠️変動・二次</span>／<span class="cf guess">📖見立て</span>。</p>
 
-  <div class="subhd">① 勢力図の"今" — 大きな家が次々畳んでる（＝椅子が空いてる）</div>
-  <div class="note" style="border-left-color:#e58d7e"><span class="cf sure">✅事実</span> <b>2023〜2025で、シーンを作ってきた大型クルーの"終わり"が集中した。</b>BAD HOP解散（2024/2・東京ドーム5万人）／KANDYTOWN終演（2023/3）／<b>Pitch Odd Mansion＝唾奇のいた集団も2024で活動終了</b>／Repezen Foxx解散（2025/12）。<span class="cf guess">📖</span> <b>これは新人にとって追い風だ。</b>看板が畳まれた分、次の椅子が空いてる。<b>今シーンに入る＝満員電車じゃなく、席替えの瞬間に立ち会ってる。</b></div>
-  <div class="mtx"><table><tr><th>クルー / 集団</th><th>中心人物</th><th>今の状態</th><th>華独との距離</th></tr><tr><td><b>YENTOWN</b></td><td>Awich / kZm / MonyHorse / <b>Chaki Zulu</b></td><td><span class="mid">現役・最強格の一つ</span>（10周年）</td><td><b>近い</b>。Awich＝沖縄那覇＝最大の導管</td></tr><tr><td><b>BAD HOP</b></td><td>T-Pablow / YZERR（川崎・8人）</td><td><span class="no">解散</span>（2024/2 東京ドーム5万人）</td><td>遠い（街／パーティ系・別軸）</td></tr><tr><td><b>KANDYTOWN</b></td><td>IO / KEIJU / Ryohu / <b>Neetz</b>（世田谷16人）</td><td><span class="no">終演</span>（2023/3）※各自ソロ継続</td><td>中（Neetz＝RAPSTARビート提供者）</td></tr><tr><td><b>Pitch Odd Mansion</b></td><td><b>唾奇</b> / kiki vivi lily / <b>Sweet William</b></td><td><span class="no">活動終了</span>（2024）※個人は継続</td><td><b>最も近い</b>。だが集団は消えた＝<b>個人で狙う</b></td></tr><tr><td><b>Mall Boyz / 新世代</b></td><td>Tohji / gummyboy</td><td><span class="yes">現役・新世代の中心</span></td><td>中（ヴァイブ/新世代SNS軸）</td></tr>  </table></div>
-  <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 ここが効く</span> <b>唾奇の集団（Pitch Odd Mansion）は畳まれた。</b>＝<b>「唾奇の系譜」に今、空きがある。</b>本人・Sweet William は個人で動いてる。<b>クルーに入るんじゃなく、この"系譜"を継ぐ立ち位置が空いてる</b>——沖縄×ジャジー×メロウの、次の世代。</div>
+  <div class="subhd">① 勢力図 — クルー相関マップ（誰がどこにいて、どこが空いてるか）</div>
+  <div class="fmap-wrap"><div class="fmap" id="fmap"></div></div>
+  <div class="fmap-legend">
+    <span><span class="leg-dot" style="background:var(--gold2)"></span><b>現役</b></span>
+    <span><span class="leg-dot" style="background:#45454d"></span>解散・終演・活動終了</span>
+    <span style="color:var(--gold2)">╌╌ 沖縄→東京の橋</span>
+    <span><b style="color:var(--gold2)">★</b> 華独＝空き地</span>
+    <span class="fmap-hint">← 横スクロール →</span>
+  </div>
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf sure">✅</span> <b>大型クルーの"終わり"が集中した</b>（BAD HOP解散・KANDYTOWN終演・<b>唾奇のPitch Odd Mansionも活動終了</b>）＝<b>椅子が空いた</b>。沖縄→東京の橋は実在する（Awich・CHICO CARLITO）が<b>全員"那覇"</b>。<span class="cf guess">📖</span> <b>★華独＝畳まれた「唾奇の系譜」を継ぐ、コザ発の最初の一人。</b>那覇勢が架けた橋を、コザから渡る。</div>
+  <div style="display:none"><table><tr><th>x</th><th>中心人物</th><th>今の状態</th><th>華独との距離</th></tr><tr><td><b>YENTOWN</b></td><td>Awich / kZm / MonyHorse / <b>Chaki Zulu</b></td><td><span class="mid">現役・最強格の一つ</span>（10周年）</td><td><b>近い</b>。Awich＝沖縄那覇＝最大の導管</td></tr><tr><td><b>BAD HOP</b></td><td>T-Pablow / YZERR（川崎・8人）</td><td><span class="no">解散</span>（2024/2 東京ドーム5万人）</td><td>遠い（街／パーティ系・別軸）</td></tr><tr><td><b>KANDYTOWN</b></td><td>IO / KEIJU / Ryohu / <b>Neetz</b>（世田谷16人）</td><td><span class="no">終演</span>（2023/3）※各自ソロ継続</td><td>中（Neetz＝RAPSTARビート提供者）</td></tr><tr><td><b>Pitch Odd Mansion</b></td><td><b>唾奇</b> / kiki vivi lily / <b>Sweet William</b></td><td><span class="no">活動終了</span>（2024）※個人は継続</td><td><b>最も近い</b>。だが集団は消えた＝<b>個人で狙う</b></td></tr><tr><td><b>Mall Boyz / 新世代</b></td><td>Tohji / gummyboy</td><td><span class="yes">現役・新世代の中心</span></td><td>中（ヴァイブ/新世代SNS軸）</td></tr>  </table></div>
 
-  <div class="subhd">② 沖縄→東京の"橋"は、もう実在する（お前が渡る道）</div>
-  <div class="subgrid"><div class="scard"><h4>CHICO CARLITO <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>那覇出身、UMB優勝→フリースタイルダンジョン→全国区。<b>主催イベント『AREA47』を渋谷で開催し「渋谷を沖縄で染める」</b>。次世代（oviik/99broadway）を引き上げてる。<span class="x">＝<b>沖縄→東京の橋を、実際に架けてる人</b></span>。</p></div><div class="scard"><h4>Awich / YENTOWN <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>沖縄→東京の<b>最大の導管</b>。K-Arena（18,000人）に<b>RITTO / SugLawd Familiar / CHICO CARLITO ら沖縄勢を招集</b>。「RASEN in OKINAWA」も実施。<span class="x">＝沖縄勢を東京の大舞台に上げる力を持ってる</span>。</p></div><div class="scard"><h4>唾奇の系譜 <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>唾奇（那覇）＋Sweet William のジャジー・メロウの源流。<b>集団は畳まれ、個人で動いてる</b>。<span class="x">📖 <b>音の相性で個人に繋がるのが、お前には一番自然な入口</b>（コザ×ジャジーは系譜的に地続き）</span>。</p></div><div class="scard"><h4>★お前の差分 <span class="en"><span class="cf guess">📖</span></span></h4><p>この橋を渡る沖縄勢は<b>全員"那覇"</b>。<b>コザ（沖縄市）から東京に橋を架けた奴を、確認できなかった</b>。<span class="x"><b>＝橋はある。渡る"コザ"がまだいない</b></span>。</p></div>  </div>
-  <div class="note" style="border-left-color:var(--jpn)">⚠️ <b>正直に言う。</b>「コザ（沖縄市）限定の現行ハコ・現場の固有名」は<b>今回のリサーチで確認できなかった</b>（情報が那覇中心）。＝<b>お前が自分で調べる/知ってる部分</b>。コザに今どんな現場があるかは、俺よりお前の方が近い。</div>
+  <div style="display:none"><div class="scard"><h4>x <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>那覇出身、UMB優勝→フリースタイルダンジョン→全国区。<b>主催イベント『AREA47』を渋谷で開催し「渋谷を沖縄で染める」</b>。次世代（oviik/99broadway）を引き上げてる。<span class="x">＝<b>沖縄→東京の橋を、実際に架けてる人</b></span>。</p></div><div class="scard"><h4>Awich / YENTOWN <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>沖縄→東京の<b>最大の導管</b>。K-Arena（18,000人）に<b>RITTO / SugLawd Familiar / CHICO CARLITO ら沖縄勢を招集</b>。「RASEN in OKINAWA」も実施。<span class="x">＝沖縄勢を東京の大舞台に上げる力を持ってる</span>。</p></div><div class="scard"><h4>唾奇の系譜 <span class="en"><span class="cf sure">✅那覇</span></span></h4><p>唾奇（那覇）＋Sweet William のジャジー・メロウの源流。<b>集団は畳まれ、個人で動いてる</b>。<span class="x">📖 <b>音の相性で個人に繋がるのが、お前には一番自然な入口</b>（コザ×ジャジーは系譜的に地続き）</span>。</p></div><div class="scard"><h4>★お前の差分 <span class="en"><span class="cf guess">📖</span></span></h4><p>この橋を渡る沖縄勢は<b>全員"那覇"</b>。<b>コザ（沖縄市）から東京に橋を架けた奴を、確認できなかった</b>。<span class="x"><b>＝橋はある。渡る"コザ"がまだいない</b></span>。</p></div>  </div>
 
   <div class="subhd">③ リスナーの解像度 — まず正直な前提</div>
-  <div class="note" style="border-left-color:#8fc0e8"><span class="cf sure">✅正直な事実</span> <b>「日本のヒップホップのリスナーは何歳・男女比・どこ」の公式データは、存在しない（見つからなかった）。</b>だから年齢や男女比を数字で言う奴がいたら疑え。<b>代わりに"確実に言えること"だけ並べる：</b><br>・<span class="cf chk">⚠️LINE MUSIC調べ</span> 10代ユーザーの<b>約9割がHIPHOP/ラップを「好き」</b>。<br>・<span class="cf sure">✅</span> POP YOURS（国内最大級・2日3.5万人）の客層は<b>「出演者と同じくらい若い／SNSでラップを知った新規層」</b>。<br>・<span class="cf sure">✅</span> 唾奇/5lackのリスナー＝<b>「チル・夜に聴く・リラックス志向・"アグレッシブなHHとは違う空気"を求める層」</b>。<br>・<span class="cf sure">✅</span> ZORN・唾奇は<b>Spotifyの数字では見えないライブ動員（＝濃いコア層）</b>で武道館を単独で埋める。</div>
-  <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 一番効く読み</span> 最後の1つがデカい。<b>「Spotify再生では見えないが、ライブは埋まる」＝コア層は"再生数"じゃなく"熱量"で測る層。</b>お前が狙う「ぶっ刺さるコアファン」は、<b>バズの数字には出ないが、金と足を運ぶ層</b>。＝<b>再生数を追うな。熱量を刺せ。</b></div>
+  <div class="note" style="border-left-color:#8fc0e8"><span class="cf sure">✅正直な事実</span> <b>リスナーの公式属性データ（年齢・男女比）は存在しない</b>＝数字で言う奴は疑え。確実なのは：<b>10代の約9割がHH好き</b>（LINE MUSIC調べ）／POP YOURSの客は<b>若くSNSでラップを知った新規</b>／唾奇・5lackのリスナーは<b>「夜に聴く・リラックス志向」</b>。<span class="cf guess">📖</span> <b>そしてZORN・唾奇はSpotifyで見えないライブ動員で武道館を埋める＝コアは"再生数"でなく"熱量"。再生数を追うな、熱量を刺せ。</b></div>
 
   <div class="subhd">④ リスナーは"何を求めて聴くか"で5つに割れる</div>
   <p class="sub"><span class="cf guess">📖 セグメントは俺の分類（配置根拠＝各アーティストの実際の音楽性）</span> 属性（年齢/性別）じゃなく<b>「聴く動機」で割る</b>のが、制作には効く。</p>
@@ -6333,6 +6362,49 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
       {n:'★華独 コア',x:25,y:20,kd:1}
     ]
   });
+})();
+
+/* ================= FACTION MAP（勢力図） ================= */
+(function(){
+  var host=document.getElementById('fmap'); if(!host)return;
+  var W=900,H=660;
+  var CREWS=[
+    {nm:'YENTOWN',tag:'現役',st:'on',reg:'東京・渋谷',x:298,y:26,w:276,m:['Awich*','kZm','MonyHorse','PETZ','JNKMN','Chaki Zulu']},
+    {nm:'KANDYTOWN',tag:'終演 23',st:'off',reg:'東京・世田谷（16人）',x:598,y:26,w:286,m:['IO','KEIJU','Ryohu','Gottz','MUD','Neetz','ほか']},
+    {nm:'Mall Boyz・新世代',tag:'現役',st:'on',reg:'東京',x:298,y:182,w:250,m:['Tohji','gummyboy']},
+    {nm:'BAD HOP',tag:'解散 24',st:'off',reg:'川崎（8人）',x:572,y:182,w:312,m:['T-Pablow','YZERR','Tiji Jojo','Benjazzy','Yellow Pato','G-k.i.d','Vingo','Bark']},
+    {nm:'無所属・ソロ（現役）',tag:'ソロ',st:'on',reg:'全国',x:298,y:330,w:586,m:['KREVA','Creepy Nuts','ちゃんみな','LEX','JP THE WAVY','ZORN','SEEDA','舐達麻','般若','Watson','Kohjiya','5lack*','Yo-Sea*']},
+    {nm:'Pitch Odd Mansion',tag:'活動終了 24',st:'off',reg:'沖縄・那覇',x:16,y:38,w:258,m:['唾奇*','Sweet William','kiki vivi lily']},
+    {nm:'沖縄勢（クルー横断）',tag:'現役',st:'on',reg:'沖縄',x:16,y:296,w:258,m:['CHICO CARLITO*','RITTO','SugLawd Familiar','MuKuRo','D.D.S','oviik','99broadway']},
+    {nm:'名古屋（東海）',tag:'現役',st:'on',reg:'名古屋',x:16,y:470,w:258,m:['AK-69','¥ellow Bucks']},
+    {nm:'関西',tag:'現役',st:'on',reg:'京都',x:298,y:506,w:146,m:['ANARCHY']},
+    {nm:'福岡（九州）',tag:'一部解散',st:'off',reg:'福岡',x:460,y:506,w:198,m:['Rin音','Repezen Foxx']},
+    {nm:'札幌（北海道）',tag:'現役',st:'on',reg:'札幌',x:676,y:506,w:208,m:['THA BLUE HERB','ILL-BOSSTINO','O.N.O']}
+  ];
+  var LINES=[
+    {x1:300,y1:150,x2:202,y2:298},  /* Awich: YENTOWN⇔沖縄(那覇) */
+    {x1:256,y1:424,x2:298,y2:430},  /* CHICO: 沖縄→東京(渋谷) */
+    {x1:150,y1:206,x2:150,y2:130}   /* 華独→PitchOdd 系譜 */
+  ];
+  var EDGES=[
+    {x:252,y:214,t:'Awich＝那覇'},
+    {x:238,y:448,t:'CHICO→渋谷'},
+    {x:200,y:168,t:'系譜を継ぐ'}
+  ];
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">';
+  LINES.forEach(function(l){ svg+='<line x1="'+l.x1+'" y1="'+l.y1+'" x2="'+l.x2+'" y2="'+l.y2+'" stroke="#f2d188" stroke-width="1.7" stroke-dasharray="6 5" vector-effect="non-scaling-stroke" opacity="0.72"/>'; });
+  svg+='</svg>';
+  var html=svg;
+  CREWS.forEach(function(c){
+    var chips=c.m.map(function(n){ var hot=/\*$/.test(n); n=n.replace(/\*$/,''); return '<span class="rap'+(hot?' hot':'')+'">'+n+'</span>'; }).join('');
+    html+='<div class="crew '+c.st+'" style="left:'+c.x+'px;top:'+c.y+'px;width:'+c.w+'px">'
+      +'<div class="crew-h">'+c.nm+'<span class="crew-tag">'+c.tag+'</span></div>'
+      +'<div class="crew-reg">'+c.reg+'</div>'
+      +'<div class="crew-body">'+chips+'</div></div>';
+  });
+  html+='<div class="fstar" style="left:150px;top:232px"><div class="fs-dot"></div><div class="fs-lbl">★華独 コザ</div></div>';
+  EDGES.forEach(function(e){ html+='<div class="fedge" style="left:'+e.x+'px;top:'+e.y+'px">'+e.t+'</div>'; });
+  host.innerHTML=html;
 })();
 
 initReveal();
