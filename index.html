@@ -1048,6 +1048,41 @@
   .rcol li{font-size:12.5px;color:var(--ink2);line-height:1.55;padding-left:15px;position:relative}
   .rcol li::before{content:"▸";position:absolute;left:0;color:var(--ink3)}
   .rcol li b{color:var(--ink)}
+  /* ---- シーン・レーダー 2026 ---- */
+  .sr-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0 18px}
+  .sr-kpi{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:13px 14px;min-height:128px}
+  .sr-kpi .k{font-size:10.5px;font-weight:900;color:var(--gold2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+  .sr-kpi>b{display:block;font-size:19px;line-height:1.15;color:var(--ink);margin-bottom:6px}
+  .sr-kpi p b{display:inline;font-size:inherit;line-height:inherit;color:var(--ink);margin:0}
+  .sr-kpi p{font-size:12px;color:var(--ink2);line-height:1.58}
+  .sr-route{border:1px solid var(--line);border-radius:13px;background:radial-gradient(130% 90% at 0% 0%,rgba(242,209,136,.07),transparent 55%),var(--panel);padding:12px;margin:14px 0;display:grid;gap:8px}
+  .sr-lane{display:grid;grid-template-columns:124px 1fr 110px;gap:9px;align-items:center;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);padding:10px}
+  .sr-lane.hot{border-color:rgba(242,209,136,.42);background:rgba(242,209,136,.07)}
+  .sr-src{font-size:12px;font-weight:900;color:var(--gold2);line-height:1.3}
+  .sr-src small{display:block;color:var(--ink3);font-weight:700;font-size:10px;margin-top:2px}
+  .sr-nodes{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .sr-node{border:1px solid var(--line);background:var(--panel2);border-radius:8px;padding:5px 8px;font-size:11.5px;font-weight:800;color:var(--ink2);line-height:1.35}
+  .sr-node.goal{color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-color:transparent}
+  .sr-arrow{color:var(--ink3);font-size:13px;font-weight:900}
+  .sr-fit{display:grid;gap:4px}
+  .sr-fit span{font-size:10px;color:var(--ink3);font-weight:800}
+  .sr-bar{height:7px;border-radius:20px;background:var(--panel2);border:1px solid var(--line);overflow:hidden}
+  .sr-bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--goldsoft),var(--gold2));border-radius:inherit}
+  .sr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:11px;margin:14px 0}
+  .sr-card{border:1px solid var(--line);background:var(--panel2);border-radius:11px;padding:13px 14px}
+  .sr-card h4{font-size:14px;color:var(--ink);margin-bottom:5px}
+  .sr-card p{font-size:12.3px;color:var(--ink2);line-height:1.62}
+  .sr-tags{display:flex;gap:5px;flex-wrap:wrap;margin:9px 0 0}
+  .sr-tag{font-size:10px;font-weight:900;color:var(--gold2);border:1px solid rgba(242,209,136,.28);background:rgba(242,209,136,.07);border-radius:999px;padding:2px 7px}
+  .sr-combo{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+  .sr-combo .sr-card{background:linear-gradient(180deg,var(--panel),var(--bg2));border-color:rgba(242,209,136,.22)}
+  .sr-step{width:28px;height:28px;border-radius:8px;background:linear-gradient(145deg,var(--gold2),var(--goldsoft));color:#15110a;display:grid;place-items:center;font-size:13px;font-weight:900;margin-bottom:8px}
+  @media(max-width:820px){.sr-combo{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){
+    .sr-lane{grid-template-columns:1fr;gap:8px}
+    .sr-arrow{display:none}
+    .sr-combo{grid-template-columns:1fr}
+  }
   /* ===== 勢力図（クルー相関マップ） ===== */
   .fmap-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 6px;border-radius:14px;border:1px solid var(--line);background:radial-gradient(130% 90% at 12% 0%,rgba(242,209,136,.05),transparent 55%),radial-gradient(120% 90% at 90% 100%,rgba(91,155,213,.045),transparent 55%),var(--bg2)}
   .fmap{position:relative;width:900px;height:660px;margin:0 auto}
@@ -1073,6 +1108,13 @@
   .fmap-legend b{color:var(--ink)}
   .leg-dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
   .fmap-hint{margin-left:auto;font-size:10px;color:var(--ink3)}
+  /* ===== ブレス・トレーナー ===== */
+  .breath{display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0 6px}
+  .breath-stage{width:210px;height:210px;display:flex;align-items:center;justify-content:center}
+  .breath-circle{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(242,209,136,.4),rgba(242,209,136,.05));border:2px solid var(--gold2);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 44px rgba(242,209,136,.18);will-change:transform}
+  .breath-phase{font-size:17px;font-weight:900;color:var(--gold2);letter-spacing:.02em}
+  .breath-count{font-size:30px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+  .breath-hint{font-size:12px;color:var(--ink3);text-align:center;max-width:340px;margin:0 auto;line-height:1.6}
 </style>
 </head>
 <body>
@@ -1881,6 +1923,50 @@
   <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 これだけ持って帰れ</span> <b>お前がやることは「2枚の権利を自分で握って、曲を独り歩きさせる」だけ。</b>金は<b>①原盤権（使われるたび）②ライブの著作権③指名で来るタイアップ</b>の順で効いてくる。<b>再生数の小銭を追うな。原盤を握って、コアを濃くして、指名を待て。</b></div>
 
   <div class="note" style="border-left-color:var(--line);font-size:12px"><b>出典</b>：<a href="https://prtimes.jp/main/html/rd/p/000000591.000010908.html" target="_blank" rel="noopener">日本レコード協会 2024年音楽配信売上（ストリーミング91.8%・34%）</a>／<a href="https://spotifynewsroom.jp/2025-05-29/spotifyloudandclear2025/" target="_blank" rel="noopener">Spotify Loud & Clear（日本の印税250億超）</a>／<a href="https://www.tunecore.co.jp/pricing" target="_blank" rel="noopener">TuneCore Japan 料金（100%還元）</a>／<a href="https://tips.frekul.com/jasrac_or_nextone/" target="_blank" rel="noopener">JASRAC/NexTone 著作権管理の違い</a>／<a href="https://www.jasrac.or.jp/bunpai/livehouse/detail1.html" target="_blank" rel="noopener">JASRAC ライブハウス分配（2020〜セトリ方式）</a>／原盤権vs著作権＝業界定説。<br>⚠️ <b>ストリーミング単価は公式非公表＝推計（Duetti報告等）</b>／シンクロ権相場は非公表／TikTok無名の実額は不明。</div>
+
+  <div class="shead" id="sceneradar"><span class="num">📡</span><h2>シーン・レーダー 2026 — 火がつく経路を読む</h2></div>
+  <p class="sub">2026-07-19時点で再確認。いまの日本語ラップは「1つの門」じゃなく、<b>フェス／番組／DSP／ショート動画／正統性／プロデューサー</b>の経路が束になって火がつく。華独はポップに寄せるんじゃない。<b>芯を変えず、入口だけ経路ごとに作る。</b></p>
+
+  <div class="sr-kpis">
+    <div class="sr-kpi"><div class="k">festival gate</div><b>POP YOURS</b><p>2026は初の3日間・幕張メッセ1-6ホール。LANA／千葉雄喜／KEIJUがヘッドライナーで、Terminal 6 STAGEも新設。<b>今のシーンの現在地</b>が可視化される場。</p></div>
+    <div class="sr-kpi"><div class="k">audition gate</div><b>RAPSTAR</b><p>自分のLIFEを投影した自己紹介リリックと動画で応募。2026は賞金1000万円、決勝イベントは12/29。<b>曲で自己紹介する番組導線</b>。</p></div>
+    <div class="sr-kpi"><div class="k">playlist gate</div><b>+81 Connect</b><p>SpotifyのJ-HipHop注目曲。上位にRemix／Cypher／客演が並ぶ。<b>単独曲だけでなく、混ざれる曲</b>が発見経路になっている。</p></div>
+    <div class="sr-kpi"><div class="k">short gate</div><b>TikTok</b><p>2024年Billboard Global 200入り楽曲の84%が先にTikTokでバイラル化、というTikTok/Luminate報告。⚠️プラットフォーム発表なので過信は禁物。</p></div>
+    <div class="sr-kpi"><div class="k">legacy gate</div><b>MAJ / THE SUCCESSOR</b><p>Zeebra・YZERR・高木完プロデュースで、40年以上の日本ヒップホップ史を祝う公式級イベント。<b>新しさだけでなく系譜の理解</b>も評価軸。</p></div>
+    <div class="sr-kpi"><div class="k">brand bridge</div><b>STUTS型</b><p>「99 Steps」はポカリCMからTHE FIRST TAKEへ。ラッパー単体でなく、<b>プロデューサー／企業／一発撮りメディア</b>が橋になる。</p></div>
+  </div>
+
+  <div class="subhd">① 2026の力の通り道（ブレイク経路マップ）</div>
+  <div class="sr-route">
+    <div class="sr-lane hot"><div class="sr-src">コザ／小箱<small>芯を作る</small></div><div class="sr-nodes"><span class="sr-node">実話</span><span class="sr-arrow">→</span><span class="sr-node">16小節</span><span class="sr-arrow">→</span><span class="sr-node goal">信用</span></div><div class="sr-fit"><span>華独適性 95</span><div class="sr-bar"><i style="--w:95%"></i></div></div></div>
+    <div class="sr-lane hot"><div class="sr-src">アングラ共演<small>CONCRETE GREEN / RASEN</small></div><div class="sr-nodes"><span class="sr-node">客演</span><span class="sr-arrow">→</span><span class="sr-node">Cypher</span><span class="sr-arrow">→</span><span class="sr-node goal">ヘッズ接触</span></div><div class="sr-fit"><span>華独適性 88</span><div class="sr-bar"><i style="--w:88%"></i></div></div></div>
+    <div class="sr-lane"><div class="sr-src">RAPSTAR<small>番組露出</small></div><div class="sr-nodes"><span class="sr-node">指定ビート</span><span class="sr-arrow">→</span><span class="sr-node">自己紹介動画</span><span class="sr-arrow">→</span><span class="sr-node goal">一気に認知</span></div><div class="sr-fit"><span>華独適性 76</span><div class="sr-bar"><i style="--w:76%"></i></div></div></div>
+    <div class="sr-lane"><div class="sr-src">DSP<small>+81 / Release Radar</small></div><div class="sr-nodes"><span class="sr-node">配信品質</span><span class="sr-arrow">→</span><span class="sr-node">Remix / 客演</span><span class="sr-arrow">→</span><span class="sr-node goal">継続接触</span></div><div class="sr-fit"><span>華独適性 72</span><div class="sr-bar"><i style="--w:72%"></i></div></div></div>
+    <div class="sr-lane"><div class="sr-src">ショート動画<small>TikTok / Reels</small></div><div class="sr-nodes"><span class="sr-node">5-10秒の毒</span><span class="sr-arrow">→</span><span class="sr-node">歌詞字幕</span><span class="sr-arrow">→</span><span class="sr-node goal">入口拡散</span></div><div class="sr-fit"><span>華独適性 68</span><div class="sr-bar"><i style="--w:68%"></i></div></div></div>
+    <div class="sr-lane"><div class="sr-src">POP YOURS<small>フェス認証</small></div><div class="sr-nodes"><span class="sr-node">NEW COMER</span><span class="sr-arrow">→</span><span class="sr-node">Terminal</span><span class="sr-arrow">→</span><span class="sr-node goal">現場証明</span></div><div class="sr-fit"><span>華独適性 61</span><div class="sr-bar"><i style="--w:61%"></i></div></div></div>
+    <div class="sr-lane"><div class="sr-src">CM / TFT<small>マスへの橋</small></div><div class="sr-nodes"><span class="sr-node">プロデューサー</span><span class="sr-arrow">→</span><span class="sr-node">一発撮り耐性</span><span class="sr-arrow">→</span><span class="sr-node goal">一般へ翻訳</span></div><div class="sr-fit"><span>華独適性 58</span><div class="sr-bar"><i style="--w:58%"></i></div></div></div>
+  </div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf guess">📖 読み</span> <b>最初から大舞台を狙うな。</b>華独の勝ち筋は「コザ実話でコアを泣かせる」→「16小節でヘッズに信用される」→「RAPSTAR/DSP/ショート用に入口を切る」→「フェス/プロデューサー経由で外へ」の順番。順番を飛ばして薄いポップに寄せると、誰の心にも残らない。</div>
+
+  <div class="subhd">② 経路別：誰に届き、何を作れば乗るか</div>
+  <div class="sr-grid">
+    <div class="sr-card"><h4>RAPSTAR自己紹介</h4><p><b>届く相手：</b>番組視聴者・若手発掘層。<br><b>作る物：</b>「コザで何を見てきたか」を1本の物語にした60秒。<br><b>NG：</b>上手いだけの韻、抽象的な病み、悪ぶり。</p><div class="sr-tags"><span class="sr-tag">LIFE</span><span class="sr-tag">顔出しより物語</span></div></div>
+    <div class="sr-card"><h4>DSP / プレイリスト</h4><p><b>届く相手：</b>新曲を掘るヘッズ〜準ライト。<br><b>作る物：</b>冒頭15秒で声・温度・ビートの質が分かる曲。客演/Remixに混ざれる8小節の余白。<br><b>NG：</b>低音質・ジャケ弱い・クレジット雑。</p><div class="sr-tags"><span class="sr-tag">音質</span><span class="sr-tag">客演余白</span></div></div>
+    <div class="sr-card"><h4>ショート動画</h4><p><b>届く相手：</b>まだ華独を知らない層。<br><b>作る物：</b>曲全体ではなく、切り出せる「毒の一文」。例：夜道・基地の光・言えなかった本音。<br><b>NG：</b>TikTokっぽい曲に曲げること。</p><div class="sr-tags"><span class="sr-tag">5秒</span><span class="sr-tag">歌詞字幕</span></div></div>
+    <div class="sr-card"><h4>CONCRETE / RASEN系</h4><p><b>届く相手：</b>コア・ヘッズ、現場の耳がいい人。<br><b>作る物：</b>フックなしでも立つ16小節。比喩より先に、地元の具体名・声の温度・ポケット。<br><b>NG：</b>雰囲気だけで中身が薄いverse。</p><div class="sr-tags"><span class="sr-tag">16bars</span><span class="sr-tag">cred</span></div></div>
+    <div class="sr-card"><h4>POP YOURS / フェス</h4><p><b>届く相手：</b>若年・ファッション・スポンサー・業界。<br><b>作る物：</b>1曲で絵が浮かぶ名刺曲。サブステージで耐える現場感。<br><b>NG：</b>フェス映えだけ狙って芯が消えること。</p><div class="sr-tags"><span class="sr-tag">名刺曲</span><span class="sr-tag">現場証明</span></div></div>
+    <div class="sr-card"><h4>STUTS / TFT型の橋</h4><p><b>届く相手：</b>HIPHOP外の一般層・企業・映像メディア。<br><b>作る物：</b>一発撮りでも崩れないメロディ/声/歌詞。プロデューサーが翻訳できる余白。<br><b>NG：</b>最初からCM曲を作ろうとすること。</p><div class="sr-tags"><span class="sr-tag">one take</span><span class="sr-tag">producer bridge</span></div></div>
+  </div>
+
+  <div class="subhd">③ 華独の勝ち筋 — 2本同時に刺す</div>
+  <div class="sr-combo">
+    <div class="sr-card"><div class="sr-step">1</div><h4>芯は変えない</h4><p><b>夜メロウ × コザ実話 × 解毒。</b>ここが薄くなった瞬間、唾奇系にもdodo系にも勝てない。まず一人を泣かせる曲。</p></div>
+    <div class="sr-card"><div class="sr-step">2</div><h4>入口を分ける</h4><p>同じ曲から、<b>16小節版／15秒字幕版／RAPSTAR自己紹介版／一発撮り版</b>を切る。曲を変えず、見せ方を変える。</p></div>
+    <div class="sr-card"><div class="sr-step">3</div><h4>信用を先に取る</h4><p>ヘッズに「こいつは分かってる」と思わせる。歴史・ビート・ポケットを外さない。<b>バズよりcredが先。</b></p></div>
+    <div class="sr-card"><div class="sr-step">4</div><h4>外へ翻訳する</h4><p>信用ができたら、プロデューサー/映像/フェスで一般へ橋を架ける。<b>ポップ化じゃなく翻訳。</b></p></div>
+  </div>
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf guess">📖 結論</span> 2026のシーンは「再生数トップだけ見たら負け」。本当の争点は<b>どの経路で、どの人格として発見されるか</b>。華独は<b>コザ発の夜メロウ</b>としてコアを取り、入口だけ短尺・番組・DSP・一発撮りに変換する。<b>芯は濃く、入口は多く。</b></div>
+  <div class="note" style="border-left-color:var(--line);font-size:12px"><b>出典</b>：<a href="https://sssk-hd.com/contents/1055707" target="_blank" rel="noopener">POP YOURS 2026 タイムテーブル発表（Space Shower）</a>／<a href="https://prtimes.jp/main/html/rd/p/000003319.000064643.html" target="_blank" rel="noopener">RAPSTAR 2026 発表（ABEMA/PR TIMES）</a>／<a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX0Eftsfm2dbT?theme=0" target="_blank" rel="noopener">Spotify +81 Connect</a>／<a href="https://newsroom.tiktok.com/tiktok-and-luminate-release-the-latest-music-impact-report?lang=en-GB" target="_blank" rel="noopener">TikTok/Luminate Music Impact Report 2024</a>／<a href="https://events.musicawardsjapan.com/jp/event/2602" target="_blank" rel="noopener">THE SUCCESSOR MAJ HIP HOP TRIBUTE</a>／<a href="https://stutsbeats.com/news/2943" target="_blank" rel="noopener">STUTS「99 Steps」THE FIRST TAKE</a>／<a href="https://natalie.mu/music/news/663954" target="_blank" rel="noopener">CONCRETE GREEN復活（音楽ナタリー）</a>。<br>⚠️ ブレイク経路と華独適性スコアは、上記事実を元にした<b>戦略仮説</b>。実際の反応で更新する。</div>
 
   <div class="shead"><span class="num">⚡</span><h2>ゲームチェンジ（構造を変えた8つ）</h2></div>
   <p class="sub">シーンの前提そのものを変えた出来事。これを押さえると、シーンの"地層"が見える。</p>
@@ -3341,6 +3427,65 @@
     <b>📖 まだ読めてない一次資料（読めば確度が上がる）</b>：<b>Zeebra『ジブラの日本語ラップメソッド』LESSON 3（曲を書く＝フック）</b>／<b>Paul Edwards『How to Rap』</b>（104人のラッパーの一次証言・<a href="https://archive.org/details/howtorapartscien0000edwa_j5l0" target="_blank" rel="noopener">Internet Archiveで借りれる</a>）／Gary Burns 1987「A typology of hooks」（<b>二次引用のまま＝原論文未読</b>）。<b>Berklee正典 Perricone『Melody in Songwriting』も書誌のみ確認で本文未読</b>。<br>
     ⚠️ <b>③の事例と数値は変動が速い＝2026年10月に再検証</b>。
   </div>
+
+  <div class="shead" id="voice"><span class="num">🎙</span><h2>発声・デリバリー — 力を抜いて"低い自分の声"を出す</h2></div>
+  <p class="sub"><b>「録音の声が高くてキモい／発声にエネルギー使うのが苦手／地声はもっと低い」——全部これで解ける。</b>結論：<b>敵は"高さ"じゃなく"力み"。力を抜けば低い声は勝手に出る。声を張る必要はない。マイクとミックスが濃くしてくれる。</b><span class="cf sure">✅科学的事実</span><span class="cf chk">⚠️諸説・要確認</span><span class="cf guess">📖見立て</span></p>
+
+  <div class="subhd">① なぜ録音の声は"高くてキモい"のか（＝錯覚が半分）</div>
+  <div class="vs2">
+    <div class="vscard a"><h4>🧠 頭の中で聞く自分の声</h4><p><b>空気伝導＋骨伝導</b>の2経路。<b>骨伝導は低音を強調する（ローパス）</b>＝低く・太く・豊かに聞こえてる。</p></div>
+    <div class="vscard b"><h4>🎧 録音＝他人が聞く声</h4><p><b>空気伝導だけ</b>。頭の中で足されてた<b>低音が抜ける</b>＝高く・薄く聞こえる。<b>これがリスナーに近い声</b>。</p></div>
+  </div>
+  <div class="note" style="border-left-color:#8fc0e8"><span class="cf sure">✅音声科学</span> <b>「本当の声」は2つある</b>＝頭内版（低い）と他人版（録音・高い）。どっちも本当。<b>お前が「キモい」と思ってるのは"慣れてないだけ"</b>＝<b>voice confrontation（声の対面）</b>。<span class="cf guess">📖</span> 対策は2つ：<b>①録音を繰り返し聞いて慣れる</b>（人は自分の声を約38%しか即座に同定できない＝それくらい馴染みが無いだけ）<b>②録音・ミックスで低音を足す</b>（⑤で）。＝<b>直すんじゃなく、慣れる＋濃くする。</b></div>
+
+  <div class="subhd">② 緊張→高い / 脱力→低い の正体（お前の自己分析は正しい）</div>
+  <div class="vs2">
+    <div class="vscard b"><h4>✕ 緊張してる時</h4><p><b>喉頭（のど仏）が上がる</b>→声道が短く＝高い／<b>声帯が締まる</b>→ピッチ上昇／<b>支えが減る</b>→息漏れ・薄い。<span class="x">＝あの"変な高い声"の正体</span>。</p></div>
+    <div class="vscard a"><h4>✅ 心から落ち着いてる時</h4><p>喉が開く→声道が長く＝<b>低い</b>／声帯がゆるむ→<b>太い</b>／息が深い→<b>芯がある</b>。<span class="x">＝お前が「ゆっくり喋る」時に出てる本物の声</span>。</p></div>
+  </div>
+  <div class="note" style="border-left-color:var(--gold)"><span class="cf sure">✅</span> だから<b>ゲーム＝「心から落ち着いた状態」をマイクの前で再現するだけ</b>。低い声を"作りにいく"な（新しい力みになる）。<b>力を抜く→勝手に低い方に落ちる</b>。フタしてるのは緊張だけ。そのために下のトレーナーが効く。</div>
+
+  <div class="subhd">③ ★ブレス・トレーナー — 落ち着いて、低い声の入口を作る</div>
+  <p class="sub">録る前・練習前に。<b>吐く時に、力を抜いた低い「あー」や「スーー」を乗せろ</b>＝落ち着きと低い声を同時に体に入れる。円に合わせて呼吸。</p>
+  <div class="pk-btns" id="brPreset"></div>
+  <div class="breath">
+    <div class="breath-stage"><div class="breath-circle" id="brCircle">
+      <div class="breath-phase" id="brPhase">準備</div>
+      <div class="breath-count" id="brCount">—</div>
+    </div></div>
+  </div>
+  <div class="pk-btns" style="justify-content:center"><button class="hk-play" id="brPlay">▶ 始める</button></div>
+  <div class="breath-hint" id="brHint">※ 肩を上げず、腹がふくらむように吸う。喉に力を入れない＝支えは腹・体幹、喉はただの通り道。</div>
+
+  <div class="subhd">④ 声を"張らずに通す" — SOVT（一番裏付けの強い練習）</div>
+  <p class="sub"><span class="cf sure">✅音声科学の本命</span> 口先を軽くふさぐと声道に<b>背圧</b>がたまり、<b>声帯が押し合わずに楽に鳴る</b>（発声に要る力が下がる）。＝<b>音量もピッチも上げずに"芯のある声"</b>。低エネルギー路線に直行。</p>
+  <div class="subgrid"><div class="scard"><h4>ストロー発声 <span class="en"><span class="cf sure">✅本命</span></span></h4><p>細いストローに「ウー」で<b>息を全部通す</b>。低↔高でサイレン。<span class="x">声帯の負担を下げつつ効率化＝ウォームアップにも回復にも効く</span>。</p></div><div class="scard"><h4>リップロール <span class="en"><span class="cf sure">✅</span></span></h4><p>唇を閉じ「ブルルル」に声を乗せ、低→高。<span class="x">唇が止まる＝息の吹きすぎ＝もっと楽な息に。喉で頑張らない</span>。</p></div><div class="scard"><h4>ハミング <span class="en"><span class="cf sure">✅共鳴</span></span></h4><p>口を閉じ「んーー」で<b>唇・鼻・頬骨が響く場所</b>を探す→「ん→あ」で母音へ。<span class="x">前に集める＝小さくても通る声</span>。</p></div><div class="scard"><h4>あくび・ため息 <span class="en"><span class="cf sure">✅脱力</span></span></h4><p>あくびで喉を開き、ため息で「はぁ〜」と下げて声を乗せる。<span class="x"><b>喉頭は力ずくで下げるな</b>＝開いた"結果"下がる。押し下げは逆効果</span>。</p></div>  </div>
+  <div class="note" style="border-left-color:#9bd58f"><span class="cf sure">✅</span> <b>芯のある声＝音量でもピッチでもなく「共鳴＋効率のいい声帯の閉じ方」の産物。</b>だから<b>張らなくていい</b>。<span class="cf chk">⚠️</span> 息は<b>最大化じゃなく最適化</b>（出しすぎ＝弱い息漏れ声）。<b>痛み・声がれが出たら即やめる＝痛みは"頑張れ"じゃなく"止めろ"のサイン。</b></div>
+
+  <div class="subhd">⑤ マイクで濃くする — 小さい声を"近くて太い声"に</div>
+  <p class="sub"><span class="cf guess">📖 お前のレーンで一番効くレバー</span> 5lackも唾奇も叫んでない。<b>至近距離で囁いて、機材と処理が濃くしてる</b>（本人の発声法は未確認＝伝聞だが、録音の仕組みは事実）。</p>
+  <div class="subgrid"><div class="scard"><h4>近接効果 <span class="en"><span class="cf sure">✅物理</span></span></h4><p>指向性マイクに<b>近づくほど低音が増える</b>（最大16dB・100Hz以下）。<span class="x"><b>口を寄せるだけの"無料のEQ"</b>＝太さと近さが乗る。ポップフィルターは必須</span>。</p></div><div class="scard"><h4>コンプレッサー <span class="en"><span class="cf sure">✅</span></span></h4><p>声の大小を詰めて<b>「近い・一定・濃い」</b>に。<span class="x">親密系はRatio 2:1〜4:1・詰めすぎ注意（息づかいを残す）</span>。</p></div><div class="scard"><h4>EQ・ディエッサー <span class="en"><span class="cf sure">✅</span></span></h4><p>80Hz以下カットで濁り除去／2〜9kHzで抜け／サ行の刺さりはディエッサーで動的に抑える。<span class="x">こもらせず繊細に</span>。</p></div><div class="scard"><h4>★予算の使い方 <span class="en"><span class="cf guess">📖</span></span></h4><p>生声の細さを気にするより<b>良いコンデンサーマイク＋ポップフィルター→コンプ/EQの使い方</b>に投資する方が、狙う音像に速く着く。<span class="x">録音側で埋まる</span>。</p></div>  </div>
+
+  <div class="subhd">⑥ 喋るように乗せる — 後ノリ（レイドバック）</div>
+  <div class="note" style="border-left-color:#c79bf2"><span class="cf sure">✅</span> <b>音節をビートより"少し後ろ"に置くとリラックスして聞こえる</b>（前ノリ＝緊張・疾走）。声を張らない分を<b>ビートと余白（間）が肩代わり</b>。<span class="cf guess">📖</span> ただし<b>土台はジャストで置けること</b>＝均等に置ける上で初めて後ろにもたれられる（→「ポケット・プレーヤー」「フロウ・スコープ」で体で掴め）。メロウ/ジャジーなビート選び自体が、脱力デリバリーを成立させる。</div>
+
+  <div class="subhd">⑦ 毎日15分メニュー（"楽に鳴る"が基準・強度より一貫性）</div>
+  <div class="ladder"><div class="lstep"><div class="ln">2分</div><div><b>呼吸</b>：上のブレス・トレーナー（腹式＋「スーー」を一定に長く）</div></div><div class="lstep"><div class="ln">2分</div><div><b>あくび・ため息</b>：喉の力みをリセット、開いて下げる</div></div><div class="lstep"><div class="ln">4分</div><div><b>ハミング</b>：響く場所を探す（前に集める）</div></div><div class="lstep"><div class="ln">4分</div><div><b>ストロー／リップロール</b>：低↔高サイレンで効率化</div></div><div class="lstep"><div class="ln">2分</div><div><b>滑舌</b>：早口言葉は<b>まずゆっくり正確に</b>→徐々に速く</div></div><div class="lstep"><div class="ln">1分</div><div><b>クールダウン</b>：軽いハミング下降＋水分</div></div>  </div>
+
+  <div class="allng">
+    <h4>🚫 発声のやらないリスト（毎回ここを通せ）</h4>
+    <ol>
+      <li><b>低い声を"作りにいく"</b>。＝新しい力み。<b>脱力して"戻る"</b>のが正解。<span class="cf sure">✅</span></li>
+      <li><b>喉頭を力ずくで押し下げる</b>。息漏れ・柔軟性喪失・力み。あくびで開いた結果下げる。<span class="cf sure">✅</span></li>
+      <li><b>音量・ピッチを上げて芯を出そうとする</b>。芯は共鳴と効率の産物＝音量と独立。<span class="cf sure">✅</span></li>
+      <li><b>大声・絶叫の練習／痛みを我慢</b>。声帯結節・ポリープの原因（フォノトラウマ）。<b>痛み＝止めるサイン</b>。<span class="cf sure">✅</span></li>
+      <li><b>息を出しすぎる</b>。最適化であって最大化じゃない。<span class="cf sure">✅</span></li>
+      <li><b>録音の声を嫌って萎縮する</b>。慣れる＋録音で濃くする方が速い。<span class="cf guess">📖</span></li>
+      <li><b>「ラップ声」を作る</b>。＝力む＝高い声。<b>素の喋りのまま乗せるのが一番カッコいい</b>（お前のレーンでは）。<span class="cf guess">📖</span></li>
+    </ol>
+  </div>
+
+  <div class="note" style="border-left-color:var(--line);font-size:12px"><b>出典</b>：<a href="https://en.wikipedia.org/wiki/Bone_conduction" target="_blank" rel="noopener">骨伝導</a>・<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9929504/" target="_blank" rel="noopener">骨伝導の低音強調（査読）</a>／<a href="https://en.wikipedia.org/wiki/Voice_confrontation" target="_blank" rel="noopener">Voice Confrontation</a>／<a href="https://vocology.utah.edu/_resources/documents/major_benefits_of_sovtes_titze.pdf" target="_blank" rel="noopener">SOVTの効果（Titze）</a>／<a href="https://www.voicescience.org/lexicon/breath-support/" target="_blank" rel="noopener">Breath Support（腹式の実像）</a>／<a href="https://www.neumann.com/en-us/knowledge-base/neumann-im-homestudio/homestudio-academy/what-is-the-proximity-effect" target="_blank" rel="noopener">近接効果（Neumann）</a>／<a href="https://www.asha.org/public/speech/disorders/vocal-cord-nodules-and-polyps/" target="_blank" rel="noopener">声帯結節・ポリープ（ASHA）</a>。<br>⚠️ <b>「横隔膜で支える」は不正確</b>（横隔膜＝吸気筋・支えは腹/体幹。ただし深い吸気は喉頭を下げ倍音を増やす利点あり）／<b>5lack・唾奇の発声法は本人の一次言及なし＝"脱力と評される"の伝聞</b>／コンプ数値・囁き系の設定は流派で幅あり。</div>
 
   <div class="shead" style="margin-top:64px"><span class="num" style="background:linear-gradient(145deg,#ef8a93,#cf3b4a)">上級</span><h2>やばいフロウの探求 — "音楽としていける"領域へ</h2></div>
   <p class="sub">リズムが"正しく"乗れたら、その先は<b>「バチやばい・かっこいい・音楽としていけてる」</b>フロウ。ここは正解じゃなく<b style="color:#ef8a93">美学と引き出しの世界</b>。上手いラッパーが無意識にやってる"やばさの正体"を、言葉にして盗む。</p>
@@ -4923,6 +5068,7 @@ function stopAllMedia(){
   if(window.__stopFPsw) window.__stopFPsw();
   if(window.__stopGroove) window.__stopGroove();
   if(window.__stopHook) window.__stopHook();
+  if(window.__stopBreath) window.__stopBreath();
   if(window.__stopMicroTiming) window.__stopMicroTiming();
 }
 
@@ -6442,6 +6588,41 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
   html+='<div class="fstar" style="left:150px;top:232px"><div class="fs-dot"></div><div class="fs-lbl">★華独 コザ</div></div>';
   EDGES.forEach(function(e){ html+='<div class="fedge" style="left:'+e.x+'px;top:'+e.y+'px">'+e.t+'</div>'; });
   host.innerHTML=html;
+})();
+
+/* ================= BREATH TRAINER ================= */
+(function(){
+  var circle=document.getElementById('brCircle'); if(!circle)return;
+  var phaseEl=document.getElementById('brPhase'), countEl=document.getElementById('brCount'), playBtn=document.getElementById('brPlay');
+  var PRESETS={
+    base:{nm:'基礎',sub:'4-4-8',seq:[['吸う',4,0.55,1.15],['止める',4,1.15,1.15],['吐く（スーー）',8,1.15,0.55]]},
+    long:{nm:'ロング息',sub:'4-12',seq:[['吸う',4,0.55,1.15],['吐く（スーー）',12,1.15,0.55]]},
+    calm:{nm:'落ち着く',sub:'4-7-8',seq:[['吸う',4,0.55,1.15],['止める',7,1.15,1.15],['吐く',8,1.15,0.55]]}
+  };
+  var cur='base', running=false, timer=null, si=0, t0=0;
+  function apply(scale){ circle.style.transform='scale('+scale+')'; }
+  function tick(){
+    var seq=PRESETS[cur].seq, step=seq[si], dur=step[1]*1000;
+    var el=Date.now()-t0, k=Math.min(1,el/dur);
+    apply(step[2]+(step[3]-step[2])*k);
+    var rem=Math.ceil(step[1]-el/1000); if(rem<1)rem=1;
+    phaseEl.textContent=step[0]; countEl.textContent=rem;
+    if(el>=dur){ si=(si+1)%seq.length; t0=Date.now(); }
+  }
+  function start(){ running=true; si=0; t0=Date.now(); playBtn.textContent='❚❚ 止める'; tick(); timer=setInterval(tick,80); }
+  function stop(){ running=false; clearInterval(timer); playBtn.textContent='▶ 始める'; phaseEl.textContent='準備'; countEl.textContent='—'; apply(0.7); }
+  window.__stopBreath=function(){ if(running)stop(); };
+  playBtn.addEventListener('click',function(){ running?stop():start(); });
+  (function(){
+    var pe=document.getElementById('brPreset');
+    Object.keys(PRESETS).forEach(function(k,ix){
+      var P=PRESETS[k], b=document.createElement('button');
+      b.className='pk-btn'+(ix===0?' on':''); b.innerHTML=P.nm+'<small>'+P.sub+'</small>';
+      b.addEventListener('click',function(){ cur=k; pe.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); if(running){ stop(); start(); } });
+      pe.appendChild(b);
+    });
+  })();
+  apply(0.7);
 })();
 
 initReveal();
