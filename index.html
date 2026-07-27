@@ -3599,7 +3599,93 @@
     この流れと道具を知ると、<b>自分の曲がグッと"曲らしく"なる</b>。全部たとえ話で。</p>
   </div>
 
-  <div class="shead"><span class="num">★</span><h2>曲の設計図 — 構成 × 盛り上げ × コード</h2></div>
+  <style>
+    .fsWrap{margin:14px 0 6px}
+    .fsSplit{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+    @media(max-width:640px){.fsSplit{grid-template-columns:1fr}}
+    .fsCol{border-radius:14px;padding:16px 16px 14px;border:1px solid #2a2c36;background:#15161c}
+    .fsCol.you{border-color:#2f5a3a;background:#111a13}
+    .fsCol.pro{border-color:#3a3548;background:#16141c}
+    .fsCol h4{margin:0 0 4px;font-size:14px;font-weight:800;letter-spacing:.02em}
+    .fsCol.you h4{color:#7fe0a0}.fsCol.pro h4{color:#b9a8e0}
+    .fsCol .cap{font-size:11px;color:var(--ink3);margin:0 0 10px}
+    .fsList{list-style:none;margin:0;padding:0}
+    .fsList li{font-size:13px;line-height:1.55;padding:6px 0 6px 24px;position:relative;border-top:1px dashed #2a2c36}
+    .fsList li:first-child{border-top:0}
+    .fsCol.you li::before{content:"✔";position:absolute;left:2px;color:#5fd08a;font-weight:800}
+    .fsCol.pro li::before{content:"💰";position:absolute;left:0;font-size:12px}
+    .fsList li b{color:#f2f2f4}
+    .fsThree{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+    @media(max-width:640px){.fsThree{grid-template-columns:1fr}}
+    .fsStep{background:#15161c;border:1px solid #2a2c36;border-radius:14px;padding:14px 14px 12px;position:relative}
+    .fsStep .no{width:26px;height:26px;border-radius:50%;background:linear-gradient(145deg,#3f9b63,#276b41);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+    .fsStep h5{margin:0 0 3px;font-size:15px;color:#f2f2f4;font-weight:800}
+    .fsStep p{margin:0;font-size:12px;line-height:1.55;color:var(--ink3)}
+    .fsToday{background:linear-gradient(145deg,#1a1508,#12100a);border:1px solid #5a4a15;border-radius:14px;padding:18px;margin:16px 0 6px}
+    .fsToday .t{font-size:12px;font-weight:800;color:#e6c04a;letter-spacing:.05em;margin-bottom:6px}
+    .fsToday .m{font-size:16px;font-weight:800;color:#f2f2f4;line-height:1.5}
+    .fsToday .s{font-size:12.5px;color:var(--ink3);margin-top:6px;line-height:1.6}
+  </style>
+  <div class="shead"><span class="num" style="background:linear-gradient(145deg,#3f9b63,#276b41)">🎬</span><h2>はじめの一歩 — 撮ってプロに渡すまで</h2></div>
+  <p class="sub"><b style="color:#7fe0a0">ハードル、実は君が思ってる10分の1。</b> ミックス以降をプロに払うなら、<b>作曲もDAWの作り込みも忘れていい</b>。君の仕事はたった3つ。この地図に迷ったらいつでも戻ってこい。</p>
+
+  <div class="fsWrap">
+    <div class="fsSplit">
+      <div class="fsCol you">
+        <h4>🎤 君がやる（これだけ）</h4>
+        <p class="cap">撮って渡すまでが担当</p>
+        <ul class="fsList">
+          <li><b>ビートを用意する</b>（買う or フリー）</li>
+          <li><b>歌詞を書く</b>（作詞ラボ・多層の言葉タブ）</li>
+          <li><b>録音して、そのまま渡す</b>（生の声だけ）</li>
+        </ul>
+      </div>
+      <div class="fsCol pro">
+        <h4>🎛 プロがやる（お金で買う）</h4>
+        <p class="cap">ここは悩まなくていい＝正しい判断</p>
+        <ul class="fsList">
+          <li><b>ミックス</b>（声とビートを混ぜて磨く）</li>
+          <li><b>マスタリング</b>（他の曲に負けない音圧に）</li>
+          <li>エフェクト・音作りの最終仕上げ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="shead" style="margin-top:34px"><span class="num" style="background:#2f5a3a">1</span><h2>君の3ステップ</h2></div>
+  <div class="fsThree">
+    <div class="fsStep"><div class="no">1</div><h5>ビートを用意</h5><p>YouTubeで「<b style="color:#f2f2f4">type beat</b>」＋好きなアーティスト名で検索 →<b>BeatStars</b>で買う（リース$20〜）。無料なら「<b>free for profit</b>」明記のもの。</p></div>
+    <div class="fsStep"><div class="no">2</div><h5>歌詞を書く</h5><p><b style="color:#f2f2f4">作詞ラボ</b>と<b>多層の言葉</b>タブで。テーマは君の芯＝<b>解毒</b>。まず1バース(16小節)から。</p></div>
+    <div class="fsStep"><div class="no">3</div><h5>録音して渡す</h5><p>今のUSBマイク＆<b style="color:#f2f2f4">REAPER</b>でOK。エフェクトかけず<b>生の声だけ</b>書き出してプロへ。</p></div>
+  </div>
+
+  <div class="note" style="border-left-color:#9bd58f">💻 <b style="color:#7fe0a0">DAWは？ → REAPERでいい。もう入ってる。終わり。</b> プロも使う本物で$60（60日タダで試せる）。<b>これ以上DAW探しは時間の無駄＝罠。</b> 撮って渡すだけなら、REAPERは「<b>録音する箱</b>」として使うだけ＝ミックスのツマミは触らなくていい（プロの仕事）。「もっと軽いの…」で乗り換えるな＝もう触り始めてるのが一番の近道。使い方は下の<b>「REAPER実践」</b>節へ。</div>
+
+  <div class="note" style="border-left-color:#c85b8f">⚖️ <b style="color:#f0757f">ビートだけ法律に注意（原盤権）：</b> 買った/フリー(free for profit)のビートは<b>堂々と配信OK</b>。🚫<b>絶対NG＝他人の曲の音源に乗せて配信</b>（できないし、ヘッズにも本人にも怒られる）。練習で口ずさむのは自由、but 世に出すのは自分の権利があるビートだけ。</div>
+
+  <div class="shead" style="margin-top:34px"><span class="num" style="background:#2f5a3a">2</span><h2>録音は今のマイクで始めていい（守るのは3つ）</h2></div>
+  <div class="fsThree">
+    <div class="fsStep"><div class="no">A</div><h5>ゲイン</h5><p>歌って<b style="color:#f2f2f4">赤にならない所</b>まで下げる（-6dB目安）。歪んだ声はプロでも直せない。</p></div>
+    <div class="fsStep"><div class="no">B</div><h5>部屋</h5><p><b style="color:#f2f2f4">クローゼット／毛布の前</b>で録る＝無料の最強防音。反響を消すだけで激変。</p></div>
+    <div class="fsStep"><div class="no">C</div><h5>ダブル</h5><p>同じ言葉を<b style="color:#f2f2f4">2回録って重ねる</b>＝一気にプロっぽくなる。サビは必ず。</p></div>
+  </div>
+
+  <div class="shead" style="margin-top:34px"><span class="num" style="background:#2f5a3a">3</span><h2>プロに渡す時のチェック（安く済む＆喜ばれる）</h2></div>
+  <p class="sub">ここを揃えるだけで、仕上がりが段違い＆やり取りが減って<b>料金も抑えやすい</b>。プロが一番困るのは「情報が無い生ファイルだけ」。</p>
+  <ul class="fsList" style="max-width:640px;background:#15161c;border:1px solid #2a2c36;border-radius:14px;padding:14px 18px">
+    <li style="padding-left:24px;position:relative"><span style="position:absolute;left:2px;color:#5fd08a;font-weight:800">✔</span> <b>「ミックスしてない生の声だけ」</b>を書き出す（自分でエフェクトをかけない）</li>
+    <li style="padding-left:24px;position:relative"><span style="position:absolute;left:2px;color:#5fd08a;font-weight:800">✔</span> <b>BPMとキー</b>を伝える（分からなければビートのファイル名でOK）</li>
+    <li style="padding-left:24px;position:relative"><span style="position:absolute;left:2px;color:#5fd08a;font-weight:800">✔</span> <b>リファレンス曲を1つ</b>（「こういう質感にしたい」＝言葉より1曲が速い）</li>
+    <li style="padding-left:24px;position:relative"><span style="position:absolute;left:2px;color:#5fd08a;font-weight:800">✔</span> <b>ダブル・アドリブは別トラックで分けて書き出す</b>（パラ書き出し＝プロが自由に混ぜられる）</li>
+  </ul>
+
+  <div class="fsToday">
+    <div class="t">🔥 今日の一歩（1個だけ）</div>
+    <div class="m">type beatを1つ探して、気に入ったのをブックマークする。</div>
+    <div class="s">今日はそれで100点。次に歌詞、その次に録音。<b>1個ずつでいい</b>＝完璧に揃えてから、をやると一生始まらない。走りながら覚える。</div>
+  </div>
+
+  <div class="shead" style="margin-top:44px"><span class="num">★</span><h2>曲の設計図 — 構成 × 盛り上げ × コード</h2></div>
   <p class="sub">「曲の構成・盛り上げ・コード進行がまったく分からん」を<b>目で見て腹落ち</b>させる。1曲は<b>ブロックの積み木</b>＝どこで盛り上げてどこで落とすか（＝<b style="color:var(--gold2)">ダイナミクス＝盛り上げ</b>）を設計できると、一気に"曲"になる。</p>
 
   <div class="tool">
