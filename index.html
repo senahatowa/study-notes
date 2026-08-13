@@ -1166,12 +1166,14 @@
   </div>
 
   <div class="shead"><span class="num">🗺</span><h2>何がどこにある？ — 押すと、その場所に一発で飛ぶ</h2></div>
+  <div class="note" style="border-left-color:#8fc0e8;margin-bottom:6px"><span style="font-size:15px">🔈</span> <b>スマホで音が出ない時：</b>①<b>マナーモード（消音スイッチ）を解除</b> ②<b>音量を上げる</b> ③一度画面をタップしてから▶を押す。<span class="cf chk">⚠️iPhoneは消音スイッチONだと"触って鳴らす"音が出ない仕様</span></div>
   <p class="sub" style="color:var(--ink3);font-size:12px">最終更新 2026-07-13。この「マップ」が見えていれば最新版。見えなければ <b>⌘+Shift+R</b>（強制リロード）で更新。</p>
   <p class="sub">タブが多くて迷子になったらここ。特に<b>「触って学ぶツール」</b>はここから一発で開ける。</p>
 
   <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:16px 0 6px">🎛 触って学ぶ（お前の武器・イメージで腹落ち）</div>
   <div class="qcards">
     <div class="qcard" data-jump="rhythm|fsGrid" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">▶ FLOW</div><h3>フロウ・スコープ</h3><p>同じ歌詞を棒読み/裏/食い/3連…<b>7通り</b>で見て×聴く。お前の課題（食い・3連）直撃</p></div>
+    <div class="qcard" data-jump="beats|beattypes" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">🎨 種類</div><h3>ビートの種類（Trap/Chill/Lo-Fi）</h3><p>Trap・ローファイ・ブーンバップ・ドリル・沖縄…<b>9タイプのBPM・ドラム・乗せ方・代表曲</b></p></div>
     <div class="qcard" data-jump="beats|bxGrid"><div class="n">🎛 BEAT</div><h3>ビート解剖プレーヤー</h3><p>キック/ベース/ハット/うわものを<b>M/Sで1個ずつ聴き分け</b>。楽器の聞き分け特訓</p></div>
     <div class="qcard" data-jump="produce|smBlocks"><div class="n">🗺 SONG</div><h3>曲の設計図</h3><p>曲の<b>構成＆盛り上げ</b>マップ＋<b>コード進行</b>を▶で鳴らす</p></div>
     <div class="qcard" data-jump="lab|"><div class="n">👂 EAR</div><h3>音感ラボ</h3><p>耳トレクイズ・フロウラボ・スケール（<b>琉球音階</b>も）</p></div>
@@ -2445,7 +2447,7 @@
   </div>
 
   <!-- GENRES -->
-  <div class="shead"><span class="num">04</span><h2>ビートのジャンル図鑑 — 乗せ方が変わる</h2></div>
+  <div class="shead" id="beattypes"><span class="num">04</span><h2>ビートの種類（Trap / Lo-Fi / Boom Bap …）— 乗せ方が変わる図鑑</h2></div>
   <p class="sub">ビートにも"流派"があり、テンポ・ドラムの質感・乗せ方が違います。上のプレーヤーで音も聴き比べを。代表曲は「名盤を聴く」で再生できます。</p>
   <div class="genres">
     <div class="genre" style="--gc:#f2d188"><h4>ブーンバップ <span style="font-size:12px;color:var(--ink3)">Boom Bap</span></h4><div class="bpm">⏱ 約85–95 BPM</div><div class="grow"><b>ドラム：</b>"ブーン(キック)・バップ(スネア)"の太く跳ねる90s王道。少しスウィングして人間的。</div><div class="grow"><b>乗せ方：</b>言葉をハッキリ立て、韻とパンチラインで聴かせる。余白を活かす王道フロウ。</div><div class="gex"><b>代表曲：</b>Nas / Wu-Tang / Notorious B.I.G.</div></div>
@@ -6759,6 +6761,24 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     });
   })();
   apply(0.7);
+})();
+
+/* ================= AUDIO UNLOCK（スマホ対策） ================= */
+(function(){
+  var unlocked=false, silent=null;
+  function unlock(){
+    if(unlocked) return;
+    try{
+      if(!silent){ silent=new Audio("data:audio/wav;base64,UklGRkQDAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YSADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="); silent.loop=true; silent.volume=0.001; silent.setAttribute('playsinline',''); }
+      var pr=silent.play(); if(pr&&pr.then) pr.then(function(){unlocked=true;}).catch(function(){});
+    }catch(e){}
+    try{
+      var C=window.AudioContext||window.webkitAudioContext;
+      if(C){ var c=new C(); if(c.state==='suspended')c.resume();
+        var b=c.createBuffer(1,1,22050),src=c.createBufferSource(); src.buffer=b; src.connect(c.destination); src.start(0); }
+    }catch(e){}
+  }
+  ['pointerdown','touchend','mousedown','keydown'].forEach(function(ev){ document.addEventListener(ev,unlock,{passive:true}); });
 })();
 
 initReveal();
