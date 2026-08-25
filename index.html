@@ -3249,7 +3249,7 @@
   <p class="sub">歌詞を貼って<b>[解析]</b>を押すと、<b>各行が拍グリッドに乗る（フロウ）＋母音を色分け（ライム）</b>。<b>同じ色＝同じ母音＝踏めてる</b>。左のA/B/Cが同じ行同士が韻を踏んでる。作詞しながら「ここ踏めてる/踏めてない」が一目で分かる。<span class="cf sure">✅漢字も読みを自動判定（kuromoji）</span></p>
   <textarea class="fl-ta" id="flTxt" placeholder="ここに歌詞を貼る（1行ずつ）&#10;&#10;例：&#10;今夜も一人 街を歩く&#10;心の隅で 答えを探す&#10;痛みの奥に 光を灯す"></textarea>
   <div class="rz-ctl"><button class="rz-play" id="flGo">▶ 解析</button><label>分割</label><span class="pk-btns" id="flSub" style="margin:0"></span><label>韻の判定</label><span class="pk-btns" id="flTail" style="margin:0"></span></div>
-  <div class="fl-stat" id="flStat">歌詞を貼って▶解析。初回だけ漢字の読み辞書を読み込む（数秒）。<span class="cf chk">🔈音は使わない＝消音でもOK</span></div>
+  <div class="fl-stat" id="flStat">歌詞を貼って▶解析。<b>初回だけ漢字の読み辞書をダウンロード（約17MB・以降キャッシュ）</b>。<span class="cf chk">🔈音は使わない＝消音でもOK</span></div>
   <div class="fl-legend" id="flLegend"></div>
   <div class="fl-out" id="flOut"></div>
 
@@ -7223,9 +7223,9 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
   function setStat(h){ document.getElementById('flStat').innerHTML=h; }
   function ensureTok(cb){
     if(TOK){ cb(null,TOK); return; }
-    function build(){ try{ kuromoji.builder({dicPath:'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/'}).build(function(e,t){ if(e){cb(e);return;} TOK=t; cb(null,t); }); }catch(e){ cb(e); } }
+    function build(){ try{ kuromoji.builder({dicPath:'dict/'}).build(function(e,t){ if(e){cb(e);return;} TOK=t; cb(null,t); }); }catch(e){ cb(e); } }
     if(window.kuromoji){ build(); return; }
-    var sc=document.createElement('script'); sc.src='https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js';
+    var sc=document.createElement('script'); sc.src='kuromoji.js';
     sc.onload=build; sc.onerror=function(){ cb(new Error('script')); };
     document.head.appendChild(sc);
   }
