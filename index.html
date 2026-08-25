@@ -1183,6 +1183,31 @@
   .fc-play{background:linear-gradient(145deg,#f2d188,#c79a3c);color:#20180a;border:0;border-radius:8px;padding:6px 13px;font-weight:900;font-size:12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .fc-play.on{background:linear-gradient(145deg,#e58d7e,#c8503e);color:#fff}
   .fc-send{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:6px 10px;font-weight:800;font-size:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  /* ===== フロウ&ライム・ビューア ===== */
+  .fl-ta{width:100%;min-height:120px;font-size:15px;line-height:1.75;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);resize:vertical;font-family:inherit;box-sizing:border-box}
+  .fl-ta:focus{outline:none;border-color:var(--goldsoft)}
+  .fl-stat{font-size:12px;color:var(--ink3);margin:9px 0;line-height:1.6}
+  .fl-legend{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 2px;font-size:11px;align-items:center}
+  .fl-vch{display:inline-flex;align-items:center;gap:4px;font-weight:800;color:var(--ink2)}
+  .fl-sw{width:14px;height:14px;border-radius:4px;display:inline-block}
+  .fl-out{margin-top:8px}
+  .fl-line{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.05)}
+  .fl-badge{flex:0 0 auto;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#15110a;margin-top:20px}
+  .fl-body{flex:1;min-width:0}
+  .fl-src{font-size:13px;color:var(--ink);font-weight:700;margin-bottom:5px}
+  .fl-bars{display:flex;flex-wrap:nowrap;gap:9px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:3px}
+  .fl-bar{display:flex;gap:2px;flex:0 0 auto}
+  .fl-cell{width:20px;height:24px;border-radius:4px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#15110a;flex:0 0 auto;box-sizing:border-box}
+  .fl-cell.beat{border-left:2px solid #454550}
+  .fl-cell.empty{color:transparent}
+  .fl-cell.v-a{background:#e07a5f;border-color:transparent}
+  .fl-cell.v-i{background:#5b9bd5;border-color:transparent}
+  .fl-cell.v-u{background:#7bbf7b;border-color:transparent}
+  .fl-cell.v-e{background:#e8c86a;border-color:transparent}
+  .fl-cell.v-o{background:#b98bd6;border-color:transparent}
+  .fl-cell.v-n{background:#8a8a92;border-color:transparent;color:#fff}
+  .fl-cell.v-x{background:var(--panel2);color:var(--ink3)}
+  .fl-info{font-size:10px;color:var(--ink3);margin-top:5px}
   @media(max-width:560px){#gStop{right:10px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:12px 15px;font-size:13px}}
 </style>
 </head>
@@ -1242,6 +1267,7 @@
 
   <div style="font-weight:800;color:var(--gold2);font-size:13px;margin:16px 0 6px">🎛 触って学ぶ（お前の武器・イメージで腹落ち）</div>
   <div class="qcards">
+    <div class="qcard" data-jump="rhythm|flTxt" style="border-color:var(--gold2)"><div class="n" style="color:var(--gold2)">🎤 韻</div><h3>フロウ&ライム・ビューア</h3><p><b>歌詞を貼ると勝手に譜割り＆韻が見える</b>。漢字も読み自動判定。母音を色分け＋踏んでる行をA/B/C表示</p></div>
     <div class="qcard" data-jump="rhythm|fsGrid" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">▶ FLOW</div><h3>フロウ・スコープ</h3><p>同じ歌詞を棒読み/裏/食い/3連…<b>7通り</b>で見て×聴く。お前の課題（食い・3連）直撃</p></div>
     <div class="qcard" data-jump="beats|beattypes" style="border-color:var(--goldsoft)"><div class="n" style="color:var(--gold2)">🎨 種類</div><h3>ビートの種類（Trap/Chill/Lo-Fi）</h3><p>Trap・ローファイ・ブーンバップ・ドリル・沖縄…<b>9タイプのBPM・ドラム・乗せ方・代表曲</b></p></div>
     <div class="qcard" data-jump="beats|bxGrid"><div class="n">🎛 BEAT</div><h3>ビート解剖プレーヤー</h3><p>キック/ベース/ハット/うわものを<b>M/Sで1個ずつ聴き分け</b>。楽器の聞き分け特訓</p></div>
@@ -3218,6 +3244,14 @@
   <p class="sub">ラップの譜割り＝<b>声をどこに置くか</b>。使える型を全部集めた。<b>▶で聴いて頭に入れる</b>→「→ビルダー」でグルーブに乗せて練習。<b>頭の中でいつでも出せる</b>ようにするのが狙い。<span class="cf chk">🔈スマホは消音解除＋音量</span></p>
   <div class="pk-btns" id="fcCat"></div>
   <div class="fc-grid" id="fcGrid"></div>
+
+  <div class="subhd">⑤ ★フロウ&ライム・ビューア — 歌詞を貼ると"譜割り＆韻"が勝手に見える</div>
+  <p class="sub">歌詞を貼って<b>[解析]</b>を押すと、<b>各行が拍グリッドに乗る（フロウ）＋母音を色分け（ライム）</b>。<b>同じ色＝同じ母音＝踏めてる</b>。左のA/B/Cが同じ行同士が韻を踏んでる。作詞しながら「ここ踏めてる/踏めてない」が一目で分かる。<span class="cf sure">✅漢字も読みを自動判定（kuromoji）</span></p>
+  <textarea class="fl-ta" id="flTxt" placeholder="ここに歌詞を貼る（1行ずつ）&#10;&#10;例：&#10;今夜も一人 街を歩く&#10;心の隅で 答えを探す&#10;痛みの奥に 光を灯す"></textarea>
+  <div class="rz-ctl"><button class="rz-play" id="flGo">▶ 解析</button><label>分割</label><span class="pk-btns" id="flSub" style="margin:0"></span><label>韻の判定</label><span class="pk-btns" id="flTail" style="margin:0"></span></div>
+  <div class="fl-stat" id="flStat">歌詞を貼って▶解析。初回だけ漢字の読み辞書を読み込む（数秒）。<span class="cf chk">🔈音は使わない＝消音でもOK</span></div>
+  <div class="fl-legend" id="flLegend"></div>
+  <div class="fl-out" id="flOut"></div>
 
   <div class="shead" id="pocketplayer"><span class="num">★</span><h2>ポケット・プレーヤー — 前/ジャスト/後ノリを聴き比べる</h2></div>
   <p class="sub">「ノリ＝ポケット」は<b>ビートに対して声をミリ秒どこに置くか</b>。同じフロウを<b>前ノリ／ジャスト／後ノリ</b>で鳴らして、<b>色気と攻めの違いを耳で</b>掴め。<b>唾奇/5lackの気持ちよさ＝後ノリ</b>の正体。</p>
@@ -7164,6 +7198,74 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
   });
   (function(){ var ce=document.getElementById('fcCat'); CATS.forEach(function(k,ix){ var b=document.createElement('button'); b.className='pk-btn'+(ix===0?' on':''); b.textContent=k; b.addEventListener('click',function(){ curCat=k; ce.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); stop(); render(); }); ce.appendChild(b); }); })();
   render();
+})();
+
+/* ================= フロウ&ライム・ビューア（kuromoji） ================= */
+(function(){
+  var TA=document.getElementById('flTxt'); if(!TA) return;
+  var sub=16, tailN=2, TOK=null, loading=false;
+  var VMAP={'ア':'a','イ':'i','ウ':'u','エ':'e','オ':'o','カ':'a','キ':'i','ク':'u','ケ':'e','コ':'o','ガ':'a','ギ':'i','グ':'u','ゲ':'e','ゴ':'o','サ':'a','シ':'i','ス':'u','セ':'e','ソ':'o','ザ':'a','ジ':'i','ズ':'u','ゼ':'e','ゾ':'o','タ':'a','チ':'i','ツ':'u','テ':'e','ト':'o','ダ':'a','ヂ':'i','ヅ':'u','デ':'e','ド':'o','ナ':'a','ニ':'i','ヌ':'u','ネ':'e','ノ':'o','ハ':'a','ヒ':'i','フ':'u','ヘ':'e','ホ':'o','バ':'a','ビ':'i','ブ':'u','ベ':'e','ボ':'o','パ':'a','ピ':'i','プ':'u','ペ':'e','ポ':'o','マ':'a','ミ':'i','ム':'u','メ':'e','モ':'o','ヤ':'a','ユ':'u','ヨ':'o','ラ':'a','リ':'i','ル':'u','レ':'e','ロ':'o','ワ':'a','ヲ':'o','ヴ':'u'};
+  var SMALL={'ャ':'a','ュ':'u','ョ':'o','ァ':'a','ィ':'i','ゥ':'u','ェ':'e','ォ':'o'};
+  var PAL=['#f2d188','#8fc0e8','#9bd58f','#e58d7e','#c79bf2','#f0a868','#7bd5c0','#d59bbf','#a8c98f','#d5b58f'];
+  function hira2kata(s){ return (s||'').replace(/[ぁ-ゖ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+0x60);}); }
+  function esc(s){ return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function morasFromKana(kata){
+    var out=[];
+    for(var i=0;i<kata.length;i++){ var c=kata[i];
+      if(c==='ー'){ if(out.length)out.push({k:'ー',v:out[out.length-1].v}); continue; }
+      if(SMALL[c]){ if(out.length){ out[out.length-1].k+=c; out[out.length-1].v=SMALL[c]; } continue; }
+      if(c==='ッ'){ out.push({k:'ッ',v:''}); continue; }
+      if(c==='ン'){ out.push({k:'ン',v:'n'}); continue; }
+      if(VMAP[c]){ out.push({k:c,v:VMAP[c]}); }
+    }
+    return out;
+  }
+  function setStat(h){ document.getElementById('flStat').innerHTML=h; }
+  function ensureTok(cb){
+    if(TOK){ cb(null,TOK); return; }
+    function build(){ try{ kuromoji.builder({dicPath:'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/'}).build(function(e,t){ if(e){cb(e);return;} TOK=t; cb(null,t); }); }catch(e){ cb(e); } }
+    if(window.kuromoji){ build(); return; }
+    var sc=document.createElement('script'); sc.src='https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js';
+    sc.onload=build; sc.onerror=function(){ cb(new Error('script')); };
+    document.head.appendChild(sc);
+  }
+  function moraLine(tok,ln){ var toks=tok.tokenize(ln),m=[]; toks.forEach(function(t){ var rd=(t.reading&&t.reading!=='*')?t.reading:hira2kata(t.surface_form); m=m.concat(morasFromKana(rd)); }); return m; }
+  function moraLineKana(ln){ return morasFromKana(hira2kata(ln)); } // 漢字なしフォールバック
+  function renderLegend(){
+    var vch=[['あ','#e07a5f'],['い','#5b9bd5'],['う','#7bbf7b'],['え','#e8c86a'],['お','#b98bd6'],['ん','#8a8a92']];
+    document.getElementById('flLegend').innerHTML='<span style="color:var(--ink3)">母音の色：</span>'+vch.map(function(v){return '<span class="fl-vch"><span class="fl-sw" style="background:'+v[1]+'"></span>'+v[0]+'</span>';}).join('');
+  }
+  function render(data,note){
+    var cnt={}; data.forEach(function(d){ var vs=d.moras.filter(function(m){return m.v&&m.v!=='n'&&m.v!=='';}).map(function(m){return m.v;}); d.vs=vs; d.key=vs.slice(-tailN).join(''); if(d.key)cnt[d.key]=(cnt[d.key]||0)+1; });
+    var groups={},li=0; data.forEach(function(d){ if(d.key&&cnt[d.key]>=2&&!(d.key in groups)){ groups[d.key]={letter:String.fromCharCode(65+li),color:PAL[li%PAL.length]}; li++; } });
+    var slots=sub, per=slots/4;
+    var html=data.map(function(d){
+      var g=groups[d.key];
+      var badge=g?'<div class="fl-badge" style="background:'+g.color+'">'+g.letter+'</div>':'<div class="fl-badge" style="background:#26262c;color:#6e6a60">·</div>';
+      var nbars=Math.max(1,Math.ceil(d.moras.length/slots)),bh='';
+      for(var b=0;b<nbars;b++){ bh+='<div class="fl-bar">'; for(var sl=0;sl<slots;sl++){ var idx=b*slots+sl,m=d.moras[idx],beat=(sl%per===0)?' beat':''; if(m){ var vc=m.v==='n'?'v-n':(m.v?'v-'+m.v:'v-x'); bh+='<div class="fl-cell '+vc+beat+'">'+m.k+'</div>'; } else { bh+='<div class="fl-cell empty'+beat+'"></div>'; } } bh+='</div>'; }
+      var info=d.moras.length+'音'+(nbars>1?' / '+nbars+'小節':' / 1小節')+(d.key?' / 韻(末尾'+tailN+'母音):'+d.key+(g?' ＝'+g.letter:''):'');
+      return '<div class="fl-line">'+badge+'<div class="fl-body"><div class="fl-src">'+esc(d.src)+'</div><div class="fl-bars">'+bh+'</div><div class="fl-info">'+info+'</div></div></div>';
+    }).join('');
+    document.getElementById('flOut').innerHTML=html; renderLegend();
+    var ng=Object.keys(groups).length;
+    setStat(data.length+'行を解析。'+(ng?'<b>'+ng+'組の韻</b>を検出（左のA/B/C…同じ文字＝踏んでる）。':'末尾'+tailN+'母音が揃う行は無し。')+' 同じ色のマス＝同じ母音。'+(note||''));
+  }
+  function analyze(){
+    var text=TA.value; if(!text.trim()){ setStat('歌詞を貼ってから▶解析。'); return; }
+    var lines=text.split(/\n/).map(function(s){return s.trim();}).filter(Boolean);
+    if(loading)return;
+    setStat('解析エンジン（漢字の読み辞書）を読込中…初回のみ数秒 ⏳'); loading=true;
+    ensureTok(function(err,tok){ loading=false;
+      if(err){ var data=lines.map(function(ln){return {src:ln,moras:moraLineKana(ln)};}); render(data,'<span style="color:#e58d7e">※辞書が読めなかった（オフライン等）＝かな部分だけで解析。漢字の韻は出ません。</span>'); return; }
+      var data=lines.map(function(ln){ return {src:ln,moras:moraLine(tok,ln)}; }); render(data);
+    });
+  }
+  document.getElementById('flGo').addEventListener('click',analyze);
+  (function(){ var se=document.getElementById('flSub'); [[8,'8分'],[16,'16分']].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'+(o[0]===16?' on':''); b.textContent=o[1]; b.addEventListener('click',function(){ sub=o[0]; se.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); if(document.getElementById('flOut').innerHTML)analyze(); }); se.appendChild(b); });
+    var te=document.getElementById('flTail'); [[2,'末尾2母音'],[3,'末尾3母音']].forEach(function(o){ var b=document.createElement('button'); b.className='pk-btn'+(o[0]===2?' on':''); b.textContent=o[1]; b.addEventListener('click',function(){ tailN=o[0]; te.querySelectorAll('.pk-btn').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); if(document.getElementById('flOut').innerHTML)analyze(); }); te.appendChild(b); });
+  })();
+  renderLegend();
 })();
 
 initReveal();
