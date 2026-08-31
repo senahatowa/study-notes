@@ -1196,6 +1196,33 @@
   .fl-vch{display:inline-flex;align-items:center;gap:4px;font-weight:800;color:var(--ink2)}
   .fl-sw{width:14px;height:14px;border-radius:4px;display:inline-block}
   .fl-out{margin-top:8px}
+  /* フロウ診断（コーチ） */
+  .fl-diag{margin:10px 0}
+  .fl-diag:empty{display:none}
+  .fl-diag-head{display:flex;align-items:center;gap:14px;background:linear-gradient(145deg,#16161b,#101014);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .fl-score{flex:0 0 auto;width:66px;height:66px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;line-height:1}
+  .fl-score span{font-size:11px;font-weight:700;opacity:.7;margin-left:1px}
+  .fl-score-lab{font-size:15px;font-weight:800;line-height:1.5}
+  .fl-pri{font-size:13px;font-weight:800;color:#e8c86a}
+  .fl-diag-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+  .fl-dn{border-radius:11px;padding:9px 12px;border:1px solid var(--line)}
+  .fl-dn.bad{background:rgba(229,141,126,.07);border-color:rgba(229,141,126,.28)}
+  .fl-dn.good{background:rgba(123,213,143,.06);border-color:rgba(123,213,143,.24)}
+  .fl-dn-t{font-size:13.5px;font-weight:800;color:#f2f2f4}
+  .fl-dn-b{font-size:12.5px;color:var(--ink2);line-height:1.6;margin-top:2px}
+  .fl-dn-b b{color:#e8c86a;font-weight:700}
+  /* DOPEの原則カード（学習層） */
+  .dope-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+  .dope-card{background:linear-gradient(145deg,#16161b,#101014);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .dope-card h5{margin:0 0 6px;font-size:15.5px;font-weight:900;color:#f2f2f4;line-height:1.4}
+  .dope-card h5 .n{color:var(--gold);font-weight:900;margin-right:6px}
+  .dope-oX{display:flex;flex-direction:column;gap:5px;margin:7px 0}
+  .dope-o,.dope-x{font-size:13px;line-height:1.55;padding:6px 11px;border-radius:9px}
+  .dope-o{background:rgba(123,213,143,.08);border:1px solid rgba(123,213,143,.25);color:#cfe9d2}
+  .dope-x{background:rgba(229,141,126,.07);border:1px solid rgba(229,141,126,.25);color:#e9cfc9}
+  .dope-o b{color:#9bd58f}.dope-x b{color:#e58d7e}
+  .dope-why{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-top:5px}
+  .dope-why .who{color:var(--gold);font-weight:700}
   .fl-line{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.05)}
   .fl-badge{flex:0 0 auto;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#15110a;margin-top:20px}
   .fl-body{flex:1;min-width:0}
@@ -3276,7 +3303,37 @@
   <div class="rz-ctl"><label>BPM</label><input type="range" id="flBpm" min="60" max="170" value="88"><span class="v" id="flBpmV">88</span><label>スウィング</label><input type="range" id="flSw" min="0" max="60" value="0"><span class="v" id="flSwV">0%</span></div>
   <div class="fl-stat" id="flStat">歌詞を貼って▶解析。<b>初回だけ漢字の読み辞書DL（約17MB・以降キャッシュ）</b>。<span class="cf chk">🔈再生する時はスマホ消音解除＋音量</span></div>
   <div class="fl-legend" id="flLegend"></div>
+  <div class="fl-diag" id="flDiagOut"></div>
   <div class="fl-out" id="flOut"></div>
+
+  <div class="subhd">⑥ ★DOPEの原則 — 「この載せ方はなぜかっこいい／なぜダサい」</div>
+  <p class="sub"><b>上の診断はこの原則で減点・加点してる。</b>ここを体に入れれば、診断なしで「かっこいい載せ方」が自分で分かる。素人が最短でクオリティに寄せる近道＝<b>ダサい型を知って避ける</b>こと。全部<b>唾奇・GADORO・Daichi Yamamoto・5lack</b>ら"気持ちいいと言われてる"実例から抜いた原則。</p>
+  <div class="dope-list">
+    <div class="dope-card"><h5><span class="n">1</span>ウラに乗る（後ノリ）＝色気</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：キメの語を「と」やジャストの<b>少し後ろ</b>に置く</div><div class="dope-x">❌ <b>ダサい</b>：全部 1・2・3・4 の<b>頭</b>に置く（棒読み・お経）</div></div>
+      <div class="dope-why">頭ベタは行進曲。裏と"後ろ"がハネと色気を作る。ジャストより数ミリ後ろ＝<span class="who">唾奇・5lack・Daichi Yamamoto</span>の気持ちよさの正体。</div></div>
+    <div class="dope-card"><h5><span class="n">2</span>韻は「同じ拍」に落とす＝決まる</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：同じ韻を<b>毎回同じ位置</b>（小節終盤やウラ）に着地</div><div class="dope-x">❌ <b>ダサい</b>：踏んでるのに落ちる拍が<b>毎回バラバラ</b></div></div>
+      <div class="dope-why">位置が揃う＝意図＝踏みが耳に届く。バラける＝偶然に聞こえて踏みが消える。<b>踏むより"どこで踏むか"</b>。</div></div>
+    <div class="dope-card"><h5><span class="n">3</span>タメ（余白）で刺す＝重み</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：一回<b>空けてから</b>重い一語を落とす</div><div class="dope-x">❌ <b>ダサい</b>：16分をベタ詰めして<b>全部言う</b>（忙しい・一語も立たない）</div></div>
+      <div class="dope-why">余白がない＝どの言葉も埋もれる。空白が次の一語に重みを乗せる。<span class="who">GADORO</span>の重さ＝空けてから刺す。</div></div>
+    <div class="dope-card"><h5><span class="n">4</span>反復してから崩す（AAAB）＝フック</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：同じフロウを<b>2〜3行反復</b>→<b>4行目で崩す</b></div><div class="dope-x">❌ <b>ダサい</b>：毎行変える（掴みどころゼロ）／ずっと同じ（単調）</div></div>
+      <div class="dope-why">反復が気持ちよさ（フック感）、崩しが飽き止め。<b>両方</b>要る。同じを繰り返す勇気がプロっぽさ。</div></div>
+    <div class="dope-card"><h5><span class="n">5</span>食い（前のめり）は"ここぞ"だけ＝攻め</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：小節の頭より<b>少し前</b>に突っ込んで一撃</div><div class="dope-x">❌ <b>ダサい</b>：<b>毎行</b>突っ込む（ただ走ってるだけ）</div></div>
+      <div class="dope-why">勢いは劇薬。常用すると効かない。決め所で一回だけ食う＝聴き手が起きる。</div></div>
+    <div class="dope-card"><h5><span class="n">6</span>跨ぎ（小節をまたぐ）＝流れる</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：文を<b>次の小節へ食い込ませる</b>（喋りフロウ）</div><div class="dope-x">❌ <b>ダサい</b>：毎行きっちり小節で<b>切る</b>（ぶつ切り・演歌）</div></div>
+      <div class="dope-why">切りすぎるとリズムが四角い。跨ぐと流れと自然な喋りが出る。<span class="who">Daichi Yamamoto</span>の会話っぽさ。</div></div>
+    <div class="dope-card"><h5><span class="n">7</span>開く母音を強い拍へ＝通る</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：<b>ア・オ</b>など開く母音のキメを強拍・裏の強い位置に</div><div class="dope-x">❌ <b>ダサい</b>：弱い母音（ウ・イ）でボソッとキメる</div></div>
+      <div class="dope-why">開く母音は遠くまで通る・映える。キメ＝一番聴かせたい音を、一番強い場所×一番通る母音で。</div></div>
+    <div class="dope-card"><h5><span class="n">8</span>密度の緩急＝展開</h5>
+      <div class="dope-oX"><div class="dope-o">✅ <b>DOPE</b>：詰める行と<b>空ける行</b>を混ぜる</div><div class="dope-x">❌ <b>ダサい</b>：全行<b>同じ密度</b>（フラット・退屈）</div></div>
+      <div class="dope-why">緩急が一節の中に展開を作る。速い→ゆっくり→速いの落差が"聴かせる"を生む。</div></div>
+  </div>
 
   <div class="shead" id="pocketplayer"><span class="num">★</span><h2>ポケット・プレーヤー — 前/ジャスト/後ノリを聴き比べる</h2></div>
   <p class="sub">「ノリ＝ポケット」は<b>ビートに対して声をミリ秒どこに置くか</b>。同じフロウを<b>前ノリ／ジャスト／後ノリ</b>で鳴らして、<b>色気と攻めの違いを耳で</b>掴め。<b>唾奇/5lackの気持ちよさ＝後ノリ</b>の正体。</p>
@@ -7317,7 +7374,51 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
       +'<div class="fl-pre"><button data-li="'+li+'" data-p="seq">詰め16分</button><button data-li="'+li+'" data-p="eighth">8分</button><button data-li="'+li+'" data-p="quarter">4分</button><button data-li="'+li+'" data-p="even">均等</button><button data-li="'+li+'" data-p="lay">ため</button><select data-li="'+li+'" class="fl-patsel">'+opts+'</select></div>'
       +'<div class="fl-bars">'+bars.join('')+'</div><div class="fl-info">'+info+'</div></div>';
   }
-  function render(){ recolorGroups(); document.getElementById('flOut').innerHTML=lines.map(lineHtml).join(''); }
+  /* ---- フロウ診断（コーチ）：置き方の良し悪しを判定して最短の直しを出す ---- */
+  function diagnose(){
+    var per=PER(), notes=[], score=100;
+    var placed=[]; lines.forEach(function(L){ L.slot.forEach(function(g){ placed.push(g); }); });
+    var total=placed.length; if(!total) return null;
+    // 1) オモテ/ウラ・バランス（拍頭ばかり＝棒読み）
+    var on=0; placed.forEach(function(g){ if(g%per===0)on++; }); var onR=on/total;
+    // 韻の核（各行の最後の母音マス）が拍頭か裏か
+    var rhymeOn=0, rhymeN=0;
+    lines.forEach(function(L){ if(!L.slot.length)return; var last=Math.max.apply(null,L.slot); rhymeN++; if(last%per===0)rhymeOn++; });
+    // 2) 韻の着地位置の揃い
+    var byKey={}; lines.forEach(function(L){ if(L.key&&groups[L.key]){ (byKey[L.key]=byKey[L.key]||[]).push(L); } });
+    var misaligned=[]; Object.keys(byKey).forEach(function(k){ var arr=byKey[k]; if(arr.length<2)return; var poss=arr.map(function(L){ return Math.max.apply(null,L.slot)%sub; }); var same=poss.every(function(p){return p===poss[0];}); if(!same)misaligned.push(groups[k].letter); });
+    // 3) 密度（詰めすぎ＝余白ゼロ）
+    var busy=0; lines.forEach(function(L){ var s=L.slot.slice().sort(function(a,b){return a-b;}); var run=1,mx=1; for(var i=1;i<s.length;i++){ if(s[i]===s[i-1]+1){run++;if(run>mx)mx=run;}else run=1; } if(mx>=8)busy++; });
+    // 4) 反復と展開
+    var sigs=lines.map(function(L){ return L.slot.map(function(g){return g%sub;}).sort(function(a,b){return a-b;}).join(','); });
+    var uniq={}; sigs.forEach(function(s){uniq[s]=1;}); var nu=Object.keys(uniq).length;
+    // ---- 採点＋フィードバック（重い順）----
+    if(onR>=0.8){ score-=26; notes.push({bad:1,pri:5,t:'ほぼオモテ拍だけに乗ってる＝棒読み・お経',w:'1・2・3・4の頭ばかりだと子どもっぽく平坦。',h:'ウラ（「と」）や拍の後ろに散らせ。<b>型「ウラ乗り」</b>を試す。唾奇・5lack・Daichi Yamamotoの気持ちよさ＝後ノリ。'}); }
+    else if(onR>=0.68){ score-=12; notes.push({bad:1,pri:3,t:'オモテ拍が多め＝もう一歩ハネる',w:'まだ生真面目に頭に乗ってる。',h:'キメの語を1〜2個ウラにズラすだけで色気が出る。'}); }
+    else if(onR<=0.5){ notes.push({bad:0,pri:1,t:'ウラに乗れてる＝グルーヴ出てる',w:'拍の裏・後ろを使えてる＝後ノリの色気。',h:'この気持ちよさをキープ。'}); }
+    if(rhymeN>=2 && rhymeOn/rhymeN>=0.75){ score-=10; notes.push({bad:1,pri:4,t:'韻の着地が毎回オモテ＝決まりが弱い',w:'踏みの核が拍頭だと予定調和で軽い。',h:'韻の核を<b>小節の終盤やウラ</b>に落とすと"締まる"。'}); }
+    if(misaligned.length){ score-=13; notes.push({bad:1,pri:4,t:'韻('+misaligned.join('・')+')の着地位置がバラバラ',w:'踏んでても落ちる拍が毎回違うと耳に踏みが届かない。',h:'同じ韻は<b>毎回同じ拍</b>に落とせ＝位置の一致＝意図＝プロっぽさ。'}); }
+    if(busy){ score-=10; notes.push({bad:1,pri:3,t:busy+'行が詰めすぎ＝忙しい・余白ゼロ',w:'16分をベタ詰めすると一語も立たない。',h:'<b>タメ（休符）</b>を作れ。GADOROの重み＝空けてから刺す。<b>型「ため」</b>。'}); }
+    if(lines.length>=3){ if(nu===lines.length){ score-=12; notes.push({bad:1,pri:3,t:'全行フロウがバラバラ＝掴みどころゼロ',w:'毎行リズムを変えるとフック感・気持ちよさが出ない。',h:'<b>同じ型を2〜3行反復</b>してから崩せ（AAAB）。反復が快感を作る。'}); } else if(nu===1){ score-=10; notes.push({bad:1,pri:2,t:'全行フロウが同じ＝単調・飽きる',w:'反復は気持ちいいが、崩しゼロだと平坦。',h:'3行同じ→<b>4行目で崩す</b>と耳が起きる。'}); } else { notes.push({bad:0,pri:1,t:'反復と展開のバランスOK',w:'繰り返しと崩しが両方ある＝フック感＋飽きない。',h:''}); } }
+    var maxNb=0; lines.forEach(function(L){ if(nbarsOf(L)>1)maxNb++; });
+    if(maxNb) notes.push({bad:0,pri:1,t:'小節をまたぐ行がある＝流れる（上級）',w:'文が次の小節へ食い込む＝ぶつ切りにならず喋りフロウに近づく。',h:''});
+    score=Math.max(0,Math.min(100,score));
+    notes.sort(function(a,b){ return (b.bad-a.bad)||(b.pri-a.pri); });
+    return {score:score,notes:notes,onR:onR};
+  }
+  function renderDiag(){
+    var el=document.getElementById('flDiagOut'); if(!el)return;
+    if(!lines.length){ el.innerHTML=''; return; }
+    var d=diagnose(); if(!d){ el.innerHTML=''; return; }
+    var col=d.score>=80?'#7bd58f':d.score>=60?'#e8c86a':'#e58d7e';
+    var label=d.score>=80?'DOPE':d.score>=60?'あと一歩':'要修正';
+    var top=d.notes.filter(function(n){return n.bad;})[0];
+    var h='<div class="fl-diag-head"><div class="fl-score" style="color:'+col+';border-color:'+col+'">'+d.score+'<span>/100</span></div>'
+      +'<div class="fl-score-lab"><b style="color:'+col+'">'+label+'</b>'+(top?'<br><span class="fl-pri">🔥 一番効く直し：'+top.t+'</span>':'<br><span class="fl-pri" style="color:#7bd58f">🔥 いい感じ。この方向で深めろ。</span>')+'</div></div>';
+    h+='<div class="fl-diag-list">'+d.notes.map(function(n){ return '<div class="fl-dn '+(n.bad?'bad':'good')+'"><div class="fl-dn-t">'+(n.bad?'⚠️':'✅')+' '+n.t+'</div><div class="fl-dn-b">'+n.w+(n.h?' <b>→ '+n.h+'</b>':'')+'</div></div>'; }).join('')+'</div>';
+    el.innerHTML=h;
+  }
+  function render(){ recolorGroups(); document.getElementById('flOut').innerHTML=lines.map(lineHtml).join(''); renderDiag(); }
   function renderLegend(){ var v=[['あ','#e07a5f'],['い','#5b9bd5'],['う','#7bbf7b'],['え','#e8c86a'],['お','#b98bd6'],['ん','#8a8a92']]; document.getElementById('flLegend').innerHTML='<span style="color:var(--ink3)">母音：</span>'+v.map(function(x){return '<span class="fl-vch"><span class="fl-sw" style="background:'+x[1]+'"></span>'+x[0]+'</span>';}).join('')+'　<span style="color:var(--ink3)">音マスをタップ→空きマス(○/·)をタップでズラせる</span>'; }
   function analyze(){ var text=TA.value; if(!text.trim()){ setStat('歌詞を貼ってから▶解析。'); return; }
     var raw=text.split(/\n/).map(function(x){return x.trim();}).filter(Boolean);
@@ -7352,13 +7453,13 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
   /* ---- 操作 ---- */
   document.getElementById('flOut').addEventListener('click',function(e){
     var pb=e.target.closest('.fl-lplay'); if(pb){ var li=+pb.dataset.li; if(playing&&activeBtn===pb)stop(); else play([li],pb,true); return; }
-    var pre=e.target.closest('.fl-pre button'); if(pre){ var li=+pre.dataset.li,L=lines[li]; L.slot=PRE[pre.dataset.p](L.moras.length); document.querySelector('.fl-line[data-li="'+li+'"]').outerHTML=lineHtml(L,li); return; }
+    var pre=e.target.closest('.fl-pre button'); if(pre){ var li=+pre.dataset.li,L=lines[li]; L.slot=PRE[pre.dataset.p](L.moras.length); document.querySelector('.fl-line[data-li="'+li+'"]').outerHTML=lineHtml(L,li); renderDiag(); return; }
     var cell=e.target.closest('.fl-cell'); if(cell){ var line=cell.closest('.fl-line'),li=+line.dataset.li,g=+cell.dataset.g,mi=+cell.dataset.mi;
       if(mi>=0){ sel=(sel&&sel.li===li&&sel.mi===mi)?null:{li:li,mi:mi}; line.outerHTML=lineHtml(lines[li],li); if(sel){ ac().resume(); voice(ac().currentTime+0.01); } }
-      else if(sel&&sel.li===li){ lines[li].slot[sel.mi]=g; sel=null; line.outerHTML=lineHtml(lines[li],li); ac().resume(); voice(ac().currentTime+0.01); }
+      else if(sel&&sel.li===li){ lines[li].slot[sel.mi]=g; sel=null; line.outerHTML=lineHtml(lines[li],li); renderDiag(); ac().resume(); voice(ac().currentTime+0.01); }
       return; }
   });
-  document.getElementById('flOut').addEventListener('change',function(e){ var sl=e.target.closest('.fl-patsel'); if(!sl)return; var li=+sl.dataset.li,idx=+sl.value; var hits=PATS[idx][1]; if(hits){ applyHits(lines[li],hits); document.querySelector('.fl-line[data-li="'+li+'"]').outerHTML=lineHtml(lines[li],li); } });
+  document.getElementById('flOut').addEventListener('change',function(e){ var sl=e.target.closest('.fl-patsel'); if(!sl)return; var li=+sl.dataset.li,idx=+sl.value; var hits=PATS[idx][1]; if(hits){ applyHits(lines[li],hits); document.querySelector('.fl-line[data-li="'+li+'"]').outerHTML=lineHtml(lines[li],li); renderDiag(); } });
   document.getElementById('flGo').addEventListener('click',analyze);
   document.getElementById('flPlayAll').addEventListener('click',function(){ if(playing&&!activeBtn){stop();return;} if(!lines.length){analyze();return;} var idx=lines.map(function(_,i){return i;}); play(idx,null,false); document.getElementById('flPlayAll').textContent='❚❚ 停止'; });
   document.getElementById('flBpm').addEventListener('input',function(e){ bpm=+e.target.value; document.getElementById('flBpmV').textContent=bpm; });
@@ -7387,7 +7488,7 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     g.head.parentNode.insertBefore(wrap, g.body[0]||g.head.nextSibling);
     g.body.forEach(function(n){ wrap.appendChild(n); });
     g.head.classList.add('acc-head'); g.head.setAttribute('role','button'); g.head.setAttribute('tabindex','0');
-    var open=(gi===groups.length-1); // ⑤フロウ・エディターだけ既定で開く
+    var open=/フロウ・エディター/.test(g.head.textContent); // ⑤フロウ・エディターだけ既定で開く
     if(!open){ wrap.style.display='none'; g.head.classList.add('acc-closed'); }
     function toggle(){ var hidden=wrap.style.display==='none'; wrap.style.display=hidden?'':'none'; g.head.classList.toggle('acc-closed',!hidden); }
     g.head.addEventListener('click',toggle);
