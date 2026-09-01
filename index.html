@@ -1211,6 +1211,20 @@
   .fl-dn-t{font-size:13.5px;font-weight:800;color:#f2f2f4}
   .fl-dn-b{font-size:12.5px;color:var(--ink2);line-height:1.6;margin-top:2px}
   .fl-dn-b b{color:#e8c86a;font-weight:700}
+  /* 言葉コーチ（独自性） */
+  .fl-word{margin:10px 0}
+  .fl-word:empty{display:none}
+  .fl-word-head{font-size:15px;font-weight:900;color:#f2f2f4;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .fl-word-v{font-size:13px;font-weight:800}
+  .fl-word-sub{font-size:12px;color:var(--ink3);line-height:1.6;margin:4px 0 8px}
+  .fl-word-sub b{color:var(--ink2)}
+  .fl-word-list{display:flex;flex-direction:column;gap:6px}
+  .fl-wc{background:rgba(229,141,126,.07);border:1px solid rgba(229,141,126,.24);border-radius:10px;padding:8px 11px;font-size:12.5px;line-height:1.55}
+  .fl-wc.good{background:rgba(123,213,143,.07);border-color:rgba(123,213,143,.24);color:#cfe9d2;font-weight:700}
+  .fl-wc-w{font-weight:900;color:#f2b8ac;margin-right:8px;white-space:nowrap}
+  .fl-wc-h{color:var(--ink2)}
+  .fl-word-tips{margin-top:7px;display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .fl-word-tips b{color:#e8c86a;font-weight:700}
   /* DOPEの原則カード（学習層） */
   .dope-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
   .dope-card{background:linear-gradient(145deg,#16161b,#101014);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
@@ -3304,6 +3318,7 @@
   <div class="fl-stat" id="flStat">歌詞を貼って▶解析。<b>初回だけ漢字の読み辞書DL（約17MB・以降キャッシュ）</b>。<span class="cf chk">🔈再生する時はスマホ消音解除＋音量</span></div>
   <div class="fl-legend" id="flLegend"></div>
   <div class="fl-diag" id="flDiagOut"></div>
+  <div class="fl-word" id="flWordOut"></div>
   <div class="fl-out" id="flOut"></div>
 
   <div class="subhd">⑥ ★DOPEの原則 — 「この載せ方はなぜかっこいい／なぜダサい」</div>
@@ -7418,7 +7433,53 @@ document.getElementById('srcToggle').addEventListener('click',function(){const l
     h+='<div class="fl-diag-list">'+d.notes.map(function(n){ return '<div class="fl-dn '+(n.bad?'bad':'good')+'"><div class="fl-dn-t">'+(n.bad?'⚠️':'✅')+' '+n.t+'</div><div class="fl-dn-b">'+n.w+(n.h?' <b>→ '+n.h+'</b>':'')+'</div></div>'; }).join('')+'</div>';
     el.innerHTML=h;
   }
-  function render(){ recolorGroups(); document.getElementById('flOut').innerHTML=lines.map(lineHtml).join(''); renderDiag(); }
+  /* ---- 言葉コーチ：ありきたり語/常套句を検出して"ずらせ"＝他にはないリリックへ ---- */
+  var CLICHE=[
+    ['夢を追','「夢を追う」は手垢の王様。何をどこまで、を物で見せろ'],['夢を叶','「夢を叶える」も同じ。夢の中身を具体に'],['夢見',''],
+    ['輝く','「輝く〜」は誰でも言う。光り方・反射する物で'],['羽ばた','「羽ばたく」は卒業ソング語。捨てるか裏切れ'],['翼',''],['奇跡',''],
+    ['諦めない','宣言だけで画が無い。諦めなかった"行動"で示せ'],['諦めず',''],['負けない',''],['負けねぇ',''],
+    ['前を向','常套句。具体の動作（顎を上げる等）に'],['前へ進',''],['一歩ずつ',''],['一歩踏',''],
+    ['光が差',''],['闇を抜',''],['闇の中',''],['心の声',''],['胸に刻',''],['胸を張',''],
+    ['唯一無二','自称するほど安くなる。証拠で黙らせろ'],['成り上が','ラップ手垢No.1。角度を変えろ'],['てっぺん',''],['頂点',''],['王様',''],['キング',''],
+    ['涙が溢','演歌。泣き方を身体で（喉/鼻の奥/視界）'],['涙が零',''],['世界を変','スケールだけデカくて空虚。半径5mで'],
+    ['時を超',''],['風になる',''],['永遠に',''],['無限の',''],['本物','「本物/ニセモノ」語りは飽和。示して黙れ'],['ニセモノ',''],
+    ['ありのまま',''],['駆け抜け',''],['立ち止ま',''],['信じて',''],['信じ続',''],['ありがとう','感謝の直球は歌詞で最も弱い。行為で']
+  ];
+  var ABSTRACT=['夢','希望','未来','心','愛','幸せ','自由','勇気','運命','奇跡','世界','光','闇','涙','痛み','孤独','現実','理想','魂','思い','気持ち','感情','平和','真実'];
+  var BODY=['手','首','肌','骨','喉','胸','目','爪','血','背','足','指','肩','耳','唇','舌','歯','膝','腰','髪','汗','息','肺','拳','掌','鼻'];
+  function analyzeWords(text){
+    var ls=text.split(/\n/).map(function(x){return cleanText(x);}).filter(Boolean); if(!ls.length)return null;
+    var joined=ls.join('　'); var hits=[];
+    CLICHE.forEach(function(c){ if(joined.indexOf(c[0])>=0){ hits.push({w:c[0],h:c[1]||'誰でも言う手垢語。ひとひねりで"ずらせ"'}); } });
+    // 抽象語カウント
+    var absN=0; ABSTRACT.forEach(function(a){ var re=new RegExp(a,'g'); var m=joined.match(re); if(m)absN+=m.length; });
+    // 具体アンカー（数字/カタカナ2字以上/身体語）を持つ行数
+    var conc=0; ls.forEach(function(l){ var has=/[0-9０-９]/.test(l)||/[ァ-ヴ]{2,}/.test(l)||BODY.some(function(b){return l.indexOf(b)>=0;}); if(has)conc++; });
+    var totalMora=joined.replace(/[^ぁ-んァ-ヴ一-龠]/g,'').length;
+    var absRatio=totalMora?absN/(ls.length):0; // 1行あたり抽象語数
+    return {lines:ls.length, cliche:hits, absN:absN, absPerLine:absRatio, concLines:conc};
+  }
+  function renderWords(){
+    var el=document.getElementById('flWordOut'); if(!el)return;
+    var w=analyzeWords(TA.value); if(!w){ el.innerHTML=''; return; }
+    var cliN=w.cliche.length, concR=w.lines?w.concLines/w.lines:0;
+    // 見立て
+    var verdict,vcol;
+    if(cliN>=3||w.absPerLine>=1.4){ verdict='手垢が多め＝埋もれる'; vcol='#e58d7e'; }
+    else if(cliN<=1&&concR>=0.5){ verdict='具体が効いてる＝独特に寄れてる'; vcol='#7bd58f'; }
+    else { verdict='ふつう＝あと一歩ずらせる'; vcol='#e8c86a'; }
+    var h='<div class="fl-word-head">✍️ 言葉コーチ<span class="fl-word-v" style="color:'+vcol+'">'+verdict+'</span></div>';
+    h+='<div class="fl-word-sub">他にはないリリック＝<b>誰でも言う語を避けて、具体・固有名詞・身体・視点のズラし</b>で独自に（マーケ憲法：ありきたり＝埋もれる）。</div>';
+    if(w.cliche.length){ h+='<div class="fl-word-list">'+w.cliche.map(function(c){ return '<div class="fl-wc"><span class="fl-wc-w">🔴「'+esc(c.w)+'…」</span><span class="fl-wc-h">'+c.h+'</span></div>'; }).join('')+'</div>'; }
+    else { h+='<div class="fl-wc good">✅ ベタな常套句は無し。この調子で語を"わざと"選べ。</div>'; }
+    var tips=[];
+    if(w.absPerLine>=1.2) tips.push('抽象語（夢・心・未来…）が'+w.absN+'個＝画が浮かびにくい。<b>物・固有名詞・数字・身体</b>に落とせ。');
+    if(concR<0.34) tips.push('具体アンカーが少ない。<b>身体語（喉/首/血…）や固有名詞</b>を1行に1個入れると一気に立つ。');
+    if(concR>=0.5) tips.push('<span style="color:#7bd58f">✅ 具体・身体が効いてる＝'+w.concLines+'/'+w.lines+'行に画がある。</span>');
+    if(tips.length) h+='<div class="fl-word-tips">'+tips.map(function(t){return '<div>'+t+'</div>';}).join('')+'</div>';
+    el.innerHTML=h;
+  }
+  function render(){ recolorGroups(); document.getElementById('flOut').innerHTML=lines.map(lineHtml).join(''); renderDiag(); renderWords(); }
   function renderLegend(){ var v=[['あ','#e07a5f'],['い','#5b9bd5'],['う','#7bbf7b'],['え','#e8c86a'],['お','#b98bd6'],['ん','#8a8a92']]; document.getElementById('flLegend').innerHTML='<span style="color:var(--ink3)">母音：</span>'+v.map(function(x){return '<span class="fl-vch"><span class="fl-sw" style="background:'+x[1]+'"></span>'+x[0]+'</span>';}).join('')+'　<span style="color:var(--ink3)">音マスをタップ→空きマス(○/·)をタップでズラせる</span>'; }
   function analyze(){ var text=TA.value; if(!text.trim()){ setStat('歌詞を貼ってから▶解析。'); return; }
     var raw=text.split(/\n/).map(function(x){return x.trim();}).filter(Boolean);
