@@ -1,0 +1,935 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>ど素人ホテル ナレッジ</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#16161a;--panel2:#1d1d22;--line:#2a2a30;--ink:#f3f1ea;--ink2:#b8b4a8;--ink3:#7e7a70;--gold:#d9b25a;--gold2:#f2d188;--goldsoft:#a07c2c;--grn:#9bd58f;--blu:#8fc0e8;--red:#e08a7a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1000px 600px at 80% -10%,rgba(217,178,90,.09),transparent 60%),var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 90px}
+h1{font-size:24px;font-weight:900;margin-bottom:4px}
+h1 .g{background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:13px;color:var(--ink2);margin-bottom:12px}
+.lead b{color:var(--ink)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.92);backdrop-filter:blur(10px);margin:0 -16px 8px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--ink2);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--panel)}
+section{padding-top:22px;scroll-margin-top:52px}
+h2{font-size:18px;font-weight:900;margin-bottom:4px;display:flex;gap:8px;align-items:center}
+h2 .n{font-size:11px;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-radius:6px;padding:1px 7px}
+.sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
+h3{font-size:14px;font-weight:800;color:var(--gold2);margin:14px 0 6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:9px}
+.card p,.card li{font-size:13px;color:var(--ink2)}
+.card b{color:var(--ink)}
+.card ul,.card ol{padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:9px}
+.grid .card{margin:0}
+.card .t{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.q{border-left:3px solid var(--blu);padding:2px 0 2px 10px;margin:6px 0;font-size:13px;color:var(--ink)}
+.q small{display:block;color:var(--ink3);font-size:11px}
+.tag{display:inline-block;font-size:10px;font-weight:800;border-radius:5px;padding:0 6px;margin-left:3px;vertical-align:1px}
+.tr{background:rgba(224,138,122,.15);color:var(--red)}
+.tblw{overflow-x:auto;margin-bottom:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.tbl th{color:var(--gold2);font-size:11.5px;white-space:nowrap}
+.tbl td{color:var(--ink2)}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+.key{border-left:3px solid var(--gold);background:rgba(217,178,90,.07);padding:9px 12px;border-radius:0 10px 10px 0;font-size:13px;margin:8px 0 10px;color:var(--ink2)}
+.key b{color:var(--gold2)}
+.warn{border-left-color:var(--red);background:rgba(224,138,122,.07)}
+.warn b{color:var(--red)}
+.flow{display:grid;gap:6px;counter-reset:f}
+.flow div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px 9px 44px;position:relative;font-size:13px;color:var(--ink2)}
+.flow div b{color:var(--ink)}
+.flow div::before{counter-increment:f;content:counter(f);position:absolute;left:11px;top:9px;width:24px;height:24px;border-radius:7px;background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;font-weight:900;font-size:13px;display:grid;place-items:center}
+.flow div:not(:last-child)::after{content:"↓";position:absolute;left:18px;bottom:-15px;color:var(--goldsoft);font-size:12px;z-index:1}
+.sheet label{display:block;font-size:12px;font-weight:800;color:var(--gold2);margin:10px 0 4px}
+.sheet label small{color:var(--ink3);font-weight:600}
+.sheet textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-height:46px;resize:vertical}
+.sheet textarea:focus{outline:none;border-color:var(--gold)}
+.preview{margin-top:12px;background:var(--panel2);border:1px dashed var(--goldsoft);border-radius:10px;padding:11px 12px;font-size:13px;color:var(--ink2);white-space:pre-wrap}
+.preview b{color:var(--gold2)}
+button.copy{font:inherit;font-size:13px;font-weight:800;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border:0;border-radius:9px;padding:9px 14px;cursor:pointer;min-height:42px;margin-top:8px}
+.chk label{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink2);padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.chk input{margin-top:5px;accent-color:var(--gold);width:16px;height:16px;flex:0 0 auto}
+.chk input:checked+span{color:var(--ink3);text-decoration:line-through}
+.src{font-size:11px;color:var(--ink3);margin-top:4px;word-break:break-all}
+.src a{color:var(--ink3)}
+a{color:var(--gold2)}
+.foot{margin-top:30px;font-size:11px;color:var(--ink3)}
+</style></head><body><div class="wrap">
+
+<h1>🏝 <span class="g">ど素人ホテル ナレッジ</span></h1>
+<p class="lead"><b>@4610_hotel（片岡力也）</b>のやり方を、本人の発言を中心に集めて体系化したページ。<b>「何をやったか → なぜ伸びたか → 自分にどう移すか」</b>の順に読む。2026年11月に調べた内容。</p>
+<p class="sub">数字の多くは本人か関係者の申告で、第三者の検証はない。インタビュー記事の本文までは読めず、検索結果の要約で確認したものが多い。<span class="tag tr">未確認</span>が付いたものは、根拠が弱い。</p>
+
+<nav class="toc">
+<a href="#map">0 全体像</a><a href="#story">1 経緯</a><a href="#laws">2 法則</a><a href="#plans">3 企画の型</a><a href="#money">4 売上化</a><a href="#ng">5 NG</a><a href="#do">6 移植する</a><a href="#d90">7 0→90日</a><a href="#cases">8 同じ型の宿</a><a href="#produce">9 プロデュース垢</a><a href="#quotes">10 発言録</a><a href="#third">11 第三者分析</a><a href="#media">12 出演</a><a href="#cta">13 導線の実物</a><a href="#videos">14 動画アーカイブ</a><a href="#pvideos">15 プロデュース動画</a><a href="#theory">16 理論</a><a href="#practice">17 実務Tips</a><a href="#facts">18 裏取り</a><a href="#others">19 他の事例</a><a href="#podcast">20 本人72分トーク</a><a href="#src">出典</a>
+</nav>
+
+<!-- 0 -->
+<section id="map">
+<h2><span class="n">0</span>全体像 — ど素人ホテルの勝ち方を1枚で</h2>
+<div class="flow">
+<div><b>① 初期設計</b>：「ワンチャン達成できるかわからない目標」と「今の現在地」を決める。<br>例：<b>ど素人</b>（現在地）が<b>大赤字ホテルを再建</b>（目標）</div>
+<div><b>② 冒頭2秒</b>：その設計を1文のキャッチフレーズに凝縮して、スワイプを止める。<br>例：「僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！」</div>
+<div><b>③ プロセスを見せる</b>：完成品ではなく、目標までの途中経過を連続で見せる（プロセスエコノミー）</div>
+<div><b>④ 巻き込む</b>：名前・ロゴ・部屋のコンセプトなどを視聴者の投票で決めて、見ている人を当事者にする</div>
+<div><b>⑤ 売上につなげる</b>：「予約は口コミ×知名度で決まる」。口コミは良いのに無名だったホテルの、知名度をSNSで上げた</div>
+<div><b>⑥ 中身を良くする</b>：来た人の体験を良くする → リピートと口コミが増える → また伸びる。中身のないバズは続かない</div>
+<div><b>⑦ 次のゴール</b>：達成したら、次の目標（セカンドゴール）を立てて物語を続ける。今は他人のアカウントをバズらせる側に回っている</div>
+</div>
+<div class="key"><b>ひとことで：</b>強いのは<b>「弱者が無理めの目標に挑む過程」を、冒頭2秒で伝えて、視聴者を参加させ続ける</b>こと。テンプレの構文ではなく、<b>設計</b>で勝っている。</div>
+</section>
+
+<!-- 1 -->
+<section id="story">
+<h2><span class="n">1</span>経緯 — 何をやった人か</h2>
+<div class="tblw"><table class="tbl">
+<tr><th>時期</th><th>出来事</th></tr>
+<tr><td>〜2021</td><td>1990年生まれ。バックパッカー、飲食店のプロデュース、旅人向けシェアハウスの運営を経て、2019年12月から世界一周。<b>ホテル経営の経験はゼロ</b></td></tr>
+<tr><td>2022年1月</td><td>経営者の息子から依頼を受け、沖縄・恩納村の<b>「なかどまINN」</b>（2002年創業、16室）に約2週間泊まり込む。<b>稼働率は15%前後、約2,000万円の赤字、従業員2名、SNSはなし</b></td></tr>
+<tr><td>2022年2月</td><td>TikTokで発信を開始。<b>1〜2週間で2万フォロワー</b>（本人談）</td></tr>
+<tr><td>2023年6月</td><td>Instagram約2.5万、TikTok約6万（パーソルの記事時点）</td></tr>
+<tr><td>業績（本人談）</td><td>稼働率 <b>15%以下→約70%</b>、客単価 <b>6,000円→1.1万円</b>、前年比796%の売上の月もあった。<b>黒字化</b>（「約1年半」は元の情報源で確認できず）。<b>すべて本人の申告</b>（→ 18章）</td></tr>
+<tr><td>改名</td><td>新しいホテル名をSNSで募集し、<b>1,500件以上の応募からトーナメント方式</b>で「<b>BUZZ RESORT</b>」に決定</td></tr>
+<tr><td>規模</td><td>TikTokで一番伸びた動画は360万再生以上。本人の申告ではYouTube 15万、TikTok 13万、Instagram 6万</td></tr>
+<tr><td>2024年〜</td><td><b>他人のアカウントのプロデュース</b>に移る。「約30アカウントをバズらせ、20以上で100万再生、半年で銀の盾2本」（本人談）</td></tr>
+<tr><td>2025年11〜12月</td><td>Brainで有料記事「今から無名が有名になる16の裏技」を発売。売上は5,374万円（途中経過）→5,914万円と本人が公表（Brainの公式発表はない）</td></tr>
+<tr><td>2026年2月</td><td>京都の旅館「Nazuna」の渡邊氏が「ホテル業界舐めるなよ」と投稿して論争になった。片岡氏は<b>「中身のないバズは続かない」に同意</b>したうえで、SNS集客と現場の改善を並行してきたと説明 <span class="tag tr">未確認</span>（別の調査では元の投稿が見つからなかった）</td></tr>
+<tr><td>2026年4月</td><td>「令和の虎」で本家の虎（出資する側）になった</td></tr>
+<tr><td>2026年7月</td><td>MAGI-Cの取締役に就任。「100以上のアカウントを手がけ、総フォロワー26万超」と紹介された。「令和の虎」にも出演</td></tr>
+<tr><td>現在</td><td>「<b>バズ塾</b>」を主宰。料金や中身は公開情報では確認できなかった</td></tr>
+</table></div>
+</section>
+
+<!-- 2 -->
+<section id="laws">
+<h2><span class="n">2</span>バズの法則 — 本人の言葉から</h2>
+
+<div class="card"><div class="t">法則1：最重要は「初期設計」</div>
+<div class="q">「ワンチャン達成できるかどうかわからない目標と現在地を作ること」<small>Threads（本人）</small></div>
+<p>一番多い失敗は、初期設計が弱いこと。<b>リクルートのトップ営業</b>が挑んでも「どうせ達成できるだろ」と思われ、<b>中学3年生</b>が挑んでも「無理に決まってる」と思われる。どちらもフォローされない。本人の場合は「ど素人」という弱さに、<b>「でもSNSは上手い」</b>（ドローン撮影や奇抜な企画）を足して、<b>達成できるかどうかのギリギリ</b>に置いた。</p></div>
+
+<div class="card"><div class="t">法則2：冒頭2秒で決まる</div>
+<div class="q">「ショート動画は基本的に冒頭2秒で勝負が決まる世界」「キャッチフレーズが非常に大事」<small>Threads（本人）／賢者の選択 インタビュー第2回の見出しも「バズる動画は、最初の2秒で決まる」</small></div>
+<p>最初の動画の1文目は「<b>僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！</b>」。<b>弱い立場・数字のインパクト・挑戦</b>がこの1文に全部入っている。ポッドキャストでは「冒頭2秒で感情のトリガーを引く」「ネガティブなフックからハッピーエンドへ」と話したとされる<span class="tag tr">未確認</span></p></div>
+
+<div class="card"><div class="t">法則3：無名ならプロセスエコノミー一択</div>
+<div class="q">「無名の方が確実にバズりたいなら、プロセスエコノミー１択」<small>X（本人）</small></div>
+<p>完成品ではなく、<b>現在地から目標までの途中経過</b>を売りにする。「次どうなる？」が続く限り、見てもらえる。本人いわく<b>「100日後に〇〇」系は、とにかくバズりやすい</b>。</p></div>
+
+<div class="card"><div class="t">法則4：企画は「社会性 × 苦行性 × 見たことのない画」</div>
+<p><b>社会性</b>：世の中の課題とつながっている（赤字の地方ホテル、ゴミ問題など）。<br><b>苦行性</b>：発信者が苦しむ仕組みがある（例：<b>フォロワーが増えるほど走る距離が伸びる</b>）。<br><b>見たことのない画</b>：誰も見たことのないゴールや映像。<br>この3つがそろうと、見る人が続きを気にし始める。<span class="src">Threads（本人）</span></p></div>
+
+<div class="card"><div class="t">法則5：視聴者を当事者にする</div>
+<p>ホテル名・ロゴ・部屋のコンセプトを<b>フォロワーの多数決で決めた</b>。自分が決めたものになるので、見ている人が<b>自分から拡散</b>する。登録者数の節目ごとに無料宿泊キャンペーンもやったとされる<span class="tag tr">未確認</span></p></div>
+
+<div class="card"><div class="t">法則6：テンプレの構文に頼らない</div>
+<div class="q">「バズる〇〇構文100選みたいなやつに騙されるのもうやめましょう。僕はそんなの使ったことありません」<small>X（本人）</small></div>
+<p>本人の背景、話す力、見た目、タイミング、その投稿を何につなげるか。<b>変数が多すぎて、全員に当てはまる正解はない</b>。だから<b>自分の背景から設計する</b>。</p></div>
+
+<div class="card"><div class="t">法則7：インプレッションは売上ではない</div>
+<p>「本当に重要なのはその後の設計」。見られた後に<b>どこへ連れていくか</b>まで決めてから投稿する。<span class="src">Threads（本人）</span></p></div>
+
+<div class="card"><div class="t">法則8：プラットフォームごとの知識</div>
+<p>X：アルゴリズムは<b>「プロフィールを見に来た人からのいいね・リプライ」</b>の点数が高いと説明している。<br>主戦場はTikTokで、Instagram・YouTube Shorts・Xには切り抜きを流していると読める<span class="tag tr">未確認</span>。投稿頻度について本人がはっきり語った情報は見つからなかった。</p></div>
+</section>
+
+<!-- 3 -->
+<section id="plans">
+<h2><span class="n">3</span>企画の型 — 実際に伸びたもの</h2>
+<div class="grid">
+<div class="card"><div class="t">① 自己紹介1文目（初回動画）</div><p>「僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！」<br>→ <b>弱者 × 数字 × 挑戦</b>。1〜2週間で2万フォロワー。</p></div>
+<div class="card"><div class="t">② 「ホテル倒産」（エイプリルフール）</div><p>Instagramで<b>225万再生</b>。本人の分析：冒頭の「倒産」という一言で<b>スワイプを完全に止めた</b>。普段は使えない強い嘘で「<b>2秒の壁を強制的に突破</b>」した。</p></div>
+<div class="card"><div class="t">③ 「私のホテルが法律違反をしています」</div><p>冒頭2秒で引き込むために作ったフレーズ<span class="tag tr">未確認</span>（大きく再生されたという要約があるが、元の投稿は確認できなかった）。→ <b>不安・違和感で止める</b>型。</p></div>
+<div class="card"><div class="t">④ ホテル名トーナメント</div><p>名前を公募して<b>1,500件以上</b>の応募 → トーナメント形式で決定 → 「BUZZ RESORT」。<b>参加型 × 連載</b>なので、決まるまで毎回見てもらえる。</p></div>
+<div class="card"><div class="t">⑤ 「ガチで助けてください」募集</div><p>「本日中にサムネイルを制作できる方を募集します」→ コンテストにする → 納品が遅れた人に「怒っている」と投稿した回が<b>30万インプレッション</b><span class="tag tr">未確認</span>。他のSNS運用者からは「伸びた理由は人柄ではなく、企画の設計」と分析されている。</p></div>
+<div class="card"><div class="t">⑥ プロデュースした企画</div><p><b>パリピ廃墟ホテル</b>（廃墟ホテルを100日で開業させる。70日で20万フォロワー）、<b>毎日100g痩せるデブ</b>、<b>1円を1000万円に変える男</b>、<b>90歳母と息子の日本一周</b>、<b>バズるまでコメントに従い続ける女</b>、<b>日本からゴミ無くす男</b>など（本人の公言）。淡路島のボロボロホテルは1か月・3投稿で5,000フォロワー。</p></div>
+</div>
+<h3>アカウント名の公式</h3>
+<div class="card"><p>プロデュースした例を並べると、名前の形がそろっている：</p>
+<ul>
+<li><b>【弱い現在地】＋【無理めの目標】</b>：ど素人 × ホテル再建／廃墟 × 100日で開業／1円 × 1000万円</li>
+<li><b>【数字のルール】＋【苦行】</b>：毎日100g痩せる／フォロワー数 × 1個ゴミを拾う／バズるまでコメントに従う</li>
+<li><b>【関係性】＋【旅・挑戦】</b>：ダメ息子 × はじめての親孝行／90歳母 × 日本一周</li>
+</ul></div>
+<div class="key"><b>型の正体：</b>名前を見ただけで<b>「誰が・どこから・どこへ」</b>がわかり、<b>「本当にできるの？」</b>と思わせる。名前そのものが企画書になっている。</div>
+</section>
+
+<!-- 4 -->
+<section id="money">
+<h2><span class="n">4</span>SNSを売上に変える仕組み</h2>
+<div class="flow">
+<div><b>分析する</b>：予約数は<b>「口コミ × 知名度」</b>で決まる。このホテルは口コミが良いのに知名度が極端に低かった → SNSで知名度を上げれば勝てる、と判断した<span class="tag tr">未確認</span></div>
+<div><b>知名度を上げる</b>：再建ドキュメンタリーで認知を取る。ホテル名の公募など、参加型で拡散させる</div>
+<div><b>協賛を集める</b>：発信力に目を付けた企業から、改装の資材や人手を無償で提供してもらった<span class="tag tr">未確認</span></div>
+<div><b>体験で回す</b>：バズで人が来る → 宿泊体験を良くする → リピーターと口コミが増える（第三者の分析）</div>
+<div><b>数字にする</b>：稼働率15%→約70%、客単価6,000円→1.1万円、黒字化（すべて本人の申告。→ 18章）</div>
+<div><b>ノウハウを売る</b>：プロデュース業、有料記事、バズ塾、企業の役員へ。<b>「再建の物語」そのものが商品になった</b></div>
+</div>
+<div class="key warn"><b>注意：</b>2026年2月の論争で、本人も<b>「中身のないバズは続かない」</b>と認めている。SNSで知名度を上げることと、現場をちゃんと良くすることは<b>セット</b>。</div>
+</section>
+
+<!-- 5 -->
+<section id="ng">
+<h2><span class="n">5</span>NGと失敗パターン（本人の発言から）</h2>
+<div class="card"><ol>
+<li><b>目標と現在地の距離を間違える</b>：簡単すぎても無理すぎてもフォローされない。<b>一番多い失敗</b>。</li>
+<li><b>途中でルールを変える</b>：「1フォロワーあたり〇円のご飯」のような企画で途中で金額を変えると、「<b>約束を守らない認定</b>されて、今後フォローされなくなる」。<b>最初から続けられるルール</b>にして、足りない分はスポンサーなど別の方法で補う。</li>
+<li><b>テンプレの構文をそのまま使う</b>：自分の背景と合わないので伸びない。</li>
+<li><b>キャッチフレーズがふわっとしている</b>：相談者にはよく「ふわっとしてる」と指摘して、<b>自分の具体的な失敗談</b>を語るよう助言している。</li>
+<li><b>インプレッションで満足する</b>：見られた後の導線がないと、売上にならない。</li>
+<li><b>中身が伴っていない</b>：バズで人が来ても、体験が悪ければ続かない。</li>
+<li><b>ゴールの後を考えていない</b>：達成したら物語が終わってしまう。<b>次の目標</b>（本人の例：ミシュラン星3 → 資金集め → 社会活動 → 自分の事業）を用意しておく。</li>
+</ol></div>
+</section>
+
+<!-- 6 -->
+<section id="do">
+<h2><span class="n">6</span>自分に移植する — 企画設計シート</h2>
+<p class="sub">上の法則を自分の場合に当てはめる。入力した内容はこの端末のブラウザに保存される。最後にコピーして使う。</p>
+<div class="card sheet">
+<label>① 現在地 <small>— 自分の「弱さ」「素人っぷり」を数字で</small></label>
+<textarea data-k="now" placeholder="例：SNS経験ゼロ／フォロワー0／貯金〇万円"></textarea>
+<label>② 目標 <small>— ワンチャンできるかわからないライン、期限つき</small></label>
+<textarea data-k="goal" placeholder="例：100日で〇〇する"></textarea>
+<label>③ 「でもこれは得意」 <small>— 無理すぎに見せないための武器</small></label>
+<textarea data-k="edge" placeholder="例：撮影が得意／元〇〇"></textarea>
+<label>④ 苦行のルール <small>— 最後まで守れる設定にする（途中で変えるのはNG）</small></label>
+<textarea data-k="rule" placeholder="例：フォロワー100人ごとに〇〇する"></textarea>
+<label>⑤ 社会性 <small>— 世の中の何とつながっているか</small></label>
+<textarea data-k="social" placeholder="例：地方の空き家／赤字の宿"></textarea>
+<label>⑥ 見たことのない画</label>
+<textarea data-k="visual" placeholder="例：〇〇を自分たちの手で△△にする"></textarea>
+<label>⑦ 視聴者に決めてもらうこと</label>
+<textarea data-k="vote" placeholder="例：名前／ロゴ／次の行き先"></textarea>
+<label>⑧ 見られた後の行き先</label>
+<textarea data-k="cta" placeholder="例：予約ページ／LINE／商品"></textarea>
+<label>⑨ 達成した後の次の目標</label>
+<textarea data-k="next" placeholder="例：〇〇を全国に"></textarea>
+<div class="preview" id="pv"></div>
+<button class="copy" id="cp" type="button">📋 設計シートをコピー</button>
+</div>
+
+<h3>開始前のチェック</h3>
+<div class="card chk">
+<label><input type="checkbox" data-k="c1"><span>アカウント名だけで「誰が・どこから・どこへ」がわかる</span></label>
+<label><input type="checkbox" data-k="c2"><span>1本目の1文目に「弱さ × 数字 × 挑戦」が入っている</span></label>
+<label><input type="checkbox" data-k="c3"><span>最初の2秒に、スワイプを止める言葉か映像がある</span></label>
+<label><input type="checkbox" data-k="c4"><span>目標は「できるかできないかギリギリ」で、期限がある</span></label>
+<label><input type="checkbox" data-k="c5"><span>ルールは最後まで守れる設定になっている</span></label>
+<label><input type="checkbox" data-k="c6"><span>視聴者に投票してもらうポイントを3つ以上用意した</span></label>
+<label><input type="checkbox" data-k="c7"><span>見た人を連れていく先（予約・LINE・商品）がある</span></label>
+<label><input type="checkbox" data-k="c8"><span>中身（実際の体験や商品）も同時に良くしていく計画がある</span></label>
+<label><input type="checkbox" data-k="c9"><span>テンプレの構文ではなく、自分の具体的な話で書いている</span></label>
+</div>
+</section>
+
+<!-- 7 -->
+<section id="d90">
+<h2><span class="n">7</span>0→90日 — 公式ルールの中で回す</h2>
+<p class="sub">片岡さんの法則を実行するときに、各SNSの公式ルールで外せないポイント。2026年11月に調べた内容。TikTokとYouTubeは公式ページの原文を開けなかったので、<span class="tag tr">未確認</span>が付いたものはアプリ内で確認すること。</p>
+
+<h3>90日の進め方</h3>
+<div class="flow">
+<div><b>1〜7日目：設計</b>。6章のシートを埋める。<b>テーマは1つに絞る</b>。TikTokでは、フォロワー数より<b>動画ごとの反応</b>でおすすめに載るかが決まるので、0フォロワーでも1本ずつが勝負になる</div>
+<div><b>1〜14日目：リサーチ</b>。同じジャンルで伸びている投稿を集める → 冒頭3秒・構成・尺・字幕・保存されそうな理由を分解する → <b>自分の切り口で作り直す</b>（転載はしない）</div>
+<div><b>15〜90日目：打席を増やす</b>。<b>週2〜4本 × 90日で、30〜40本</b>投稿する。Instagramは決まった投稿本数を示していない（責任者いわく「多いほどリーチは増えるが、燃え尽きに注意」）</div>
+<div><b>毎週：検証</b>。下の指標を見て、<b>自分の過去の投稿の真ん中の数字と比べて</b>上か下かを判断する。一般的な「何%なら合格」という目安には、信頼できる出典がない</div>
+</div>
+
+<h3>各SNSで効く公式の機能・ルール</h3>
+<div class="grid">
+<div class="card"><div class="t">Instagram</div><ul>
+<li><b>トライアルリール</b>：まず<b>フォロワー以外にだけ</b>見せて反応を試せる。反応が良ければ72時間後にフォロワーにも自動で公開できる。<b>冒頭2秒の言葉をA/Bテストする</b>のに使える</li>
+<li><b>重視される指標</b>：視聴時間・リーチあたりのいいね・リーチあたりの送信（2025年1月の責任者の発言）</li>
+<li><b>転載はNG</b>：30日間に10回以上転載すると、おすすめに載らなくなる</li>
+<li>TikTokのロゴ入り動画や、ぼやけた動画はおすすめに載りにくい → <b>Edits</b>（Instagram公式の編集アプリ）を使えばロゴなしで書き出せる</li>
+<li>ハッシュタグは<b>1投稿5個まで</b>。リーチへの効果は小さい</li>
+</ul></div>
+<div class="card"><div class="t">TikTok</div><ul>
+<li>おすすめは、視聴者の行動（最後まで見たか・シェア・コメント）と、動画の情報（キャプション・音源・ハッシュタグ）で決まる → <b>キャプションに検索されそうな言葉を入れる</b></li>
+<li><b>「フォローして」「いいねして」と煽る動画はおすすめに載らない</b>。フォロワーやいいねを買っても、水増し分は削除される</li>
+<li>収益化（Creator Rewards）の条件：18歳以上、フォロワー1万人以上、直近30日で10万回再生以上、1分を超えるオリジナル動画<span class="tag tr">未確認</span></li>
+</ul></div>
+<div class="card"><div class="t">YouTube Shorts</div><ul>
+<li>動画の長さは<b>最大3分</b>（2024年10月から）</li>
+<li>2025年3月から再生数の数え方が変わった。<b>収益化の判定は「エンゲージビュー」</b>という数字で行われる</li>
+<li>収益化：登録者500人から一部の機能が使える。広告収益は登録者1,000人＋ショート1,000万回再生（90日間）など<span class="tag tr">未確認</span></li>
+<li>2025年7月から、<b>量産型・使い回しのコンテンツ</b>は収益化の審査が厳しくなった</li>
+</ul></div>
+</div>
+
+<h3>毎週見る数字</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>見る数字</th><th>わかること</th><th>つながる法則</th></tr>
+<tr><td>3秒以内のスキップ率</td><td>冒頭で離脱されていないか</td><td>法則2：冒頭2秒</td></tr>
+<tr><td>視聴維持率のグラフ</td><td>どこで離脱しているか</td><td>構成・テンポ</td></tr>
+<tr><td>リーチあたりの送信</td><td>人に教えたくなる中身か</td><td>法則4：社会性・見たことのない画</td></tr>
+<tr><td>コメント・投票への参加</td><td>見ている人が当事者になっているか</td><td>法則5：巻き込み</td></tr>
+<tr><td>プロフィールへの移動 → 行き先のクリック</td><td>売上につながっているか</td><td>法則7：インプレッションは売上ではない</td></tr>
+</table></div>
+<div class="key warn"><b>「シャドウバン」の確認方法：</b>Instagramでは「<b>アカウントステータス</b>」から、おすすめに載らない状態になっていないか確認できて、異議申し立てもできる。不安になったら、まずここを見る。</div>
+<p class="sub">出典：Instagram Creators公式（トライアルリール、オリジナル優遇）、TikTokニュースルームとコミュニティガイドライン、YouTube公式ブログ、Social Media Today、TechCrunch、Engadget、Impress Watch。</p>
+</section>
+
+<!-- 8 -->
+<section id="cases">
+<h2><span class="n">8</span>同じ型で勝った宿と、予約につなげる導線</h2>
+<p class="sub">ど素人ホテル以外で、宿が自分のSNSで集客した事例。<b>ここの数字はほぼすべて本人か支援会社の発表で、第三者の確認はない</b>。元の記事の本文は読めず、検索結果の要約で確認した。</p>
+
+<div class="tblw"><table class="tbl">
+<tr><th>宿</th><th>やったこと</th><th>結果（発表値）</th><th>型</th></tr>
+<tr><td>紀伊見荘<br><small>和歌山・人口の少ない集落</small></td><td>TikTok「<b>再建の若旦那</b>」。赤字の宿を立て直す過程を見せる。<b>フォロワーが障子の張り替えやホタルの養殖に実際に参加</b>する</td><td>宿泊者が月100名未満→月1,000名超（本人の投稿）</td><td>再建ドキュメンタリー＋参加型<br><b>＝ど素人ホテルと同じ型</b></td></tr>
+<tr><td>グランディア芳泉<br><small>福井・あわら温泉</small></td><td>常務（若旦那）が本人出演。<b>経営の裏側のぶっちゃけ話</b>と地域の紹介</td><td>フォロワー9万超。「番組を見て来る客が1日5組」。<b>フォロワー限定プランが即完売</b></td><td>経営者が主役＋地域ごと物語にする</td></tr>
+<tr><td>鳥羽ビューホテル花真珠<br><small>三重・鳥羽</small></td><td>女将とスタッフが<b>大真面目に踊る</b>。決まり文句のタグ「#普段は真面目に仕事しています」</td><td>フォロワー約10万（2022年）。売上2割増とする記事あり</td><td>ギャップ（老舗×ダンス）。スタッフが名前で呼ばれてファンが付く</td></tr>
+<tr><td>湯元ことぶき<br><small>滋賀・高島</small></td><td>若女将が現役のアイドル。<b>ファンが泊まりに来られる「聖地」</b>にした</td><td>公表なし</td><td>人が主役</td></tr>
+</table></div>
+
+<div class="key"><b>共通点：</b>伸びた宿はどこも<b>「人が主役」×「ギャップ」×「視聴者が当事者になる」</b>。客室の映え写真で勝った事例はない。ど素人ホテルの法則（2章）と同じ。</div>
+
+<h3>予約につなげる導線（実例）</h3>
+<div class="flow">
+<div><b>TikTok・リールで知ってもらう</b>：キャラクターと物語でフォローしてもらう</div>
+<div><b>Instagramで比べて決めてもらう</b>：<b>ハイライト</b>に料金・アクセス・よくある質問をまとめる。世界観を統一したアカウントは予約が増えた（関西のリゾートで予約数132%、という支援会社の発表）</div>
+<div><b>行動のきっかけを作る</b>：<b>コメントすると自動でDMが届き</b>、プランと予約URLが送られる仕組み（ある温泉ホテルで、1か月に自社サイトの予約87件、という支援会社の発表）。<b>フォロワー限定プラン</b>や、「投稿を見た」と書くと特典が付く仕組み</div>
+<div><b>自社サイトで予約してもらう</b>：プロフィールのリンクを<b>予約ページに直接</b>つなぐ。温泉地の宿76施設の調査では、<b>約3割の公式サイトで予約の仕組みが確認できなかった</b> → 予約サイト（OTA）に客が流れる</div>
+<div><b>LINEで再来店につなげる</b>：客のデータを自社で持って、リピートを狙う。宿の名前で検索してもらえる状態を目指す</div>
+</div>
+<div class="card"><p><b>データ</b>：予約システムを提供する会社CHILLNNの60施設調査では、直接予約が多い宿に一番効いていたのは<b>「InstagramとGoogleマップの整備」</b>。自社サイトを最安値にすることの効果は限られていた。調査した会社自身の発表で、相関を見ただけ。</p>
+<p style="margin-top:4px"><b>TikTok GO</b>（動画から予約できる機能）は、予約先が<b>予約サイト（OTA）</b>になる。自社サイトでの予約にはならない点に注意。</p></div>
+
+<h3>伸びない型・リスク</h3>
+<div class="card"><ul>
+<li><b>フォロワー数がゴールになっている</b>：「1万人いても予約が来ない」。</li>
+<li><b>きれいな客室写真を並べるだけ</b>で、予約までの導線がない。</li>
+<li><b>中の人の個人発信で炎上</b>：ルール違反の客を告発した女将の投稿が炎上した例がある（山形の宿、2023年）。</li>
+<li><b>1人のスタッフに人気が集中</b>：その人が辞めると失速する。</li>
+</ul></div>
+<p class="sub">出典：旅行新聞・トラベルニュース、日経ビジネス、Find Model、PR TIMES、ウォーカープラス、J-CAST、CHILLNN MEDIA、otona、adcate、Arch調査、media-radar、トラベルボイス。</p>
+</section>
+
+<!-- 9 -->
+<section id="produce">
+<h2><span class="n">9</span>プロデュース垢の解剖 — 型の再現性</h2>
+<p class="sub">片岡さんがプロデュースしたと公言しているアカウントを並べて、同じ型が他の人でも通用しているかを見る。<b>数字の大半は本人の申告</b>（2026年11月調べ）。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>アカウント</th><th>現在地 → 目標／ルール</th><th>伸び方・成果</th></tr>
+<tr><td>ど素人ホテル再建計画<br><small>@4610_hotel</small></td><td>赤字ホテル、ど素人 → 再建</td><td>2週間で2万、2か月半で約3.5万。黒字化</td></tr>
+<tr><td>パリピ廃墟ホテル<br><small>TikTok @paripi_hotel</small></td><td>沖縄・東村の廃墟 → <b>100日で</b>DIYしてオープン</td><td>70日で20万フォロワー（本人談）。2023/10に「HUNDRED DAYS HOTEL」として開業。片岡さんが<b>100日間毎日、一緒に原稿を作った</b>。視聴者が手伝いに来た</td></tr>
+<tr><td>毎日100g痩せていくデブ</td><td>何をやっても三日坊主の100kg → <b>毎日100gずつ</b>、300日で70kg</td><td>1か月で6,580フォロワー、平均16万再生。100日で−10kg。<b>2024年3月に更新が止まった</b></td></tr>
+<tr><td>1円を1000万円に変える男</td><td>1円 → 1,000万円</td><td>「TikTokだけで1年に1,250万円稼いだ」（本人談）</td></tr>
+<tr><td>ダメ息子はじめての親孝行</td><td>両親の衣裳店が倒産寸前 → 息子が再建する</td><td>初期の案件。数字は未確認</td></tr>
+<tr><td>90歳母、息子と日本一周</td><td>90歳の母 → 日本一周で全国に友達を作る</td><td>約2.9万フォロワー</td></tr>
+<tr><td>日本からゴミを無くす男</td><td><b>フォロワー数と同じグラム数</b>のゴミを拾う</td><td>2万フォロワー超、毎週20kg以上を拾う（メ〜テレの報道）</td></tr>
+<tr><td>ボロすぎホテルの下克上<br><small>淡路島</small></td><td>築60年の汚すぎるホテル → <b>半年で高級ホテル</b>に</td><td>3投稿で5,000フォロワー → 1.6万。<b>クラウドファンディングで636万円</b>を集め、2025年8月にオーベルジュとして開業</td></tr>
+<tr><td>令和の虎・井口社長</td><td>—</td><td>1本目で262万再生、2.8万フォロワー（本人談）</td></tr>
+<tr><td>フォロワー1人につき1円分のご飯を食べる女</td><td><b>フォロワー1人につき1回〇〇する</b>（海外の企画を輸入したもの）</td><td>2投稿で4,623フォロワー（2026年）</td></tr>
+</table></div>
+
+<h3>ここから抜き出した設計ルール</h3>
+<div class="grid">
+<div class="card"><div class="t">① 名前＝企画の説明</div><p><b>「低い現在地や属性」＋「目標や行為」＋「男・女・息子・孫」</b>。例：ど素人、デブ、ダメ息子、パリピ。数字で極端さを出す（1円→1000万円、毎日100g、90歳）。</p></div>
+<div class="card"><div class="t">② 現在地を低く</div><p>本人いわく「<b>ゴールは皆似ているので、現在地を低く設定して過程の幅を広げる</b>」。大赤字、無名、100kg、倒産寸前など。</p></div>
+<div class="card"><div class="t">③ 数字のルール＋期限</div><p>100日でオープン、300日で−30kg、半年で高級ホテル。<b>毎日の進み具合が数字で見える</b>ように作る。</p></div>
+<div class="card"><div class="t">④ 視聴者が結果を動かす</div><p>「フォロワー数×〇〇する」型。本人の説明では、見る人は<b>「もっと増やして達成させないようにしてやろう」</b>という気持ちでフォローする。これがフォローの動機になる仕組み。</p></div>
+<div class="card"><div class="t">⑤ 応援される逆境</div><p>台風や浸水などのピンチも全部発信する。視聴者が<b>現地に手伝いに来たり、クラウドファンディングで支援したり</b>する。</p></div>
+<div class="card"><div class="t">⑥ 分業</div><p><b>片岡さんが企画と原稿</b>を作り、出演者が撮影と編集をする。成功したアカウントの家族などを題材にして、横に広げることもある。</p></div>
+<div class="card"><div class="t">⑦ お金の出口</div><p>本業の集客（予約）、クラウドファンディング、スポンサー、YouTubeの収益、個人の稼ぎ。最後は<b>実績そのものを講座やコンサルの集客材料</b>にしている。</p></div>
+<div class="card"><div class="t">⑧ 続かないリスク</div><p>「毎日100g」のように、<b>毎日やるルールは出演者が燃え尽きると止まる</b>。5章の「最後まで守れるルール」が大事な理由。</p></div>
+</div>
+<p class="sub">出典：本人のX・Threads、ねとらぼ、メ〜テレ、CAMPFIRE、各アカウントのTikTok・Instagram、個人ブログ（note）。</p>
+</section>
+
+<!-- 10 -->
+<section id="quotes">
+<h2><span class="n">10</span>発言録 — 2章に入れていない追加の法則</h2>
+<p class="sub">本人がXやThreadsに投稿した内容、ポッドキャストの告知文、Brain公式のインタビューから集めたもの。検索結果に表示された一部分で確認したものが多い。<span class="tag tr">未確認</span>は、文章が途中で切れていたか、要約でしか見られなかったもの。</p>
+
+<h3>🧠 Brain公式インタビュー：無名からバズるまでの4手順</h3>
+<div class="flow">
+<div><b>初期設計に力を入れる</b></div>
+<div><b>応援される理由を作る</b></div>
+<div><b>AIでも予測しにくい挑戦を掲げる</b></div>
+<div><b>論理的な台本で感情を動かす</b></div>
+</div>
+<p class="sub">コツとして挙げているのは「冒頭2秒」「ハッピーエンドを想定する」「わかりやすい名前」など5つ（インタビューの目次から確認）。</p>
+
+<h3>企画：真似しない、珍しさで勝つ</h3>
+<div class="card">
+<div class="q">「如何に稀有か・如何に斬新か・如何に前代未聞か が重要なので、僕は市場リサーチや競合分析をしません」<small>Threads</small></div>
+<div class="q">「AIに初期設計や台本書かせることもありません」<small>Threads。リサーチ・AI・流行を追うことは「稀有の真逆」という立場</small></div>
+<ul>
+<li><b>真似（TTP）すると、再生数は取れてもファンが付かない</b>。「最初にやった人」になれないので、再生数の割にフォロワーが少なくなる（X、2023/7）。</li>
+<li><b>どうしても真似したいなら海外のアカウントから</b>。日本では新しいものとして見てもらえる（X、2023/9）。2026年の「フォロワー1人につき〇〇する」型も、海外の企画を輸入したもの。</li>
+<li>後から参入する人は<b>「ジャンルをずらす」</b>。勝つのは最初にやった人（ファーストペンギン）だけだから（ポッドキャストの告知文）。</li>
+<li>プロセスにファンが付くには、<b>①ネットで調べても似た例がない珍しいストーリー</b>と、<b>②ワンチャン届く目標</b>の2つが必須（X、2024/10）。</li>
+<li><b>プロの映像作家なのに「ど素人」を名乗る</b>。肩書きの権威を捨てて珍しさを取った（ポッドキャストの告知文）。</li>
+<li><b>サービスの中身そのものを「バズから逆算」して決める</b>。34個目のアカウントの焼肉屋では、店の商売内容まで本人が決めた。</li>
+<li><b>「映え」の優先度は下がった</b>。映える投稿が溢れているうえ、動きのない映像は「静止画を投稿しているのと何ら変わらない」。</li>
+<li><b>「フォロワー数×1回〇〇をする」型</b>は、無名でも1〜2投稿で数万フォロワーが取れる（2026年2月から全国で急増）。</li>
+<li>伸ばすには<b>「本気で何かを頑張っている姿」</b>を見せる。炎上した人には「フォロワーの部屋を毎日1件、1年間掃除し続ける」企画を提案した<span class="tag tr">未確認</span></li>
+<li>応援を集めるには、<b>マイナスの印象から入る</b>。ホテルを引き受けるときは「ボロボロの映像が撮れそうか」を確認した（賢者の選択）。</li>
+</ul></div>
+
+<h3>フック・構成</h3>
+<div class="card"><ul>
+<li><b>キャッチは、なるべく幅広い層が興味を持つ言葉にする</b>。動画は「最後まで観てもらえるかのゲーム」なので、入口が狭いと最後まで残る人も減る。<b>ツールの名前を前面に出すと離脱される</b>（X、2024/9。234万インプレッションの投稿を解説したもの）。</li>
+<li><b>エイプリルフールは「最強のチート」</b>。普段は使えない強い嘘で、冒頭2秒の壁を突破できる。</li>
+<li><b>2秒ごとに興味をずらす</b>構成にする（ポッドキャストの告知文）。</li>
+<li>「<b>続きが見たい</b>」と思わせる作りにすると、最後まで見る人が増えて、フォロワー以外にも広がる<span class="tag tr">未確認</span></li>
+<li><b>他人のインプレッションを借りて</b>、自分のすごさを見せる（ポッドキャストの告知文）。</li>
+</ul></div>
+
+<h3>媒体の使い分け</h3>
+<div class="card"><ul>
+<li><b>同じショート動画を全部のSNSに使い回すと、アカウントが弱くなる可能性がある</b>。本人はショート動画を<b>InstagramとTikTokだけ</b>に投稿して、<b>YouTubeとXでは全く違う動き方</b>をしている（Threads、2025年2月ごろ）。</li>
+<li><b>Xでは、フォロワーの属性に合わない投稿は伸びない</b>。カップラーメンの投稿は過去最低のインプレッションだった。アカウントの強さより、投稿の中身とフォロワーの属性が合っているかが効く（X、2025/9）。</li>
+<li><b>特典を配る形の呼びかけ</b>：「いいね＋リプライ欄に指定の言葉」で解説を配る。Threadsでは「いいね → リプライに絵文字 → InstagramのDMで合言葉」の3段階版もある。</li>
+</ul></div>
+
+<h3>ビジネス・スタンス</h3>
+<div class="card"><ul>
+<li><b>運用してきたのは企業と行政のアカウントだけ</b>。知名度だけが目的のインフルエンサーアカウントは一度もやっていない（X、2025/8）。</li>
+<li><b>バズるだけでは足りない</b>。200万再生で問い合わせが約10倍になった地方企業を例に挙げて、<b>その会社の地元に優先して動画を届けている</b>点を評価している。</li>
+<li><b>炎上商法やキレ芸はしない。「稼げる」系の訴求もしない。広告も営業もしない</b>（X、2024/10）。</li>
+<li><b>SNSの0から100まで自分で実践して、自分の言葉にする</b>。本は読まない、師匠はいない、教材も買わない。</li>
+<li>土台になったのは<b>学生時代の居酒屋のキャッチ</b>。知らない人を一瞬で引き止める点がSNSと同じ<span class="tag tr">未確認</span></li>
+<li>「完全にゲームチェンジャー」と見ているのは<b>AI動画（Sora2）で1日14本投稿するアカウント</b>（他人のアカウントを観察した投稿）。</li>
+</ul></div>
+
+<h3>出演・有料コンテンツ</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>媒体</th><th>中身</th></tr>
+<tr><td>令和の虎</td><td>出資する側の「虎」として出演。肩書きは「株式会社再建コンサルティング 代表」。<b>2026年4月に本家の虎になった</b>。出資の例：今治の廃墟をDIYでゲストハウスにする志願者に400万円</td></tr>
+<tr><td>厚利少売ラジオ #23・#24</td><td>「持たざる者が何者かになる魔術…プロセスエコノミーを大解剖」（2026年2〜3月）</td></tr>
+<tr><td>UNPLUGGED PODCAST Ep.05</td><td>「『ど素人』だからこそできるSNSコンサルでなんでもバズらせる？」（2025/12、約72分）</td></tr>
+<tr><td>令和の成功者図鑑</td><td>本人のポッドキャスト。成功者に取材する番組</td></tr>
+<tr><td>Brain「今から無名が有名になる16の裏技」</td><td>第1章でプロセスエコノミーを完全解説、第2〜16章で16種類のバズらせ方。約10万字。評価4.5。価格は記事によって29,800円と49,800円で食い違う<span class="tag tr">未確認</span>。16項目の見出しは公開されていない</td></tr>
+<tr><td>バズ塾</td><td>2024年12月に開校。<b>「日本一初期設計に特化したSNSスクール」</b>。在籍450名以上。毎月「ど素人ホテルSNSコンサル会」がある。料金は公開されていない</td></tr>
+</table></div>
+<div class="key"><b>まとめると：</b>勝ち筋は<b>「稀有さ（前代未聞）」×「ワンチャン届く目標」×「応援される理由」</b>。リサーチもAIも真似もしない。ショート動画はInstagramとTikTokに出して、YouTubeとXは別のやり方で運用する。</div>
+<p class="sub">出典：本人のX（2023/7・2023/9・2024/9・2024/10・2025/8・2025/9ほか）、Threads、Brain公式メディア（media.brain-market.com/sns-buzz）、Spotify・Apple Podcastsの番組告知、令和の虎の公式サイト、バズ塾の公式ページ、賢者の選択。</p>
+</section>
+
+<!-- 11 -->
+<section id="third">
+<h2><span class="n">11</span>第三者の分析 — 25本を集計</h2>
+<p class="sub">他の人が書いた記事・note・X・ポッドキャストの分析を25本集めて、同じ指摘をまとめ直した。<b>本文は読めず、全部検索結果の要約から拾っている</b>。多くはBrainのアフィリエイト記事なので、評価は割り引いて読むこと。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>分析ポイント</th><th>言及数</th></tr>
+<tr><td>視聴者参加型（ホテル名やロゴを投票で決める・コメントで助言を募る）</td><td><b>8</b></td></tr>
+<tr><td>「大赤字×ど素人」という前例のない設定（弱者なので応援したくなる）</td><td><b>6</b></td></tr>
+<tr><td>Brainの教材は「なぜ伸びたか」を論理的に言語化している（購入者の評価）</td><td>6</td></tr>
+<tr><td>冒頭2秒のフックと強いキャッチコピー。7秒以内に「最後まで見る理由」を示す</td><td><b>5</b></td></tr>
+<tr><td>秒単位の構成（3パターンの構成、約2秒ごとに画面を切り替え、問いかけを入れる）</td><td>4</td></tr>
+<tr><td>プロセスエコノミー（小さな日々の進捗 → 中くらいの節目 → 大きな成功、を応援し続ける循環）</td><td>4</td></tr>
+<tr><td>ループ・最後まで見たくなる作り（結末が気になる・コメントしたくなる）</td><td>3</td></tr>
+<tr><td>経営状況を包み隠さず見せる、裏側を見せる</td><td>3</td></tr>
+<tr><td>協賛企業を巻き込んで、お金をかけずに改装する（お互いに得をする関係）</td><td>3</td></tr>
+<tr><td>他のアカウントでも同じ型が当たる（再現性がある）</td><td>2</td></tr>
+<tr><td>メディア露出で権威を付ける／予約サイト（OTA）に頼らず直接予約に誘導する</td><td>各1</td></tr>
+<tr><td>「人柄が良いから伸びた」は違う、企画の設計で伸びた（カイシャイン氏）</td><td>1</td></tr>
+<tr><td><b>批判</b>：「人の認知資源を奪う力に長けている」（錬金王氏）</td><td>1</td></tr>
+</table></div>
+
+<h3>具体的に参考になる分析</h3>
+<div class="grid">
+<div class="card"><div class="t">秒単位の構成（mind-up-diet、2023/9）</div><p>100万回以上再生された動画3本を秒単位で分解。例：<b>0〜5秒＝世界観と自己紹介、6〜9秒＝テーマ</b>。一番伸びた動画は360万回再生。</p></div>
+<div class="card"><div class="t">3つの成功理由（mi-webmark）</div><p>①「大赤字×ど素人」の設定 ②前代未聞の、視聴者を巻き込む企画 ③アルゴリズムを意識して最後まで見てもらう構成。<b>構成は自己紹介型・物語型・視聴者への質問型の3つを使い分けている</b>。</p></div>
+<div class="card"><div class="t">7つの理由（freedom-bridge）</div><p>強烈なキャッチコピー、はっきりしたコンセプト、<b>視聴者にとってのメリット</b>、協賛企業の募集（沖縄に来られない人にもメリットがある）、ショート動画でいち早く始めた、編集、ループする作り。</p></div>
+<div class="card"><div class="t">物語の構造（note・engi_dash）</div><p><b>「日常にピンチが来る → 周りが助ける → 解決する」</b>を繰り返す。小・中・大の成功を応援し続ける循環と、メディア露出による権威付け。</p></div>
+<div class="card"><div class="t">全員参加型の経営（mizkos、2022/11）</div><p>助言・ホテル名・スタッフ・スポンサーまで、<b>不特定多数から募る</b>という珍しさ。</p></div>
+<div class="card"><div class="t">Brainの売り方（shiinama01）</div><p>発売前にXで<b>「作ろうか悩んでいる」と投稿して期待を高めた</b>。最高評価を取るために、あえて辛口のレビューを集めた。</p></div>
+</div>
+<div class="key"><b>結論：</b>第三者の分析が共通して挙げているのは<b>「参加型」「前例のない設定」「冒頭の設計」</b>の3つ。本人が語る法則（2章・10章）とも一致する。きちんとした批判記事は見つからなかった。</div>
+<p class="sub">主な出典：mind-up-diet.com、mi-webmark.com、freedom-bridge.com、manabihonpo.com、ranran-01marketing.com、zaitakumama-natsuki.com、mizkos.jp、goodfailure.co.jp、snsschool.net、note（engi_dash・with_okinawa・moke_reほか）、shiinama01.com、X（@snshighschool・@aonboaonbo・@mako_mama_25）、厚利少売ラジオ、UNPLUGGED PODCAST。</p>
+</section>
+
+<!-- 12 -->
+<section id="media">
+<h2><span class="n">12</span>出演・番組リスト（YouTube・ポッドキャスト・テレビ）</h2>
+<p class="sub">動画や音声の本編は、文字起こしが手に入らず見られていない。ここにあるのは<b>タイトル・概要欄・告知文</b>から拾った内容。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>番組・タイトル</th><th>日付</th><th>概要欄・告知で触れている内容</th></tr>
+<tr><td>令和の虎【910人目】廃墟をDIYしてゲストハウスを作り愛媛県今治市を盛り上げたい（瀬口仁太）<br><small><a href="https://www.youtube.com/watch?v=xj3h7aTmgko">YouTube</a></small></td><td>2026/9/12</td><td>虎として出演。告知文は「強者にはど素人メソッド使えないのか…」。最後に500万円を提示し、完全ALLになった</td></tr>
+<tr><td>SNS版 令和の虎（獣医の志願者の回ほか）</td><td>2026年</td><td>本人いわく、支援した獣医のアカウントは<b>フォロワー100人→Instagram約1万人、平均再生1,000回→約25万回</b><span class="tag tr">未確認</span></td></tr>
+<tr><td>厚利少売ラジオ #23 前編<br><small><a href="https://open.spotify.com/episode/4WW1wcc3HYXBswKMTHSC1X">Spotify</a></small></td><td>2026/2</td><td>ストリートスナップがバズる本当の構造／後から参入するなら<b>「ジャンルずらし」</b>／<b>2秒ごとに興味をずらす</b>構成／肩書きの権威を捨てて「ど素人」を名乗る＝珍しさがバズになる／他人の反響を借りて実力を示す</td></tr>
+<tr><td>厚利少売ラジオ #24 後編<br><small><a href="https://open.spotify.com/episode/16OKkLzgf797y9RxJzULT4">Spotify</a></small></td><td>2026/3/2</td><td>ホテル王を目指していた人がSNSプロデューサーになった経緯／<b>「センサーは凡人、センスは奇抜」</b>（世の中の真ん中の感覚をつかんだうえで、発想は奇抜に）／おすすめに載る仕組みの時代だから、普通の人でも勝てる／プロセスエコノミーを海外に広げる構想</td></tr>
+<tr><td>厚利少売ラジオ #40（ゲスト審査員）<br><small><a href="https://open.spotify.com/episode/4mvr9cpwfWaPWpZhdvg7As">Spotify</a></small></td><td>2026年</td><td>市場が縮んでいることをチャンスと捉える／<b>「どうなりたいか」をどこまで具体的に言えるか</b>で、プロが示せる未来の高さが決まる／弱者がSNSで逆転する戦略</td></tr>
+<tr><td>UNPLUGGED PODCAST Ep.05「『ど素人』だからこそできるSNSコンサルでなんでもバズらせる？」<br><small><a href="https://www.youtube.com/watch?v=PTLq7O8I0yc">YouTube</a></small></td><td>2025/12/15</td><td>72分。中身は取れていない</td></tr>
+<tr><td>令和の成功者図鑑（本人の番組）</td><td>2026年〜</td><td>「Podcastの伸ばし方を、第一人者の野村高文に聞いてきた」／「AI時代のSNS生存戦略6選」／プロセスエコノミー解説回／乙武洋匡氏のSNS戦略回／「本日より、令和の虎、本家の虎になりました」（2026/4/10）</td></tr>
+<tr><td>テレビ</td><td>2024年ごろ</td><td>フジテレビ「ノンストップ」に約5分出演（本人談）。ZIP・スッキリ・地上波のドキュメンタリーにも出たと本人が書いている<span class="tag tr">未確認</span></td></tr>
+<tr><td>講演</td><td>2025/4/13ほか</td><td>WHATAWON（大阪府岸和田市）での講演「ど素人」。多い年は年30回以上登壇（本人の自己紹介）</td></tr>
+</table></div>
+<h3>虎として志願者に言っていそうなこと（傾向）</h3>
+<div class="card"><p>本編の文字起こしがないので、本人の投稿と番組の告知文から<b>推定した傾向</b>：</p><ol>
+<li>未完成の状態・赤字・素人であることを<b>そのまま見せるドキュメンタリー型</b>を勧める</li>
+<li><b>冒頭2秒</b>に、見たことのない要素を詰め込む</li>
+<li>先にやっている人と同じ土俵で戦わない（<b>ジャンルずらし</b>）</li>
+<li>弱みやネガティブを武器にする。本人の言葉では「<b>SNSはネガティヴは武器に変えることができます。ハプニングを楽しめるやつは強い</b>」</li>
+<li><b>「どうなりたいか」を具体的に</b>言えるようにさせる</li>
+<li>口だけでなく、<b>自分で支援して結果で見せる</b>（SNS版では、ALLになった志願者に虎が200万円分のコンサルをする）</li>
+</ol></div>
+<p class="sub">出典：令和の虎CHANNEL・公式X・公式サイト、Spotify・Apple Podcastsの番組概要、本人のX・Threads、PR TIMES・エキサイト（講演の告知）。</p>
+</section>
+
+<!-- 13 -->
+<section id="cta">
+<h2><span class="n">13</span>投稿と導線の実物 — 呼びかけ・予約の取り方</h2>
+<p class="sub">Instagramの個別の投稿は検索に出てこなかった。代わりに、同じ運営者のTikTok・X・Threadsの投稿と、記事に引用された動画から集めた。</p>
+
+<h3>アカウントの役割分担（Instagram）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>アカウント</th><th>役割</th></tr>
+<tr><td>@4610_hotel<br><small>約5.7万フォロワー</small></td><td>物語を担当。プロフィールは「倒産寸前・沖縄の大赤字リゾート／ホテル経営ど素人の男／決定は視聴者投票／お金をかけずSNSだけで黒字化」</td></tr>
+<tr><td>@buzzresort<br><small>約760フォロワー</small></td><td>ホテルの公式。空室・イベント・キャンペーンを載せる。プロフィールに<b>「予約はDMが最安値」</b>。再建の経緯は@4610_hotelに誘導する</td></tr>
+<tr><td>@4610_film</td><td>「ど素人撮影研究所」。撮影についての派生アカウント</td></tr>
+</table></div>
+<div class="key"><b>型：</b>伸ばすのは<b>人の物語のアカウント</b>。予約を受けるのは<b>施設の公式アカウント</b>。分けて運用する。</div>
+
+<h3>伸びた動画のタイトル（記事で紹介されたもの）</h3>
+<div class="card"><ul>
+<li>「<b>ドライフラワー部屋がオープンできません</b>」— 180万再生</li>
+<li>「<b>ホテルの土地を希望者に譲ります</b>」— 130万再生</li>
+<li>「沖縄航空券を半額で購入する裏技」（TikTok、2024/8）</li>
+<li>「沖縄の大赤字ホテルが話題に！」（TikTok、2024/4）</li>
+<li>YouTube「ど素人が大赤字のリゾートホテルを再建します」／Shorts「ど素人がホテル再建を託された理由」</li>
+</ul><p style="margin-top:4px">→ 型は<b>トラブルの宣言</b>（〜できません）、<b>常識外れの申し出</b>（譲ります）、<b>視聴者が得する裏技</b>。キャプションは「#沖縄 #ホテル #恩納村」のハッシュタグだけのことが多く、<b>伝えたいことは動画の中の文字で見せている</b>。</p></div>
+
+<h3>呼びかけ（CTA）の型</h3>
+<div class="grid">
+<div class="card"><div class="t">リプ特典</div><p>「①この投稿に『いいね』②リプ欄に『<b>新時代の広告</b>』とコメント」で解説を配る（X）。</p></div>
+<div class="card"><div class="t">3段階でDMの合言葉</div><p>「①いいね ②リプ欄に『特典動画』③<b>InstagramのDMで『特典動画』と送る</b>」（Threads）。Threadsで反応をもらって、InstagramのDMに移ってもらう。</p></div>
+<div class="card"><div class="t">LINEには誘導しない</div><p>「フォロワーの方がすぐ受け取れるように、<b>公式LINEへの誘導は一切しないようにしてます</b>」（X）。受け取るまでの手間を減らしている。</p></div>
+<div class="card"><div class="t">宿泊の抽選</div><p>「当選者は<b>1組2名様</b>。反響あれば今後も定期的にやります！」。<b>締め切り</b>（「2/28 23:59まで」）も書いて急がせる。</p></div>
+</div>
+
+<h3>予約・お金に変える仕組み</h3>
+<div class="card"><ul>
+<li><b>「予約はDMが最安値」</b>：予約サイトより、DMでの直接予約が一番安いと打ち出している。</li>
+<li>公式サイトとlinktreeに予約ボタンと電話番号を置き、じゃらん・楽天トラベルにも載せている。</li>
+<li><b>協賛で部屋を作る</b>：動画で部屋のコンセプト案を募って、フォロワーからの協賛で作る。予約サイトの紹介文も「<b>フォロワー様と一緒に再建</b>」。</li>
+<li>インフルエンサーや学生が無料で泊まれる制度があったとされる（フォロワー5,000人以上などが条件）<span class="tag tr">未確認</span></li>
+<li>最近の本人の発信は、ホテルの宣伝より<b>SNSコンサル（Brain・バズ塾）の宣伝が中心</b>になっている。</li>
+</ul></div>
+<p class="sub">出典：Instagramの各プロフィール、TikTok（@4610_hotel）、本人のX・Threads、buzz-resort.com、じゃらん、zaitakumama-natsuki.com、パーソル、freedom-bridge.com。</p>
+</section>
+
+<!-- 14 -->
+<section id="videos">
+<h2><span class="n">14</span>動画アーカイブ（YouTube・TikTok）</h2>
+<p class="sub">YouTubeとTikTokは直接開けないので、検索に出てきたタイトル・概要欄・記事の引用から集めた。タイトルは<b>原文のまま</b>。TikTokのタイトルの中にはTikTokが自動で付けたものがあって、中身と合っていないことがある。</p>
+
+<h3>📌 バズった主要動画（TikTok）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>動画</th><th>投稿日・長さ</th><th>再生</th><th>型</th></tr>
+<tr><td>3本目「僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！」</td><td>2022/2/17・約34秒</td><td><b>360万</b></td><td>自分の立場＋逆境を名乗る</td></tr>
+<tr><td>「ドライフラワー部屋がオープンできません」</td><td>2022/9/4・約56秒</td><td><b>180万</b></td><td>ピンチを宣言する → 解決する（ヒーロー映画の構成）。視聴者のコメントの要望から生まれた企画</td></tr>
+<tr><td>「ホテルの土地を希望者に譲ります」</td><td>不明</td><td><b>130万</b></td><td>常識外れの申し出</td></tr>
+<tr><td>「学生無料部屋」</td><td>2022/11/12・約30秒</td><td><b>110万</b></td><td>アカウントの「定番の型」（最後に視聴者へ問いかける）</td></tr>
+<tr><td>「消防点検」の動画（「私のホテルが法律違反をしています」）</td><td>不明</td><td>1,353万（本人談）<span class="tag tr">未確認</span></td><td><b>訂正：1,353万再生はパリピ廃墟ホテルの「消防点検が来る日」の数字</b>（本人のXで確認。→ 15章・18章）。「法律違反」というフレーズがど素人ホテル本体で使われたかは未確認</td></tr>
+<tr><td>「ホテル倒産」（エイプリルフール）</td><td>4/1</td><td>Instagramで225万</td><td>強い嘘で2秒の壁を突破する</td></tr>
+</table></div>
+
+<h3>TikTokの個別動画（検索で見つかった15本）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>日付</th><th>タイトル・キャプション（自動タイトルを含む）</th><th>反応</th></tr>
+<tr><td>2022/11/24</td><td>大赤字ホテル再建の理由と取り組み</td><td>—</td></tr>
+<tr><td>2022/12/23</td><td>沖縄の赤字リゾートホテル再建計画（宿泊抽選「当選者は1組2名様」）</td><td>3,590いいね</td></tr>
+<tr><td>2023/3/8</td><td>恩納村ホテル再建プロジェクト募集中！月額25万円＋車＆住居…（求人）</td><td>1,821いいね</td></tr>
+<tr><td>2023/6/10</td><td>#沖縄 #沖縄ホテル #恩納村</td><td>—</td></tr>
+<tr><td>2023/6/30</td><td>沖縄のホテル再建について語るド素人</td><td>約2万いいね<span class="tag tr">未確認</span></td></tr>
+<tr><td>2023/9/7</td><td>沖縄ホテル再建の決意と挑戦</td><td>1,229いいね</td></tr>
+<tr><td>2023/10/17</td><td>#沖縄 #沖縄ホテル</td><td>—</td></tr>
+<tr><td>2024/4/1</td><td>沖縄の倒産ホテル再建計画と格安販売（エイプリルフールの回と思われる）</td><td>3,041いいね・158コメント</td></tr>
+<tr><td>2024/4/18</td><td>沖縄の大赤字ホテルが話題に！（金持ち女性たちのホテル買収騒動）</td><td>—</td></tr>
+<tr><td>2024/7/17</td><td>沖縄旅行無料プレゼント企画の詳細と謝罪（当選発表）</td><td>—</td></tr>
+<tr><td>2024/7/27</td><td>沖縄ホテル宿泊コストアップとレンタカー無料提供</td><td>3,598いいね</td></tr>
+<tr><td>2024/8/17</td><td>沖縄航空券を半額で購入する裏技（自動タイトル）</td><td>約1,045いいね</td></tr>
+<tr><td>2025/1/11</td><td>「早いもので、僕がホテル再建を始め1年が経ちます。」（淡路島の別ホテルの話の可能性がある）</td><td>—</td></tr>
+<tr><td>2025/8/22</td><td>「毎日朝から晩まで仕事ばかりしてるけど、お金はほとんど使わないので、どうせならこういうことに使いたいなと思い…頑張れ高校球児達！！」</td><td>747いいね</td></tr>
+</table></div>
+<div class="card"><p><b>時期ごとの変化</b>：<b>2022年</b>は部屋づくりの企画（ドライフラワー部屋・学生無料部屋）→ <b>2023年</b>は求人と再建の振り返り → <b>2024年</b>はキャンペーン（無料旅行・レンタカー無料・格安販売）と、他のホテルの騒動の紹介 → <b>2025年〜</b>は時事ネタや個人的な投稿が増え、本人の軸足はコンサルに移る。</p>
+<p style="margin-top:4px"><b>アカウント</b>：フォロワー約7.3〜7.5万、総いいね約120万。プロフィールは「沖縄の大赤字リゾートホテルからいきなり経営再建を託されたど素人。SNSをフル活用して視聴者みんなでホテルを再建させる…黒字化成功までの全てを包み隠さず見せます。」</p></div>
+
+<h3>YouTube（本人のチャンネル）</h3>
+<div class="card"><ul>
+<li>ど素人が大赤字のリゾートホテルを再建します</li>
+<li>ど素人ホテル再建計画、これまでの歩み</li>
+<li>ど素人ホテル再建計画の全てを理解することができる動画（Shorts）</li>
+<li>ど素人がホテル再建を託された理由（Shorts）</li>
+<li>大赤字ホテル、１日で120万円調達<span class="tag tr">未確認</span>（どのチャンネルの動画か不明）</li>
+<li>【ライブ】協賛発表に関する記者会見<span class="tag tr">未確認</span></li>
+</ul><p style="margin-top:4px">チャンネルの概要欄は「<b>稼働率15%の大赤字ホテルを黒字に転換させるドキュメンタリー</b>」。従業員・ホテル名の案・インテリアのアイデアも募集していた。2025年12月には「<b>ど素人ホテルを10000%理解できる、22分の映像</b>」を新しいチャンネルに上げたと告知。ドキュメンタリーチャンネル「<b>社長の本当の姿</b>」をSHOTROKと共同で立ち上げている。</p></div>
+
+<h3>YouTube（他のチャンネルへの出演・解説）</h3>
+<div class="card"><ol style="padding-left:20px">
+<li>【バズリゾート】アカウント開設1週間で2万フォロワー獲得！沖縄のホテル再建を任されたど素人が降臨！本当に素人？今夜闇を暴く！【インフルエンサー百鬼夜行⑥】</li>
+<li>#491.【ど素人ホテルが語る】万バズさせたSNSアカウントは42！その理由を大公開［完全保存版］</li>
+<li>【Threadsはチャンスあり】バズを生み出す3つのコツ｜ど素人ホテル再建計画さんに聞いてみた</li>
+<li>ド素人ホテルが明かす「次にバズる㊙メディア」大公開！？</li>
+<li>【ど素人ホテル再建計画】バズのプロからショート動画を学べるスクールをもっと広めたい</li>
+<li>100発100中でバズるど素人ホテルのバズらせ脳の解説。プロセスエコノミーを神言語化</li>
+<li>【徹底解剖】2投稿で1万人！ショート動画の天才ど素人ホテル再建計画はなぜバズを連発をできるのか</li>
+<li>【ショート動画 vs Podcast】完全に真逆の制作論 / 最後まで見てもらうための最初の2秒 / 居酒屋キャッチとショート動画は同じ論理（News Connect）</li>
+<li>「ど素人」だからこそできるSNSコンサルでなんでもバズらせる？…UNPLUGGED PODCAST Ep. 05</li>
+<li>もしコンビニがこの街になかったら…（EXCHANNEL）</li>
+<li>沖縄初！バズリゾートイベント／爆弾コーヒー体験／ど素人によるSNS講座などハイライト総集編</li>
+<li>【子連れ沖縄】ど素人ホテルさんのホテル行ったら子どもたちにバズりすぎた！</li>
+</ol>
+<p style="margin-top:4px">概要欄でわかるノウハウ：<b>ショート動画で知ってもらって、LINEの友だち追加につなげる</b>。Threadsは「<b>Twitter文化の逆を攻める</b>」。文字だけでなく動画も使って個性を出す。</p></div>
+
+<h3>タイトル・フックの型（ここまでの動画から）</h3>
+<div class="grid">
+<div class="card"><div class="t">① 自分の立場＋逆境を名乗る</div><p>「僕はいきなり〔大赤字リゾートホテル〕の再建を託された〔ど素人〕！」。<b>0〜5秒</b>で世界観と自己紹介、そのあと今回のテーマ。</p></div>
+<div class="card"><div class="t">② ピンチを宣言する</div><p>「〇〇がオープンできません」「法律違反をしています」「倒産」。問題を先に言い切ってから、解決までを見せる。</p></div>
+<div class="card"><div class="t">③ 常識外れの申し出</div><p>「土地を譲ります」「学生無料」「旅行無料プレゼント」「レンタカー無料」。</p></div>
+<div class="card"><div class="t">④ 数字で実績</div><p>「1週間で2万」「2投稿で1万人」「42アカウント」「120万円調達」「100発100中」。</p></div>
+<div class="card"><div class="t">⑤ 疑い・問いかけ</div><p>「本当に素人？」「なぜバズを連発できるのか」「なんでもバズらせる？」。</p></div>
+<div class="card"><div class="t">⑥ 全部わかると約束する</div><p>「全てを理解することができる動画」「10000%理解できる」「これまでの歩み」。新しく来た人の入口になる。</p></div>
+</div>
+<p class="sub">出典：TikTok（@4610_hotel）の検索結果、YouTubeの各動画ページの検索結果、mind-up-diet.com、ranran-01marketing.com、zaitakumama-natsuki.com、パーソル、userlocal、本人のX。</p>
+</section>
+
+<!-- 15 -->
+<section id="pvideos">
+<h2><span class="n">15</span>プロデュース垢の動画アーカイブ（36本）</h2>
+<p class="sub">9章のアカウントの、一つひとつの動画。日付は動画のIDから計算した。タイトルの多くはTikTokが自動で付けたもので、<b>動画の冒頭で実際に何と言っているかは、ほとんど取れていない</b>。</p>
+
+<h3>🔥 数字が出ている動画</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>アカウント・動画</th><th>数字</th><th>型</th></tr>
+<tr><td>パリピ廃墟ホテル「消防点検が来る日」のVlog</td><td><b>1,353万再生</b>（本人の申告）</td><td>トラブルを見せるVlog。宣伝はせず、見終わったときに「オープン間近なんだ」と気づかせる</td></tr>
+<tr><td>パリピ廃墟ホテル：改装中に浸水 → 壁を壊すと「ﾋｪｯ」（Instagram）</td><td>93万再生以上</td><td>トラブル・異変</td></tr>
+<tr><td>パリピ廃墟ホテル：「沖縄北部の人気廃墟ホテルが台風で大打撃！」</td><td>1.66万いいね</td><td>逆境</td></tr>
+<tr><td>90歳母、息子と日本一周（第1弾）：冒頭は<b>「私は今日から息子と日本１周のたびに出る90歳です」</b>、締めは「私を見かけたら絶対に声をかけてね」</td><td>250万再生（まとめ記事）</td><td>自己紹介＋宣言＋参加の呼びかけ</td></tr>
+<tr><td>祖父の笑顔が見たい孫：「じいちゃんが倒れた！孫が東京を辞めて継ぐこんにゃく農家の物語」（借金約3億円の農園を継ぐ）</td><td>3.71万いいね・2,480コメント。開始3か月で400万回再生（PR TIMES）</td><td>家族の不幸＋継ぐという決意</td></tr>
+<tr><td>毎日100g痩せていくデブ：開設1か月で一番伸びた動画</td><td>140万再生（本人の申告）</td><td>数字のルール</td></tr>
+<tr><td>毎日100g痩せていくデブ：100日目「予定通り本当に10kg痩せました」</td><td>—</td><td>節目の報告（構成・撮影・編集はすべて片岡さん）</td></tr>
+<tr><td>フォロワー1人につき1円分のご飯を食べる女（初投稿、目標は叙々苑）</td><td>17万いいね以上、5日で10万フォロワー近く（第三者の投稿）</td><td>フォロワー数で結果が変わるルール</td></tr>
+<tr><td>ダメ息子はじめての親孝行：「伸びシロですね〜と思った方🙋‍♀️🙋‍♂️」</td><td>—</td><td>視聴者に手を挙げてもらう</td></tr>
+</table></div>
+
+<h3>その他の動画（タイトル・キャプション）</h3>
+<div class="card"><ul>
+<li><b>パリピ廃墟ホテル</b>（2023/7〜2025/9、17本）：「100日後に廃墟のホテルを立てるパリピの挑戦」「パリピ的神回」「気になる方はコメントまたはメッセージください♪」「ホテルで荷物を勝手に開けたら…北海道から届いたサプライズ」など。キャプションは多くが「#沖縄ホテル #沖縄北部」だけ。オープンの日から100日を逆算すると、始めたのは2023年6月中旬ごろ。</li>
+<li><b>毎日100g痩せていくデブ</b>：プロフィールに固定している文は「<b>2023年7月1日100kgだった私が毎日必ず100gずつ痩せ、300日後に70kgになる姿をお見せします。</b>」。YouTubeは「222日目 ついに私が初体験しました」「229日目 ダンボールで痩せる方法を教えます」のように<b>「N日目＋その日の出来事」</b>をタイトルにしている。最後の投稿は2024/3/20。後継企画は「変化の物語は終わらない──新たな挑戦、始動」。</li>
+<li><b>祖父の笑顔が見たい孫</b>（@5289mago）：「じいちゃんのこんにゃく再生物語」「祖父と八百屋シェフとのコンニャク大食い」など。</li>
+<li><b>ボロすぎホテルの下克上</b>（@bless_awaji）：「淡路島の廃墟ホテルでバーベキュー体験」など。CAMPFIREのページでは、動画の視聴回数は合計470万回。</li>
+<li><b>1円を1000万円に変える男</b>：プロフィールは「1円を1000万円に変えた男です。NEXT....?」。<b>日本からゴミを無くす男</b>：11投稿・平均13万再生で1.3万フォロワー（本人の申告）。</li>
+</ul></div>
+
+<h3>1本目と2本目以降の型（アカウントをまたいで共通）</h3>
+<div class="grid">
+<div class="card"><div class="t">1本目＝自己紹介＋宣言</div><p>「<b>私は今日から〜に出る90歳です</b>」「<b>僕は〜を託されたど素人！</b>」。自分のマイナスの状況と挑戦を、<b>一人称の一文で言い切る</b>。</p></div>
+<div class="card"><div class="t">名前と固定の文で背景を補う</div><p>片岡さんいわく「<b>途中から見ても、アカウント名で文脈が補える</b>」。プロフィールに固定する文も、名前と同じく「現在地＋数字の目標＋期限」になっている。</p></div>
+<div class="card"><div class="t">不幸から始める</div><p>祖父が倒れた、借金3億、大赤字の両親、100kg。<b>応援される理由</b>を最初に置く。</p></div>
+<div class="card"><div class="t">2本目以降＝「N日目」＋事件</div><p>連番のタイトルに、その日の出来事を足す。<b>トラブルのVlog</b>（消防点検・浸水・台風）が一番伸びる。</p></div>
+<div class="card"><div class="t">宣伝しない宣伝</div><p>トラブルを見せているだけなのに、見終わると「<b>もうすぐオープンなんだ</b>」とわかる。</p></div>
+<div class="card"><div class="t">参加の呼びかけ</div><p>「私を見かけたら絶対に声をかけてね」「伸びシロですねと思った方🙋」「気になる方はコメントまたはメッセージください」。</p></div>
+</div>
+<p class="sub">出典：TikTok（@paripi_hotel・@damemusuko・@5289mago・@bless_awaji・@90yearsold.traveler）の検索結果、本人のX（2023/8・2023/10・2024/4・2025/1）、ねとらぼ、ニコニコニュース、PR TIMES、CAMPFIRE、yutura、note。</p>
+</section>
+
+<!-- 16 -->
+<section id="theory">
+<h2><span class="n">16</span>理論の元ネタ — プロセスエコノミー</h2>
+<p class="sub">片岡さんが「一択」と言う考え方の元ネタは、尾原和啓『プロセスエコノミー あなたの物語が価値になる』（幻冬舎、2021年）。この言葉の名付け親は、けんすう（古川健介）さんとされる。本の中身は書評・解説・インタビュー記事の要約から整理した。本文からの直接の引用ではない。</p>
+
+<h3>本の骨組み（全7章）</h3>
+<div class="card"><ol style="padding-left:20px">
+<li>なぜプロセスに価値が出るのか</li><li>人がプロセスに共感するメカニズム</li><li>プロセスエコノミーをいかに実装するか</li><li>実践方法</li><li>実例集</li><li><b>弊害</b></li><li>私たちをどう変えるか</li>
+</ol></div>
+
+<h3>中心の考え方</h3>
+<div class="grid">
+<div class="card"><div class="t">完成品では差がつかない</div><p>品質や機能はすぐ真似される。だから、<b>完成までの過程</b>に価値が移る。</p></div>
+<div class="card"><div class="t">過程は真似できない</div><p>過程は<b>一度きり</b>。作り手のこだわりや哲学がにじむので、コピーできない。</p></div>
+<div class="card"><div class="t">Why（なぜやるか）に共感して買う</div><p>買う決め手は、商品の差よりも<b>「なぜ作るのか」への共感</b>。</p></div>
+<div class="card"><div class="t">お客を仲間にする</div><p>最初から「一緒に作ろう」と巻き込むと、お客は<b>冒険の仲間</b>になる。</p></div>
+<div class="card"><div class="t">失敗も見せる</div><p>「正解主義から修正主義へ」。未完成でも早く出して、直しながら進む。</p></div>
+<div class="card"><div class="t">これまでの売り方は捨てない</div><p>過程で稼ぐのは、これまでの売り方の<b>代わりではなく、追加</b>。</p></div>
+</div>
+
+<h3>本が警告している弊害</h3>
+<div class="key warn"><b>①過剰演出</b>：ファンが増えると、周りの期待に合わせて<b>中身のない過程を大げさに見せてしまう</b>。<br><b>②プロセスに溺れる</b>：壮大な夢と足元の現実がずれる（柳井正さんの「現実を視よ」を引いている）。<br><b>③品質を軽く見る</b>：過程を見せれば品質は手を抜いていい、ではない。<b>過程と品質は対立しない</b>。<br>ほかに、真似される・炎上する・発信に手間がかかる、も代償として挙がっている。</div>
+
+<h3>片岡さんのやり方との対応（ここは俺の分析）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>本の考え方</th><th>ど素人ホテルでの形</th></tr>
+<tr><td>完成品より過程</td><td>完成したホテルではなく、<b>再建の途中</b>を連続で見せた。設備で差をつけにくい小さな宿で、過程そのものを商品にした</td></tr>
+<tr><td>Why・物語</td><td>「ど素人」「赤字」「お金をかけずSNSだけで」「視聴者の力を借りる」の4つを<b>最初から公開</b>した</td></tr>
+<tr><td>失敗も見せる</td><td>赤字やトラブル（オープンできない、消防点検）をそのまま出した → 応援する理由になる</td></tr>
+<tr><td>仲間にする</td><td>ホテル名・ロゴ・部屋を<b>投票で決めた</b> → 見ている人が「自分が名付けたホテル」の宣伝役になる</td></tr>
+<tr><td>一度きりの希少性</td><td>結末がわからない連続ドラマ。100日企画のような<b>期限付き</b>にすると、さらに強くなる</td></tr>
+<tr><td>応援消費・推し活</td><td>泊まることが「サービスを買う」から<b>「物語を応援する」</b>に変わる。推し活と同じ構造（消費者庁の白書も、推し活を若者の消費の形として扱っている）</td></tr>
+<tr><td>弊害：過剰演出・品質を軽く見る</td><td>業界から「バズ＝成功ではない」という批判が出た（2026年）。<b>本の第6章の警告が現実になった例</b>。リピートしてもらえるかは、運営とおもてなし次第</td></tr>
+</table></div>
+<div class="key"><b>使い方：</b>片岡さんの法則は、この本の<b>「実装マニュアル（短い動画版）」</b>として読める。理論は本、実装は片岡さん、落とし穴は本の第6章。この3つをセットで押さえる。</div>
+<p class="sub">出典：楽天ブックス（目次）、現代ビジネス（尾原氏の記事）、Business Insider、Newsweek日本版、ダイヤモンド・オンライン、issoh、codenote、ABEMA Times（けんすう氏）、消費者白書2022、東京都立大のワーキングペーパー、hashout。</p>
+</section>
+
+<!-- 17 -->
+<section id="practice">
+<h2><span class="n">17</span>実務Tips — 撮影・編集・添削・運用（発言録 第2弾）</h2>
+<p class="sub">本人のThreadsとXの投稿から、10章に入っていない具体的なTipsを集めた（2024〜2026年）。<span class="tag tr">未確認</span>は、投稿の一部しか見られなかったもの。</p>
+
+<h3>🎬 撮影・編集</h3>
+<div class="card"><ul>
+<li><b>字幕のフォント</b>：「個人的には、<b>凸版文久ゴシック</b>が最も文字を認識しやすい」。文字に縁取りを入れて外側を少しぼかす。文字を縦に伸ばして、横幅を取らずに大きく見せる。<b>フォントは最後まで見てもらえるかに直結する</b>（2025/5）。</li>
+<li><b>室内で撮ると画質が落ちる問題</b>：「設定を追い込めば、驚くほど画質は上がります」。レンズを拭く、ISO（明るさの感度）をできるだけ下げる、24fpsで撮る<span class="tag tr">未確認</span>。「ISOで露出調整されてしまうとノイズ乗るので、やはりマニュアル操作が必要」（2026/2）。</li>
+<li><b>縦型の画面に横向きの動画をはめ込んで、下に動かす編集</b>：「何これどういう仕組み？」と思わせて、最後まで見る人が増える。ただし見る人が慣れたら伸びなくなるので、<b>やるなら早い者勝ち</b>（2026/1）。</li>
+<li><b>街頭インタビュー系の動画</b>：台本がいらない、編集も最低限、1日に何本も撮れる。ただし「<b>仕込みによるやらせだと完全に本末転倒</b>」（2026/1）。</li>
+</ul></div>
+
+<h3>📝 構成</h3>
+<div class="card"><ul>
+<li>冒頭2秒で離脱されないための答えは「<b>視聴者に何かしらの感情を生み出すこと</b>」。その感情は「<b>気になる</b>」（2026/1）。</li>
+<li>「インスタに何も投稿せずにフォロワーを増やす方法」の動画はXで234万インプレッション。理由を7つ解説していて、1つ目は「最初にできるだけ幅広い層が興味を持つキャッチ」（2024/9）。</li>
+</ul></div>
+
+<h3>✍️ 相談者への添削（初期設計の実例）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>相談前</th><th>片岡さんの提案</th><th>理由</th></tr>
+<tr><td>蜂を撮るだけのアカウント</td><td>「<b>10万匹の蜂と暮らす男</b>」</td><td>「何回刺された？」のように、見る人が気になる質問が自然に生まれるので、最後まで見てもらえる</td></tr>
+<tr><td>令和の虎で出資ゼロ（ナッシング）だった志願者</td><td>「<b>フォロワーの部屋を毎日1件、1年間掃除し続ける</b>」</td><td>本気で頑張る姿＋見る人が参加できる＋期限</td></tr>
+<tr><td>整体師（映像として映えず、数千再生が続いていた）</td><td>企画を作り直す<span class="tag tr">未確認</span>（中身は取れていない）</td><td>そのままだと映像で魅力が伝わらない職業</td></tr>
+<tr><td>競合をパクろうとしていた経営者</td><td>「<b>参考にするには向いていないアカウントの特徴が6つ</b>」を解説<span class="tag tr">未確認</span></td><td>参考にする相手の選び方を間違えている</td></tr>
+</table></div>
+<div class="card"><p><b>会社のアカウントで出演させるべき人 TOP7</b>：7位は<b>社長秘書</b>。社長の時間を取らずに済んで、採用にもつながる（2024/7）。</p></div>
+
+<h3>📈 数字の見方</h3>
+<div class="card"><ul>
+<li>こだわる数字は、<b>再生数・フォロワー数・最後まで見られた率・事業の成約率・採用数</b>（2024/12）。</li>
+<li>再生数が少し落ちた時期も「<b>売上はむしろ爆伸び</b>」。動画で見せるべきは、稼働率の改善やNHK出演などの<b>信頼の裏付け</b><span class="tag tr">未確認</span>（2026/3）。</li>
+<li>一晩でフォロワーが25万から116万に増えたら、外国人が多数派になった例。いつも通り日本語の動画を出すと「<b>早期離脱してしまうため、伸びなくなる</b>」。<b>フォロワーの中身が変わると、勝ち方も変わる</b>（2026/7）。</li>
+</ul></div>
+
+<h3>📱 ThreadsとXの運用</h3>
+<div class="card"><ul>
+<li><b>Instagramに何も投稿せずにフォロワーを増やす方法 ＝ Threadsを使う</b>。文章だけなので時間がかからない、リポストで広がりやすい、Instagramとつながっているので流れてきやすい（2024/8）。「2日でインスタのフォロワーが5,000人増えた」（2026/5）。</li>
+<li>Threadsは<b>コメント欄で会話が生まれるか</b>が伸びに直結する<span class="tag tr">未確認</span>（2026/1）。</li>
+<li>X：「<b>喧嘩や炎上なしで</b>」伸ばすには、自分にしか出せない投稿を作ること、<b>誰よりも早く投稿する</b>こと（X記事、2026/6）<span class="tag tr">未確認</span></li>
+<li><b>自動でいいね・フォローして回るツールは使わない</b>：質の低いフォロワーが集まる → 反応率が下がる → おすすめに載りにくくなる、という悪循環になる。「<b>SNSでの勝ち筋は二つしかありません</b>」＝<b>面白いか、役に立つか</b>（2025/3）。</li>
+<li>YouTubeでは、「いいね」を押すと絵文字が出る仕様を利用して、コメント欄に「<b>いいね押すと、犬が表示されます</b>」と書くと、いいね率が上がる（2025/11）。</li>
+</ul></div>
+
+<h3>💰 案件・収益化</h3>
+<div class="card"><ul>
+<li>TikTokがAgodaと組んで、アプリの中でホテルを予約できるようにした。このことをホテルに伝えて<b>「タイアップ単価の交渉等できる人は賢い」</b>（2024/11）。</li>
+<li>TikTokで、企業がアプリの公式機能からインフルエンサーに案件を直接頼めるようになった。広告代理店やASP（仲介サービス）にはピンチだという見方（2025/7）。</li>
+</ul></div>
+
+<h3>🤖 AI動画</h3>
+<div class="key"><b>本人の見立て：</b>「<b>AI動画が量産される今、最後に残るのは、人間にフォーカスしたドキュメンタリー</b>」（2026/2）。Sora2で4日間に20万フォロワーを集めた人も取材している。ただし、そうした人が「最速で万垢を作る裏技」を売り出す未来が見える、と冷ややかに見ている。</div>
+<p class="sub">見つからなかったもの：本人が自分の失敗企画を語った投稿、協賛やクラウドファンディングの集め方の具体的な手順、台本のテンプレート、成約率の具体的な数字。</p>
+<p class="sub">出典：本人のThreads（@4610_hotel、2024/7〜2026/7の各投稿）とX（2024/9・2025/10・2026/6）。</p>
+</section>
+
+<!-- 18 -->
+<section id="facts">
+<h2><span class="n">18</span>数字の裏取り — どこまで本当か</h2>
+<p class="sub">ここまで出てきた数字を、本人以外の情報源（予約サイト、報道、第三者のデータ）と突き合わせた。記事の本文までは読めず、検索結果の要約で判断している（2026年11月時点）。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>主張</th><th>判定</th><th>根拠</th></tr>
+<tr><td>再建前：稼働率15%前後・赤字約2,000万円・従業員2名</td><td><span class="tag tr">本人の申告のみ</span></td><td>どれも本人への取材かプレスリリースが元。決算などの資料による裏付けはない。「借金」と書く記事と「赤字」と書く記事がある</td></tr>
+<tr><td>客室数16室</td><td>✅ 確認できた</td><td>Yahoo!トラベルは16室（Expedia系は17室）。18室とする予約サイトは見つからなかった</td></tr>
+<tr><td>稼働率約70%・客単価6,000→11,000円</td><td><span class="tag tr">本人の申告のみ</span></td><td>本人インタビューと、それを転載したブログだけ</td></tr>
+<tr><td>黒字化</td><td><span class="tag tr">本人の申告のみ</span></td><td>「約1年半で」にあたる記述は、元の情報源では見つからなかった</td></tr>
+<tr><td>開始2週間で2万フォロワー</td><td><span class="tag tr">本人の申告のみ</span></td><td>本人のX投稿だけ。第三者による時系列のデータはない</td></tr>
+<tr><td>TikTokの最高再生360万回</td><td>△ 記事どうしで一致</td><td>hashoutなどに掲載されているが、元は本人の申告（350万とする記事もある）</td></tr>
+<tr><td>「消防点検」の1,353万再生</td><td>❌ <b>ど素人ホテルの動画ではない</b></td><td>本人のX（2025/1/28）で、<b>パリピ廃墟ホテルの「消防点検が来る日」</b>と説明している。プロデュースした実績としての数字</td></tr>
+<tr><td>ホテル名をBUZZ RESORTに変えた</td><td>✅ 確認できた</td><td>予約サイトの旧名表記（Nakadoma Inn）で確認できる。応募数1,500件は本人の申告（「1500件」と「1500名」で表記が揺れている）</td></tr>
+<tr><td>Brainの売上5,914万円</td><td><span class="tag tr">本人の申告のみ</span></td><td>本人のThreadsだけで、Brainの公式発表はない（5,374万円は途中経過として投稿されたもの）</td></tr>
+<tr><td>総フォロワー26万・100以上のアカウント</td><td><span class="tag tr">本人の申告のみ</span></td><td>企業のリリースとBrainのメディアに掲載。hashoutは「42アカウント」としていて、数字が食い違う</td></tr>
+<tr><td>2026年2月の京都の旅館（Nazuna）との論争</td><td>△ あったことは確認できた</td><td>hashoutの報道あり。渡邊氏のX（2026/2/25）には「ホスピタリティ業界舐めるなよ…」とあるが、片岡さん宛てかどうかは断定できない</td></tr>
+</table></div>
+
+<h3>今のBUZZ RESORT（2026年11月）</h3>
+<div class="card"><ul>
+<li><b>営業中</b>。予約サイトから予約できる。料金は2名1室1泊でおよそ<b>1.1万〜3万円台</b>（サイトやプランによって違う）。</li>
+<li>評価：<b>楽天トラベル4.4〜4.5（約350件）</b>、Trip.com 8.4／10（41件）、Tripadvisor 4.2（27件）。</li>
+<li>注意：楽天の高い評価には、<b>旧なかどまINN時代（2013〜2019年ごろ）の口コミが多く含まれている</b>ので、再建の効果を示す数字とは言えない。口コミには「階段が急」「国道の騒音」という指摘もある。</li>
+<li>フジテレビ「アンビリバボー」（2025/9/13放送）で紹介されたという記述がある<span class="tag tr">未確認</span>（ブログが出典）。</li>
+</ul></div>
+<div class="key"><b>結論：</b>事実として確認できたのは、<b>ホテルが存在して営業していること・改名したこと・客室数</b>。再建の成果を示す数字（稼働率・客単価・黒字化）は<b>全部本人の申告</b>で、たくさんの記事に出ているのは同じ話の転載。<b>やり方（法則）は参考になるが、成果の数字は「本人がそう言っている」として扱う</b>。</div>
+<p class="sub">出典：Yahoo!トラベル、Expedia、JTB、楽天トラベル、Trip.com、Tripadvisor、トラベルコ、本人のX・Threads、hashout、PR TIMES、パーソル、賢者の選択、ねとらぼ。</p>
+</section>
+
+<!-- 19 -->
+<section id="others">
+<h2><span class="n">19</span>同じ型で伸びた他の人たち（片岡さん以外）</h2>
+<p class="sub">片岡さんが関わっていない「再建・挑戦ドキュメンタリー型」の13例。数字は記事が出た時点のもの。<span class="tag tr">未確認</span>は、記事の要約でしか見られなかったもの。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>アカウント</th><th>現在地 → 目標</th><th>数字・結果</th></tr>
+<tr><td>池尻大橋のビストロ（TikTok）</td><td>開業から4か月連続の赤字で閉店寸前 → 苦境を告白して、看板メニューの無料企画</td><td>2か月で売上4倍、黒字化<span class="tag tr">未確認</span></td></tr>
+<tr><td>お食事処 なごみ（福岡・那珂川、店主73歳）</td><td>1日の売上が1万円の閉店寸前 → 苦境を訴える動画</td><td>800万回再生以上、翌日から大盛況</td></tr>
+<tr><td>トチョニカペペ（栃木・足利）</td><td>創業80年の店を継ぐ「ギャル女将」。タトゥーへの中傷を受けながら継ぐ</td><td>始めた理由は「お客さんが来ると両親が喜ぶから」</td></tr>
+<tr><td>米利休（山形の米農家、東大卒）</td><td>廃業しかけの実家の農家 → <b>「3年以内に年商1億円」</b>と公言</td><td>3か月でSNS合計20万人以上、1投稿が1日で200万回再生。TikTok上半期トレンド大賞2025を受賞し、書籍化</td></tr>
+<tr><td>70日後にラーメン屋をオープンする大学生（TikTok）</td><td>開業までのカウントダウン日記</td><td>「100日後にオープンするカフェ」など、同じ型の投稿が多数ある</td></tr>
+<tr><td>0から始める廃墟生活（YouTube）</td><td>築200年の廃墟 → 古民家の宿に</td><td>登録者10.7万人</td></tr>
+<tr><td>セーチ（YouTube）</td><td>会社を辞めて、DIYで空き家を再生する</td><td>登録者55万人以上</td></tr>
+<tr><td>ひとりでできるマン（YouTube）</td><td>格安のボロ家を買って直し、賃貸に出す（390万円で売りに出ていた家を70万円で買う）</td><td>登録者7万〜19万人（記事によって違う）</td></tr>
+<tr><td>内見ゴリラ 不動産王への道（YouTube）</td><td>訳ありの物件4件の、購入から収益化までを全部公開</td><td>2026年11月に開始（元のチャンネルは23万人）</td></tr>
+<tr><td>こつぶちゃんねる（YouTube）</td><td>バイクで日本一周した旅YouTuberが移住 → 古民家をDIYしてゲストハウスを開く挑戦</td><td>登録者29万人以上、総再生1.6億回以上</td></tr>
+<tr><td>マルコス（YouTube）</td><td>古民家を買う → 民泊と蕎麦屋の開業を目指す</td><td>メインチャンネル68.3万人</td></tr>
+<tr><td>サウナの梅湯（京都・ゆとなみ社）</td><td>月20万円の赤字の銭湯を継ぐ → 10軒で年商4.7億円</td><td>SNSよりメディア露出とグッズの比重が大きい</td></tr>
+<tr><td>アトツギ社長ハヤシ君（旅館）</td><td>旅館の後継ぎが経営の現実を見せる</td><td><span class="tag tr">未確認</span></td></tr>
+</table></div>
+
+<div class="grid">
+<div class="card"><div class="t">片岡さんの型と同じところ</div><ul>
+<li>現在地を<b>数字</b>で見せる（赤字・日商1万円・70日後・年商1億円）</li>
+<li><b>足りない状態を見せる</b>ことで応援される（苦境の告白が、そのまま来店の理由になる）</li>
+<li><b>期限・カウントダウン</b>で、続けて見る理由を作る</li>
+<li>出口が<b>本物の事業</b>（店・宿・直販・賃貸）なので、見る人が参加できる</li>
+</ul></div>
+<div class="card"><div class="t">違うところ</div><ul>
+<li><b>家業を継ぐ当事者</b>（血のつながりが説得力になる）か、<b>外から来た挑戦者</b>か。片岡さんの「ど素人」は後者</li>
+<li><b>TikTokの飲食店は瞬発型</b>（1本バズって翌日に客が来る）。<b>YouTubeの古民家系は長期の連載型</b>（開業前から広告収入で稼ぐ）</li>
+<li>動画が本業で物件は素材、というタイプもある（ひとりでできるマン）。片岡さんは逆で、<b>宿の経営が本業、動画は集客の手段</b></li>
+</ul></div>
+</div>
+
+<h3>失敗・リスク</h3>
+<div class="key warn"><b>100日後に死ぬワニ（2020年）</b>：カウントダウン型の元祖。完結した直後に大きな商業展開を発表して、「電通案件」「ステマ」と疑われて炎上した（作者側は否定）。→ <b>過程への共感を、終わった直後にお金に変えると、裏切りと受け取られる</b>。<br>
+<b>バズの副作用</b>：SNSで急に人気店になって行列ができたラーメン屋が閉店を決めた例や、問い合わせが殺到して電話を撤去した中華料理店の例がある（2025年）。<b>受け入れる体制が先</b>。<br>
+<b>なりすまし</b>：実在する店を装った偽の「閉店セール」投稿が出回った（2026年7月）。苦境を訴える型そのものへの信頼が下がるリスク。<br>
+<b>投稿が少ないうちは来店につながらない</b>（ビストロの例<span class="tag tr">未確認</span>）。</div>
+<p class="sub">出典：ぐるなびPRO、現代ビジネス、東洋経済、AGRI JOURNAL、幻冬舎GOLD ONLINE、建築士ブログ、西日本新聞、Business Insider、dtimes、南日本新聞（373news）、Real Sound、プレジデント、AdverTimes、J-CAST、NEWSポストセブン、Yahoo!ニュース。</p>
+</section>
+
+<!-- 20 -->
+<section id="podcast">
+<h2><span class="n">20</span>本人の72分トーク（UNPLUGGED PODCAST Ep.05）— 一次情報</h2>
+<p class="sub">出典はお前のGoogleドライブにあった<b>文字起こし全文（約3.4万字、自動文字起こし）</b>と、それをまとめたWIKI.md（2026/8作成）。動画は<a href="https://www.youtube.com/watch?v=PTLq7O8I0yc">YouTube</a>。検索結果の要約ではなく<b>本人が話した内容</b>なので、このページで一番確かな情報源。ただし自動文字起こしなので、聞き間違いが混ざっている可能性はある。</p>
+
+<h3>仕事の比重（本人の配分）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>工程</th><th>比重</th><th>中身</th></tr>
+<tr><td>初期設計</td><td><b>70〜80%</b></td><td>相手の弱み・裏側を深掘りする聞き取り。「<b>ここでほぼ全て決まる</b>」</td></tr>
+<tr><td>台本</td><td>20%</td><td>企画と台本で価値の9割が決まる</td></tr>
+<tr><td>撮影・編集</td><td>10%</td><td>クライアント側に任せる</td></tr>
+</table></div>
+
+<div class="grid">
+<div class="card"><div class="t">弱者ポジションの作り方</div><p>成功者が相手でも、<b>家族や過去の失敗まで掘り下げて</b>、マイナス面をわざと見せる。伸びしろで惹きつける。<br>例：離婚したIT社長 → <b>「弱いシングルファザー」</b>のアカウントにしてバズり、採用にも効いた。</p></div>
+<div class="card"><div class="t">ストーリーは二重構造</div><p><b>アカウント全体を通す大きなストーリー</b>（フォローする理由＝「達成できるのか、できないのか」がわからないこと）と、<b>投稿ごとの小さなストーリー</b>。</p></div>
+<div class="card"><div class="t">作り直しの判断基準</div><p><b>3投稿で10万再生、5投稿で100万再生</b>が目安（手がけたアカウントの半数が、5投稿で100万を達成）。届かなければ<b>アカウントを作り直す</b>。「10万再生とか出なかったら、もうアカウント作り直した方がいい」。</p></div>
+<div class="card"><div class="t">ホテルで勝てると思った理由</div><p>Googleマップの評価は<b>4.2で口コミは良い</b>のに、<b>知られていない</b>。「口コミいいのに認知が足りなすぎて予約にならないってことは、<b>認知さえ取れれば予約になる</b>」。</p></div>
+<div class="card"><div class="t">営業ゼロの集客</div><p>営業も広告も一度もしたことがなく、<b>依頼は100%向こうから来る</b>。X・Threadsに<b>一次情報の解説を長文で投稿</b> → 問い合わせが来る。「今日ラーメン食べた」のような投稿は無価値で、<b>自分にしか出せない発見だけ</b>を出す。</p></div>
+<div class="card"><div class="t">クライアントの選び方</div><p><b>同じジャンル・同じ地域の依頼は断る</b>（お互いに客を食い合うから）。<b>夜の業種は避ける</b>。依頼は月30件ほど来て、契約は月1社ずつ増やす。<b>6か月で内製化して卒業</b>してもらう。</p></div>
+<div class="card"><div class="t">短い動画の編集</div><p>字幕は<b>縦に伸ばして</b>見やすくする。<b>作ったばかりのアカウントを友人・知人にシェアしない</b>（おすすめの仕組みが狂うから）。</p></div>
+<div class="card"><div class="t">切り抜かれる話し方</div><p>質問がわからなくても、<b>答えだけで話が通じる</b>ように話す。そうすると切り抜き動画が作りやすい（260万再生の実例あり）。</p></div>
+<div class="card"><div class="t">データを見ない</div><p><b>アナリティクスは一切見ない</b>。判断の基準は「<b>自分が面白いと思うものは、世の中の中央値と一致している</b>」という自分の感覚だけ（ポッドキャスト#24の「センサーは凡人、センスは奇抜」と同じ考え）。</p></div>
+</div>
+
+<h3>経歴（本人談）</h3>
+<div class="card"><p>旅人として約10年ひとり旅。世界を2周して、3周目はハネムーンで世界一周。<b>コロナでカーボベルデに1年3か月足止め</b>され、ホテルのPR動画を無料で撮るのと引き換えに無料で滞在した → ニューヨーク・タイムズ、BBC、CNNで報道されて、東京五輪のアンバサダーに。ホテル再建がバズると「うちも再建して」という依頼がほかのホテルからも来て、その次はホテル以外の会社や行政からも来るようになり、SNSコンサルになった。<b>現在の契約は約40件、累計70件</b>（2025年12月時点、本人談）。</p></div>
+<div class="key"><b>18章とのつながり：</b>報道歴などは裏付けがある一方、案件数や単価は本人の申告で、確認できていない（WIKIの信頼度メモより）。</div>
+<h3>📝 精読で追加：コンセプトの作り方</h3>
+<div class="card"><ul>
+<li><b>ホテルの強みを売らない</b>。ほかのホテルのアカウントは「アクセスがいい、ホスピタリティが高い、朝食が美味しい」を売りにしていたが、「<b>今沖縄行こうと思ってない人からしたら価値のない情報</b>」（28:45〜）。</li>
+<li><b>見込み客ではない人たちから集めて、その中にいる見込み客を予約につなげる</b>：「バズった中に沖縄今行こうとしてる人いるじゃんっていうので、コンバ取れる」（29:36）。</li>
+<li><b>マイナス2からプラス2へ</b>：ホンダにいた経歴をあえて出さずに「ど素人」と名乗った。「それを出さないでド素人にすることで<b>マイナス2してる</b>」。「<b>現状低い方がいいんですよね</b>」（37:38、56:38）。</li>
+<li><b>本気のゴールにする</b>：「SNSでバズらせるために適当に作ったゴールとかだと全然面白くもない」（40:40）。</li>
+<li><b>フォローされる理由は「見逃したくない」</b>：「ちびまる子ちゃんって1回見逃しても痛くない…<b>月9は第5話絶対見たいからカレンダーに丸つける</b>」（32:50）。答えがわからないから、「知るためには…フォローするしかない」（39:11）。</li>
+<li><b>テレビに勝てるところ</b>：「テレビのドキュメンタリーは人の過去しかフォーカスしない」。SNSは<b>リスクを取れて、お金もかからない</b>ので、<b>今これから起きることを追える</b>（33:50〜）。</li>
+</ul></div>
+
+<h3>🎯 精読で追加：設計したアカウントの実例</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>相談者</th><th>設計したアカウント</th><th>狙いと結果</th></tr>
+<tr><td>60歳の講演家</td><td><b>90歳の母を主人公</b>にした「90歳母と息子で日本一周」</td><td>「連れて行く息子がすごい → 職業は講演家 → 講演の依頼が来る」と最初に筋書きを説明して、「<b>本当にそうなった</b>」。<b>1投稿目から300万再生</b>、テレビにも出た（51:12〜）</td></tr>
+<tr><td>離婚したIT社長</td><td>シングルファザー社長</td><td>始まりは「<b>目玉焼きを焦がすところから</b>」。アカウントの本当の目的は「<b>採用なんですよ</b>」（38:24）</td></tr>
+<tr><td>（たとえ話）石破総理</td><td>「<b>支持率を上げたい男</b>」</td><td>台本：「僕は石破です。今日の支持率は10%…今日はトランプ君と会談」→「今日の支持率は18%、上がってる、やった。次回はキム・ジョンウンさんと会談」。<b>毎回の数字が見どころ</b>になって、<b>次回予告</b>でフォローにつながる。「広告収益を全部寄付」すればもっと強い（68:13〜）</td></tr>
+<tr><td>番組のゲスト（カメルーンとのハーフ）</td><td>「<b>いじめられっ子がスターになるまで</b>」</td><td>1本目：いじめられた実例やお金を借りられなかった話 → 2本目以降：今苦しんでいる学生に取材 → 山場：国から表彰されるなど、<b>一段ずつ上がっていく過程</b>を見せる（55:00〜）</td></tr>
+<tr><td>別のホテル</td><td>—</td><td>「<b>僕よりバズった</b>」。そこから会社や行政の依頼にも広がった（08:05）</td></tr>
+</table></div>
+
+<h3>🗣 精読で追加：聞き取りの質問（公開ヒアリングで実際に聞いた順）</h3>
+<div class="card"><ol style="padding-left:20px">
+<li>「<b>いじめられたりとかしてました？</b>」</li>
+<li>「<b>今もマイナスな部分ってあります？</b>」</li>
+<li>「<b>人生の目標は？</b>」</li>
+</ol><p style="margin-top:4px">深掘りする範囲は「<b>人生のこと、貯金のこと、家族のこと</b>」。何も出てこなければ家族まで踏み込む。「<b>7割ぐらいはめちゃくちゃ面白いストーリー作れる。作れないパターンは、あの手この手で作り上げます</b>」（37:22〜、54:00〜）。</p></div>
+
+<h3>🎬 精読で追加：制作の流れ</h3>
+<div class="flow">
+<div><b>材料を聞く</b>：「今日何が起きたか、これから何が起きるかを、ざっくり教えてもらって、それを台本にする」（44:34）</div>
+<div><b>形式</b>：基本は<b>アフレコ（後から声を入れる）のリール</b>。撮ってほしい映像をざっくり指示する（44:53）</div>
+<div><b>撮影はクライアントに任せる</b>：撮影と編集のマニュアルは片岡さんが作る。「撮影は一番言語化しやすい」。撮るのはクライアントの外注先か、若手の新人社員（45:09）</div>
+<div><b>仮の完成版をやりとり</b>：「もうちょっとジェットカット（細かく切る）して」などを往復する（45:27）</div>
+<div><b>判定</b>：「10万行けば外れてはない。そこからチューニングして、もっとでかいバズ」。自分のホテルのアカウントは「<b>3本目が300万再生</b>」（45:58、31:28）</div>
+<div><b>継続</b>：初期設計さえできていれば、あとは台本と仮の完成版のチェックだけなので「そんなに時間取られない」（52:58）</div>
+</div>
+<div class="card"><ul>
+<li><b>「3秒の壁」</b>：「2秒の壁」という言葉が広まる前から、自分の感覚で「3秒」と決めて、ずっと意識していた（31:12）。</li>
+<li><b>字幕</b>：「背景が白いのに白い字幕は読みにくい。<b>影を入れないと</b>」（41:54）。</li>
+<li><b>BGM</b>：「悲しい音楽があるだけで、文章の理解を助けてもらえる」（43:00）。<b>マイク</b>は「そこまでやる必要は特にない」（42:43）。</li>
+<li><b>英語の字幕</b>を入れると、海外の視聴者が半分以上になることもある（04:33）。</li>
+<li>インプットは「海外のコンテンツは見るけど、<b>日本のは見ない</b>」（07:01）。</li>
+</ul></div>
+
+<h3>📣 精読で追加：SNSごとの役割と、Xでの発信</h3>
+<div class="card"><ul>
+<li><b>InstagramとTikTokは「ふざけた感じでバズ狙い」</b>。そこで<b>どんな数字が出たかを、マーケの目線でXとThreadsで解説</b>する（43:48）。</li>
+<li>長文の解説を続けていると、投稿をタップしてもらえるようになる → 読む時間がないから保存される → <b>アカウントが強くなる</b>（58:59）。</li>
+<li>出さない投稿：<b>「経営者と誰とご飯行った」</b>、ラーメン、みんなが知っているアルゴリズムの解説（58:41〜）。</li>
+</ul></div>
+
+<h3>💼 精読で追加：事業の回し方</h3>
+<div class="card"><ul>
+<li><b>料金</b>：「業界の中の平均ぐらい」で、「初期から変わってない」。金額で断られたことはほとんどない。講演やセミナーの料金も全部同じに固定している（65:07〜）。</li>
+<li><b>外注しない</b>：「生まれて1回も外注したことない」。理由は「<b>言語化できないんですよ…これ正直ChatGPTにもできない</b>」（08:35、50:42）。</li>
+<li><b>断る依頼</b>：反社会的勢力が関わっていそうなところ。成功する確率が高いものを優先して、そのうえでやったことのないジャンルかどうか（面白さ）で選ぶ（47:16〜）。</li>
+<li>契約の増え方は「<b>2社くらい採用して、1社卒業</b>」のペース。LINEの返信に毎朝3時間を使っても999件たまる（48:48、49:50）。</li>
+</ul></div>
+
+<h3>🧭 精読で追加：経歴からわかる昔からのやり方</h3>
+<div class="card"><ul>
+<li><b>居酒屋のキャッチ</b>で、ずっと売上1位（月80万円くらい）（10:10）。</li>
+<li><b>古着の輸入</b>：アメリカのフリーマーケットで70万円分を買って、150万円くらいになった（11:36）。</li>
+<li><b>シェアハウス</b>：在庫の置き場を確保するために部屋の多い家を借りて、旅人限定のシェアハウスにしたら一気に埋まった（12:52）。</li>
+<li><b>カーボベルデでの売り込み</b>：行く飲食店で毎回勝手にPR動画を作って、Instagramでお店をタグ付けした → ホテルから「無料で泊まっていいからPR動画を撮って」と頼まれた。メディアへの売り込みは、英語で送ったら全部無視されたので、<b>ポルトガル語で送り直した</b> → ニューヨーク・タイムズ・BBC・CNNへ（19:05〜21:29）。</li>
+<li><b>ホテル案件の始まり</b>：オーナーの息子がテレビで片岡さんを見ていた。「ホテルコンサルに頼んだけど売上が上がらなかったから、最後にワンチャン」。まずは3週間泊まってみた（27:31〜）。</li>
+</ul></div>
+<div class="key"><b>この章からわかる一番大事なこと：</b>片岡さんの強さは、<b>①聞き取りで相手の「マイナス」を掘り出す</b>こと、<b>②それを「現在地＋本気のゴール」の物語に組み直す</b>こと、<b>③撮影は相手に任せて、台本とチェックだけを持つ</b>こと。この3つで、1人で40社を回している。</div>
+<p class="sub">出典：UNPLUGGED PODCAST Ep.05（2025/12/15）の自動文字起こし（Googleドライブ「01_PTLq7O8I0yc.md」）と、そのまとめ「WIKI.md」。文字起こし全文を精読して、要約になかった50項目を足した（カッコ内は動画の中の時間）。</p>
+</section>
+
+<section id="src">
+<h2><span class="n">出典</span>主な情報源</h2>
+<div class="card"><ul class="src" style="font-size:12px">
+<li>本人のX・Threads・Instagram（@4610_hotel）：<a href="https://x.com/4610_hotel">x.com/4610_hotel</a>／<a href="https://www.threads.com/@4610_hotel">threads.com/@4610_hotel</a></li>
+<li>賢者の選択サクセッション（インタビュー前後編）：<a href="https://kenja-succession.com/articles/strategy/interview-kataoka-1/">第1回</a>・<a href="https://kenja-succession.com/articles/strategy/interview-kataoka-2/">第2回</a></li>
+<li>パーソル「Nama」（2023/6）：<a href="https://studio.persol-group.co.jp/nama/230602-1">studio.persol-group.co.jp</a></li>
+<li>hashout（Nazunaとの論争・分析）：<a href="https://hashout.jp/sns/1720/">hashout.jp/sns/1720</a></li>
+<li>PR TIMES（MAGI-Cの取締役就任、2026/7）：<a href="https://prtimes.jp/main/html/rd/p/000000001.000186826.html">prtimes.jp</a></li>
+<li>BUZZ RESORT：<a href="https://www.buzz-resort.com/rakuten-buzz-resort">buzz-resort.com</a></li>
+<li>ねとらぼ（パリピ廃墟ホテル）：<a href="https://nlab.itmedia.co.jp/cont/articles/3376829/">nlab.itmedia.co.jp</a></li>
+<li>まなび本舗・沖縄テレビ・令和の虎 ほか</li>
+</ul></div>
+<p class="sub">インタビュー記事の本文までは読めていない。根拠を固めたい項目は、上の元記事で確認すること。</p>
+</section>
+
+<p class="foot">関連：<a href="hotel.html">🏨 ホテル基礎ノート</a>（ホテルの用語・業界知識・撮影・お得技）</p>
+</div>
+<script>
+const F=[["now","現在地"],["goal","目標"],["edge","得意なこと"],["rule","苦行のルール"],["social","社会性"],["visual","見たことのない画"],["vote","視聴者に決めてもらうこと"],["cta","見られた後の行き先"],["next","次の目標"]];
+const tas=document.querySelectorAll('.sheet textarea'),pv=document.getElementById('pv');
+function g(k){const t=document.querySelector('.sheet textarea[data-k="'+k+'"]');return t.value.trim()}
+function txt(){return '【企画設計シート】\n'+F.map(([k,l])=>'■'+l+'：'+(g(k)||'—')).join('\n')+'\n\n【1本目の1文目（下書き）】\n'+(g('now')&&g('goal')?'「'+g('now')+'の自分が、'+g('goal')+'」':'— ①と②を入れると、ここに下書きが出る')}
+function upd(){pv.textContent=txt()}
+tas.forEach(t=>{const k='dsh-'+t.dataset.k;try{t.value=localStorage.getItem(k)||''}catch(e){}
+t.addEventListener('input',()=>{try{localStorage.setItem(k,t.value)}catch(e){}upd()})});upd();
+document.querySelectorAll('.chk input').forEach(cb=>{const k='dsh-'+cb.dataset.k;try{cb.checked=localStorage.getItem(k)==='1'}catch(e){}
+cb.addEventListener('change',()=>{try{localStorage.setItem(k,cb.checked?'1':'0')}catch(e){}})});
+document.getElementById('cp').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(txt());e.target.textContent='✅ コピーした'}catch(err){e.target.textContent='コピーできなかった：下の枠を長押しして選択'}setTimeout(()=>e.target.textContent='📋 設計シートをコピー',2000)});
+</script>
+</body></html>
