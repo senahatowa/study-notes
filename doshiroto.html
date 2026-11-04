@@ -1,0 +1,260 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>ど素人ホテル ナレッジ</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#16161a;--panel2:#1d1d22;--line:#2a2a30;--ink:#f3f1ea;--ink2:#b8b4a8;--ink3:#7e7a70;--gold:#d9b25a;--gold2:#f2d188;--goldsoft:#a07c2c;--grn:#9bd58f;--blu:#8fc0e8;--red:#e08a7a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1000px 600px at 80% -10%,rgba(217,178,90,.09),transparent 60%),var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 90px}
+h1{font-size:24px;font-weight:900;margin-bottom:4px}
+h1 .g{background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:13px;color:var(--ink2);margin-bottom:12px}
+.lead b{color:var(--ink)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.92);backdrop-filter:blur(10px);margin:0 -16px 8px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--ink2);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--panel)}
+section{padding-top:22px;scroll-margin-top:52px}
+h2{font-size:18px;font-weight:900;margin-bottom:4px;display:flex;gap:8px;align-items:center}
+h2 .n{font-size:11px;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-radius:6px;padding:1px 7px}
+.sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
+h3{font-size:14px;font-weight:800;color:var(--gold2);margin:14px 0 6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:9px}
+.card p,.card li{font-size:13px;color:var(--ink2)}
+.card b{color:var(--ink)}
+.card ul,.card ol{padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:9px}
+.grid .card{margin:0}
+.card .t{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.q{border-left:3px solid var(--blu);padding:2px 0 2px 10px;margin:6px 0;font-size:13px;color:var(--ink)}
+.q small{display:block;color:var(--ink3);font-size:11px}
+.tag{display:inline-block;font-size:10px;font-weight:800;border-radius:5px;padding:0 6px;margin-left:3px;vertical-align:1px}
+.tr{background:rgba(224,138,122,.15);color:var(--red)}
+.tblw{overflow-x:auto;margin-bottom:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.tbl th{color:var(--gold2);font-size:11.5px;white-space:nowrap}
+.tbl td{color:var(--ink2)}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+.key{border-left:3px solid var(--gold);background:rgba(217,178,90,.07);padding:9px 12px;border-radius:0 10px 10px 0;font-size:13px;margin:8px 0 10px;color:var(--ink2)}
+.key b{color:var(--gold2)}
+.warn{border-left-color:var(--red);background:rgba(224,138,122,.07)}
+.warn b{color:var(--red)}
+.flow{display:grid;gap:6px;counter-reset:f}
+.flow div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px 9px 44px;position:relative;font-size:13px;color:var(--ink2)}
+.flow div b{color:var(--ink)}
+.flow div::before{counter-increment:f;content:counter(f);position:absolute;left:11px;top:9px;width:24px;height:24px;border-radius:7px;background:linear-gradient(145deg,var(--gold2),var(--gold));color:#15110a;font-weight:900;font-size:13px;display:grid;place-items:center}
+.flow div:not(:last-child)::after{content:"↓";position:absolute;left:18px;bottom:-15px;color:var(--goldsoft);font-size:12px;z-index:1}
+.sheet label{display:block;font-size:12px;font-weight:800;color:var(--gold2);margin:10px 0 4px}
+.sheet label small{color:var(--ink3);font-weight:600}
+.sheet textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-height:46px;resize:vertical}
+.sheet textarea:focus{outline:none;border-color:var(--gold)}
+.preview{margin-top:12px;background:var(--panel2);border:1px dashed var(--goldsoft);border-radius:10px;padding:11px 12px;font-size:13px;color:var(--ink2);white-space:pre-wrap}
+.preview b{color:var(--gold2)}
+button.copy{font:inherit;font-size:13px;font-weight:800;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border:0;border-radius:9px;padding:9px 14px;cursor:pointer;min-height:42px;margin-top:8px}
+.chk label{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink2);padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.chk input{margin-top:5px;accent-color:var(--gold);width:16px;height:16px;flex:0 0 auto}
+.chk input:checked+span{color:var(--ink3);text-decoration:line-through}
+.src{font-size:11px;color:var(--ink3);margin-top:4px;word-break:break-all}
+.src a{color:var(--ink3)}
+a{color:var(--gold2)}
+.foot{margin-top:30px;font-size:11px;color:var(--ink3)}
+</style></head><body><div class="wrap">
+
+<h1>🏝 <span class="g">ど素人ホテル ナレッジ</span></h1>
+<p class="lead"><b>@4610_hotel（片岡力也）</b>のやり方を、本人の発言を中心に集めて体系化したページ。<b>「何をやったか → なぜ伸びたか → 自分にどう移すか」</b>の順に読む。2026年11月に調べた内容。</p>
+<p class="sub">数字の多くは本人か関係者の申告で、第三者の検証はない。インタビュー記事の本文までは読めず、検索結果の要約で確認したものが多い。<span class="tag tr">未確認</span>が付いたものは、根拠が弱い。</p>
+
+<nav class="toc">
+<a href="#map">0 全体像</a><a href="#story">1 経緯</a><a href="#laws">2 法則</a><a href="#plans">3 企画の型</a><a href="#money">4 売上化</a><a href="#ng">5 NG</a><a href="#do">6 移植する</a><a href="#src">出典</a>
+</nav>
+
+<!-- 0 -->
+<section id="map">
+<h2><span class="n">0</span>全体像 — ど素人ホテルの勝ち方を1枚で</h2>
+<div class="flow">
+<div><b>① 初期設計</b>：「ワンチャン達成できるかわからない目標」と「今の現在地」を決める。<br>例：<b>ど素人</b>（現在地）が<b>大赤字ホテルを再建</b>（目標）</div>
+<div><b>② 冒頭2秒</b>：その設計を1文のキャッチフレーズに凝縮して、スワイプを止める。<br>例：「僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！」</div>
+<div><b>③ プロセスを見せる</b>：完成品ではなく、目標までの途中経過を連続で見せる（プロセスエコノミー）</div>
+<div><b>④ 巻き込む</b>：名前・ロゴ・部屋のコンセプトなどを視聴者の投票で決めて、見ている人を当事者にする</div>
+<div><b>⑤ 売上につなげる</b>：「予約は口コミ×知名度で決まる」。口コミは良いのに無名だったホテルの、知名度をSNSで上げた</div>
+<div><b>⑥ 中身を良くする</b>：来た人の体験を良くする → リピートと口コミが増える → また伸びる。中身のないバズは続かない</div>
+<div><b>⑦ 次のゴール</b>：達成したら、次の目標（セカンドゴール）を立てて物語を続ける。今は他人のアカウントをバズらせる側に回っている</div>
+</div>
+<div class="key"><b>ひとことで：</b>強いのは<b>「弱者が無理めの目標に挑む過程」を、冒頭2秒で伝えて、視聴者を参加させ続ける</b>こと。テンプレの構文ではなく、<b>設計</b>で勝っている。</div>
+</section>
+
+<!-- 1 -->
+<section id="story">
+<h2><span class="n">1</span>経緯 — 何をやった人か</h2>
+<div class="tblw"><table class="tbl">
+<tr><th>時期</th><th>出来事</th></tr>
+<tr><td>〜2021</td><td>1990年生まれ。バックパッカー、飲食店のプロデュース、旅人向けシェアハウスの運営を経て、2019年12月から世界一周。<b>ホテル経営の経験はゼロ</b></td></tr>
+<tr><td>2022年1月</td><td>経営者の息子から依頼を受け、沖縄・恩納村の<b>「なかどまINN」</b>（2002年創業、16室）に約2週間泊まり込む。<b>稼働率は15%前後、約2,000万円の赤字、従業員2名、SNSはなし</b></td></tr>
+<tr><td>2022年2月</td><td>TikTokで発信を開始。<b>1〜2週間で2万フォロワー</b>（本人談）</td></tr>
+<tr><td>2023年6月</td><td>Instagram約2.5万、TikTok約6万（パーソルの記事時点）</td></tr>
+<tr><td>業績（本人談）</td><td>稼働率 <b>15%以下→約70%</b>、客単価 <b>6,000円→1.1万円</b>、前年比796%の売上の月もあった。<b>約1年半で黒字化</b></td></tr>
+<tr><td>改名</td><td>新しいホテル名をSNSで募集し、<b>1,500件以上の応募からトーナメント方式</b>で「<b>BUZZ RESORT</b>」に決定</td></tr>
+<tr><td>規模</td><td>TikTokで一番伸びた動画は360万再生以上。本人の申告ではYouTube 15万、TikTok 13万、Instagram 6万</td></tr>
+<tr><td>2024年〜</td><td><b>他人のアカウントのプロデュース</b>に移る。「約30アカウントをバズらせ、20以上で100万再生、半年で銀の盾2本」（本人談）</td></tr>
+<tr><td>2025年11〜12月</td><td>Brainで有料記事「今から無名が有名になる16の裏技」を発売。売上5,374万円と本人が公表</td></tr>
+<tr><td>2026年2月</td><td>京都の旅館「Nazuna」の渡邊氏が「ホテル業界舐めるなよ」と投稿して論争になった。片岡氏は<b>「中身のないバズは続かない」に同意</b>したうえで、SNS集客と現場の改善を並行してきたと説明</td></tr>
+<tr><td>2026年7月</td><td>MAGI-Cの取締役に就任。「100以上のアカウントを手がけ、総フォロワー26万超」と紹介された。「令和の虎」にも出演</td></tr>
+<tr><td>現在</td><td>「<b>バズ塾</b>」を主宰。料金や中身は公開情報では確認できなかった</td></tr>
+</table></div>
+</section>
+
+<!-- 2 -->
+<section id="laws">
+<h2><span class="n">2</span>バズの法則 — 本人の言葉から</h2>
+
+<div class="card"><div class="t">法則1：最重要は「初期設計」</div>
+<div class="q">「ワンチャン達成できるかどうかわからない目標と現在地を作ること」<small>Threads（本人）</small></div>
+<p>一番多い失敗は、初期設計が弱いこと。<b>リクルートのトップ営業</b>が挑んでも「どうせ達成できるだろ」と思われ、<b>中学3年生</b>が挑んでも「無理に決まってる」と思われる。どちらもフォローされない。本人の場合は「ど素人」という弱さに、<b>「でもSNSは上手い」</b>（ドローン撮影や奇抜な企画）を足して、<b>達成できるかどうかのギリギリ</b>に置いた。</p></div>
+
+<div class="card"><div class="t">法則2：冒頭2秒で決まる</div>
+<div class="q">「ショート動画は基本的に冒頭2秒で勝負が決まる世界」「キャッチフレーズが非常に大事」<small>Threads（本人）／賢者の選択 インタビュー第2回の見出しも「バズる動画は、最初の2秒で決まる」</small></div>
+<p>最初の動画の1文目は「<b>僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！</b>」。<b>弱い立場・数字のインパクト・挑戦</b>がこの1文に全部入っている。ポッドキャストでは「冒頭2秒で感情のトリガーを引く」「ネガティブなフックからハッピーエンドへ」と話したとされる<span class="tag tr">未確認</span></p></div>
+
+<div class="card"><div class="t">法則3：無名ならプロセスエコノミー一択</div>
+<div class="q">「無名の方が確実にバズりたいなら、プロセスエコノミー１択」<small>X（本人）</small></div>
+<p>完成品ではなく、<b>現在地から目標までの途中経過</b>を売りにする。「次どうなる？」が続く限り、見てもらえる。本人いわく<b>「100日後に〇〇」系は、とにかくバズりやすい</b>。</p></div>
+
+<div class="card"><div class="t">法則4：企画は「社会性 × 苦行性 × 見たことのない画」</div>
+<p><b>社会性</b>：世の中の課題とつながっている（赤字の地方ホテル、ゴミ問題など）。<br><b>苦行性</b>：発信者が苦しむ仕組みがある（例：<b>フォロワーが増えるほど走る距離が伸びる</b>）。<br><b>見たことのない画</b>：誰も見たことのないゴールや映像。<br>この3つがそろうと、見る人が続きを気にし始める。<span class="src">Threads（本人）</span></p></div>
+
+<div class="card"><div class="t">法則5：視聴者を当事者にする</div>
+<p>ホテル名・ロゴ・部屋のコンセプトを<b>フォロワーの多数決で決めた</b>。自分が決めたものになるので、見ている人が<b>自分から拡散</b>する。登録者数の節目ごとに無料宿泊キャンペーンもやったとされる<span class="tag tr">未確認</span></p></div>
+
+<div class="card"><div class="t">法則6：テンプレの構文に頼らない</div>
+<div class="q">「バズる〇〇構文100選みたいなやつに騙されるのもうやめましょう。僕はそんなの使ったことありません」<small>X（本人）</small></div>
+<p>本人の背景、話す力、見た目、タイミング、その投稿を何につなげるか。<b>変数が多すぎて、全員に当てはまる正解はない</b>。だから<b>自分の背景から設計する</b>。</p></div>
+
+<div class="card"><div class="t">法則7：インプレッションは売上ではない</div>
+<p>「本当に重要なのはその後の設計」。見られた後に<b>どこへ連れていくか</b>まで決めてから投稿する。<span class="src">Threads（本人）</span></p></div>
+
+<div class="card"><div class="t">法則8：プラットフォームごとの知識</div>
+<p>X：アルゴリズムは<b>「プロフィールを見に来た人からのいいね・リプライ」</b>の点数が高いと説明している。<br>主戦場はTikTokで、Instagram・YouTube Shorts・Xには切り抜きを流していると読める<span class="tag tr">未確認</span>。投稿頻度について本人がはっきり語った情報は見つからなかった。</p></div>
+</section>
+
+<!-- 3 -->
+<section id="plans">
+<h2><span class="n">3</span>企画の型 — 実際に伸びたもの</h2>
+<div class="grid">
+<div class="card"><div class="t">① 自己紹介1文目（初回動画）</div><p>「僕はいきなり沖縄の大赤字リゾートホテルの再建を託されたど素人！」<br>→ <b>弱者 × 数字 × 挑戦</b>。1〜2週間で2万フォロワー。</p></div>
+<div class="card"><div class="t">② 「ホテル倒産」（エイプリルフール）</div><p>Instagramで<b>225万再生</b>。本人の分析：冒頭の「倒産」という一言で<b>スワイプを完全に止めた</b>。普段は使えない強い嘘で「<b>2秒の壁を強制的に突破</b>」した。</p></div>
+<div class="card"><div class="t">③ 「私のホテルが法律違反をしています」</div><p>冒頭2秒で引き込むために作ったフレーズ<span class="tag tr">未確認</span>（大きく再生されたという要約があるが、元の投稿は確認できなかった）。→ <b>不安・違和感で止める</b>型。</p></div>
+<div class="card"><div class="t">④ ホテル名トーナメント</div><p>名前を公募して<b>1,500件以上</b>の応募 → トーナメント形式で決定 → 「BUZZ RESORT」。<b>参加型 × 連載</b>なので、決まるまで毎回見てもらえる。</p></div>
+<div class="card"><div class="t">⑤ 「ガチで助けてください」募集</div><p>「本日中にサムネイルを制作できる方を募集します」→ コンテストにする → 納品が遅れた人に「怒っている」と投稿した回が<b>30万インプレッション</b><span class="tag tr">未確認</span>。他のSNS運用者からは「伸びた理由は人柄ではなく、企画の設計」と分析されている。</p></div>
+<div class="card"><div class="t">⑥ プロデュースした企画</div><p><b>パリピ廃墟ホテル</b>（廃墟ホテルを100日で開業させる。70日で20万フォロワー）、<b>毎日100g痩せるデブ</b>、<b>1円を1000万円に変える男</b>、<b>90歳母と息子の日本一周</b>、<b>バズるまでコメントに従い続ける女</b>、<b>日本からゴミ無くす男</b>など（本人の公言）。淡路島のボロボロホテルは1か月・3投稿で5,000フォロワー。</p></div>
+</div>
+<h3>アカウント名の公式</h3>
+<div class="card"><p>プロデュースした例を並べると、名前の形がそろっている：</p>
+<ul>
+<li><b>【弱い現在地】＋【無理めの目標】</b>：ど素人 × ホテル再建／廃墟 × 100日で開業／1円 × 1000万円</li>
+<li><b>【数字のルール】＋【苦行】</b>：毎日100g痩せる／フォロワー数 × 1個ゴミを拾う／バズるまでコメントに従う</li>
+<li><b>【関係性】＋【旅・挑戦】</b>：ダメ息子 × はじめての親孝行／90歳母 × 日本一周</li>
+</ul></div>
+<div class="key"><b>型の正体：</b>名前を見ただけで<b>「誰が・どこから・どこへ」</b>がわかり、<b>「本当にできるの？」</b>と思わせる。名前そのものが企画書になっている。</div>
+</section>
+
+<!-- 4 -->
+<section id="money">
+<h2><span class="n">4</span>SNSを売上に変える仕組み</h2>
+<div class="flow">
+<div><b>分析する</b>：予約数は<b>「口コミ × 知名度」</b>で決まる。このホテルは口コミが良いのに知名度が極端に低かった → SNSで知名度を上げれば勝てる、と判断した<span class="tag tr">未確認</span></div>
+<div><b>知名度を上げる</b>：再建ドキュメンタリーで認知を取る。ホテル名の公募など、参加型で拡散させる</div>
+<div><b>協賛を集める</b>：発信力に目を付けた企業から、改装の資材や人手を無償で提供してもらった<span class="tag tr">未確認</span></div>
+<div><b>体験で回す</b>：バズで人が来る → 宿泊体験を良くする → リピーターと口コミが増える（第三者の分析）</div>
+<div><b>数字にする</b>：稼働率15%→約70%、客単価6,000円→1.1万円、約1年半で黒字化（本人談）</div>
+<div><b>ノウハウを売る</b>：プロデュース業、有料記事、バズ塾、企業の役員へ。<b>「再建の物語」そのものが商品になった</b></div>
+</div>
+<div class="key warn"><b>注意：</b>2026年2月の論争で、本人も<b>「中身のないバズは続かない」</b>と認めている。SNSで知名度を上げることと、現場をちゃんと良くすることは<b>セット</b>。</div>
+</section>
+
+<!-- 5 -->
+<section id="ng">
+<h2><span class="n">5</span>NGと失敗パターン（本人の発言から）</h2>
+<div class="card"><ol>
+<li><b>目標と現在地の距離を間違える</b>：簡単すぎても無理すぎてもフォローされない。<b>一番多い失敗</b>。</li>
+<li><b>途中でルールを変える</b>：「1フォロワーあたり〇円のご飯」のような企画で途中で金額を変えると、「<b>約束を守らない認定</b>されて、今後フォローされなくなる」。<b>最初から続けられるルール</b>にして、足りない分はスポンサーなど別の方法で補う。</li>
+<li><b>テンプレの構文をそのまま使う</b>：自分の背景と合わないので伸びない。</li>
+<li><b>キャッチフレーズがふわっとしている</b>：相談者にはよく「ふわっとしてる」と指摘して、<b>自分の具体的な失敗談</b>を語るよう助言している。</li>
+<li><b>インプレッションで満足する</b>：見られた後の導線がないと、売上にならない。</li>
+<li><b>中身が伴っていない</b>：バズで人が来ても、体験が悪ければ続かない。</li>
+<li><b>ゴールの後を考えていない</b>：達成したら物語が終わってしまう。<b>次の目標</b>（本人の例：ミシュラン星3 → 資金集め → 社会活動 → 自分の事業）を用意しておく。</li>
+</ol></div>
+</section>
+
+<!-- 6 -->
+<section id="do">
+<h2><span class="n">6</span>自分に移植する — 企画設計シート</h2>
+<p class="sub">上の法則を自分の場合に当てはめる。入力した内容はこの端末のブラウザに保存される。最後にコピーして使う。</p>
+<div class="card sheet">
+<label>① 現在地 <small>— 自分の「弱さ」「素人っぷり」を数字で</small></label>
+<textarea data-k="now" placeholder="例：SNS経験ゼロ／フォロワー0／貯金〇万円"></textarea>
+<label>② 目標 <small>— ワンチャンできるかわからないライン、期限つき</small></label>
+<textarea data-k="goal" placeholder="例：100日で〇〇する"></textarea>
+<label>③ 「でもこれは得意」 <small>— 無理すぎに見せないための武器</small></label>
+<textarea data-k="edge" placeholder="例：撮影が得意／元〇〇"></textarea>
+<label>④ 苦行のルール <small>— 最後まで守れる設定にする（途中で変えるのはNG）</small></label>
+<textarea data-k="rule" placeholder="例：フォロワー100人ごとに〇〇する"></textarea>
+<label>⑤ 社会性 <small>— 世の中の何とつながっているか</small></label>
+<textarea data-k="social" placeholder="例：地方の空き家／赤字の宿"></textarea>
+<label>⑥ 見たことのない画</label>
+<textarea data-k="visual" placeholder="例：〇〇を自分たちの手で△△にする"></textarea>
+<label>⑦ 視聴者に決めてもらうこと</label>
+<textarea data-k="vote" placeholder="例：名前／ロゴ／次の行き先"></textarea>
+<label>⑧ 見られた後の行き先</label>
+<textarea data-k="cta" placeholder="例：予約ページ／LINE／商品"></textarea>
+<label>⑨ 達成した後の次の目標</label>
+<textarea data-k="next" placeholder="例：〇〇を全国に"></textarea>
+<div class="preview" id="pv"></div>
+<button class="copy" id="cp" type="button">📋 設計シートをコピー</button>
+</div>
+
+<h3>開始前のチェック</h3>
+<div class="card chk">
+<label><input type="checkbox" data-k="c1"><span>アカウント名だけで「誰が・どこから・どこへ」がわかる</span></label>
+<label><input type="checkbox" data-k="c2"><span>1本目の1文目に「弱さ × 数字 × 挑戦」が入っている</span></label>
+<label><input type="checkbox" data-k="c3"><span>最初の2秒に、スワイプを止める言葉か映像がある</span></label>
+<label><input type="checkbox" data-k="c4"><span>目標は「できるかできないかギリギリ」で、期限がある</span></label>
+<label><input type="checkbox" data-k="c5"><span>ルールは最後まで守れる設定になっている</span></label>
+<label><input type="checkbox" data-k="c6"><span>視聴者に投票してもらうポイントを3つ以上用意した</span></label>
+<label><input type="checkbox" data-k="c7"><span>見た人を連れていく先（予約・LINE・商品）がある</span></label>
+<label><input type="checkbox" data-k="c8"><span>中身（実際の体験や商品）も同時に良くしていく計画がある</span></label>
+<label><input type="checkbox" data-k="c9"><span>テンプレの構文ではなく、自分の具体的な話で書いている</span></label>
+</div>
+</section>
+
+<section id="src">
+<h2><span class="n">出典</span>主な情報源</h2>
+<div class="card"><ul class="src" style="font-size:12px">
+<li>本人のX・Threads・Instagram（@4610_hotel）：<a href="https://x.com/4610_hotel">x.com/4610_hotel</a>／<a href="https://www.threads.com/@4610_hotel">threads.com/@4610_hotel</a></li>
+<li>賢者の選択サクセッション（インタビュー前後編）：<a href="https://kenja-succession.com/articles/strategy/interview-kataoka-1/">第1回</a>・<a href="https://kenja-succession.com/articles/strategy/interview-kataoka-2/">第2回</a></li>
+<li>パーソル「Nama」（2023/6）：<a href="https://studio.persol-group.co.jp/nama/230602-1">studio.persol-group.co.jp</a></li>
+<li>hashout（Nazunaとの論争・分析）：<a href="https://hashout.jp/sns/1720/">hashout.jp/sns/1720</a></li>
+<li>PR TIMES（MAGI-Cの取締役就任、2026/7）：<a href="https://prtimes.jp/main/html/rd/p/000000001.000186826.html">prtimes.jp</a></li>
+<li>BUZZ RESORT：<a href="https://www.buzz-resort.com/rakuten-buzz-resort">buzz-resort.com</a></li>
+<li>ねとらぼ（パリピ廃墟ホテル）：<a href="https://nlab.itmedia.co.jp/cont/articles/3376829/">nlab.itmedia.co.jp</a></li>
+<li>まなび本舗・沖縄テレビ・令和の虎 ほか</li>
+</ul></div>
+<p class="sub">インタビュー記事の本文までは読めていない。根拠を固めたい項目は、上の元記事で確認すること。</p>
+</section>
+
+<p class="foot">関連：<a href="hotel.html">🏨 ホテル基礎ノート</a>（ホテルの用語・業界知識・撮影・お得技）</p>
+</div>
+<script>
+const F=[["now","現在地"],["goal","目標"],["edge","得意なこと"],["rule","苦行のルール"],["social","社会性"],["visual","見たことのない画"],["vote","視聴者に決めてもらうこと"],["cta","見られた後の行き先"],["next","次の目標"]];
+const tas=document.querySelectorAll('.sheet textarea'),pv=document.getElementById('pv');
+function g(k){const t=document.querySelector('.sheet textarea[data-k="'+k+'"]');return t.value.trim()}
+function txt(){return '【企画設計シート】\n'+F.map(([k,l])=>'■'+l+'：'+(g(k)||'—')).join('\n')+'\n\n【1本目の1文目（下書き）】\n'+(g('now')&&g('goal')?'「'+g('now')+'の自分が、'+g('goal')+'」':'— ①と②を入れると、ここに下書きが出る')}
+function upd(){pv.textContent=txt()}
+tas.forEach(t=>{const k='dsh-'+t.dataset.k;try{t.value=localStorage.getItem(k)||''}catch(e){}
+t.addEventListener('input',()=>{try{localStorage.setItem(k,t.value)}catch(e){}upd()})});upd();
+document.querySelectorAll('.chk input').forEach(cb=>{const k='dsh-'+cb.dataset.k;try{cb.checked=localStorage.getItem(k)==='1'}catch(e){}
+cb.addEventListener('change',()=>{try{localStorage.setItem(k,cb.checked?'1':'0')}catch(e){}})});
+document.getElementById('cp').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(txt());e.target.textContent='✅ コピーした'}catch(err){e.target.textContent='コピーできなかった：下の枠を長押しして選択'}setTimeout(()=>e.target.textContent='📋 設計シートをコピー',2000)});
+</script>
+</body></html>
