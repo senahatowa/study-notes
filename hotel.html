@@ -1,0 +1,394 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>ホテル基礎ノート</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#16161a;--panel2:#1d1d22;--line:#2a2a30;--ink:#f3f1ea;--ink2:#b8b4a8;--ink3:#7e7a70;--gold:#d9b25a;--gold2:#f2d188;--goldsoft:#a07c2c;--grn:#9bd58f;--blu:#8fc0e8;--red:#e08a7a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1000px 600px at 80% -10%,rgba(217,178,90,.09),transparent 60%),var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 90px}
+h1{font-size:24px;font-weight:900;margin-bottom:4px}
+h1 .g{background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:13px;color:var(--ink2);margin-bottom:12px}
+.lead b{color:var(--ink)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.92);backdrop-filter:blur(10px);margin:0 -16px 8px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--ink2);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--panel)}
+nav.toc a:active{color:#15110a;background:var(--gold)}
+section{padding-top:22px;scroll-margin-top:52px}
+h2{font-size:18px;font-weight:900;margin-bottom:4px;display:flex;gap:8px;align-items:center}
+h2 .n{font-size:11px;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border-radius:6px;padding:1px 7px}
+.sub{font-size:12px;color:var(--ink3);margin-bottom:10px}
+h3{font-size:14px;font-weight:800;color:var(--gold2);margin:14px 0 6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:9px}
+.card p,.card li{font-size:13px;color:var(--ink2)}
+.card b{color:var(--ink)}
+.card ul{padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:9px}
+.grid .card{margin:0}
+.card .t{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.tag{display:inline-block;font-size:10px;font-weight:800;border-radius:5px;padding:0 6px;margin-right:4px;vertical-align:1px}
+.tg{background:rgba(155,213,143,.15);color:var(--grn)}.tb{background:rgba(143,192,232,.15);color:var(--blu)}.ty{background:rgba(217,178,90,.15);color:var(--gold2)}.tr{background:rgba(224,138,122,.15);color:var(--red)}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:10px}
+.tblw{overflow-x:auto;margin-bottom:10px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.tbl th{color:var(--gold2);font-size:11.5px;white-space:nowrap}
+.tbl td{color:var(--ink2)}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+.key{border-left:3px solid var(--gold);background:rgba(217,178,90,.07);padding:9px 12px;border-radius:0 10px 10px 0;font-size:13px;margin:8px 0 10px;color:var(--ink2)}
+.key b{color:var(--gold2)}
+.warn{border-left-color:var(--red);background:rgba(224,138,122,.07)}
+.warn b{color:var(--red)}
+#gq{width:100%;font-size:16px;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);margin-bottom:9px}
+#gq:focus{outline:none;border-color:var(--gold)}
+.gl{display:grid;gap:6px}
+.gi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:12.5px;color:var(--ink2)}
+.gi b{color:var(--ink);font-size:13.5px}
+.gi .c{font-size:10px;color:var(--ink3);margin-left:6px}
+.gcount{font-size:11px;color:var(--ink3);margin-bottom:6px}
+pre.sheet{white-space:pre-wrap;font-family:inherit;font-size:12.5px;color:var(--ink2);background:var(--panel2);border:1px dashed var(--goldsoft);border-radius:10px;padding:11px 12px;margin-bottom:8px}
+button.copy{font:inherit;font-size:13px;font-weight:800;color:#15110a;background:linear-gradient(145deg,var(--gold2),var(--gold));border:0;border-radius:9px;padding:9px 14px;cursor:pointer;min-height:42px}
+.chk label{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink2);padding:6px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.chk input{margin-top:5px;accent-color:var(--gold);width:16px;height:16px;flex:0 0 auto}
+.chk input:checked+span{color:var(--ink3);text-decoration:line-through}
+.foot{margin-top:30px;font-size:11px;color:var(--ink3)}
+</style></head><body><div class="wrap">
+
+<h1>🏨 <span class="g">ホテル基礎ノート</span></h1>
+<p class="lead">ホテルSNSを<b>ど素人から</b>始めるための前提知識。<b>種類・格・ブランド・部屋・料金・館内用語・会員・SNSのルール</b>をこのページ1枚にまとめた。各章の頭にある<b>「ここだけ」</b>から読めばOK。</p>
+
+<nav class="toc">
+<a href="#start">0 全体像</a><a href="#types">1 種類</a><a href="#rank">2 格</a><a href="#brands">3 ブランド</a><a href="#rooms">4 部屋</a><a href="#price">5 料金</a><a href="#inside">6 館内</a><a href="#member">7 会員</a><a href="#sns">8 SNS</a><a href="#glossary">9 用語集</a><a href="#collect">10 集め方</a>
+</nav>
+
+<!-- 0 -->
+<section id="start">
+<h2><span class="n">0</span>まず全体像 — ホテルは「3つの軸」で見る</h2>
+<p class="sub">どのホテルも、この3つで説明すれば素人っぽくならない。</p>
+<div class="grid">
+<div class="card"><div class="t">① どんな種類？</div><p>ビジネス／シティ／ラグジュアリー／リゾート／旅館／ライフスタイル…<b>「誰が・何のために泊まる場所か」</b>。</p></div>
+<div class="card"><div class="t">② どの格？</div><p>価格帯・部屋の広さ・ブランドの階層で<b>「どのランクか」</b>。同じグループでもブランドで格が全然違う。</p></div>
+<div class="card"><div class="t">③ 何が売り？</div><p>眺望・朝食・ラウンジ・プール/サウナ・デザイン・アクセス。<b>投稿の切り口になるのはここ</b>。</p></div>
+</div>
+<div class="key"><b>ここだけ：</b>投稿の一文目は「<b>〇〇（エリア）の△△（種類・格）で、□□が売り</b>」で言える状態を目指す。例：「虎ノ門の外資ラグジュアリーで、夜景のプールが売り」。</div>
+</section>
+
+<!-- 1 -->
+<section id="types">
+<h2><span class="n">1</span>ホテルの種類</h2>
+<p class="sub">呼び方は業界で揺れるけど、SNSで通じる分け方はこれ。</p>
+<div class="grid">
+<div class="card"><div class="t">ビジネスホテル <span class="tag tb">1〜2万円目安</span></div><p>出張客向けで、泊まるだけに特化している。部屋は<b>12〜18㎡</b>くらい。例：東横イン、アパ、ドーミーイン（大浴場が強み）、三井ガーデン。</p></div>
+<div class="card"><div class="t">シティホテル</div><p>宿泊に加えて<b>宴会・婚礼・レストラン</b>を持つ大型ホテル。例：帝国ホテル、ホテルオークラ、ニューオータニ、プリンス系。</p></div>
+<div class="card"><div class="t">ラグジュアリーホテル <span class="tag ty">SNS映え◎</span></div><p>サービス・内装・広さが最上級（<b>40㎡〜</b>）。外資系ブランドが多い。高層階のロビーと眺望が定番。</p></div>
+<div class="card"><div class="t">リゾートホテル</div><p>観光地にあって、<b>滞在そのものが目的</b>。プール・スパ・アクティビティが揃う。沖縄・軽井沢・箱根など。</p></div>
+<div class="card"><div class="t">旅館 <span class="tag tg">日本独自</span></div><p>和室・温泉・<b>1泊2食（夕朝食付き）</b>が基本。料金は<b>1人あたり</b>の表示が多い。高級旅館＝「ラグジュアリー旅館」。</p></div>
+<div class="card"><div class="t">ライフスタイル／ブティック</div><p>デザイン・カルチャー・地域性が売りの、小〜中規模ホテル。若い層に刺さる。例：ACE系、KIMPTON、各地のデザイナーズホテル。</p></div>
+<div class="card"><div class="t">オーベルジュ</div><p><b>レストランが主役</b>の宿。「食べに行って泊まる」ための場所。</p></div>
+<div class="card"><div class="t">一棟貸し・ヴィラ／グランピング</div><p>建物ごと、またはテントごと貸切にする形。家族やグループ向けで、プライベート感が売り。</p></div>
+<div class="card"><div class="t">カプセル／ホステル</div><p>相部屋や簡易な個室の格安宿。最近は「おしゃれカプセル」も多い。</p></div>
+</div>
+<div class="key"><b>豆知識：</b>法律（旅館業法）上は、ホテルと旅館は2018年から<b>「旅館・ホテル営業」</b>としてまとめて扱われている。カプセルやホステルは「簡易宿所」、民泊は別の法律（住宅宿泊事業法）の対象。</div>
+</section>
+
+<!-- 2 -->
+<section id="rank">
+<h2><span class="n">2</span>格（ランク）の見分け方</h2>
+<p class="sub">ホテルに星の公式な国内基準はない。だから下の4つから総合で判断する。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>格</th><th>東京の1泊目安※</th><th>広さ目安</th><th>代表例</th></tr>
+<tr><td>ウルトラ<br>ラグジュアリー</td><td>20万円〜</td><td>60㎡〜</td><td>アマン東京、ブルガリ ホテル 東京、ジャヌ東京</td></tr>
+<tr><td>ラグジュアリー</td><td>8〜20万円</td><td>45〜60㎡</td><td>リッツ・カールトン東京、フォーシーズンズ、マンダリン オリエンタル、ペニンシュラ、パレスホテル東京</td></tr>
+<tr><td>アッパー<br>アップスケール</td><td>4〜8万円</td><td>30〜45㎡</td><td>ウェスティン、コンラッド、インターコンチネンタル、グランドハイアット</td></tr>
+<tr><td>アップスケール</td><td>2〜4万円</td><td>20〜30㎡</td><td>コートヤード、ハイアット セントリック、ホテルインディゴ</td></tr>
+<tr><td>ミッド〜エコノミー</td><td>〜2万円</td><td>〜20㎡</td><td>ビジネスホテル各社、ibis など</td></tr>
+</table></div>
+<p class="sub">※1室あたりの税込目安。時期・曜日・為替で大きく動く（特に近年は高騰中）。<b>投稿する前に必ず実際の価格を確認すること。</b></p>
+
+<h3>ランクを判断する4つの材料</h3>
+<div class="card"><ul>
+<li><b>価格</b>：一番わかりやすい。同じホテルの<b>平日と週末の差</b>も見ておく。</li>
+<li><b>最小の部屋の広さ（㎡）</b>：「一番安い部屋で何㎡か」を見ると格がわかる。</li>
+<li><b>ブランド階層</b>：同じマリオット系でも、リッツ・カールトンとモクシーは別物（→ <a href="#brands" style="color:var(--gold2)">3章</a>）。</li>
+<li><b>外部の評価</b>：<b>Forbes Travel Guide</b>（星）、<b>ミシュランキー</b>（ホテル版ミシュラン、2024年開始）、<b>The World's 50 Best Hotels</b>（2023年開始）など。</li>
+</ul></div>
+
+<h3>知らないと恥ずかしい「御三家」</h3>
+<div class="grid">
+<div class="card"><div class="t">ホテル御三家（老舗の日系）</div><p><b>帝国ホテル</b>・<b>ホテルオークラ（The Okura Tokyo）</b>・<b>ホテルニューオータニ</b>。日本のホテル史の基準になっている。</p></div>
+<div class="card"><div class="t">新御三家（90年代の外資系）</div><p><b>パーク ハイアット 東京</b>・<b>ウェスティンホテル東京</b>・<b>椿山荘</b>（旧フォーシーズンズ椿山荘、現ホテル椿山荘東京）。</p></div>
+</div>
+<div class="key"><b>トレンド：</b>東京は2020年代に<b>外資ラグジュアリーの開業ラッシュ</b>が起きた（虎ノ門・麻布台・銀座・大手町など）。<b>「新規開業」と「リニューアル」</b>はSNSで伸びやすい鉄板ネタ。</div>
+</section>
+
+<!-- 3 -->
+<section id="brands">
+<h2><span class="n">3</span>ブランドとグループ</h2>
+<p class="sub">「どのグループのどのブランドか」が言えるだけで一気にプロっぽくなる。各ブランドは左ほど格が上。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>グループ（会員名）</th><th>主なブランド（高→手頃）</th></tr>
+<tr><td>マリオット<br><small>Marriott Bonvoy</small></td><td>リッツ・カールトン、セントレジス、エディション、ブルガリ*、JWマリオット、W、ラグジュアリーコレクション → ウェスティン、シェラトン、マリオット、ルネッサンス、オートグラフ コレクション → コートヤード、アロフト、モクシー、フェアフィールド</td></tr>
+<tr><td>ヒルトン<br><small>Hilton Honors</small></td><td>ウォルドーフ・アストリア、コンラッド、LXR → ヒルトン、キュリオ、キャノピー → ダブルツリー、ヒルトン・ガーデン・イン</td></tr>
+<tr><td>ハイアット<br><small>World of Hyatt</small></td><td>パーク ハイアット、アリラ → アンダーズ、グランド ハイアット、ハイアット リージェンシー → ハイアット セントリック、ハイアット ハウス</td></tr>
+<tr><td>IHG<br><small>IHG One Rewards</small></td><td>シックスセンシズ、リージェント、インターコンチネンタル → キンプトン、ホテルインディゴ、クラウンプラザ → ホリデイ・イン、ホリデイ・イン・エクスプレス（日本ではANAと組んだ「ANA〇〇」ブランドもある）</td></tr>
+<tr><td>アコー<br><small>ALL</small></td><td>ラッフルズ、フェアモント、ソフィテル → プルマン、スイスホテル → ノボテル、メルキュール、イビス</td></tr>
+</table></div>
+<p class="sub">*ブルガリホテルはマリオットと提携して運営されている。ブランドの所属は再編で変わることがあるので、投稿前に公式サイトで確認。</p>
+
+<div class="grid">
+<div class="card"><div class="t">独立系の超一流</div><p>大手チェーンに属さない高級ブランド。<b>アマン</b>（ジャヌは姉妹ブランド）、<b>フォーシーズンズ</b>、<b>マンダリン オリエンタル</b>、<b>ペニンシュラ</b>、<b>ローズウッド</b>、<b>カペラ</b>、<b>バンヤンツリー</b>。</p></div>
+<div class="card"><div class="t">国内グループ</div><p><b>星野リゾート</b>（星のや＞界＝温泉旅館＞リゾナーレ＞OMO・BEB）、<b>帝国</b>、<b>オークラ</b>、<b>プリンス</b>、<b>東急</b>、<b>三井ガーデン</b>、<b>パレスホテル</b>、<b>リーガロイヤル</b>、<b>ドーミーイン</b>など。</p></div>
+</div>
+<div class="key"><b>ここだけ：</b>「外資5大グループ（マリオット・ヒルトン・ハイアット・IHG・アコー）」と「独立系の超一流」と「星野リゾート」。この3つを押さえれば、話題の9割に対応できる。</div>
+</section>
+
+<!-- 4 -->
+<section id="rooms">
+<h2><span class="n">4</span>客室とベッドの言葉</h2>
+<h3>ベッドの種類（1部屋の構成）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>名前</th><th>意味</th></tr>
+<tr><td>シングル</td><td>1人用ベッド×1</td></tr>
+<tr><td>ダブル</td><td>2人用ベッド×1。<b>海外のホテルではキングかクイーンが多い</b></td></tr>
+<tr><td>ツイン</td><td>1人用ベッド×2（よく「ダブル」と混同されるので注意）</td></tr>
+<tr><td>ハリウッドツイン</td><td>シングルを2台くっつけたもの。日本のホテルでよく見る</td></tr>
+<tr><td>トリプル／フォース</td><td>3人用／4人用の部屋</td></tr>
+</table></div>
+<h3>ベッドの幅（日本の目安）</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>サイズ</th><th>幅</th></tr>
+<tr><td>シングル</td><td>約97〜100cm</td></tr><tr><td>セミダブル</td><td>約120cm（1人なら広い、2人だと狭い）</td></tr>
+<tr><td>ダブル</td><td>約140cm</td></tr><tr><td>クイーン</td><td>約160cm</td></tr><tr><td>キング</td><td>約180〜200cm</td></tr>
+</table></div>
+<h3>部屋のグレード（だいたい下→上）</h3>
+<div class="card"><p><b>スタンダード／モデレート → スーペリア → デラックス → プレミア／エグゼクティブ → ジュニアスイート → スイート → プレジデンシャル（ロイヤル）スイート</b></p><p style="margin-top:5px">名前の付け方はホテルによってバラバラ。比べるときは名前ではなく<b>㎡</b>で比べる。<b>「クラブルーム」「エグゼクティブルーム」</b>は、多くの場合<b>ラウンジが使える</b>部屋のこと（→ 6章）。</p></div>
+<h3>その他、よく出る言葉</h3>
+<div class="card"><ul>
+<li><b>〇〇ビュー</b>：シティ／オーシャン／タワー（東京タワー・スカイツリー）／パーシャル（窓から一部だけ見える）。</li>
+<li><b>コーナールーム</b>：角部屋。窓が2面あって人気。</li>
+<li><b>コネクティング</b>：中のドアで隣の部屋とつながる部屋。家族向け。</li>
+<li><b>ビューバス</b>：景色が見えるバスタブ。SNSで強い。</li>
+<li><b>和洋室</b>：ベッドと畳スペースがある部屋。旅館やリゾートに多い。</li>
+</ul></div>
+</section>
+
+<!-- 5 -->
+<section id="price">
+<h2><span class="n">5</span>料金と予約の仕組み</h2>
+<div class="grid">
+<div class="card"><div class="t">料金の単位</div><p>ホテルは<b>1室あたり</b>が多く、旅館は<b>1人あたり</b>が多い。投稿では<b>「2名1室・税込〇円」</b>まで書くと親切。</p></div>
+<div class="card"><div class="t">食事条件</div><p><b>素泊まり</b>（食事なし）／<b>朝食付き</b>／<b>1泊2食</b>（夕朝食付き）。同じ部屋でもプランで値段が変わる。</p></div>
+<div class="card"><div class="t">追加でかかるもの</div><p><b>サービス料</b>（高級ホテルは13〜15%前後のことも）、<b>消費税</b>、<b>宿泊税</b>（東京・京都・大阪など）、<b>入湯税</b>（温泉地）。「表示価格に何が含まれるか」は要チェック。</p></div>
+<div class="card"><div class="t">値段が動く理由</div><p><b>ダイナミックプライシング</b>で、需要（曜日・連休・イベント）に応じて毎日値段が変わる。「〇万円で泊まれた」は<b>日付込み</b>で書く。</p></div>
+</div>
+<h3>予約先は2種類</h3>
+<div class="tblw"><table class="tbl">
+<tr><th>予約先</th><th>特徴</th></tr>
+<tr><td>公式サイト</td><td>会員特典（ポイント・アップグレード等）が付く。<b>ベストレート保証</b>（他サイトより安ければ差額保証）があることも</td></tr>
+<tr><td>OTA（予約サイト）</td><td>国内：<b>一休</b>（高級に強い）・<b>楽天トラベル</b>・<b>じゃらん</b>・<b>Relux</b>。海外系：<b>Booking.com</b>・<b>Expedia</b>・<b>Agoda</b>。ポイントやセールが強い</td></tr>
+</table></div>
+<div class="key"><b>ここだけ：</b><b>返金不可プラン</b>は安いけど、キャンセルしても返金されない。「同じ部屋が<b>どこで一番安いか</b>」を比べた結果は、それだけで保存される投稿になる。</div>
+</section>
+
+<!-- 6 -->
+<section id="inside">
+<h2><span class="n">6</span>館内の施設・サービス用語</h2>
+<div class="grid">
+<div class="card"><div class="t">クラブラウンジ</div><p>上位の部屋や会員だけが使える専用ラウンジ。<b>朝食・ティータイム・カクテルタイム</b>（夕方の軽食とお酒）がある。<b>SNSで一番伸びるネタの一つ</b>。</p></div>
+<div class="card"><div class="t">コンシェルジュ</div><p>レストランの予約や観光の手配をしてくれる係。</p></div>
+<div class="card"><div class="t">ターンダウン</div><p>夕方に部屋を寝る準備の状態に整えてくれるサービス。小さなギフトが置かれていることも。</p></div>
+<div class="card"><div class="t">アメニティ</div><p>シャンプーなどの備品。<b>どこのブランドか</b>（ル・ラボ、ディプティック、バイレード等）は話題になる。</p></div>
+<div class="card"><div class="t">アーリーIN／レイトOUT</div><p>通常より早くチェックインする／遅くチェックアウトする。有料のこともあれば、会員特典で無料になることも。</p></div>
+<div class="card"><div class="t">アップグレード</div><p>予約したより上の部屋に無料で変えてもらえること。会員ステータスや空室状況で決まる。</p></div>
+<div class="card"><div class="t">インルームダイニング</div><p>ルームサービスのこと。</p></div>
+<div class="card"><div class="t">ミニバー</div><p>部屋の冷蔵庫の飲み物。<b>無料（コンプリメンタリー）か有料か</b>は要確認。</p></div>
+<div class="card"><div class="t">デイユース</div><p>宿泊せず、日中だけ部屋を使うプラン。</p></div>
+<div class="card"><div class="t">アフタヌーンティー</div><p>ホテルラウンジの定番。<b>季節ごとにテーマが変わる</b>ので、毎シーズン投稿できるネタになる。</p></div>
+<div class="card"><div class="t">スパ／ウェルネス</div><p>プール・ジム・サウナ・トリートメント。<b>宿泊者なら無料か有料か</b>は必ず書く。</p></div>
+<div class="card"><div class="t">バトラー</div><p>スイートなどに付く専属スタッフ。</p></div>
+</div>
+</section>
+
+<!-- 7 -->
+<section id="member">
+<h2><span class="n">7</span>会員プログラムと上級会員</h2>
+<p class="sub">ホテル好きの層は「ステータス」の話が大好き。ここがわかると、その層と会話ができる。</p>
+<div class="tblw"><table class="tbl">
+<tr><th>グループ</th><th>ランク（下→上）</th></tr>
+<tr><td>Marriott Bonvoy</td><td>メンバー → シルバー → ゴールド → プラチナ → チタン → アンバサダー</td></tr>
+<tr><td>Hilton Honors</td><td>メンバー → シルバー → ゴールド → ダイヤモンド</td></tr>
+<tr><td>World of Hyatt</td><td>メンバー → ディスカバリスト → エクスプローリスト → グローバリスト</td></tr>
+<tr><td>IHG One Rewards</td><td>クラブ → シルバー → ゴールド → プラチナ → ダイヤモンド</td></tr>
+<tr><td>Accor ALL</td><td>クラシック → シルバー → ゴールド → プラチナ → ダイヤモンド</td></tr>
+</table></div>
+<div class="card"><ul>
+<li><b>上級会員の主な特典</b>：部屋のアップグレード、ラウンジの利用、朝食無料、レイトチェックアウト、ポイントの上乗せ（ランクによって違う）。</li>
+<li><b>修行</b>：ステータスを取るために泊まりまくること。<b>ホテル系クレジットカード</b>を持つだけで中級ステータスが付く場合もある。</li>
+<li><b>ポイント泊</b>：ポイントを使って無料で泊まること。「〇ポイントで泊まれる高級ホテル」は人気ネタ。</li>
+</ul></div>
+<div class="key warn"><b>注意：</b>ランクを取る条件や特典は<b>毎年のように変わる</b>。数字を投稿するときは、必ずその時点の公式情報を確認すること。</div>
+</section>
+
+<!-- 8 -->
+<section id="sns">
+<h2><span class="n">8</span>SNS運用のための知識</h2>
+<h3>見る人が知りたいこと TOP10（投稿に入れる順）</h3>
+<div class="card"><ol style="padding-left:20px">
+<li><b>いくら？</b>：日付・人数・税込・プラン名</li>
+<li><b>どこ？</b>：最寄り駅と徒歩何分か</li>
+<li><b>誰向け？</b>：カップル／一人／子連れ／記念日</li>
+<li><b>部屋</b>：タイプ名・㎡・ベッド・眺望</li>
+<li><b>朝食</b>：ビュッフェかセットか、名物</li>
+<li><b>風呂</b>：ビューバス・大浴場・サウナ</li>
+<li><b>プール・ラウンジ</b>：使える条件と時間</li>
+<li><b>アメニティ</b>：ブランドと持ち帰れるか</li>
+<li><b>予約のコツ</b>：どこで予約すると安いか・得か</li>
+<li><b>正直なマイナス点</b>：あると信頼される</li>
+</ol></div>
+
+<h3>伸びやすい切り口</h3>
+<div class="grid">
+<div class="card"><div class="t">価格フック</div><p>「〇万円台で泊まれる外資系」「1人1万円以下の〇〇」など。</p></div>
+<div class="card"><div class="t">新規開業・リニューアル</div><p>開業直後は検索されやすい。「開業1か月で行ってきた」など。</p></div>
+<div class="card"><div class="t">比較・まとめ</div><p>「東京のホテルプールBEST5」「エリア別」などは<b>保存されやすい</b>。</p></div>
+<div class="card"><div class="t">季節ネタ</div><p>アフタヌーンティー、桜・紅葉・夜景、クリスマスケーキ。</p></div>
+<div class="card"><div class="t">体験ルート</div><p>「チェックインからチェックアウトまで」を時系列で見せる。リールと相性が良い。</p></div>
+<div class="card"><div class="t">知識ネタ</div><p>このページの内容そのもの（ツインとダブルの違い、ラウンジとは、など）。</p></div>
+</div>
+
+<h3>守るべきルール</h3>
+<div class="key warn"><b>ステマ規制（2023年10月〜、景品表示法）：</b>招待・無料宿泊・報酬がある投稿は、<b>「PR」「広告」「提供：〇〇」</b>などとわかるように書く。書かないと規制の対象になる。</div>
+<div class="card"><ul>
+<li><b>他の宿泊客やスタッフの顔</b>を許可なく写さない。</li>
+<li><b>大浴場・スパ・更衣室</b>は基本撮影NG。ロビーやレストランでも撮影ルールがあることが多い。</li>
+<li><b>部屋番号・カードキー</b>を写さない。<b>リアルタイム投稿</b>は居場所がバレるので、チェックアウト後に投稿するのが安全。</li>
+<li><b>他人の写真や公式写真を無断転載</b>しない。</li>
+</ul></div>
+</section>
+
+<!-- 9 -->
+<section id="glossary">
+<h2><span class="n">9</span>用語集（検索できる）</h2>
+<input id="gq" type="search" placeholder="例：ラウンジ、OTA、ツイン…" autocomplete="off">
+<div class="gcount" id="gcount"></div>
+<div class="gl" id="gl"></div>
+</section>
+
+<!-- 10 -->
+<section id="collect">
+<h2><span class="n">10</span>ナレッジの集め方</h2>
+<h3>情報源</h3>
+<div class="grid">
+<div class="card"><div class="t">一次情報</div><p>各ホテルの<b>公式サイトのニュース</b>、<b>PR TIMES</b>（「ホテル 開業」で検索）、各グループのプレスリリース。</p></div>
+<div class="card"><div class="t">業界ニュース</div><p><b>トラベル Watch</b>、<b>週刊ホテルレストラン（ホテレス）</b>、<b>観光経済新聞</b>。開業予定や業界の数字がわかる。</p></div>
+<div class="card"><div class="t">予約サイト</div><p><b>一休・Relux</b>のランキングと特集で「今売れている宿」がわかる。<b>口コミの低評価</b>も読む。</p></div>
+<div class="card"><div class="t">SNS</div><p>伸びている投稿を<b>保存して分類</b>する（価格フック／新規開業／比較／季節…）。</p></div>
+</div>
+
+<h3>毎週のルーティン</h3>
+<div class="card chk" id="routine">
+<label><input type="checkbox" data-k="r1"><span>PR TIMESで「ホテル 開業」「リニューアル」をチェック（15分）</span></label>
+<label><input type="checkbox" data-k="r2"><span>伸びているホテル投稿を5本保存して、切り口をメモ</span></label>
+<label><input type="checkbox" data-k="r3"><span>用語集で知らない言葉を1つ調べて、このノートに追加</span></label>
+<label><input type="checkbox" data-k="r4"><span>気になるホテル3軒の価格を、公式と一休とBooking.comで比べる</span></label>
+<label><input type="checkbox" data-k="r5"><span>泊まった・行ったホテルは「取材シート」で記録</span></label>
+</div>
+
+<h3>取材シート（1軒＝1枚、コピーしてメモアプリに貼る）</h3>
+<pre class="sheet" id="sheet">【ホテル名】
+【エリア／最寄り駅・徒歩】
+【種類・格】（例：外資ラグジュアリー）
+【グループ／ブランド】
+【開業・改装年】
+【宿泊日・人数・プラン・予約先・税込価格】
+【部屋タイプ・㎡・ベッド・眺望】
+【朝食】
+【風呂・サウナ・プール】
+【ラウンジ（条件・時間）】
+【アメニティ（ブランド）】
+【良かった点 TOP3】
+【イマイチな点】
+【こんな人におすすめ】
+【PR／自腹】
+【投稿の切り口アイデア】</pre>
+<button class="copy" id="copyBtn" type="button">📋 取材シートをコピー</button>
+</section>
+
+<p class="foot">価格・ブランドの所属・会員特典は変わることがある。投稿する前に必ず公式情報で確認すること。</p>
+</div>
+
+<script>
+const G=[
+["ADR","数字","客室1室あたりの平均販売単価（Average Daily Rate）。業界ニュースでよく出る"],
+["OCC","数字","稼働率（Occupancy）。全客室のうち何%が売れたか"],
+["RevPAR","数字","1室あたりの売上。ADR×稼働率。ホテルの稼ぎを測る指標"],
+["OTA","予約","オンライン旅行会社。一休・楽天トラベル・じゃらん・Booking.com・Expedia・Agodaなど"],
+["ベストレート保証","予約","公式サイトの価格が最安だと保証する制度。他サイトの方が安ければ差額を補填"],
+["返金不可プラン","予約","安い代わりにキャンセルしても返金されないプラン"],
+["ダイナミックプライシング","予約","需要に応じて毎日価格が変わる仕組み"],
+["ラックレート","予約","ホテルが定める正規料金（定価）。実際に売られている値段はこれより安いことが多い"],
+["素泊まり","予約","食事なしのプラン"],
+["1泊2食","予約","夕食と朝食が付いたプラン。旅館の基本"],
+["サービス料","予約","高級ホテルで宿泊料金に上乗せされる料金（10〜15%程度のことが多い）"],
+["宿泊税","予約","自治体がかける税金。東京・大阪・京都などで導入されている"],
+["入湯税","予約","温泉を使う宿でかかる税金"],
+["シングル","部屋","1人用ベッドが1台の部屋"],
+["ダブル","部屋","2人用ベッドが1台の部屋"],
+["ツイン","部屋","1人用ベッドが2台の部屋"],
+["ハリウッドツイン","部屋","シングルベッド2台をくっつけた配置"],
+["セミダブル","部屋","幅約120cmのベッド。1人なら広め"],
+["キング／クイーン","部屋","幅約180cm〜／約160cmのベッド"],
+["スーペリア","部屋","スタンダードより1つ上の部屋のグレード（名前はホテルによって違う）"],
+["デラックス","部屋","中位〜上位の部屋のグレード"],
+["ジュニアスイート","部屋","寝室とリビングがゆるく分かれている広めの部屋"],
+["スイート","部屋","寝室とリビングが分かれている部屋"],
+["コネクティング","部屋","中のドアで隣の部屋とつながる部屋"],
+["コーナールーム","部屋","角部屋。窓が2面ある"],
+["ビューバス","部屋","景色が見える浴室"],
+["パーシャルビュー","部屋","景色が一部だけ見える部屋"],
+["クラブラウンジ","館内","上位の部屋や会員向けの専用ラウンジ。エグゼクティブラウンジとも呼ぶ"],
+["カクテルタイム","館内","ラウンジで夕方に軽食とお酒が出る時間"],
+["コンシェルジュ","館内","予約や手配をしてくれる係"],
+["ターンダウン","館内","夕方に部屋を寝る準備の状態に整えてくれるサービス"],
+["アメニティ","館内","シャンプー・歯ブラシなどの備品"],
+["コンプリメンタリー","館内","無料サービスのこと（例：コンプリメンタリーのミニバー）"],
+["インルームダイニング","館内","ルームサービス"],
+["デイユース","館内","日中だけ部屋を使うプラン"],
+["アーリーチェックイン","館内","通常より早くチェックインすること"],
+["レイトチェックアウト","館内","通常より遅くチェックアウトすること"],
+["アップグレード","館内","予約より上の部屋に無料で変えてもらえること"],
+["バトラー","館内","スイートなどに付く専属スタッフ"],
+["ベル／ドアマン","館内","荷物を運ぶ係／入口で出迎える係"],
+["GM","業界","総支配人（General Manager）。ホテルのトップ"],
+["ソフトオープン","業界","正式な開業の前に、施設を一部だけ使って営業を始めること"],
+["リブランド","業界","同じ建物のまま、別のブランドに変わること"],
+["運営受託（マネジメント契約）","業界","建物の持ち主とは別の会社（外資ブランド等）が運営する形。日本の外資ホテルの多くはこれ"],
+["フランチャイズ","業界","ブランド名だけ借りて、運営は自分の会社でやる形"],
+["御三家","業界","帝国ホテル・ホテルオークラ・ホテルニューオータニ"],
+["新御三家","業界","パーク ハイアット 東京・ウェスティンホテル東京・椿山荘"],
+["Forbes Travel Guide","業界","ホテルを星で格付けする有名な評価"],
+["ミシュランキー","業界","ミシュランのホテル版の評価（2024年開始、1〜3キー）"],
+["上級会員","会員","宿泊数などで得られる会員ランク。アップグレードなどの特典がある"],
+["修行","会員","上級会員になるために集中して泊まること"],
+["ポイント泊","会員","貯めたポイントで泊まること"],
+["スイートアップグレード","会員","スイートへのアップグレード。最上位会員の特典として話題になりやすい"],
+["PR表記","SNS","招待・提供・報酬がある投稿に付ける表示。ステマ規制（2023年10月〜）で必須"]
+];
+const gq=document.getElementById('gq'),gl=document.getElementById('gl'),gc=document.getElementById('gcount');
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function render(){const q=gq.value.trim().toLowerCase();const r=G.filter(g=>!q||(g[0]+g[1]+g[2]).toLowerCase().includes(q));
+gc.textContent=r.length+' / '+G.length+' 語';
+gl.innerHTML=r.map(g=>'<div class="gi"><b>'+esc(g[0])+'</b><span class="c">'+esc(g[1])+'</span><br>'+esc(g[2])+'</div>').join('')}
+gq.addEventListener('input',render);render();
+
+document.querySelectorAll('#routine input').forEach(cb=>{const k='hotel-'+cb.dataset.k;
+try{cb.checked=localStorage.getItem(k)==='1'}catch(e){}
+cb.addEventListener('change',()=>{try{localStorage.setItem(k,cb.checked?'1':'0')}catch(e){}})});
+
+document.getElementById('copyBtn').addEventListener('click',async e=>{const t=document.getElementById('sheet').textContent;
+try{await navigator.clipboard.writeText(t);e.target.textContent='✅ コピーした'}catch(err){
+const r=document.createRange();r.selectNodeContents(document.getElementById('sheet'));const s=getSelection();s.removeAllRanges();s.addRange(r);e.target.textContent='選択したので長押しでコピー'}
+setTimeout(()=>e.target.textContent='📋 取材シートをコピー',2000)});
+</script>
+</body></html>
